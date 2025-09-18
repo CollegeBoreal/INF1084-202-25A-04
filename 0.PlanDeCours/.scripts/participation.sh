@@ -44,11 +44,16 @@ do
    FULL_OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | :heavy_check_mark: | "
    KO="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :x: | :x: |"
    if [ -f "$FILE" ]; then
+    ACTUAL_NAME="$(basename "$(realpath "$FILE")")"
+    if [[ "$ACTUAL_NAME" == "README.md" ]]; then
         if [ -d "$FOLDER" ]; then
                 echo ${FULL_OK}
         else
             echo ${OK}
         fi
+    else
+       echo ${KO}
+    fi
    else
        echo ${KO}
    fi
