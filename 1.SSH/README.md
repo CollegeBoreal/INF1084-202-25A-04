@@ -23,5 +23,5 @@ git remote set-url origin git@github.com:CollegeBoreal/INF1084-202-25A-03.git
   - [ ] `nano `:id:.md
 - [ ] envoyer vers le serveur `git`
   - [ ] `git add `:id:/README.md
-  - [ ] `git commit -m "mon fichier ..." :id:/README.md
+  - [ ] `git commit -m "mon fichier ..."` :id:/README.md
   - [ ] `git push`
