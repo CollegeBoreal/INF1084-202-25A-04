@@ -16,6 +16,15 @@
 git remote set-url origin git@github.com:CollegeBoreal/INF1084-202-25A-03.git  
 ```
 
+```sh
+git remote --verbose
+```
+>
+```lua
+origin	git@github-boreal.com:CollegeBoreal/INF1084-202-25A-03.git (fetch)
+origin	git@github-boreal.com:CollegeBoreal/INF1084-202-25A-03.git (push)
+```
+
 ## :ab: Créer un fichier dans ce répertoire `(1.SSH)`:
 
 - [ ] avec le nom de répertoire :id: (votre identifiant boreal)
