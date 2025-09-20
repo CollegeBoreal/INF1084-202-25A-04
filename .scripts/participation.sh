@@ -56,6 +56,7 @@ do
    let "i++"
    COUNT="\$\\frac{${s}}{${i}}$"
    STATS=$(echo "$s*100/$i" | bc)
+   SUM="$\displaystyle\sum_{i=1}^{${i}} t_i$"
 done
 
-echo "| :abacus: | " ${STATS}% "|" ${COUNT} "|"
+echo "| :abacus: | " ${STATS}% "|" ${SUM} ${COUNT} "|"
