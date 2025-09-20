@@ -34,6 +34,7 @@ echo "|:hash:| Boréal :id:                | :id:.md    | :rocket: |"
 echo "|------|----------------------------|------------|----------|"
 
 i=0
+s=0
 
 for id in "${ETUDIANTS[@]}"
 do
@@ -47,9 +48,14 @@ do
            echo ${KO_WEB}
        else
            echo ${OK}
+           let "s++"
        fi
    else
        echo ${KO}
    fi
    let "i++"
-done
+   COUNT="\$\\frac{${s}}{${i}}$"
+   STATS=$(echo "$s*100/$i" | bc)
+done 
+
+echo "| :abacus: | " ${STATS}% "|" ${COUNT} "|"
