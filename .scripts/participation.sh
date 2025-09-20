@@ -39,7 +39,7 @@ s=0 # Success
 for id in "${ETUDIANTS[@]}"
 do
    let "i++"
-   URL="[${IDS[${i}]}](https://github.com/${IDS[${i}]}) <image src='https://avatars0.githubusercontent.com/u/${AVATARS[$i]}?s=460&v=4' width=20 height=20></image>"
+   URL="[${IDS[${i-1}]}](https://github.com/${IDS[${i-1}]}) <image src='https://avatars0.githubusercontent.com/u/${AVATARS[$i-1]}?s=460&v=4' width=20 height=20></image>"
    FILE=${id}.md
    OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | :heavy_check_mark: |"
    KO_WEB="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | :x: |"
