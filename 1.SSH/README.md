@@ -1,5 +1,6 @@
 # :key: SSH
 
+[:tada: Participation](.scripts/Participation.md)
 
 ## :a: Créer votre clé SSH
 
