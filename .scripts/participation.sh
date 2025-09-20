@@ -55,6 +55,7 @@ do
    fi
    let "i++"
    STATS=":abacus: \$\\frac{${s}}{${i}}$%"
+   STATS1=$(echo "scale=2; $s*100/$i" | bc)
 done
 
-echo ${STATS} 
+echo "|" ${STATS} "|" ${STATS1}% "|"
