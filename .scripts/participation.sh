@@ -54,8 +54,8 @@ do
        echo ${KO}
    fi
    let "i++"
-   STATS=":abacus: \$\\frac{${s}}{${i}}$%"
-   STATS1=$(echo "scale=2; $s*100/$i" | bc)
+   COUNT="\$\\frac{${s}}{${i}}$"
+   STATS=$(echo "$s*100/$i" | bc)
 done
 
-echo "|" ${STATS} "|" ${STATS1}% "|"
+echo "| :abacus: | " ${STATS}% "|" ${COUNT} "|"
