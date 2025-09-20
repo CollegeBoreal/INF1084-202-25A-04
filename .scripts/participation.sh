@@ -54,6 +54,7 @@ do
        echo ${KO}
    fi
    let "i++"
+   STATS=":abacus: \$\\frac{${s}}{${i}}$%"
 done
 
-:abacus: $\frac{s}{i}$%
+echo ${STATS} 
