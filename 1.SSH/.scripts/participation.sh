@@ -30,8 +30,8 @@ echo "| :x:                | Projet inexistant             |"
 echo ""
 echo "## :a: Présence"
 echo ""
-echo "|:hash:| Boréal :id:                | README.md    | images |"
-echo "|------|----------------------------|--------------|--------|"
+echo "|:hash:| Boréal :id:                | README.md    |"
+echo "|------|----------------------------|--------------|"
 
 i=0
 
@@ -39,21 +39,10 @@ for id in "${ETUDIANTS[@]}"
 do
    URL="[${IDS[${i}]}](https://github.com/${IDS[${i}]}) <image src='https://avatars0.githubusercontent.com/u/${AVATARS[$i]}?s=460&v=4' width=20 height=20></image>"
    FILE=${id}/README.md
-   FOLDER=${id}/images
-   OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | :x: |"
-   FULL_OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | :heavy_check_mark: | "
+   FULL_OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | "
    KO="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :x: | :x: |"
    if [ -f "$FILE" ]; then
-    ACTUAL_NAME="$(basename "$(realpath "$FILE")")"
-    if [[ "$ACTUAL_NAME" == "README.md" ]]; then
-        if [ -d "$FOLDER" ]; then
-                echo ${FULL_OK}
-        else
-            echo ${OK}
-        fi
-    else
-       echo ${KO}
-    fi
+       echo ${FULL_OK}
    else
        echo ${KO}
    fi
