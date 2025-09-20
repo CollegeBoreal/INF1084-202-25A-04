@@ -24,7 +24,6 @@ jobs:
           ## 
           echo "Evaluating git commands Participation"
           bash .scripts/run.sh
-          cd ..
           ##
           ## Evaluating chapter 1.SSH Participation
           ## 
