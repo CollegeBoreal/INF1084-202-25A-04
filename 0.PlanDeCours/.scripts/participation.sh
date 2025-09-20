@@ -65,4 +65,4 @@ do
    SUM="$\displaystyle\sum_{i=1}^{${i}} s_i = $"
  done
  
- echo "| :abacus: | " ${STATS}% "|" ${SUM} ${COUNT} "|"
+echo "| :abacus: | " ${COUNT} " = " ${STATS}% "|" ${SUM} = ${s} "|"
