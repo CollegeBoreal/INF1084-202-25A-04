@@ -1,6 +1,6 @@
 # Plan De Cours
 
-[:tada: Participation](.scripts/Participation.md)
+[:tada: Participation](.scripts/Participation.md) $\rfrac{3}{7}$
 
 ## :a: Github
 
