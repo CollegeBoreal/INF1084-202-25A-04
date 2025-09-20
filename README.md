@@ -7,6 +7,7 @@ INF1084 (202) - Introduction à l'administration des systèmes
 
 |:hash: | Date   | Cours                      | Intitulé                            |  Pratique                                                     |
 |-------|--------|:---------------------------|:------------------------------------|:--------------------------------------------------------------|
-| :one: |11-sept| [0.PlanDeCours](0.PlanDeCours/.scripts/Participation.md)       | â Noter :x: |
-| :two: |16-sept| [0.Tutoriel sur GIT](.scripts/Participation.md)       | â Noter :x: |
+| :one:   |01-sept| [0.PlanDeCours](0.PlanDeCours/.scripts/Participation.md)       | â Noter :x: |
+| :two:   |08-sept| [0.Tutoriel sur GIT](.scripts/Participation.md)       | â Noter :x: |
+| :three: |15-sept| [1.SSH](1.SSH/.scripts/Participation.md)       | â Noter :x: |
 
