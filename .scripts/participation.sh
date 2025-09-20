@@ -56,7 +56,7 @@ do
    fi
    COUNT="\$\\frac{${s}}{${i}}$"
    STATS=$(echo "$s*100/$i" | bc)
-   SUM="$\displaystyle\sum_{i=1}^{${i}} s_i = $"
+   SUM="$\displaystyle\sum_{i=1}^{${i}} s_i$"
 done
 
-echo "| :abacus: | " ${STATS}% "|" ${SUM} ${COUNT} "|"
+echo "| :abacus: | " ${STATS}% "|" ${SUM} = ${COUNT} "|"
