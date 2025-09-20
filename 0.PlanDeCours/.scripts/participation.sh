@@ -38,7 +38,6 @@ s=0
 
 for id in "${ETUDIANTS[@]}"
 do
-   let "i++"
    URL="[${IDS[${i}]}](https://github.com/${IDS[${i}]}) <image src='https://avatars0.githubusercontent.com/u/${AVATARS[$i]}?s=460&v=4' width=20 height=20></image>"
    FILE=${id}/README.md
    FOLDER=${id}/images
@@ -60,6 +59,7 @@ do
    else
        echo ${KO}
    fi
+   let "i++"
    COUNT="\$\\frac{${s}}{${i}}$"
    STATS=$(echo "$s*100/$i" | bc)
    SUM="$\displaystyle\sum_{i=1}^{${i}} s_i = $"
