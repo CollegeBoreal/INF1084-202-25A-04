@@ -34,6 +34,7 @@ echo "|:hash:| Boréal :id:                | :id:.md    | :rocket: |"
 echo "|------|----------------------------|------------|----------|"
 
 i=0
+s=0 # Success
 
 for id in "${ETUDIANTS[@]}"
 do
@@ -47,9 +48,12 @@ do
            echo ${KO_WEB}
        else
            echo ${OK}
+           let "s++"
        fi
    else
        echo ${KO}
    fi
    let "i++"
 done
+
+:abacus: $\frac{s}{i}$%
