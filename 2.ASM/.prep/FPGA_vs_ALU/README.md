@@ -22,13 +22,13 @@ graph TD
 
 ```mermaid
 graph TD
-    A[Input A] --> LUT[LUT / Logic Blocks]
-    B[Input B] --> LUT
-    A[Input A] --> DSP[DSP Slice (Add/Mul)]
-    B[Input B] --> DSP
-    LUT --> Reg[Registers / Flip-Flops]
-    DSP --> Reg
-    Reg --> Out[Output]
+    FPGA_A[Input A] --> LUT[LUT / Logic Blocks]
+    FPGA_B[Input B] --> LUT
+    FPGA_A2[Input A] --> DSP[DSP Slice (Add/Mul)]
+    FPGA_B2[Input B] --> DSP
+    LUT --> REG[Registers / Flip-Flops]
+    DSP --> REG
+    REG --> FPGA_OUT[Output]
 ```
 
 * **Purpose:** Can implement **anything**, including ALUs, state machines, DSP filters, packet routers, etc.
