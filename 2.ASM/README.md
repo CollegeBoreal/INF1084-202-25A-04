@@ -24,3 +24,7 @@ flowchart TD
     DEC --> CU
 
 ```
+
+# :books: References
+
+- [ ] [HOW TRANSISTORS RUN CODE?](https://www.youtube.com/watch?v=HjneAhCy2N4)
