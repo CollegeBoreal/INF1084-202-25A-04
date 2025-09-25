@@ -1,6 +1,6 @@
 # Plan De Cours
 
-[:tada: Participation](.scripts/Participation.md)
+[:tada: Participation](.scripts/Participation.md) :abacus: $\frac{3}{7}$% $\displaystyle\sum_{i=1}^{10} t_i$
 
 ## :a: Github
 
