@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Participation au 25-09-2025 21:33
+=======
+# Participation au 25-09-2025 21:54
+>>>>>>> cbf818684ff4d0a22d847f8b4259dc5a2d09d1ff
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -46,4 +50,8 @@
 | 27 | [300151863](../300151863/README.md) :point_right: [Hannibalcarthage](https://github.com/Hannibalcarthage) <image src='https://avatars0.githubusercontent.com/u/205994935?s=460&v=4' width=20 height=20></image> | :x: |
 | 28 | [300152260](../300152260/README.md) :point_right: [bekkai-mohibb](https://github.com/bekkai-mohibb) <image src='https://avatars0.githubusercontent.com/u/212179557?s=460&v=4' width=20 height=20></image> | :x: |
 | 29 | [300153476](../300153476/README.md) :point_right: [dialloramatoulayebah](https://github.com/dialloramatoulayebah) <image src='https://avatars0.githubusercontent.com/u/129418622?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
+<<<<<<< HEAD
 | :abacus: |  $\frac{17}{30}$  =  56% | $\displaystyle\sum_{i=1}^{30} s_i$ = 17 |
+=======
+| :abacus: |  $\frac{16}{30}$  =  53% | $\displaystyle\sum_{i=1}^{30} s_i$ = 16 |
+>>>>>>> cbf818684ff4d0a22d847f8b4259dc5a2d09d1ff
