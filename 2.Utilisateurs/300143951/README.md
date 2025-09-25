@@ -36,7 +36,7 @@ La commande Bypass permet d'exécuter temporairement le script sans modifier dé
 nano utilisateurs1.sh
 ```
 
-message d'erreur
+- [:x:] message d'erreur
 
 ```powershell
 .\utilisateurs1.ps1 : File C:\Users\franc\Developer\inf1084-202-25A-03\2.Utilisateurs\300143951\utilisateurs1.ps1 cannot be loaded because running scripts is disabled on this system.
