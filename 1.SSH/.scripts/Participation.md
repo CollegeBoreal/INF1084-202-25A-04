@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Participation au 25-09-2025 21:33
-=======
-# Participation au 25-09-2025 21:54
->>>>>>> cbf818684ff4d0a22d847f8b4259dc5a2d09d1ff
-=======
-# Participation au 25-09-2025 22:27
->>>>>>> dfd001c89f7146bbac745017bd3e6efaac41d201
+# Participation au 25-09-2025 22:31
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -41,7 +33,7 @@
 | 14 | [300148094](../300148094/README.md) :point_right: [ouailg28](https://github.com/ouailg28) <image src='https://avatars0.githubusercontent.com/u/212054634?s=460&v=4' width=20 height=20></image> | :x: |
 | 15 | [300148450](../300148450/README.md) :point_right: [adjaoud-git](https://github.com/adjaoud-git) <image src='https://avatars0.githubusercontent.com/u/205994730?s=460&v=4' width=20 height=20></image> | :x: |
 | 16 | [300150195](../300150195/README.md) :point_right: [amelzourane](https://github.com/amelzourane) <image src='https://avatars0.githubusercontent.com/u/211596474?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
-| 17 | [300150416](../300150416/README.md) :point_right: [hachemsouyadi](https://github.com/hachemsouyadi) <image src='https://avatars0.githubusercontent.com/u/211596263?s=460&v=4' width=20 height=20></image> | :x: |
+| 17 | [300150416](../300150416/README.md) :point_right: [hachemsouyadi](https://github.com/hachemsouyadi) <image src='https://avatars0.githubusercontent.com/u/211596263?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 18 | [300150433](../300150433/README.md) :point_right: [zakariadjellouli](https://github.com/zakariadjellouli) <image src='https://avatars0.githubusercontent.com/u/211743410?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 19 | [300150558](../300150558/README.md) :point_right: [amirasadouni00](https://github.com/amirasadouni00) <image src='https://avatars0.githubusercontent.com/u/212186770?s=460&v=4' width=20 height=20></image> | :x: |
 | 20 | [300150562](../300150562/README.md) :point_right: [isako29](https://github.com/isako29) <image src='https://avatars0.githubusercontent.com/u/205994758?s=460&v=4' width=20 height=20></image> | :x: |
@@ -54,12 +46,4 @@
 | 27 | [300151863](../300151863/README.md) :point_right: [Hannibalcarthage](https://github.com/Hannibalcarthage) <image src='https://avatars0.githubusercontent.com/u/205994935?s=460&v=4' width=20 height=20></image> | :x: |
 | 28 | [300152260](../300152260/README.md) :point_right: [bekkai-mohibb](https://github.com/bekkai-mohibb) <image src='https://avatars0.githubusercontent.com/u/212179557?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 29 | [300153476](../300153476/README.md) :point_right: [dialloramatoulayebah](https://github.com/dialloramatoulayebah) <image src='https://avatars0.githubusercontent.com/u/129418622?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
-<<<<<<< HEAD
-<<<<<<< HEAD
-| :abacus: |  $\frac{17}{30}$  =  56% | $\displaystyle\sum_{i=1}^{30} s_i$ = 17 |
-=======
-| :abacus: |  $\frac{16}{30}$  =  53% | $\displaystyle\sum_{i=1}^{30} s_i$ = 16 |
->>>>>>> cbf818684ff4d0a22d847f8b4259dc5a2d09d1ff
-=======
-| :abacus: |  $\frac{17}{30}$  =  56% | $\displaystyle\sum_{i=1}^{30} s_i$ = 17 |
->>>>>>> dfd001c89f7146bbac745017bd3e6efaac41d201
+| :abacus: |  $\frac{19}{30}$  =  63% | $\displaystyle\sum_{i=1}^{30} s_i$ = 19 |
