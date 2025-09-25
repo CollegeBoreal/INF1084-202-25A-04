@@ -24,8 +24,8 @@ graph TD
 graph TD
     A[Input A] --> LUT[LUT / Logic Blocks]
     B[Input B] --> LUT
-    A --> DSP[DSP Slice (Add/Mul)]
-    B --> DSP
+    A[Input A] --> DSP[DSP Slice (Add/Mul)]
+    B[Input B] --> DSP
     LUT --> Reg[Registers / Flip-Flops]
     DSP --> Reg
     Reg --> Out[Output]
