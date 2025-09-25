@@ -1,5 +1,7 @@
 # TP : Simulation Active Directory avec PowerShell
 
+[:tada: Participation](.scripts/Participation.md) 
+
 ## Objectifs
 
 * Comprendre la structure AD (utilisateurs, groupes, OU).
