@@ -34,6 +34,7 @@ echo "|:hash:| Boréal :id:                | README.md    | images |"
 echo "|------|----------------------------|--------------|--------|"
 
 i=0
+s=0
 
 for id in "${ETUDIANTS[@]}"
 do
@@ -48,6 +49,7 @@ do
     if [[ "$ACTUAL_NAME" == "README.md" ]]; then
         if [ -d "$FOLDER" ]; then
                 echo ${FULL_OK}
+                let "s++"
         else
             echo ${OK}
         fi
@@ -58,4 +60,9 @@ do
        echo ${KO}
    fi
    let "i++"
-done
+   COUNT="\$\\frac{${s}}{${i}}$"
+   STATS=$(echo "$s*100/$i" | bc)
+   SUM="$\displaystyle\sum_{i=1}^{${i}} s_i$"
+ done
+ 
+echo "| :abacus: | " ${COUNT} " = " ${STATS}% "|" ${SUM} = ${s} "|"
