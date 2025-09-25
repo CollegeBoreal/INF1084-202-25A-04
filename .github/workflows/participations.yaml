@@ -24,6 +24,12 @@ jobs:
           ## 
           echo "Evaluating git commands Participation"
           bash .scripts/run.sh
+          ##
+          ## Evaluating chapter 1.SSH Participation
+          ## 
+          echo "Evaluating chapter 1.SSH Participation"
+          cd 1.SSH
+          bash .scripts/run.sh
 
       - name: Commit files
         run: |
