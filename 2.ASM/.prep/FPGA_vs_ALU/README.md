@@ -20,21 +20,15 @@ graph TD
 
 ### **2. FPGA (flexible hardware fabric)**
 
-```
-           ┌─────────────┐      ┌─────────────┐
-Input A ──▶│ LUT/Logic   │      │ DSP Slice   │
-           │ Blocks      │      │ (Add/Mul)  │
-Input B ──▶│             │      │             │
-           └─────────────┘      └─────────────┘
-                  │                     │
-                  └───────┐   ┌────────┘
-                          ▼   ▼
-                       ┌─────────┐
-                       │ Registers│
-                       │ / Flip-flops
-                       └─────────┘
-                          │
-                       Output
+```mermaid
+graph TD
+    A[Input A] --> LUT[LUT / Logic Blocks]
+    B[Input B] --> LUT
+    A --> DSP[DSP Slice (Add/Mul)]
+    B --> DSP
+    LUT --> Reg[Registers / Flip-Flops]
+    DSP --> Reg
+    Reg --> Out[Output]
 ```
 
 * **Purpose:** Can implement **anything**, including ALUs, state machines, DSP filters, packet routers, etc.
