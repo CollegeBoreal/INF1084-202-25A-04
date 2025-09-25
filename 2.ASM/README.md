@@ -4,9 +4,9 @@
 flowchart TD
 
     subgraph CPU
-        CU[Control Unit (Instruction Decoder + Control Logic)]
+        CU[Control Unit - Instruction Decoder and Control Logic]
         RF[Register File]
-        ALU[ALU: Adders, Subtractors, Logic Ops]
+        ALU[ALU - Adders, Subtractors, Logic Ops]
 
         CU --> RF
         RF --> ALU
