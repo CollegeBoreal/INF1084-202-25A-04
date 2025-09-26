@@ -227,3 +227,25 @@ $Groups["ImportGroupe"]
 
 
 
+
+
+
+- [ ] Créer le script pour projet1
+
+```sh
+nano projets1.ps1
+```
+>
+```powershell
+Emeraude Santu - Login: EmerauS - OU: Promo2025
+Martin Kanu - Login: MarKanu - OU: Promo2025
+jose kapi - Login: KapJoe - OU: Promo2025
+Rubis kiena - Login: KienR - OU: Promo2025
+Winner Paul - Login: WinKna - OU: Promo2025
+```
+- [ ] Exécuter le script pour projet1
+
+```sh
+.\projets1.ps1
+```
+
