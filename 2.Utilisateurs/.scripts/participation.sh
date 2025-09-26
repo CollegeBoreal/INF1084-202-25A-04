@@ -42,18 +42,16 @@ do
    FILE=${id}/README.md
    USR1=${id}/utilisateurs1.ps1; OK_USR1=":x:"
    OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | :x: |"
-   FULL_OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | ${OK_USR1} | "
    KO="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :x: | :x: |"
    if [ -f "$FILE" ]; then
     ACTUAL_NAME="$(basename "$(realpath "$FILE")")"
     if [[ "$ACTUAL_NAME" == "README.md" ]]; then
         if [ -f "$USR1" ]; then
                 OK_USR1=":heavy_check_mark:"
-                echo ${FULL_OK}
-                let "s++"
-        else
-            echo ${OK}
         fi
+        FULL_OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | ${OK_USR1} | "
+        echo ${FULL_OK}
+        let "s++"
     else
        echo ${KO}
     fi
