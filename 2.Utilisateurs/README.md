@@ -86,6 +86,7 @@ git log --pretty=format:"%h %ad %an %s" -- 2.Utilisateurs/README.md
 ```
 <details>
     <summary>Output</summary>
+    
 ```powershell
 
 97776e7 Fri Sep 26 01:29:41 2025 -0400 adjaoud-git Update README.md
