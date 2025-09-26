@@ -79,3 +79,20 @@ $ImportedUsers
 3. Ajouter tous les utilisateurs de "Promo2025" dans le groupe.
 4. Exporter la liste finale du groupe en CSV.
 
+# :books: References
+
+```sh
+git log --pretty=format:"%h %ad %an %s" -- 2.Utilisateurs/README.md
+```
+<details>
+    <summary>Output</summary>
+    
+```powershell
+
+97776e7 Fri Sep 26 01:29:41 2025 -0400 adjaoud-git Update README.md
+f0277b5 Fri Sep 26 01:08:03 2025 -0400 adjaoud-git Ajout du README.md pour mes scripts
+48a066f Fri Sep 26 00:46:31 2025 +0200 Brice Update README.md
+7ad5c8c Thu Sep 25 22:20:54 2025 +0200 Brice Create README.md
+```
+    
+</details>
