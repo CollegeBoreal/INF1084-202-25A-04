@@ -1,13 +1,12 @@
-# Créer une liste d'utilisateurs simulés
-$Users = @(
-    @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"}
+# Créer 5 utilisateurs simulés pour Promo2025
+$Promo2025 = @(
+    @{Nom="Ahmed"; Prenom="Ali"; Login="aali"; OU="Promo2025"},
+    @{Nom="Brahim"; Prenom="Sara"; Login="sbrahim"; OU="Promo2025"},
+    @{Nom="Karim"; Prenom="Nadia"; Login="knadia"; OU="Promo2025"},
+    @{Nom="Fatima"; Prenom="Youssef"; Login="fyoussef"; OU="Promo2025"},
+    @{Nom="Mounir"; Prenom="Leila"; Login="mleila"; OU="Promo2025"}
 )
 
-# Ajouter 2 nouveaux utilisateurs
-$Users += @{Nom="boubou"; Prenom="zaza"; Login="mama"; OU="Stagiaires"}
-$Users += @{Nom="gringo"; Prenom="kiki"; Login="kaka"; OU="Stagiaires"}
-
-# Afficher tous les utilisateurs
-$Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
+# Afficher les utilisateurs de Promo2025
+Write-Host "`n--- Utilisateurs Promo2025 ---"
+$Promo2025 | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login)" }
