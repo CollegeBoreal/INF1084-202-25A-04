@@ -18,9 +18,10 @@ System.Collections.Hashtable = @{
 }
 
 # Ajouter tous les utilisateurs dans les groupes appropriés
-foreach (System.Collections.Hashtable in System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable) {
-    if (System.Collections.Hashtable.OU -eq "Stagiaires") {
-        System.Collections.Hashtable["GroupeFormation"] += System.Collections.Hashtable
-        System.Collections.Hashtable["ImportGroupe"] += System.Collections.Hashtable
+foreach ($u in $Utilisateurs) {
+    if ($u.OU -eq "Stagiaires") {
+        $Groupes["GroupeFormation"] += $u
+        $Groupes["ImportGroupe"]    += $u
     }
 }
+
