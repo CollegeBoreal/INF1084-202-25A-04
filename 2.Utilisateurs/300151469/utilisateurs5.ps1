@@ -1,4 +1,3 @@
-=
 $OU = "OU=Promo2025,DC=tondomaine,DC=local"
 $Groupe = "Etudiants2025"
 
@@ -7,11 +6,11 @@ if (-not (Get-ADGroup -Filter {Name -eq $Groupe})) {
 }
 
 $utilisateurs = @(
-    @{Nom="User1"; Prenom="Test1"; Login="user1"; Mdp="Password123!"},
-    @{Nom="User2"; Prenom="Test2"; Login="user2"; Mdp="Password123!"},
-    @{Nom="User3"; Prenom="Test3"; Login="user3"; Mdp="Password123!"},
-    @{Nom="User4"; Prenom="Test4"; Login="user4"; Mdp="Password123!"},
-    @{Nom="User5"; Prenom="Test5"; Login="user5"; Mdp="Password123!"}
+    @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; Mdp="Password123!"},
+    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; Mdp="Password123!"},
+    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; Mdp="Password123!"},
+    @{Nom="Martin"; Prenom="Luc"; Login="lmartin"; Mdp="Password123!"},
+    @{Nom="Nguyen"; Prenom="Linh"; Login="lnguyen"; Mdp="Password123!"}
 )
 
 foreach ($u in $utilisateurs) {
