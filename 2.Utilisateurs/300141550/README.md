@@ -58,3 +58,172 @@ Prenom                         Kanu
 .\utilisateurs2.ps1
 ```
 
+
+
+- [ ] Créer le script pour Utilsateur3
+
+```sh
+nano utilisateurs3.ps1
+```
+>
+
+```powershell
+Name                           Value
+----                           -----
+OU                             Stagiaires
+Nom                            Dupont
+Login                          adupont
+Prenom                         Alice
+OU                             Stagiaires
+Nom                            Lemoine
+Login                          slemoine
+Prenom                         Sarah
+OU                             Stagiaires
+Nom                            Benali
+Login                          kbenali
+Prenom                         Karim
+OU                             Stagiaires
+Nom                            Santu
+Login                          santueme
+Prenom                         Emeraude
+OU                             Stagiaires
+Nom                            Martin
+Login                          markanu
+Prenom                         Kanu
+```
+- [ ] Exécuter le script pour Utilsateur3
+
+```sh
+.\utilisateurs3.ps1
+```
+
+
+
+
+
+- [ ] Créer le script pour Utilsateur4 
+
+```sh
+nano utilisateurs4.ps1
+```
+>
+
+```powershell
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        2025-09-25   5:38 PM                Temp
+
+IsReadOnly     : False
+IsFixedSize    : False
+IsSynchronized : False
+Keys           : System.Collections.Hashtable+KeyCollection
+Values         : System.Collections.Hashtable+ValueCollection
+SyncRoot       : System.Object
+Count          : 4
+
+
+IsReadOnly     : False
+IsFixedSize    : False
+IsSynchronized : False
+Keys           : System.Collections.Hashtable+KeyCollection
+Values         : System.Collections.Hashtable+ValueCollection
+SyncRoot       : System.Object
+Count          : 4
+
+
+IsReadOnly     : False
+IsFixedSize    : False
+IsSynchronized : False
+Keys           : System.Collections.Hashtable+KeyCollection
+Values         : System.Collections.Hashtable+ValueCollection
+SyncRoot       : System.Object
+Count          : 4
+
+
+IsReadOnly     : False
+IsFixedSize    : False
+IsSynchronized : False
+Keys           : System.Collections.Hashtable+KeyCollection
+Values         : System.Collections.Hashtable+ValueCollection
+SyncRoot       : System.Object
+Count          : 4
+
+
+IsReadOnly     : False
+IsFixedSize    : False
+IsSynchronized : False
+Keys           : System.Collections.Hashtable+KeyCollection
+Values         : System.Collections.Hashtable+ValueCollection
+SyncRoot       : System.Object
+Count          : 4
+
+
+IsReadOnly     : False
+IsFixedSize    : False
+IsSynchronized : False
+Keys           : System.Collections.Hashtable+KeyCollection
+Values         : System.Collections.Hashtable+ValueCollection
+SyncRoot       : System.Object
+Count          : 4
+
+
+IsReadOnly     : False
+IsFixedSize    : False
+IsSynchronized : False
+Keys           : System.Collections.Hashtable+KeyCollection
+Values         : System.Collections.Hashtable+ValueCollection
+SyncRoot       : System.Object
+Count          : 4
+
+
+IsReadOnly     : False
+IsFixedSize    : False
+IsSynchronized : False
+Keys           : System.Collections.Hashtable+KeyCollection
+Values         : System.Collections.Hashtable+ValueCollection
+SyncRoot       : System.Object
+Count          : 4
+
+
+IsReadOnly     : False
+IsFixedSize    : False
+IsSynchronized : False
+Keys           : System.Collections.Hashtable+KeyCollection
+Values         : System.Collections.Hashtable+ValueCollection
+SyncRoot       : System.Object
+Count          : 4
+
+
+IsReadOnly     : False
+IsFixedSize    : False
+IsSynchronized : False
+Keys           : System.Collections.Hashtable+KeyCollection
+Values         : System.Collections.Hashtable+ValueCollection
+SyncRoot       : System.Object
+Count          : 4
+
+```
+
+- [ ] j'ai du faire quelques modification du code entre autre :
+   1. la creation du dossier c:\Temp : New-Item -ItemType Directory -Path "C:\Temp" -Force
+      suivi de : $Users | Export-Csv -Path "C:\Temp\UsersSimules.csv" -NoTypeInformation
+   2. l'importation du ficher : $ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
+$ImportedUsers
+   3. importation normale du code : $ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
+$ImportedUsers
+   4. creation du groupe et ajout des utilisateurs : $Groups = @{
+    "ImportGroupe" = @()
+}
+
+$Groups["ImportGroupe"] += $ImportedUsers
+$Groups["ImportGroupe"]
+
+- [ ] Exécuter le script pour Utilsateur3
+
+```sh
+.\utilisateurs3.ps1
+```
+
+
+
