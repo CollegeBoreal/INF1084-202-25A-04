@@ -1,8 +1,8 @@
 # Fichier : utilisateurs1.ps1
 # Contient les utilisateurs et les groupes simulés
 
-# Création des utilisateurs
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable = @(
+# Création des utilisateurs (liste de hashtables)
+$Utilisateurs = @(
     @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
     @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
     @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
@@ -10,11 +10,11 @@ System.Collections.Hashtable System.Collections.Hashtable System.Collections.Has
     @{Nom="Martin"; Prenom="Julie"; Login="jmartin"; OU="Stagiaires"}
 )
 
-# Création des groupes
-System.Collections.Hashtable = @{
+# Création des groupes (hashtable qui contient des tableaux d’utilisateurs)
+$Groupes = @{
     "GroupeFormation" = @()
-    "ProfesseursAD" = @()
-    "ImportGroupe" = @()
+    "ProfesseursAD"   = @()
+    "ImportGroupe"    = @()
 }
 
 # Ajouter tous les utilisateurs dans les groupes appropriés
@@ -25,3 +25,9 @@ foreach ($u in $Utilisateurs) {
     }
 }
 
+# Affichage de vérification
+"=== Utilisateurs ==="
+$Utilisateurs | Format-Table
+
+"=== Groupes ==="
+$Groupes
