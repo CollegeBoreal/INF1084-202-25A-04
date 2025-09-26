@@ -6,17 +6,18 @@ $Users = @(
     @{ Name = "Kahina Zerkani"; Login = "kzerkani"; OU = "Stagiaires" }
     @{ Name = "Lina Zergui"; Login = "lzergui"; OU = "Stagiaires" }
 )
-# Créer des groupes (vides au départ)
+
+# Créer des groupes
 $Groups = @{
     "GroupeFormation" = @()
     "ProfesseursAD"   = @()
 }
 
-# Ajouter uniquement les utilisateurs dont l'OU = "Stagiaires"
-$Groups["GroupeFormation"] = $Users | Where-Object { $_.OU -eq "Stagiaires" }
+# Ajouter tous les utilisateurs dont l’OU = "Stagiaires" dans GroupeFormation
+$Groups["GroupeFormation"] += $Users | Where-Object { $_.OU -eq "Stagiaires" }
 
-# Vérifier le contenu du groupe
-$Groups["GroupeFormation"] | ForEach-Object {
-    "$($_.Prenom) $($_.Nom) - Login: $($_.Login)"
+# Afficher les membres de GroupeFormation
+foreach ($u in $Groups["GroupeFormation"]) {
+    Write-Output "$($u.Name) - Login: $($u.Login)"
 }
 
