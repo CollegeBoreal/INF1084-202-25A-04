@@ -27,7 +27,8 @@ foreach ($u in $Utilisateurs) {
 
 # Affichage de vérification
 "=== Utilisateurs ==="
-$Utilisateurs | Format-Table
+$Utilisateurs
 
 "=== Groupes ==="
 $Groupes
+
