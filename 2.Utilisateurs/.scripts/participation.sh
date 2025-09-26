@@ -30,8 +30,8 @@ echo "| :x:                | Projet inexistant             |"
 echo ""
 echo "## :a: Présence"
 echo ""
-echo "|:hash:| Boréal :id:                | README.md    | Script 1 |"
-echo "|------|----------------------------|--------------|----------|"
+echo "|:hash:| Boréal :id:                | README.md    | :one: | :two: |"
+echo "|------|----------------------------|--------------|-------|-------"
 
 i=0
 s=0
@@ -41,15 +41,18 @@ do
    URL="[${IDS[${i}]}](https://github.com/${IDS[${i}]}) <image src='https://avatars0.githubusercontent.com/u/${AVATARS[$i]}?s=460&v=4' width=20 height=20></image>"
    FILE=${id}/README.md
    USR1=${id}/utilisateurs1.ps1; OK_USR1=":x:"
-   OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | :x: |"
-   KO="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :x: | :x: |"
+   USR2=${id}/utilisateurs2.ps1; OK_USR2=":x:"
+   KO="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :x: | :x: | :x: |"
    if [ -f "$FILE" ]; then
     ACTUAL_NAME="$(basename "$(realpath "$FILE")")"
     if [[ "$ACTUAL_NAME" == "README.md" ]]; then
         if [ -f "$USR1" ]; then
                 OK_USR1=":heavy_check_mark:"
         fi
-        FULL_OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | ${OK_USR1} | "
+        if [ -f "$USR2" ]; then
+                OK_USR2=":heavy_check_mark:"
+        fi
+        FULL_OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark:| ${OK_USR1} | ${OK_USR2} | "
         echo ${FULL_OK}
         let "s++"
     else
