@@ -250,6 +250,8 @@ Winner Paul - Login: WinKna - OU: Promo2025
 ```
 
 - [ ] Créer le script pour Projets2
+- [ ] note ***
+le projet 3 combine la question 2 et 3 
 
 ```sh
 nano projets2.ps1
@@ -282,9 +284,30 @@ Login                          WinKna
 Prenom                         Winner
 ```
 - [ ] Exécuter le script pour Projets2
+- [ ] notes *** :
+      le projets2 combien la resolution de la question 2 et 3
 
 ```sh
 .\projets2.ps1
 ```
 - [ ] ajustement du code :
       . .\projets1.ps1     #appel au ficher projets1                                                                                                                                                                                                      $Groups = @{                                                                                                                                                                                                                                             "Etudiants2025" = @()                                                                                                             }                                                                                                                                                                                                                                                    # Ajouter tous les utilisateurs de l’OU "Promo2025" dans le groupe                                                           $Groups["Etudiants2025"] += $Users | Where-Object { $_.OU -eq "Promo2025" }                                                                                                                                                                               # Vérifier que le groupe contient bien les bons utilisateurs                                                                         $Groups["Etudiants2025"]   
+
+
+
+- [ ] Créer le script pour projets3
+- [ ] notes ***** :
+  le projet3 est la resolution de la question 4 ( "Exporter la liste finale du groupe en CSV." )
+
+```sh
+nano projets3.ps1
+```
+>
+```powershell
+Exportation finie : C:\Temp\Etudiants2025.csv
+```
+- [ ] Exécuter le script pour projets3
+
+```sh
+.\projets3.ps1
+```
