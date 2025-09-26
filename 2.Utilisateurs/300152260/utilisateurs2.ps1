@@ -5,5 +5,9 @@ $Users = @(
     @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"}
 )
 
-# Afficher les utilisateurs
+# Ajouter 2 nouveaux utilisateurs
+$Users += @{Nom="boubou"; Prenom="zaza"; Login="mama"; OU="Stagiaires"}
+$Users += @{Nom="gringo"; Prenom="kiki"; Login="kaka"; OU="Stagiaires"}
+
+# Afficher tous les utilisateurs
 $Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
