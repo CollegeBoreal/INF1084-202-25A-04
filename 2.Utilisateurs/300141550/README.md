@@ -58,3 +58,41 @@ Prenom                         Kanu
 .\utilisateurs2.ps1
 ```
 
+
+
+- [ ] Créer le script pour Utilsateur3
+
+```sh
+nano utilisateurs3.ps1
+```
+>
+
+```powershell
+Name                           Value
+----                           -----
+OU                             Stagiaires
+Nom                            Dupont
+Login                          adupont
+Prenom                         Alice
+OU                             Stagiaires
+Nom                            Lemoine
+Login                          slemoine
+Prenom                         Sarah
+OU                             Stagiaires
+Nom                            Benali
+Login                          kbenali
+Prenom                         Karim
+OU                             Stagiaires
+Nom                            Santu
+Login                          santueme
+Prenom                         Emeraude
+OU                             Stagiaires
+Nom                            Martin
+Login                          markanu
+Prenom                         Kanu
+```
+- [ ] Exécuter le script pour Utilsateur3
+
+```sh
+.\utilisateurs3.ps1
+```
