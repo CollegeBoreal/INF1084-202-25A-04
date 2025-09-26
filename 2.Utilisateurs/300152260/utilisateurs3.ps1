@@ -4,5 +4,9 @@ $Groups = @{
     "ProfesseursAD" = @()
 }
 
-# Ajouter un utilisateur à un groupe
-$Groups["GroupeFormation"] += $Users[0]   # Alice Dupont
+# Ajouter tous les utilisateurs dont OU = "Stagiaires" dans GroupeFormation
+$Groups["GroupeFormation"] += $Users | Where-Object { $_.OU -eq "Stagiaires" }
+
+# Afficher le groupe GroupeFormation
+Write-Host "`n--- GroupeFormation ---"
+$Groups["GroupeFormation"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
