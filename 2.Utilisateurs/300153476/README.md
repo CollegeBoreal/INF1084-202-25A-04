@@ -5,11 +5,13 @@ Dans la déclaration de la hashtable $Groups, il manquait un point-virgule ; ent
 
 *En résumé:*
 Toujours vérifier que le chemin du fichier que tu veux “importer” est correct.
-``` .\Utilisateur2.ps1
+```
+.\Utilisateur2.ps1
 ```
 
 Toujours séparer les clés d’une hashtable par ; 
-``` $Groups = @{
+```
+ $Groups = @{
     "GroupeFormation" = @();
     "ProfesseursAD" = @()
 }
