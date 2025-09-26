@@ -81,6 +81,8 @@ $ImportedUsers
 
 # :books: References
 
+- [ ] Rechercher la version du fichier perdu
+
 ```sh
 git log --pretty=format:"%h %ad %an %s" -- 2.Utilisateurs/README.md
 ```
@@ -96,3 +98,12 @@ f0277b5 Fri Sep 26 01:08:03 2025 -0400 adjaoud-git Ajout du README.md pour mes s
 ```
     
 </details>
+
+- [ ] Récuperer le fichier perdu
+
+```sh
+git checkout 48a066f -- 2.Utilisateurs/README.md
+git add 2.Utilisateurs/README.md
+git commit -m "Restore README.md from commit 48a066f"
+git push
+```
