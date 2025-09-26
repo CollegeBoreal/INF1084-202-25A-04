@@ -71,12 +71,14 @@ Ce projet consiste à :
 ```bash
 git clone <URL-de-ton-repo>
 
-Aller dans le dossier des scripts :
+2. Aller dans le dossier des scripts :
+```bash
 
-cd 2.Utilisateurs/300146418
+cd .Utilisateurs/300146418
 
 
-Exécuter les scripts PowerShell dans l’ordre :
+3.Exécuter les scripts PowerShell dans l’ordre :
+```bash
 
 .\Utilisateur1.ps1
 .\Utilisateur2.ps1
@@ -87,7 +89,8 @@ Exécuter les scripts PowerShell dans l’ordre :
 
 Les fichiers CSV seront générés automatiquement dans le dossier 300146418.
 
-Résultat attendu
+4.Résultat attendu
+```bash
 
 Tous les scripts PowerShell fonctionnent correctement et affichent les utilisateurs filtrés ou groupés.
 
