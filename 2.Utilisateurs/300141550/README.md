@@ -249,3 +249,42 @@ Winner Paul - Login: WinKna - OU: Promo2025
 .\projets1.ps1
 ```
 
+- [ ] Créer le script pour Projets2
+
+```sh
+nano projets2.ps1
+```
+>
+
+```powershell
+
+Name                           Value
+----                           -----
+OU                             Promo2025
+Nom                            Santu
+Login                          EmerauS
+Prenom                         Emeraude
+OU                             Promo2025
+Nom                            Kanu
+Login                          MarKanu
+Prenom                         Martin
+OU                             Promo2025
+Nom                            kapi
+Login                          KapJoe
+Prenom                         jose
+OU                             Promo2025
+Nom                            kiena
+Login                          KienR
+Prenom                         Rubis
+OU                             Promo2025
+Nom                            Paul
+Login                          WinKna
+Prenom                         Winner
+```
+- [ ] Exécuter le script pour Projets2
+
+```sh
+.\projets2.ps1
+```
+- [ ] ajustement du code :
+      . .\projets1.ps1     #appel au ficher projets1                                                                                                                                                                                                      $Groups = @{                                                                                                                                                                                                                                             "Etudiants2025" = @()                                                                                                             }                                                                                                                                                                                                                                                    # Ajouter tous les utilisateurs de l’OU "Promo2025" dans le groupe                                                           $Groups["Etudiants2025"] += $Users | Where-Object { $_.OU -eq "Promo2025" }                                                                                                                                                                               # Vérifier que le groupe contient bien les bons utilisateurs                                                                         $Groups["Etudiants2025"]   
