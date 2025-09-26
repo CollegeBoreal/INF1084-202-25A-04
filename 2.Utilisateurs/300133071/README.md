@@ -1,3 +1,15 @@
+<!-- # Scripts PowerShell de gestion simulée d’utilisateurs et de groupes
+
+### Structure des fichiers
+
+2.Utilisateurs\
+ └── 300133071\
+     ├── utilisateurs.ps1
+     ├── groupes.ps1
+     ├── filtres.ps1
+     ├── export_import.ps1
+
+
 # utilisateur simules
 
 - [ ] Créer le script pour Utilsateur1
