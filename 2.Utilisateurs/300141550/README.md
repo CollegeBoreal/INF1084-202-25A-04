@@ -284,6 +284,8 @@ Login                          WinKna
 Prenom                         Winner
 ```
 - [ ] Exécuter le script pour Projets2
+- [ ] notes *** :
+      le projets2 combien la resolution de la question 2 et 3
 
 ```sh
 .\projets2.ps1
@@ -294,6 +296,8 @@ Prenom                         Winner
 
 
 - [ ] Créer le script pour projets3
+- [ ] notes ***** :
+  le projet3 est la resolution de la question 4 ( "Exporter la liste finale du groupe en CSV." )
 
 ```sh
 nano projets3.ps1
