@@ -40,9 +40,9 @@ for id in "${ETUDIANTS[@]}"
 do
    URL="[<image src='https://avatars0.githubusercontent.com/u/${AVATARS[$i]}?s=460&v=4' width=20 height=20></image>](https://github.com/${IDS[${i}]}) "
    FILE=${id}/README.md
-   OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} |  ${SERVERS[${i}]} | :heavy_check_mark: | :heavy_check_mark: |"
-   KO_WEB="| ${i} | [${id}](../${FILE}) :point_right: ${URL} |  ${SERVERS[${i}]} | :heavy_check_mark: | :x: |"
-   KO="| ${i} | [${id}](../${FILE}) :point_right: ${URL} |  ${SERVERS[${i}]} | :x: |"
+   OK="| ${i} | [${id}](../${FILE}) ${URL} |  ${SERVERS[${i}]} | :heavy_check_mark: | :heavy_check_mark: |"
+   KO_WEB="| ${i} | [${id}](../${FILE}) ${URL} |  ${SERVERS[${i}]} | :heavy_check_mark: | :x: |"
+   KO="| ${i} | [${id}](../${FILE}) ${URL} |  ${SERVERS[${i}]} | :x: |"
    if [ -f "$FILE" ]; then
        if git log --format=fuller -- ${FILE} | grep Author | grep -q "noreply"; then
            echo ${KO_WEB}
@@ -59,4 +59,4 @@ do
    SUM="$\displaystyle\sum_{i=1}^{${i}} s_i$"
  done
  
-echo "| :abacus: | " ${COUNT} " = " ${STATS}% "|" ${SUM} = ${s} "|"
+echo "| :abacus: | " ${COUNT} " = " ${STATS}% "| |" ${SUM} = ${s} "|"
