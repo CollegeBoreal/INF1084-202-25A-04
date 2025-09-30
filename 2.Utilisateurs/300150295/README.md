@@ -1,9 +1,9 @@
-# 300150295 - Exercices Utilisateurs
+ï»¿# 300150295 - Exercices Utilisateurs
 
-Exercices réalisés :
+Exercices rÃ©alisÃ©s :
 
-- utilisateurs1.ps1 : Création et affichage des utilisateurs
-- utilisateurs2.ps1 : Création de groupes simulés
-- utilisateurs3_exo3.ps1 : Requêtes et filtres
-- utilisateurs4.ps1 : Export / Import CSV et création de groupe
+- utilisateurs1.ps1 : CrÃ©ation et affichage des utilisateurs
+- utilisateurs2.ps1 : CrÃ©ation de groupes simulÃ©s
+- utilisateurs3_exo3.ps1 : RequÃªtes et filtres
+- utilisateurs4.ps1 : Export / Import CSV et crÃ©ation de groupe
 - mini_projet.ps1 : Mini-projet complet avec export CSV
