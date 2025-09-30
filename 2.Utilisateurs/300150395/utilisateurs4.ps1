@@ -1,22 +1,18 @@
-$Users = @(
-    @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Promo2025"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Promo2025"},
-    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Promo2025"},
-    @{Nom="Trache"; Prenom="Ismail"; Login="Tismail"; OU="Promo2025"},
-    @{Nom="Nemouss"; Prenom="Latif"; Login="Nlatif"; OU="Promo2025"}
-)
+# Charger le premier script pour récupérer les utilisateurs
+. .\utilisateurs1.ps1
 
-# Exporter les utilisateurs en CSV
-$Users | Export-Csv -Path "C:\Temp\UsersPromo2025.csv" -NoTypeInformation
-
-# Importer depuis CSV
-$ImportedUsers = Import-Csv -Path "C:\Temp\UsersPromo2025.csv"
-
-# Créer un groupe Etudiants2025 et ajouter tous les utilisateurs importés
+# Créer un groupe ImportGroupe
 $Groups = @{
-    "Etudiants2025" = $ImportedUsers
+    "ImportGroupe" = @()
 }
 
-# Exporter la liste finale du groupe
-$Groups["Etudiants2025"] | Export-Csv -Path "C:\Temp\Etudiants2025.csv" -NoTypeInformation
+# Ajouter tous les utilisateurs dans ImportGroupe
+$Groups["ImportGroupe"] += $Users
+
+# Afficher les utilisateurs du groupe ImportGroupe
+"Utilisateurs dans ImportGroupe :"
+$Groups["ImportGroupe"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
+
+# Exporter le groupe vers un fichier CSV
+$Groups["ImportGroupe"] | Export-Csv -Path "C:\Temp\ImportGroupe.csv" -NoTypeInformation
 
