@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Participation au 30-09-2025 20:01
 =======
 # Participation au 30-09-2025 19:01
@@ -11,6 +12,9 @@
 =======
 # Participation au 30-09-2025 23:21
 >>>>>>> 37273001ddbb0759300f9d8f14877133374fb983
+=======
+# Participation au 30-09-2025 23:28
+>>>>>>> 8b2eb312 (Vérification de la participation)
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
