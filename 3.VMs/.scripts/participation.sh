@@ -30,19 +30,19 @@ echo "| :x:                | Projet inexistant             |"
 echo ""
 echo "## :a: Présence"
 echo ""
-echo "|:hash:| Boréal :id:                | :id:.md    | :rocket: |"
-echo "|------|----------------------------|------------|----------|"
+echo "|:hash:| Boréal :id:                | :desktop: | :id:.md    | :rocket: |"
+echo "|------|----------------------------|-----------|------------|----------|"
 
 i=0
 s=0
 
 for id in "${ETUDIANTS[@]}"
 do
-   URL="[${IDS[${i}]}](https://github.com/${IDS[${i}]}) <image src='https://avatars0.githubusercontent.com/u/${AVATARS[$i]}?s=460&v=4' width=20 height=20></image> ${SERVERS[${i}]}"
+   URL="[${IDS[${i}]}](https://github.com/${IDS[${i}]}) <image src='https://avatars0.githubusercontent.com/u/${AVATARS[$i]}?s=460&v=4' width=20 height=20></image> "
    FILE=${id}/README.md
-   OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | :heavy_check_mark: |"
-   KO_WEB="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | :x: |"
-   KO="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :x: |"
+   OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} |  ${SERVERS[${i}]} | :heavy_check_mark: | :heavy_check_mark: |"
+   KO_WEB="| ${i} | [${id}](../${FILE}) :point_right: ${URL} |  ${SERVERS[${i}]} | :heavy_check_mark: | :x: |"
+   KO="| ${i} | [${id}](../${FILE}) :point_right: ${URL} |  ${SERVERS[${i}]} | :x: |"
    if [ -f "$FILE" ]; then
        if git log --format=fuller -- ${FILE} | grep Author | grep -q "noreply"; then
            echo ${KO_WEB}
