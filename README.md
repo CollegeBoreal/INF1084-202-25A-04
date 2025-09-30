@@ -1,4 +1,4 @@
-c# INF1084-202-25A-03
+# INF1084-202-25A-03
 INF1084 (202) - Introduction à l'administration des systèmes
 
 ## :date: [Épreuves](.epreuves)
@@ -11,4 +11,5 @@ INF1084 (202) - Introduction à l'administration des systèmes
 | :two:   |08-sept| [0.Tutoriel sur GIT](.scripts/Participation.md)       | â Noter :x: |
 | :three: |15-sept| [1.SSH](1.SSH/.scripts/Participation.md)       | â Noter :x: |
 | :four:  |22-sept| [2.Utilisateurs](2.Utilisateurs/.scripts/Participation.md)       | â Noter :x: |
+| :five:  |29-sept| [3.VMs](3.VMs/.scripts/Participation.md)       | â Noter :x: |
 
