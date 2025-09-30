@@ -31,6 +31,13 @@ jobs:
           cd 1.SSH
           bash .scripts/run.sh
           cd ..
+          ##
+          ## Evaluating chapter 2.Utilisateurs
+          ## 
+          echo "Evaluating chapter 2.Utilisateurs Participation"
+          cd 2.Utilisateurs
+          bash .scripts/run.sh
+          cd ..
 
       - name: Commit files
         run: |
