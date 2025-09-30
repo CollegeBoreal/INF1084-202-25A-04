@@ -30,8 +30,8 @@ echo "| :x:                | Projet inexistant             |"
 echo ""
 echo "## :a: Présence"
 echo ""
-echo "|:hash:| Boréal :id:                | :desktop: | :id:.md    | :rocket: |"
-echo "|------|----------------------------|-----------|------------|----------|"
+echo "|:hash:| Boréal :id:                | :link: | :id:.md    | :rocket: |"
+echo "|------|----------------------------|--------|------------|----------|"
 
 i=0
 s=0
