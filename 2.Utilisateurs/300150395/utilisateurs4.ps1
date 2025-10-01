@@ -1,22 +1,21 @@
-$Users = @(
-    @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Promo2025"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Promo2025"},
-    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Promo2025"},
-    @{Nom="Trache"; Prenom="Ismail"; Login="Tismail"; OU="Promo2025"},
-    @{Nom="Nemouss"; Prenom="Latif"; Login="Nlatif"; OU="Promo2025"}
-)
+# utilisateurs4.ps1
+# Mini-projet : création d'utilisateurs et groupe
 
-# Exporter les utilisateurs en CSV
-$Users | Export-Csv -Path "C:\Temp\UsersPromo2025.csv" -NoTypeInformation
+# Charger utilisateurs1.ps1 pour récupérer les utilisateurs
+. .\utilisateurs1.ps1
 
-# Importer depuis CSV
-$ImportedUsers = Import-Csv -Path "C:\Temp\UsersPromo2025.csv"
-
-# Créer un groupe Etudiants2025 et ajouter tous les utilisateurs importés
+# Créer un groupe "Etudiants2025"
 $Groups = @{
-    "Etudiants2025" = $ImportedUsers
+    "Etudiants2025" = @()
 }
 
-# Exporter la liste finale du groupe
+# Ajouter tous les utilisateurs de "Promo2025" dans le groupe
+$Groups["Etudiants2025"] += $Users | Where-Object {$_.OU -eq "Promo2025"}
+
+# Exporter la liste finale en CSV
 $Groups["Etudiants2025"] | Export-Csv -Path "C:\Temp\Etudiants2025.csv" -NoTypeInformation
+
+# Afficher les utilisateurs
+"Utilisateurs dans Etudiants2025 :"
+$Groups["Etudiants2025"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
 

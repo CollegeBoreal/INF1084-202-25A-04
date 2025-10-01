@@ -1,17 +1,16 @@
+# utilisateurs3.ps1
+# Exercice 3 : Lister tous les utilisateurs dont le prénom contient "a"
+
+# Liste des utilisateurs simulés
 $Users = @(
     @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
     @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
     @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
-    @{Nom="Trache"; Prenom="Ismail"; Login="Tismail"; OU="Stagiaires"},
-    @{Nom="Nemouss"; Prenom="Latif"; Login="Nlatif"; OU="Stagiaires"}
+    @{Nom="Moulin"; Prenom="Jean"; Login="jmoulin"; OU="Stagiaires"},
+    @{Nom="Martin"; Prenom="Paul"; Login="pmartin"; OU="Informatique"}
 )
 
-# Lister tous les utilisateurs dont le nom commence par "B"
-$Users | Where-Object {$_.Nom -like "B*"}
-
-# Lister tous les utilisateurs dans l'OU "Stagiaires"
-$Users | Where-Object {$_.OU -eq "Stagiaires"}
-
-# Lister tous les utilisateurs dont le prénom contient "a" (insensible à la casse)
-$Users | Where-Object {$_.Prenom -match "a"}
-
+# Filtrer et afficher les prénoms qui contiennent la lettre "a"
+$Users | Where-Object { $_.Prenom -match "a" } | ForEach-Object {
+    "$($_.Prenom) $($_.Nom)"
+}
