@@ -1,10 +1,6 @@
 # Plan De Cours
 
-<<<<<<< HEAD
 [:tada: Participation](.scripts/Participation.md)
-=======
-[:tada: Participation](.scripts/Participation.md) 
->>>>>>> bfd96a15e0e759c85b338713c638dfac8a07f550
 
 ## :a: Github
 
