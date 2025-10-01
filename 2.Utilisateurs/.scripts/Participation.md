@@ -1,4 +1,4 @@
-# Participation au 30-09-2025 21:45
+# Participation au 30-09-2025 22:01
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -43,7 +43,7 @@
 | 24 | [300151492](../300151492/README.md) [<image src='https://avatars0.githubusercontent.com/u/206000307?s=460&v=4' width=20 height=20></image>](https://github.com/hacen19) | :heavy_check_mark:| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 25 | [300151608](../300151608/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994734?s=460&v=4' width=20 height=20></image>](https://github.com/mohammedaiche434) | :x: | :x: | :x: | :x: | :x: |
 | 26 | [300151833](../300151833/README.md) [<image src='https://avatars0.githubusercontent.com/u/109877652?s=460&v=4' width=20 height=20></image>](https://github.com/raoufbrs15) | :x: | :x: | :x: | :x: | :x: |
-| 27 | [300151841](../300151841/README.md) [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | :heavy_check_mark:| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 27 | [300151841](../300151841/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | :heavy_check_mark:| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 28 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | :x: | :x: | :x: | :x: | :x: |
 | 29 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | :x: | :x: | :x: | :x: | :x: |
 | :abacus: |  $\frac{9}{30}$  =  30% | $\displaystyle\sum_{i=1}^{30} s_i$ = 9 |
