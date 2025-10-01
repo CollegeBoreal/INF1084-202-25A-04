@@ -1,17 +1,17 @@
-# utilisateurs4.ps1
-# Exercice 4 : Importer le fichier CSV et créer un groupe ImportGroupe avec les utilisateurs
+# utilisateurs4.ps1 corrigé
 
-# Importer les utilisateurs depuis le fichier CSV (dans le même dossier que le script)
-$ImportedUsers = Import-Csv -Path ".\UsersSimules.csv"
+# Charger les utilisateurs depuis le CSV
+$ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
 
-# Créer un groupe ImportGroupe
+# Créer le groupe Etudiants2025 et ajouter les utilisateurs
 $Groups = @{
-    "ImportGroupe" = @()
+    "Etudiants2025" = $ImportedUsers
 }
 
-# Ajouter tous les utilisateurs importés dans ImportGroupe
-$Groups["ImportGroupe"] += $ImportedUsers
+# Afficher les utilisateurs du groupe
+"Utilisateurs dans Etudiants2025 :"
+$Groups["Etudiants2025"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
 
-# Afficher les utilisateurs du groupe ImportGroupe
-"Utilisateurs dans ImportGroupe :"
-$Groups["ImportGroupe"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
+# Exporter le groupe final en CSV
+$Groups["Etudiants2025"] | Export-Csv -Path "C:\Temp\Etudiants2025.csv" -NoTypeInformation
+
