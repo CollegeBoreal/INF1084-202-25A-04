@@ -1,14 +1,11 @@
-# Créer une liste d'utilisateurs simulés
+﻿# Créer une liste d'utilisateurs simulés avec des objets personnalisés
 $Users = @(
     @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
     @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-<<<<<<< HEAD
-    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"}
-=======
     @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
     @{Nom="Ngue"; Prenom="Taylor"; Login="tngue"; OU="Etudiants"}
->>>>>>> ee92b32cee0fe572e7f1e5d711812d51f4401a21
 )
 
 # Afficher les utilisateurs
 $Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
+

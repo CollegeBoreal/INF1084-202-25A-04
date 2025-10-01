@@ -1,4 +1,10 @@
 <<<<<<< HEAD
+# Participation au 30-09-2025 22:58
+=======
+<<<<<<< HEAD
+# Participation au 30-09-2025 22:29
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 # Participation au 30-09-2025 14:48
@@ -11,6 +17,8 @@
 =======
 # Participation au 30-09-2025 23:21
 >>>>>>> 37273001ddbb0759300f9d8f14877133374fb983
+>>>>>>> 36b65a1e2f74c313af6b8d0d4a45179cb9369f16
+>>>>>>> e5ddeffb7ce65e68b9f047c7ebea6e9eb7f83454
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -60,6 +68,9 @@
 | 28 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | :x: | :x: | :x: | :x: | :x: |
 | 29 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | :x: | :x: | :x: | :x: | :x: |
 <<<<<<< HEAD
+| :abacus: |  $\frac{2}{30}$  =  6% | $\displaystyle\sum_{i=1}^{30} s_i$ = 2 |
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 | :abacus: |  $\frac{0}{30}$  =  0% | $\displaystyle\sum_{i=1}^{30} s_i$ = 0 |
 =======
@@ -101,3 +112,4 @@
 =======
 | :abacus: |  $\frac{3}{30}$  =  10% | $\displaystyle\sum_{i=1}^{30} s_i$ = 3 |
 >>>>>>> 37273001ddbb0759300f9d8f14877133374fb983
+>>>>>>> e5ddeffb7ce65e68b9f047c7ebea6e9eb7f83454

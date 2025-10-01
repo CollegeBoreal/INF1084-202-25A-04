@@ -2,6 +2,33 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+# Participation au 30-09-2025 22:58
+=======
+# Participation au 30-09-2025 23:03
+>>>>>>> cc153ed0c42f05a12e5e5d52647c990a139511d2
+=======
+# Participation au 30-09-2025 23:11
+>>>>>>> 41b06f7e0fbe3fb61265351f5a6ac665f8bfe9cd
+=======
+# Participation au 30-09-2025 23:12
+>>>>>>> 674faadc8e890191d8413b1635aa640d9f3696eb
+=======
+# Participation au 23-09-2025 23:54
+=======
+# Participation au 30-09-2025 22:28
+>>>>>>> b65b800db5d1d1e1c262f37f2199fe3e20896055
+=======
+<<<<<<< HEAD
+# Participation au 30-09-2025 23:11
+=======
+# Participation au 30-09-2025 23:21
+>>>>>>> 848a77da87fe35762c3411dfcd4c76bf08716b56
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> aa01374939b68227f71be419adb78be9dec952c2
 # Participation au 30-09-2025 20:01
 =======
 # Participation au 30-09-2025 19:01
@@ -12,9 +39,15 @@
 =======
 # Participation au 30-09-2025 23:21
 >>>>>>> 37273001ddbb0759300f9d8f14877133374fb983
+<<<<<<< HEAD
 =======
 # Participation au 30-09-2025 23:28
 >>>>>>> 8b2eb312 (Vérification de la participation)
+=======
+>>>>>>> ac229c4b274e062f0430679e7905accace76cc65
+>>>>>>> 36b65a1e2f74c313af6b8d0d4a45179cb9369f16
+>>>>>>> e5ddeffb7ce65e68b9f047c7ebea6e9eb7f83454
+>>>>>>> aa01374939b68227f71be419adb78be9dec952c2
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|

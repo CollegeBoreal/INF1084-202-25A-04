@@ -2,6 +2,33 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+# Participation au 30-09-2025 22:58
+=======
+# Participation au 30-09-2025 23:03
+>>>>>>> cc153ed0c42f05a12e5e5d52647c990a139511d2
+=======
+# Participation au 30-09-2025 23:11
+>>>>>>> 41b06f7e0fbe3fb61265351f5a6ac665f8bfe9cd
+=======
+# Participation au 30-09-2025 23:12
+>>>>>>> 674faadc8e890191d8413b1635aa640d9f3696eb
+=======
+# Participation au 23-09-2025 23:54
+=======
+# Participation au 30-09-2025 22:28
+>>>>>>> b65b800db5d1d1e1c262f37f2199fe3e20896055
+=======
+<<<<<<< HEAD
+# Participation au 30-09-2025 23:11
+=======
+# Participation au 30-09-2025 23:21
+>>>>>>> 848a77da87fe35762c3411dfcd4c76bf08716b56
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> aa01374939b68227f71be419adb78be9dec952c2
 # Participation au 30-09-2025 20:01
 =======
 # Participation au 30-09-2025 19:01
@@ -12,9 +39,15 @@
 =======
 # Participation au 30-09-2025 23:21
 >>>>>>> 37273001ddbb0759300f9d8f14877133374fb983
+<<<<<<< HEAD
 =======
 # Participation au 30-09-2025 23:28
 >>>>>>> 8b2eb312 (Vérification de la participation)
+=======
+>>>>>>> ac229c4b274e062f0430679e7905accace76cc65
+>>>>>>> 36b65a1e2f74c313af6b8d0d4a45179cb9369f16
+>>>>>>> e5ddeffb7ce65e68b9f047c7ebea6e9eb7f83454
+>>>>>>> aa01374939b68227f71be419adb78be9dec952c2
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -36,7 +69,7 @@
 | 0 | [300138205](../300138205/README.md) :point_right: [taylor123marc](https://github.com/taylor123marc) <image src='https://avatars0.githubusercontent.com/u/200685761?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 1 | [300141368](../300141368/README.md) :point_right: [daniella-diwa](https://github.com/daniella-diwa) <image src='https://avatars0.githubusercontent.com/u/132600996?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 2 | [300141429](../300141429/README.md) :point_right: [barrynetwork](https://github.com/barrynetwork) <image src='https://avatars0.githubusercontent.com/u/231347874?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
-| 3 | [300145940](../300145940/README.md) :point_right: [TasnimMarzouki](https://github.com/TasnimMarzouki) <image src='https://avatars0.githubusercontent.com/u/234069235?s=460&v=4' width=20 height=20></image> | :x: | :x: |
+| 3 | [300145940](../300145940/README.md) :point_right: [TasnimMarzouki](https://github.com/TasnimMarzouki) <image src='https://avatars0.githubusercontent.com/u/234069235?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :x: |
 | 4 | [300146545](../300146545/README.md) :point_right: [saoudialaoua](https://github.com/saoudialaoua) <image src='https://avatars0.githubusercontent.com/u/211592881?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 5 | [300146667](../300146667/README.md) :point_right: [djaberbenyezza](https://github.com/djaberbenyezza) <image src='https://avatars0.githubusercontent.com/u/205994773?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 6 | [300147629](../300147629/README.md) :point_right: [zoumarbalde-blip](https://github.com/zoumarbalde-blip) <image src='https://avatars0.githubusercontent.com/u/231347782?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
