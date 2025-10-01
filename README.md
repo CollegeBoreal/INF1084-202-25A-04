@@ -1,5 +1,3 @@
-#300146545
+# Dossier étudiant 300146545
+Scripts PowerShell pour utilisateurs simulés
 
-SAOUDI ALAOUA
-
-## Exercice :one:
