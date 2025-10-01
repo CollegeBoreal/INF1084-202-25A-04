@@ -1,21 +1,17 @@
-# utilisateurs4.ps1
-# Mini-projet : création d'utilisateurs et groupe
+# utilisateurs4.ps1 corrigé
 
-# Charger utilisateurs1.ps1 pour récupérer les utilisateurs
-. .\utilisateurs1.ps1
+# Charger les utilisateurs depuis le CSV
+$ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
 
-# Créer un groupe "Etudiants2025"
+# Créer le groupe Etudiants2025 et ajouter les utilisateurs
 $Groups = @{
-    "Etudiants2025" = @()
+    "Etudiants2025" = $ImportedUsers
 }
 
-# Ajouter tous les utilisateurs de "Promo2025" dans le groupe
-$Groups["Etudiants2025"] += $Users | Where-Object {$_.OU -eq "Promo2025"}
-
-# Exporter la liste finale en CSV
-$Groups["Etudiants2025"] | Export-Csv -Path "C:\Temp\Etudiants2025.csv" -NoTypeInformation
-
-# Afficher les utilisateurs
+# Afficher les utilisateurs du groupe
 "Utilisateurs dans Etudiants2025 :"
 $Groups["Etudiants2025"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
+
+# Exporter le groupe final en CSV
+$Groups["Etudiants2025"] | Export-Csv -Path "C:\Temp\Etudiants2025.csv" -NoTypeInformation
 
