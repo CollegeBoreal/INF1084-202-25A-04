@@ -82,4 +82,3 @@ $ImportedUsers
 2. Créer un groupe "Etudiants2025".
 3. Ajouter tous les utilisateurs de "Promo2025" dans le groupe.
 4. Exporter la liste finale du groupe en CSV.
-
