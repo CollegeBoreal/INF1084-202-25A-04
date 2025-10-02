@@ -12,7 +12,7 @@ INF1084 (202) - Introduction à l'administration des systèmes
 | :three: |15-sept| [1.SSH](1.SSH/.scripts/Participation.md)       | â Noter :x: |
 | :four:  |22-sept| [2.Utilisateurs](2.Utilisateurs/.scripts/Participation.md)       | â Noter :x: |
 
-# :books: Références
+# :books: References
 
 - [ ] Comment vérifier que le `commit` a été fait par le `CLI`
       
