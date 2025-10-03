@@ -1,12 +1,13 @@
 # utilisateurs1.ps1
 
-\System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable = @(
+$Users= @(
     @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
     @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"}
+    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
+@{Nom="Lamine"; Prenom="balde"; Login="lbalde"; OU="Stagiaires"},                                                    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"}
+@{Nom="Rafiou"; Prenom="Diallo"; Login="Rdiallo"; OU="Stagiaires"}
 )
 
-\System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable += @{Nom="Martin"; Prenom="Luc"; Login="lmartin"; OU="Stagiaires"}
-\System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable += @{Nom="Nguyen"; Prenom="Linh"; Login="lnguyen"; OU="Stagiaires"}
-
-\System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable | ForEach-Object { "\ \ - Login: \ - OU: \" }
+$Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
+                                    
+               

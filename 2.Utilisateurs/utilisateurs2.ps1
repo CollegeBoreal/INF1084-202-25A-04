@@ -1,8 +1,11 @@
 # utilisateurs2.ps1
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable = @(
+$Users = @(
     @{Nom="Durand"; Prenom="Emma"; Login="edurand"; OU="Stagiaires"},
     @{Nom="Moreau"; Prenom="Paul"; Login="pmoreau"; OU="Stagiaires"}
+@{Nom="Lionel"; Prenom="Messi"; Login="LM10"; OU="Stagiaires"},
+@{Nom="Cristiano"; Prenom="Ronaldo"; Login="CR7"; OU="Stagiaires"},
+@{Nom="Neymar"; Prenom="junior"; Login="NJ10"; OU="Stagiaires"}
 )
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable += @{Nom="Petit"; Prenom="Chloé"; Login="cpetit"; OU="Stagiaires"}
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable += @{Nom="Fournier"; Prenom="Antoine"; Login="afournier"; OU="Stagiaires"}
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable | ForEach-Object { "  - Login:  - OU: " }
+
+$Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
+
