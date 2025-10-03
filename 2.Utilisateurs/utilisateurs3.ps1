@@ -1,8 +1,20 @@
-# utilisateurs3.ps1
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable = @(
-    @{Nom="Gauthier"; Prenom="Nina"; Login="ngauthier"; OU="Stagiaires"},
-    @{Nom="Rousseau"; Prenom="Thomas"; Login="trousseau"; OU="Stagiaires"}
+# Définir la liste d'utilisateurs
+$Users = @(
+    @{ Name = "messi gui"; OU = "Stagiaires" },
+    @{ Name = "paul kile"; OU = "Professeurs" },
+    @{ Name = "lil baby"; OU = "Stagiaires" },
+    @{ Name = "Alain Dupont"; OU = "Administratif" }
 )
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable += @{Nom="Marchand"; Prenom="L�a"; Login="lmarchand"; OU="Stagiaires"}
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable += @{Nom="Blanc"; Prenom="Victor"; Login="vblanc"; OU="Stagiaires"}
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable | ForEach-Object { "  - Login:  - OU: " }
+
+# Lister tous les utilisateurs dont le prénom contient "a" (majuscule/minuscule)
+Write-Host "Utilisateurs dont le prénom contient 'a' (majuscule/minuscule) :"
+$Users | Where-Object { ($_.Name.Split(" ")[0]) -match "(?i)a" } | ForEach-Object {
+    Write-Host "- $($_.Name) ($($_.OU))"
+}
+
+# Lister tous les utilisateurs dans l'OU "Stagiaires"
+Write-Host "`nUtilisateurs dans l'OU Stagiaires :"
+$Users | Where-Object { $_.OU -eq "Stagiaires" } | ForEach-Object {
+    Write-Host "- $($_.Name)"
+}
+

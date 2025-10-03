@@ -1,8 +1,19 @@
-# utilisateurs4.ps1
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable = @(
-    @{Nom="Lefevre"; Prenom="Julien"; Login="jlefevre"; OU="Stagiaires"},
-    @{Nom="Garcia"; Prenom="Sofia"; Login="sgarcia"; OU="Stagiaires"}
+# Définir des utilisateurs comme objets
+$Users = @(   
+    [PSCustomObject]@{ Nom="Dupont"; Prenom="Alice"; OU="Stagiaires" }  
+    [PSCustomObject]@{ Nom="Diaks"; Prenom="rahima"; OU="Professeurs" } 
+    [PSCustomObject]@{ Nom="malembe"; Prenom="driss"; OU="Stagiaires" }
 )
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable += @{Nom="Cl�ment"; Prenom="Maxime"; Login="mlement"; OU="Stagiaires"}
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable += @{Nom="Fernandez"; Prenom="Ana"; Login="afernandez"; OU="Stagiaires"}
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable | ForEach-Object { "  - Login:  - OU: " }
+# Créer le dossier C:\Temp s'il n'existe pas
+if (-not (Test-Path -Path "C:\Temp")) { 
+   New-Item -ItemType Directory -Path "C:\Temp" | Out-Null
+}
+# Exporter les utilisateurs
+$Users | Export-Csv -Path "C:\Temp\UsersSimules.csv" -NoTypeInformation -Encoding UTF8
+# Importer les utilisateurs
+$ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
+# Afficher les utilisateurs importés
+Write-Host "Utilisateurs importés depuis le CSV :" -ForegroundColor Cyan
+
+$ImportedUsers | Format-Table -AutoSize
+
