@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 "IsReadOnly","IsFixedSize","IsSynchronized","Keys","Values","SyncRoot","Count"
 "False","False","False","System.Collections.Hashtable+KeyCollection","System.Collections.Hashtable+ValueCollection","System.Object","4"
 "False","False","False","System.Collections.Hashtable+KeyCollection","System.Collections.Hashtable+ValueCollection","System.Object","4"
 "False","False","False","System.Collections.Hashtable+KeyCollection","System.Collections.Hashtable+ValueCollection","System.Object","4"
 "False","False","False","System.Collections.Hashtable+KeyCollection","System.Collections.Hashtable+ValueCollection","System.Object","4"
 "False","False","False","System.Collections.Hashtable+KeyCollection","System.Collections.Hashtable+ValueCollection","System.Object","4"
+=======
+"IsReadOnly","IsFixedSize","IsSynchronized","Keys","Values","SyncRoot","Count"
+"False","False","False","System.Collections.Hashtable+KeyCollection","System.Collections.Hashtable+ValueCollection","System.Object","4"
+"False","False","False","System.Collections.Hashtable+KeyCollection","System.Collections.Hashtable+ValueCollection","System.Object","4"
+"False","False","False","System.Collections.Hashtable+KeyCollection","System.Collections.Hashtable+ValueCollection","System.Object","4"
+"False","False","False","System.Collections.Hashtable+KeyCollection","System.Collections.Hashtable+ValueCollection","System.Object","4"
+"False","False","False","System.Collections.Hashtable+KeyCollection","System.Collections.Hashtable+ValueCollection","System.Object","4"
+>>>>>>> e7ca14532d1dfd370d8e3994b5211a6e8e0899a2

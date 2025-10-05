@@ -6,7 +6,11 @@
 #
 # --------------------------------------
 
+<<<<<<< HEAD
 source ../.scripts/students.sh --source-only
+=======
+source .scripts/students.sh --source-only
+>>>>>>> e7ca14532d1dfd370d8e3994b5211a6e8e0899a2
    
 echo "# Participation au `date +"%d-%m-%Y %H:%M"`"
 echo ""
@@ -30,6 +34,7 @@ echo "| :x:                | Projet inexistant             |"
 echo ""
 echo "## :a: Présence"
 echo ""
+<<<<<<< HEAD
 echo "|:hash:| Boréal :id:                | README.md    | :one: | :two: | :three: | :four: |"
 echo "|------|----------------------------|--------------|-------|-------|---------|--------|"
 
@@ -66,6 +71,28 @@ do
     else
        echo ${KO}
     fi
+=======
+echo "|:hash:| Boréal :id:                | :id:.md    | :rocket: |"
+echo "|------|----------------------------|------------|----------|"
+
+i=0
+s=0 # Success
+
+for id in "${ETUDIANTS[@]}"
+do
+   URL="[${IDS[${i}]}](https://github.com/${IDS[${i}]}) <image src='https://avatars0.githubusercontent.com/u/${AVATARS[$i]}?s=460&v=4' width=20 height=20></image>"
+   FILE=${id}.md
+   OK="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | :heavy_check_mark: |"
+   KO_WEB="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :heavy_check_mark: | :x: |"
+   KO="| ${i} | [${id}](../${FILE}) :point_right: ${URL} | :x: |"
+   if [ -f "$FILE" ]; then
+       if git log --format=fuller -- ${FILE} | grep Author | grep -q "noreply"; then
+           echo ${KO_WEB}
+       else
+           echo ${OK}
+           let "s++"
+       fi
+>>>>>>> e7ca14532d1dfd370d8e3994b5211a6e8e0899a2
    else
        echo ${KO}
    fi
@@ -73,6 +100,11 @@ do
    COUNT="\$\\frac{${s}}{${i}}$"
    STATS=$(echo "$s*100/$i" | bc)
    SUM="$\displaystyle\sum_{i=1}^{${i}} s_i$"
+<<<<<<< HEAD
  done
  
+=======
+done
+
+>>>>>>> e7ca14532d1dfd370d8e3994b5211a6e8e0899a2
 echo "| :abacus: | " ${COUNT} " = " ${STATS}% "|" ${SUM} = ${s} "|"
