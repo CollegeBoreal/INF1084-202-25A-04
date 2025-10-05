@@ -1,4 +1,4 @@
-. ./utilisateurs1.ps1   # dot-sourcing, runs in current scope
+. ./Utilisateur1.ps1   # dot-sourcing, runs in current scope
 
 # Créer des groupes
 $Groups = @{
