@@ -8,3 +8,4 @@
 - Création de groupes et ajout des utilisateurs
 - Requêtes et filtres
 - Export CSV optionnel
+TP Active Directory simulé – 300150485
