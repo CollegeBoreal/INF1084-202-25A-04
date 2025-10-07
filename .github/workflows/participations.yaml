@@ -33,9 +33,16 @@ jobs:
           cd ..
           ##
           ## Evaluating chapter 2.Utilisateurs Participation
-          ##
+          ## 
           echo "Evaluating chapter 2.Utilisateurs Participation"
           cd 2.Utilisateurs
+          bash .scripts/run.sh
+          cd ..
+          ##
+          ## Evaluating chapter 3.VMs Participation
+          ## 
+          echo "Evaluating chapter 3.VMs Participation"
+          cd 3.VMs
           bash .scripts/run.sh
           cd ..
 
