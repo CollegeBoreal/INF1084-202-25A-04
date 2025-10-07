@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# Usage: ./protect-main.sh <OWNER> <REPO> <TA_TEAM>
-# Example: ./protect-main.sh collegeboreal INF1084-202-25A-04 lab-assistants
+set -e
 
 OWNER=$1
 REPO=$2
@@ -18,15 +17,9 @@ gh api \
   repos/$OWNER/$REPO/branches/main/protection \
   --input <(cat <<EOF
 {
-  "required_status_checks": {
-    "strict": true,
-    "contexts": []
-  },
+  "required_status_checks": null,
+  "required_pull_request_reviews": null,
   "enforce_admins": true,
-  "required_pull_request_reviews": {
-    "dismiss_stale_reviews": true,
-    "required_approving_review_count": 1
-  },
   "restrictions": {
     "users": [],
     "teams": ["$TA_TEAM"],
