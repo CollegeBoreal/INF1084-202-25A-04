@@ -1,0 +1,58 @@
+name: Participations
+
+on: [push]
+
+jobs:
+  presence:
+    name: presence de fichiers pour la participation
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v1
+    
+      - shell: bash
+        run: |
+          ##
+          ## Evaluating chapter 0.PlanDeCours
+          ## 
+          echo "Evaluating chapter 0.PlanDeCours Participation"
+          cd 0.PlanDeCours
+          bash .scripts/run.sh
+          cd ..
+          ##
+          ## Evaluating manual githug commit/push
+          ## 
+          echo "Evaluating git commands Participation"
+          bash .scripts/run.sh
+          ##
+          ## Evaluating chapter 1.SSH Participation
+          ## 
+          echo "Evaluating chapter 1.SSH Participation"
+          cd 1.SSH
+          bash .scripts/run.sh
+          cd ..
+          ##
+          ## Evaluating chapter 2.Utilisateurs Participation
+          ## 
+          echo "Evaluating chapter 2.Utilisateurs Participation"
+          cd 2.Utilisateurs
+          bash .scripts/run.sh
+          cd ..
+          ##
+          ## Evaluating chapter 3.VMs Participation
+          ## 
+          echo "Evaluating chapter 3.VMs Participation"
+          cd 3.VMs
+          bash .scripts/run.sh
+          cd ..
+
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Vérification de la participation" -a
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
