@@ -1,7 +1,8 @@
 # 300150395
 
+```Install-WindowsFeature AD-Domain-Services -IncludeManagementTools```
+
 <details>
-  
 ```powershell
 Success Restart Needed Exit Code      Feature Result
 ------- -------------- ---------      --------------
@@ -9,10 +10,11 @@ True    No             Success        {Active Directory Domain Services, Group P
 ```
 </details>
 
-PS C:\Users\Administrator>
-PS C:\Users\Administrator> Get-ADDomain
->>
+```PS C:\Users\Administrator> Get-ADDomain```
+```PS C:\Users\Administrator> Get-ADForest```
 
+<details>
+```powershell
 
 AllowedDNSSuffixes                 : {}
 ChildDomains                       : {}
@@ -50,13 +52,7 @@ SystemsContainer                   : CN=System,DC=DC300150395-00,DC=local
 UsersContainer                     : CN=Users,DC=DC300150395-00,DC=local
 
 
-
-PS C:\Users\Administrator>
-PS C:\Users\Administrator>
-PS C:\Users\Administrator> Get-ADForest
->>
-
-
+---------------------------------------------------------------------------------------------
 ApplicationPartitions : {DC=ForestDnsZones,DC=DC300150395-00,DC=local,
                         DC=DomainDnsZones,DC=DC300150395-00,DC=local}
 CrossForestReferences : {}
@@ -72,8 +68,4 @@ Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
 UPNSuffixes           : {}
 
-
-
-PS C:\Users\Administrator>
-PS C:\Users\Administrator>
-PS C:\Users\Administrator>
+</details>
