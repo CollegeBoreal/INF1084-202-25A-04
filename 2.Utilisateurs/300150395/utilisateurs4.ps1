@@ -1,31 +1,18 @@
-<<<<<<< HEAD
-# utilisateurs4.ps1 corrigé
-
-# Charger les utilisateurs depuis le CSV
-$ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
-
-# Créer le groupe Etudiants2025 et ajouter les utilisateurs
-$Groups = @{
-    "Etudiants2025" = $ImportedUsers
-}
-
-# Afficher les utilisateurs du groupe
-"Utilisateurs dans Etudiants2025 :"
-$Groups["Etudiants2025"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
-
-# Exporter le groupe final en CSV
-$Groups["Etudiants2025"] | Export-Csv -Path "C:\Temp\Etudiants2025.csv" -NoTypeInformation
-
-=======
 # utilisateurs4.ps1
+# Exercice 4 : Importer le fichier CSV et créer un groupe ImportGroupe avec les utilisateurs
 # -----------------------------
 # Charger les utilisateurs simulés
 # -----------------------------
 . ".\utilisateurs1.ps1"
 
+# Importer les utilisateurs depuis le fichier CSV (dans le même dossier que le script)
+$ImportedUsers = Import-Csv -Path ".\UsersSimules.csv"
 # Convertir les hash tables en objets pour l'export
 $UsersObj = $Users | ForEach-Object { [PSCustomObject]$_ }
 
+# Créer un groupe ImportGroupe
+$Groups = @{
+    "ImportGroupe" = @()
 # -----------------------------
 # Définir le chemin CSV dans le même dossier que le script
 # -----------------------------
@@ -44,14 +31,18 @@ $ImportedUsers | ForEach-Object {
     Write-Host "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)"
 }
 
+# Ajouter tous les utilisateurs importés dans ImportGroupe
+$Groups["ImportGroupe"] += $ImportedUsers
 # -----------------------------
 # Créer un groupe "ImportGroupe" et y ajouter tous les utilisateurs importés
 # -----------------------------
 $ImportGroupe = @()
 $ImportedUsers | ForEach-Object { $ImportGroupe += $_ }
 
+# Afficher les utilisateurs du groupe ImportGroupe
+"Utilisateurs dans ImportGroupe :"
+$Groups["ImportGroupe"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
 Write-Host "`n--- Contenu du groupe ImportGroupe ---"
 $ImportGroupe | ForEach-Object {
     Write-Host "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)"
 }
->>>>>>> 54cd08d30565e31023ddc67147276e79a0affa74
