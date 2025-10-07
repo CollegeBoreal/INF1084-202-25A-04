@@ -334,12 +334,79 @@ echo "✅ main branch protected. Only team $TA_TEAM can push/merge."
 chmod +x protect-main.sh
 ./protect-main.sh <OWNER> <REPO> TAs
 ```
+<details>
+
+```powershell
+🔒 Protecting main branch in collegeboreal/INF1084-202-25A-04 ...
+{
+  "url": "https://api.github.com/repos/CollegeBoreal/INF1084-202-25A-04/branches/main/protection",
+  "required_status_checks": {
+    "url": "https://api.github.com/repos/CollegeBoreal/INF1084-202-25A-04/branches/main/protection/required_status_checks",
+    "strict": true,
+    "contexts": [],
+    "contexts_url": "https://api.github.com/repos/CollegeBoreal/INF1084-202-25A-04/branches/main/protection/required_status_checks/contexts",
+    "checks": []
+  },
+  "restrictions": {
+    "url": "https://api.github.com/repos/CollegeBoreal/INF1084-202-25A-04/branches/main/protection/restrictions",
+    "users_url": "https://api.github.com/repos/CollegeBoreal/INF1084-202-25A-04/branches/main/protection/restrictions/users",
+    "teams_url": "https://api.github.com/repos/CollegeBoreal/INF1084-202-25A-04/branches/main/protection/restrictions/teams",
+    "apps_url": "https://api.github.com/repos/CollegeBoreal/INF1084-202-25A-04/branches/main/protection/restrictions/apps",
+    "users": [],
+    "teams": [],
+    "apps": []
+  },
+  "required_pull_request_reviews": {
+    "url": "https://api.github.com/repos/CollegeBoreal/INF1084-202-25A-04/branches/main/protection/required_pull_request_reviews",
+    "dismiss_stale_reviews": true,
+    "require_code_owner_reviews": false,
+    "require_last_push_approval": false,
+    "required_approving_review_count": 1
+  },
+  "required_signatures": {
+    "url": "https://api.github.com/repos/CollegeBoreal/INF1084-202-25A-04/branches/main/protection/required_signatures",
+    "enabled": false
+  },
+  "enforce_admins": {
+    "url": "https://api.github.com/repos/CollegeBoreal/INF1084-202-25A-04/branches/main/protection/enforce_admins",
+    "enabled": true
+  },
+  "required_linear_history": {
+    "enabled": false
+  },
+  "allow_force_pushes": {
+    "enabled": false
+  },
+  "allow_deletions": {
+    "enabled": false
+  },
+  "block_creations": {
+    "enabled": false
+  },
+  "required_conversation_resolution": {
+    "enabled": false
+  },
+  "lock_branch": {
+    "enabled": false
+  },
+  "allow_fork_syncing": {
+    "enabled": false
+  }
+}
+✅ main branch protected. Only team lab-assistants can push/merge.
+```
+  
+</details>
 
 Replace:
 
 * `<OWNER>` → your org name (e.g., `UniversityDept`)
 * `<REPO>` → the repo students use (e.g., `assignment-1`)
 * `TAs` → the GitHub team for instructors (must already exist in your org)
+
+
+
+
 
 ---
 
