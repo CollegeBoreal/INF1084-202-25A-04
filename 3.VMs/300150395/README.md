@@ -1,19 +1,25 @@
 # 300150395
 
-```Install-WindowsFeature AD-Domain-Services -IncludeManagementTools```
+
+```powershell
+Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+```
 
 <details>
+  
 ```powershell
 Success Restart Needed Exit Code      Feature Result
 ------- -------------- ---------      --------------
 True    No             Success        {Active Directory Domain Services, Group P...
 ```
+
 </details>
 
 ```PS C:\Users\Administrator> Get-ADDomain```
 ```PS C:\Users\Administrator> Get-ADForest```
 
 <details>
+  
 ```powershell
 
 AllowedDNSSuffixes                 : {}
@@ -67,5 +73,6 @@ SchemaMaster          : DC300150395.DC300150395-00.local
 Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
 UPNSuffixes           : {}
+```
 
 </details>
