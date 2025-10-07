@@ -178,6 +178,24 @@ Then authenticate:
 ```bash
 gh auth login
 ```
+<details>
+
+```powershell
+? Where do you use GitHub? GitHub.com
+? What is your preferred protocol for Git operations on this host? SSH
+? Upload your SSH public key to your GitHub account? Skip
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: 9A99-9A99
+Press Enter to open https://github.com/login/device in your browser... 
+✓ Authentication complete.
+- gh config set -h github.com git_protocol ssh
+✓ Configured git protocol
+✓ Logged in as b300098957
+```
+
+  
+</details>
 
 ---
 
