@@ -25,34 +25,26 @@ jobs:
           echo "Evaluating git commands Participation"
           bash .scripts/run.sh
           ##
-<<<<<<< HEAD
-          ## Evaluating chapter 1.SSH
-=======
           ## Evaluating chapter 1.SSH Participation
->>>>>>> bfd96a15e0e759c85b338713c638dfac8a07f550
           ## 
           echo "Evaluating chapter 1.SSH Participation"
           cd 1.SSH
           bash .scripts/run.sh
           cd ..
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
           ##
           ## Evaluating chapter 2.Utilisateurs Participation
-=======
-          ##
-          ## Evaluating chapter 2.Utilisateurs
->>>>>>> ee92b32cee0fe572e7f1e5d711812d51f4401a21
           ## 
           echo "Evaluating chapter 2.Utilisateurs Participation"
           cd 2.Utilisateurs
           bash .scripts/run.sh
           cd ..
-<<<<<<< HEAD
->>>>>>> bfd96a15e0e759c85b338713c638dfac8a07f550
-=======
->>>>>>> ee92b32cee0fe572e7f1e5d711812d51f4401a21
+          ##
+          ## Evaluating chapter 3.VMs Participation
+          ## 
+          echo "Evaluating chapter 3.VMs Participation"
+          cd 3.VMs
+          bash .scripts/run.sh
+          cd ..
 
       - name: Commit files
         run: |
