@@ -21,7 +21,7 @@ Commande PowerShell :
 
 Rename-Computer -NewName "DC300151841" -Restart
 
-📸 Capture : serveur renommé et redémarré avec succès
+📸 Capture :(images/2.png)
 
 🧩 2. Installation du rôle AD DS
 
@@ -46,7 +46,7 @@ Install-ADDSForest `
 
 
 ✅ Résultat : le serveur est devenu contrôleur de domaine
-📸 Captures : étapes de la création du domaine et redémarrage automatique
+📸 Captures :(images/3.png)
 
 🧩 4. Vérification du domaine et de la forêt
 
@@ -63,7 +63,7 @@ Domaine actif → DC300151841-00.local
 Forêt créée → DC300151841-00.local
 
 Serveur → DC300151841
-📸 Captures : résultats des commandes Get-ADDomain et Get-ADForest
+📸 Captures :(images/4.png)
 
 🌐 Informations système
 
@@ -76,7 +76,7 @@ Domain : DC300151841-00.local
 Firewall : Domain: On
 
 Remote Desktop : Enabled
-📸 Capture : propriétés du serveur local après promotion en DC
+📸 Capture :(images/5.png)
 
 🧩 5. (Optionnel) Tests supplémentaires
 
@@ -87,8 +87,8 @@ $pwd = ConvertTo-SecureString "Password123!" -AsPlainText -Force
 New-ADUser -Name "test1" -SamAccountName "test1" -AccountPassword $pwd -Enabled $true
 
 
-📸 Capture possible : OU et utilisateur créés dans “Active Directory Users and Computers”
-
+📸 Capture possible :(images/6.png)
+(images/7.png)
 ✅ Résumé du TP
 Étape	Description	Statut
 1	Renommage du serveur	✅
