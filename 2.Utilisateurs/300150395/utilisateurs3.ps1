@@ -1,17 +1,30 @@
-$Users = @(
-    @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
-    @{Nom="Trache"; Prenom="Ismail"; Login="Tismail"; OU="Stagiaires"},
-    @{Nom="Nemouss"; Prenom="Latif"; Login="Nlatif"; OU="Stagiaires"}
-)
+# utilisateurs3.ps1
+﻿# Charger les utilisateurs depuis utilisateurs1.ps1
+. ".\utilisateurs1.ps1"
 
-# Lister tous les utilisateurs dont le nom commence par "B"
-$Users | Where-Object {$_.Nom -like "B*"}
+# Convertir les hash tables en objets pour pouvoir filtrer
+$UsersObj = $Users | ForEach-Object { [PSCustomObject]$_ }
 
-# Lister tous les utilisateurs dans l'OU "Stagiaires"
-$Users | Where-Object {$_.OU -eq "Stagiaires"}
+# -----------------------------
+# Exercice 1 : Nom commence par "B"
+# -----------------------------
+Write-Host "`n--- Utilisateurs dont le nom commence par 'B' ---"
+$UsersObj | Where-Object { $_.Nom -like "B*" } | ForEach-Object {
+    Write-Host "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)"
+}
 
-# Lister tous les utilisateurs dont le prénom contient "a" (insensible à la casse)
-$Users | Where-Object {$_.Prenom -match "a"}
+# -----------------------------
+# Exercice 2 : OU = "Stagiaires"
+# -----------------------------
+Write-Host "`n--- Utilisateurs dans l'OU 'Stagiaires' ---"
+$UsersObj | Where-Object { $_.OU -eq "Stagiaires" } | ForEach-Object {
+    Write-Host "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)"
+}
 
+# -----------------------------
+# Exercice 3 : Prénom contient "a" (insensible à la casse)
+# -----------------------------
+Write-Host "`n--- Utilisateurs dont le prénom contient 'a' ---"
+$UsersObj | Where-Object { $_.Prenom -match "(?i)a" } | ForEach-Object {
+    Write-Host "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)"
+}
