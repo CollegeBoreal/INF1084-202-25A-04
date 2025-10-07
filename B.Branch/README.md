@@ -48,7 +48,9 @@ git commit -m ":star: mon message"
 git push
 ```
 
-## :ab: Pour mettre à jour l'énoncé provenant de la branche principale `main` et récupérer les modifications du cours:
+## :man_teacher: Mettre à jour l'énoncé
+
+Pour mettre à jour l'énoncé provenant de la branche principale `main` et récupérer les modifications du cours proposé par le professeur:
 
 ```sh
 git pull --no-edit
