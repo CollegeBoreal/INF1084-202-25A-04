@@ -168,11 +168,9 @@ zsh completions have been installed to:
   
 </details>
 
+```sh
 # Ubuntu/Debian
 sudo apt install gh
-
-# Windows
-winget install --id GitHub.cli
 ```
 
 Then authenticate:
