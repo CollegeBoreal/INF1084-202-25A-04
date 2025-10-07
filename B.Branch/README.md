@@ -33,7 +33,7 @@ nothing to commit, working tree clean
 * :bulb: avant de soumettre, rajouter le code à la branche `git add .`, mettre en scene `git commit -m "mon message"`
 
 ```sh
-git push origin 300098957
+git push --set-upstream origin 300098957
 ```
 
 <hr>
@@ -48,10 +48,10 @@ git commit -m ":star: mon message"
 git push
 ```
 
-## :ab: Pour mettre à jour l'énoncé provenant de la branche principale `main` et récupérer le modifications du cours:
+## :ab: Pour mettre à jour l'énoncé provenant de la branche principale `main` et récupérer les modifications du cours:
 
 ```sh
 git pull --no-edit
-git merge --no-edit
+git merge --no-edit origin/main 
 ```
 
