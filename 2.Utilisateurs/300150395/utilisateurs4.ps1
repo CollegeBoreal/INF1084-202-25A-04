@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+# utilisateurs4.ps1 corrigé
+
+# Charger les utilisateurs depuis le CSV
+$ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
+
+# Créer le groupe Etudiants2025 et ajouter les utilisateurs
+$Groups = @{
+    "Etudiants2025" = $ImportedUsers
+}
+
+# Afficher les utilisateurs du groupe
+"Utilisateurs dans Etudiants2025 :"
+$Groups["Etudiants2025"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
+
+# Exporter le groupe final en CSV
+$Groups["Etudiants2025"] | Export-Csv -Path "C:\Temp\Etudiants2025.csv" -NoTypeInformation
+
+=======
 # utilisateurs4.ps1
 # -----------------------------
 # Charger les utilisateurs simulés
@@ -35,3 +54,4 @@ Write-Host "`n--- Contenu du groupe ImportGroupe ---"
 $ImportGroupe | ForEach-Object {
     Write-Host "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)"
 }
+>>>>>>> 54cd08d30565e31023ddc67147276e79a0affa74

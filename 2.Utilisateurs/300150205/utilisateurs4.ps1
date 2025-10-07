@@ -1,3 +1,26 @@
+<<<<<<< HEAD:2.Utilisateurs/300098957/utilisateurs4.ps1
+# Définir des utilisateurs comme objets
+$Users = @(
+    [PSCustomObject]@{ Nom="Dupont"; Prenom="Alice"; OU="Stagiaires" }
+    [PSCustomObject]@{ Nom="Diallo"; Prenom="Ibrahima"; OU="Professeurs" }
+    [PSCustomObject]@{ Nom="Bah"; Prenom="Thierno"; OU="Stagiaires" }
+)
+
+# Créer le dossier C:\Temp s'il n'existe pas
+if (-not (Test-Path -Path "C:\Temp")) {
+    New-Item -ItemType Directory -Path "C:\Temp" | Out-Null
+}
+
+# Exporter les utilisateurs
+$Users | Export-Csv -Path "C:\Temp\UsersSimules.csv" -NoTypeInformation -Encoding UTF8
+
+# Importer les utilisateurs
+$ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
+
+# Afficher les utilisateurs importés
+Write-Host "Utilisateurs importés depuis le CSV :" -ForegroundColor Cyan
+$ImportedUsers | Format-Table -AutoSize
+=======
 # -----------------------------
 # Charger les utilisateurs simulés
 # -----------------------------
@@ -35,3 +58,4 @@ $ImportGroupe | ForEach-Object {
     Write-Host "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)"
 }
 
+>>>>>>> c5f78d8119831c7a622b6367b6f0ed31790f6937:2.Utilisateurs/300150205/utilisateurs4.ps1

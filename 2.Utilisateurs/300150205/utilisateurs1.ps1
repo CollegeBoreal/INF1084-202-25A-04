@@ -3,7 +3,13 @@ $Users = @(
     @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
     @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
     @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
-    @{Nom="Ngue"; Prenom="Taylor"; Login="tngue"; OU="Etudiants"}
+
+    @{Nom="Ngue"; Prenom="Taylor"; Login="tngue"; OU="Etudiants"},  
+    @{Nom="Nguetsa"; Prenom="joyce"; Login="joyngue"; OU="Etudiants"}
+
+    @{Nom="Martin"; Prenom="Sophie"; Login="MSophie"; OU="Etudiants"},
+    @{Nom="Dubois"; Prenom="Lucas"; Login="DLucas"; OU="Stagiaires"}
+
 )
 
 # Afficher les utilisateurs
