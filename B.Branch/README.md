@@ -32,8 +32,8 @@ nothing to commit, working tree clean
 
 * :bulb: avant de soumettre, rajouter le code à la branche `git add .`, mettre en scene `git commit -m "mon message"`
 
-```
-$ git push origin 300098957
+```sh
+git push origin 300098957
 ```
 
 <hr>
