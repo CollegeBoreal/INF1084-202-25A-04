@@ -197,7 +197,7 @@ Press Enter to open https://github.com/login/device in your browser...
   
 </details>
 
-<img src=images/gh-auth-login.png width='50%' height='50%' > </img>
+<img src=images/gh-auth-login.png width='30%' height='30%' > </img>
 
 ---
 
