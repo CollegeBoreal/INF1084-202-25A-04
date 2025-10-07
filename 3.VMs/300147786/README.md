@@ -1,4 +1,5 @@
 # 300147786
+# Voici la commande: Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 
 <details>
 
@@ -8,7 +9,8 @@ DisplayName                      Name               InstallState
 Active Directory Domain Services AD-Domain-Services    Installed
 '''
 </details>
-# vérification
+
+# vérification 
 <details>
 '''powershell
 
