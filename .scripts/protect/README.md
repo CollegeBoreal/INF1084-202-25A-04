@@ -197,6 +197,8 @@ Press Enter to open https://github.com/login/device in your browser...
   
 </details>
 
+<img src=images/gh-auth-login.png width='50%' height='50%' > </img>
+
 ---
 
 ## 2. Protect `main` (block students, only TAs/instructors can push)
