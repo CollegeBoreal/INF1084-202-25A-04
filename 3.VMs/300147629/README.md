@@ -13,6 +13,8 @@ True    No             Success        {Active Directory Domain Services, Group P
 
 # verification de l'installations
 
+<details>
+  
 ---powershell
 
 PS C:\Users\Administrator> Get-ADDomain                                                                                 >> Get-ADForest                                                                                                         
@@ -64,3 +66,5 @@ SchemaMaster          : DC300147629.DC300147629-00.local
 Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
 UPNSuffixes           : {}
+
+</details>
