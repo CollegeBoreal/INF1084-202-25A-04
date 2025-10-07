@@ -1,8 +1,24 @@
-# utilisateurs2.ps1
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable = @(
-    @{Nom="Durand"; Prenom="Emma"; Login="edurand"; OU="Stagiaires"},
-    @{Nom="Moreau"; Prenom="Paul"; Login="pmoreau"; OU="Stagiaires"}
+# Simuler une liste d'utilisateurs avec leurs informations (nom + OU)
+$Users = @( 
+   @{ Name = "messi gui"; OU = "Stagiaires" }, 
+   @{ Name = "paul kile"; OU = "Professeurs" }, 
+   @{ Name = "lil baby"; OU = "Stagiaires" },
+   @{ Name = "Minue gnue"; OU = "Administratif" }
 )
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable += @{Nom="Petit"; Prenom="Chloé"; Login="cpetit"; OU="Stagiaires"}
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable += @{Nom="Fournier"; Prenom="Antoine"; Login="afournier"; OU="Stagiaires"}
-System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable System.Collections.Hashtable | ForEach-Object { "  - Login:  - OU: " }
+
+# CrÃ©er des groupes
+$Groups = @{
+    "GroupeFormation" = @()
+    "ProfesseursAD"   = @()
+}
+# Ajouter les utilisateurs dont l'OU est "Stagiaires" dans GroupeFormation
+foreach ($user in $Users) { 
+   if ($user.OU -eq "Stagiaires") {   
+     $Groups["GroupeFormation"] += $user.Name 
+   }
+}
+# Afficher les membres du groupe GroupeFormation
+Write-Host "Membres du groupe GroupeFormation :"
+$Groups["GroupeFormation"] | ForEach-Object { 
+ Write-Host "- $_"
+}
