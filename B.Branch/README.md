@@ -30,7 +30,7 @@ nothing to commit, working tree clean
 
 :round_pushpin: Soumettre les modifications de ta branche
 
-* :bulb: avant de soumettre, rajouter le code à la branche `git add .`, mettre en scene `git commit -m "mon message"`
+:bulb: avant de soumettre, rajouter le code à la branche `git add .`, mettre en scene `git commit -m "mon message"`
 
 ```sh
 git push --set-upstream origin 300098957
