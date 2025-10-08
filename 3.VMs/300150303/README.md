@@ -1,7 +1,9 @@
 # 300150303
 
 <details>
+ 
   ```powershell
+  
   AllowedDNSSuffixes                 : {}
 ChildDomains                       : {}
 ComputersContainer                 : CN=Computers,DC=DC300150303-00,DC=local
