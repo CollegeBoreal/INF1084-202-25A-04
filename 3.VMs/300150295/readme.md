@@ -102,4 +102,4 @@ UPNSuffixes : {}
 
 ---
 
-Ce README a été généré à partir de la sortie PowerShell `Get-ADDomain` et `Get-ADForest`.
+
