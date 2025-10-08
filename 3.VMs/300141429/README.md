@@ -8,6 +8,7 @@ Success Restart Needed Exit Code      Feature Result
 True    No             Success        {Active Directory Domain Services, Group P...
   ```
 </details>
+
 ```powershell
 #Verification de l'installation 
 commande de creation du domaine 
@@ -23,12 +24,8 @@ Install-ADDSForest `
 Get-ADForest
 <details>
   commande de verification:
-  Install-ADDSForest `
-    -DomainName "DC999999999-00.local" `
-    -DomainNetbiosName "DC999999999-00" `
-    -InstallDns:$true `
-    -SafeModeAdministratorPassword (ConvertTo-SecureString "MotDePasseDSRM123!" -AsPlainText -Force) `
-    -Forceqw1w12w
+  Get-ADDomain
+Get-ADForest
 ```powershell
 PS C:\Users\Administrator> Get-ADDomain                                                                                 >> Get-ADForest                                                                                                         
 
