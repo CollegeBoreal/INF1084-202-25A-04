@@ -2,8 +2,11 @@
 
 <details>
 
+# voici la commande de l’installations
+Install-WindowsFeature AD-Domain-Services –IncludeManagementTools
 
----powershell
+
+```powershell
 Success Restart Needed Exit Code      Feature Result
 ------- -------------- ---------      --------------
 True    No             Success        {Active Directory Domain Services, Group P...
@@ -14,8 +17,13 @@ True    No             Success        {Active Directory Domain Services, Group P
 # verification de l'installations
 
 <details>
-  
----powershell
+
+  #voici la commande pour verifier
+
+Get-ADDomain
+Get-ADForest
+
+```powershell
 
 PS C:\Users\Administrator> Get-ADDomain                                                                                 >> Get-ADForest                                                                                                         
 
