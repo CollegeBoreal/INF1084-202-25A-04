@@ -16,10 +16,13 @@ True    No             Success        {Active Directory Domain Services, Group P
 
 </details>
 
-<details>
-
+```powershell
 Get-ADDomain
 Get-ADForest
+```
+
+<details>
+
 
 ``` powershell
 
