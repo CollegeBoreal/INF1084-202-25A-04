@@ -83,6 +83,9 @@ UPNSuffixes           : {}
 
 </details>
 
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="https://github.com/user-attachments/assets/396db76c-fe6e-4765-9b88-3ba75f2c4b00" />
+
+
 <img src="images/Screenshot-2025-10-07-203028.png" alt="Ma photo" width="300" height="400"/>
 
 <img src="images/Screenshot-2025-10-07-203119.png" alt="Ma photo" width="300" height="400"/>
