@@ -10,6 +10,7 @@ Install-WindowsFeature AD-Domain-Services –IncludeManagementTools
 Success Restart Needed Exit Code      Feature Result
 ------- -------------- ---------      --------------
 True    No             Success        {Active Directory Domain Services, Group P...
+```
 
 </details>
 
@@ -74,5 +75,6 @@ SchemaMaster          : DC300147629.DC300147629-00.local
 Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
 UPNSuffixes           : {}
+```
 
 </details>
