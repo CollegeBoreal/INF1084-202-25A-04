@@ -3,16 +3,18 @@
 
 <details>
 
-'''powershell
+```powershell
 DisplayName                      Name               InstallState
 -----------                      ----               ------------
 Active Directory Domain Services AD-Domain-Services    Installed
 '''
 </details>
 
-# vérification 
+# vérification de l'installation commandes:
+# Get-ADDomain
+# Get-ADForest
 <details>
-'''powershell
+```powershell
 
 
 ApplicationPartitions : {DC=DomainDnsZones,DC=DC999999999-00,DC=local, DC=ForestDnsZones,DC=DC999999999-00,DC=local}    CrossForestReferences : {}                                                                                              DomainNamingMaster    : DC300147786.DC999999999-00.local                                                                Domains               : {DC999999999-00.local}                                                                          ForestMode            : Windows2016Forest                                                                               GlobalCatalogs        : {DC300147786.DC999999999-00.local}
@@ -22,4 +24,6 @@ RootDomain            : DC999999999-00.local
 SchemaMaster          : DC300147786.DC999999999-00.local
 Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}                                                                                              UPNSuffixes           : {} 
+
+
 </details>
