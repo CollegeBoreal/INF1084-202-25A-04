@@ -1,6 +1,10 @@
 # 300141429 Installation ADDS
 
-commande Rename-Computer -NewName "DC300141429" -Restart
+
+```powershell
+Rename-Computer -NewName "DC300141429" -Restart
+```
+
 <details>
   
 ```powershell
