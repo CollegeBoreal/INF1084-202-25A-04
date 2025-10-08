@@ -1,48 +1,23 @@
 # utilisateurs4.ps1
-# Exercice 4 : Importer le fichier CSV et créer un groupe ImportGroupe avec les utilisateurs
-# -----------------------------
-# Charger les utilisateurs simulés
-# -----------------------------
-. ".\utilisateurs1.ps1"
+# Mini-projet : création du groupe Etudiants2025 à partir des utilisateurs de Promo2025
 
-# Importer les utilisateurs depuis le fichier CSV (dans le même dossier que le script)
-$ImportedUsers = Import-Csv -Path ".\UsersSimules.csv"
-# Convertir les hash tables en objets pour l'export
-$UsersObj = $Users | ForEach-Object { [PSCustomObject]$_ }
+# Importer les utilisateurs
+$Users = Import-Csv -Path "C:\Temp\UsersSimules.csv"
 
-# Créer un groupe ImportGroupe
-$Groups = @{
-    "ImportGroupe" = @()
-# -----------------------------
-# Définir le chemin CSV dans le même dossier que le script
-# -----------------------------
-$CsvPath = Join-Path -Path $PSScriptRoot -ChildPath "creerCSV.csv"
+# Créer le groupe Etudiants2025
+$Etudiants2025 = @()
+$Users | Where-Object { $_.OU -eq "Promo2025" } | ForEach-Object {
+    $Etudiants2025 += $_
+}
 
-# Exporter les utilisateurs vers CSV
-$UsersObj | Export-Csv -Path $CsvPath -NoTypeInformation
-Write-Host "CSV exporté : $CsvPath"
-
-# -----------------------------
-# Importer les utilisateurs depuis CSV
-# -----------------------------
-$ImportedUsers = Import-Csv -Path $CsvPath
-Write-Host "`n--- Utilisateurs importés depuis CSV ---"
-$ImportedUsers | ForEach-Object {
+Write-Host "`n--- Utilisateurs dans Etudiants2025 ---"
+$Etudiants2025 | ForEach-Object {
     Write-Host "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)"
 }
 
-# Ajouter tous les utilisateurs importés dans ImportGroupe
-$Groups["ImportGroupe"] += $ImportedUsers
-# -----------------------------
-# Créer un groupe "ImportGroupe" et y ajouter tous les utilisateurs importés
-# -----------------------------
-$ImportGroupe = @()
-$ImportedUsers | ForEach-Object { $ImportGroupe += $_ }
+# Exporter le groupe vers un CSV local
+$CsvPath = Join-Path -Path $PSScriptRoot -ChildPath "Etudiants2025.csv"
+$Etudiants2025 | Export-Csv -Path $CsvPath -NoTypeInformation
 
-# Afficher les utilisateurs du groupe ImportGroupe
-"Utilisateurs dans ImportGroupe :"
-$Groups["ImportGroupe"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
-Write-Host "`n--- Contenu du groupe ImportGroupe ---"
-$ImportGroupe | ForEach-Object {
-    Write-Host "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)"
-}
+Write-Host "`n✅ CSV exporté avec succès : $CsvPath"
+
