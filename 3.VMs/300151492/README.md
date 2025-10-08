@@ -9,7 +9,7 @@ RENAME - CAMPUTER "DC300151492" - restatarte
 
 <details >
 
-'''powershell 
+```powershell 
 succes restart neded exit code                 featrue result 
 
 reue  no                  seccess              ( active diroctry domauine services , groupe p ...
@@ -77,7 +77,9 @@ SchemaMaster          : DC300151492.DC300151492-00.local
 Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
 UPNSuffixes           : {}
+```
 
+</details>
 
 
 PS C:\Users\Administrator>
