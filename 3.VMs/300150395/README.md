@@ -15,8 +15,12 @@ True    No             Success        {Active Directory Domain Services, Group P
 
 </details>
 
-```PS C:\Users\Administrator> Get-ADDomain```
-```PS C:\Users\Administrator> Get-ADForest```
+```powershell
+PS C:\Users\Administrator> Get-ADDomain
+```
+```powershell
+PS C:\Users\Administrator> Get-ADForest
+```
 
 <details>
   
