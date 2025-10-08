@@ -10,7 +10,7 @@ Active Directory Domain Services AD-Domain-Services    Installed
 ```
 </details>
 
-# vérification de l'installation commandes: Get-ADDomain et Get-ADForest
+## vérification de l'installation commandes: Get-ADDomain et Get-ADForest
 <details>
 ```powershell
 
