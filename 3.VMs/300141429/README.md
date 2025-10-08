@@ -1,18 +1,35 @@
-#300141429 Installation ADDS
+# 300141429 Installation ADDS
 
-
+commande Rename-Computer -NewName "DC300141429" -Restart
 <details>
-'''powershell
+```powershell
 Success Restart Needed Exit Code      Feature Result
 ------- -------------- ---------      --------------
 True    No             Success        {Active Directory Domain Services, Group P...
-  '''
+  ```
 </details>
-
+```powershell
 #Verification de l'installation 
-
+commande de creation du domaine 
+Install-ADDSForest `
+    -DomainName "DC300141429.local" `
+    -DomainNetbiosName "DC999999999-00" `
+    -InstallDns:$true `
+    -SafeModeAdministratorPassword (ConvertTo-SecureString "MotDePasseDSRM123!" -AsPlainText -Force) `
+    -Force
+```
+  commande de verification du domaine :
+  Get-ADDomain
+Get-ADForest
 <details>
-'''powershell
+  commande de verification:
+  Install-ADDSForest `
+    -DomainName "DC999999999-00.local" `
+    -DomainNetbiosName "DC999999999-00" `
+    -InstallDns:$true `
+    -SafeModeAdministratorPassword (ConvertTo-SecureString "MotDePasseDSRM123!" -AsPlainText -Force) `
+    -Forceqw1w12w
+```powershell
 PS C:\Users\Administrator> Get-ADDomain                                                                                 >> Get-ADForest                                                                                                         
 
 AllowedDNSSuffixes                 : {}
@@ -62,5 +79,5 @@ SchemaMaster          : DC300141429.DC300141429.local
 Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
 UPNSuffixes           : {}
-
+```
 </details>
