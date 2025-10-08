@@ -28,10 +28,12 @@ Install-ADDSForest `
   commande de verification du domaine :
   Get-ADDomain
 Get-ADForest
-<details>
   commande de verification:
   Get-ADDomain
 Get-ADForest
+  
+<details>
+
 ```powershell
 PS C:\Users\Administrator> Get-ADDomain                                                                                 >> Get-ADForest                                                                                                         
 
@@ -83,4 +85,5 @@ Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
 UPNSuffixes           : {}
 ```
+
 </details>
