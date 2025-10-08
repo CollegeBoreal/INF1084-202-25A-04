@@ -82,3 +82,8 @@ UPNSuffixes           : {}
 ```
 
 </details>
+
+<img src="images/Screenshot-2025-10-07-203028.png" alt="Ma photo" width="300" height="400"/>
+
+<img src="images/Screenshot-2025-10-07-203119.png" alt="Ma photo" width="300" height="400"/>
+
