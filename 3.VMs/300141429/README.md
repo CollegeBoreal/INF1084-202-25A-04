@@ -35,7 +35,6 @@ Get-ADForest
 <details>
 
 ```powershell
-PS C:\Users\Administrator> Get-ADDomain                                                                                 >> Get-ADForest                                                                                                         
 
 AllowedDNSSuffixes                 : {}
 ChildDomains                       : {}
