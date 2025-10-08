@@ -1,3 +1,4 @@
+
 $Users = @(
     @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
     @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
@@ -5,4 +6,5 @@ $Users = @(
     @{Nom="Daniella"; Prenom="Kembo"; Login="kdaniella"; OU="Stagiaires"},
     @{Nom="Maisha"; Prenom="Diwa"; Login="dmaisha"; OU="Stagiaires"}
 )
+
 
