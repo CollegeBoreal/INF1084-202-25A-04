@@ -2,7 +2,7 @@
 
 
 ```powershell
-Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+PS C:\Users\Administrator> Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 ```
 
 <details>
