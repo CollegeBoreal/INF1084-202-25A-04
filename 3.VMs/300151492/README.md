@@ -1,8 +1,8 @@
 # 300151492 instalation ADDS
 
-''' POWER SHELL 
+```powershell 
 RENAME - CAMPUTER "DC300151492" - restatarte 
-'''
+```
 
 
 
