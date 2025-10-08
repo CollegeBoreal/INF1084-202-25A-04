@@ -1,0 +1,4 @@
+$Groups = @{
+     "GroupeFormation" = @()
+     "ProfesseursAD" = @()
+}
