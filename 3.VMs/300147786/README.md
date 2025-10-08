@@ -23,6 +23,6 @@ RootDomain            : DC999999999-00.local
 SchemaMaster          : DC300147786.DC999999999-00.local
 Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}                                                                                              UPNSuffixes           : {} 
-
+'''
 
 </details>
