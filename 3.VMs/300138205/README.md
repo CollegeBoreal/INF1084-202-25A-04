@@ -1,9 +1,12 @@
 # 300138205
 
-<details>
+```powershell
 Rename-Computer -NewName "DC300138205" -Restart
+```
 
-  ````powershell
+<details>
+
+  ```powershell
 
 Success Restart Needed Exit Code      Feature Result
 ------- -------------- ---------      --------------
