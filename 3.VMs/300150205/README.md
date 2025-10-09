@@ -68,7 +68,8 @@ UsersContainer                     : CN=Users,DC=DC300150205-00,DC=local
 
 
 ![Domain Configuration Screenshot](screenshots/domain.PNG)
-<details>
+</details>
+
 ---
 
 ## 🌲 Forest Configuration
