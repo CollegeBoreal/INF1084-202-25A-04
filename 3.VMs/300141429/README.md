@@ -42,13 +42,12 @@ Creation du domaine:
  </details>
 
 ```powershell
- commande de verification du domaine:
-  Get-ADDomain
+ Verification du domaine
 ```
 <details>
 
 ```powershell
-
+Get-ADDomain
 AllowedDNSSuffixes                 : {}
 ChildDomains                       : {}
 ComputersContainer                 : CN=Computers,DC=DC300141429,DC=local
@@ -88,12 +87,13 @@ UsersContainer                     : CN=Users,DC=DC300141429,DC=local
 </details>
 
 ```powershell
-  commande de verification de la foret: Get-ADForest
+  Verification de la foret
 ```
 
 <details>
 
 ```powershell
+Get-ADForest
 ApplicationPartitions : {DC=ForestDnsZones,DC=DC300141429,DC=local, DC=DomainDnsZones,DC=DC300141429,DC=local}
 CrossForestReferences : {}
 DomainNamingMaster    : DC300141429.DC300141429.local
