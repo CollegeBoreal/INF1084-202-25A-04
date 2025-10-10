@@ -27,12 +27,12 @@ True    No             Success        {Active Directory Domain Services, Group P
 </details>
 
 ```powershell
-commande de creation du domaine: Install-ADDSForest 
+Creation du domaine:  
 ```
 <details>
 
   ```powershell
-`
+`Install-ADDSForest
     -DomainName "DC300141429.local" `
     -DomainNetbiosName "DC999999999-00" `
     -InstallDns:$true `
