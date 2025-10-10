@@ -28,10 +28,10 @@ Install-ADDSForest `
  
   
 <details>
- commande de verification du domaine :
-  Get-ADDomain
 
 ```powershell
+ commande de verification du domaine :
+  Get-ADDomain
 
 AllowedDNSSuffixes                 : {}
 ChildDomains                       : {}
@@ -68,6 +68,7 @@ SystemsContainer                   : CN=System,DC=DC300141429,DC=local
 UsersContainer                     : CN=Users,DC=DC300141429,DC=local
 
 ```
+
 </details>
 
 <details>
