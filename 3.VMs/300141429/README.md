@@ -2,12 +2,23 @@
 
 
 ```powershell
-Commande pour renommer le pc: Rename-Computer -NewName "DC300141429" -Restart
+Commande pour renommer le serveur
+```
+<details>
+  
+  ```powershell
+  Rename-Computer -NewName "DC300141429" -Restart
+  ```
+</details>
+  
+```powershell
+Installer le role ADDS
 ```
 
 <details>
   
 ```powershell
+Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 Success Restart Needed Exit Code      Feature Result
 ------- -------------- ---------      --------------
 True    No             Success        {Active Directory Domain Services, Group P...
