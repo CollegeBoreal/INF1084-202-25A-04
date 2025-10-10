@@ -17,7 +17,11 @@ True    No             Success        {Active Directory Domain Services, Group P
 
 ```powershell
 #Verification de l'installation 
-commande de creation du domaine 
+commande de creation du domaine
+```
+<details>
+
+  ```powershell
 Install-ADDSForest `
     -DomainName "DC300141429.local" `
     -DomainNetbiosName "DC999999999-00" `
@@ -25,7 +29,7 @@ Install-ADDSForest `
     -SafeModeAdministratorPassword (ConvertTo-SecureString "MotDePasseDSRM123!" -AsPlainText -Force) `
     -Force
 ```
- 
+ </details>
   
 <details>
 
