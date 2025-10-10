@@ -2,7 +2,7 @@
 
 
 ```powershell
-Rename-Computer -NewName "DC300141429" -Restart POUR Renommer le pc
+Commande pour renommer le pc: Rename-Computer -NewName "DC300141429" -Restart
 ```
 
 <details>
@@ -16,13 +16,12 @@ True    No             Success        {Active Directory Domain Services, Group P
 </details>
 
 ```powershell
-#Verification de l'installation 
-commande de creation du domaine
+commande de creation du domaine: Install-ADDSForest 
 ```
 <details>
 
   ```powershell
-Install-ADDSForest `
+`
     -DomainName "DC300141429.local" `
     -DomainNetbiosName "DC999999999-00" `
     -InstallDns:$true `
@@ -32,7 +31,7 @@ Install-ADDSForest `
  </details>
 
 ```powershell
- commande de verification du domaine avec
+ commande de verification du domaine:
   Get-ADDomain
 ```
 <details>
@@ -78,7 +77,7 @@ UsersContainer                     : CN=Users,DC=DC300141429,DC=local
 </details>
 
 ```powershell
-  commande de verification avec Get-ADForest
+  commande de verification de la foret: Get-ADForest
 ```
 
 <details>
