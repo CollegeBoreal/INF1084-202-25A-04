@@ -2,7 +2,7 @@
 
 
 ```powershell
-Rename-Computer -NewName "DC300141429" -Restart
+Rename-Computer -NewName "DC300141429" -Restart POUR Renommer le pc
 ```
 
 <details>
@@ -25,14 +25,11 @@ Install-ADDSForest `
     -SafeModeAdministratorPassword (ConvertTo-SecureString "MotDePasseDSRM123!" -AsPlainText -Force) `
     -Force
 ```
-  commande de verification du domaine :
-  Get-ADDomain
-Get-ADForest
-  commande de verification:
-  Get-ADDomain
-Get-ADForest
+ 
   
 <details>
+ commande de verification du domaine :
+  Get-ADDomain
 
 ```powershell
 
@@ -70,6 +67,12 @@ SubordinateReferences              : {DC=ForestDnsZones,DC=DC300141429,DC=local,
 SystemsContainer                   : CN=System,DC=DC300141429,DC=local
 UsersContainer                     : CN=Users,DC=DC300141429,DC=local
 
+```
+</details>
+
+<details>
+```powershell
+  commande de verification avec Get-ADForest
 ApplicationPartitions : {DC=ForestDnsZones,DC=DC300141429,DC=local, DC=DomainDnsZones,DC=DC300141429,DC=local}
 CrossForestReferences : {}
 DomainNamingMaster    : DC300141429.DC300141429.local
@@ -83,6 +86,9 @@ SchemaMaster          : DC300141429.DC300141429.local
 Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
 UPNSuffixes           : {}
+
 ```
 
+
+  
 </details>
