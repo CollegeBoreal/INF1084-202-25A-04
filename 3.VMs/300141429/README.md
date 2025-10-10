@@ -30,12 +30,14 @@ Install-ADDSForest `
     -Force
 ```
  </details>
-  
+
+```powershell
+ commande de verification du domaine avec
+  Get-ADDomain
+```
 <details>
 
 ```powershell
- commande de verification du domaine :
-  Get-ADDomain
 
 AllowedDNSSuffixes                 : {}
 ChildDomains                       : {}
@@ -75,9 +77,13 @@ UsersContainer                     : CN=Users,DC=DC300141429,DC=local
 
 </details>
 
-<details>
 ```powershell
   commande de verification avec Get-ADForest
+```
+
+<details>
+
+```powershell
 ApplicationPartitions : {DC=ForestDnsZones,DC=DC300141429,DC=local, DC=DomainDnsZones,DC=DC300141429,DC=local}
 CrossForestReferences : {}
 DomainNamingMaster    : DC300141429.DC300141429.local
