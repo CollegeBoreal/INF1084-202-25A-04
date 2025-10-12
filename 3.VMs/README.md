@@ -6,18 +6,6 @@ Installer et configurer un contrôleur de domaine Active Directory sur **Windows
 
 ---
 
-## 🚀 Étapes avec PowerShell
-
-### 1. Renommer le serveur 
-
-:bulb: remplacer `DC999999990` par votre :id: par example "DC300098957"
-
-```powershell
-Rename-Computer -NewName "DC999999999" -Restart
-```
-
----
-
 ## 🚀 Installation AD : Étapes avec PowerShell
 
 ### 1. Renommer le serveur
