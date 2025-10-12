@@ -7,29 +7,8 @@
 - GET-ADForest.PNG
 - README.md
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-2 - Installation et configuration rapide d'un contrôleur de domaine " Active Directory (AD DS) " avec " PowerShell ".
-
-------------
-
-    2.1 - Commandes utilisées :
-
-- Sur powershell
-Rename-Computer -NewName "DC300150527" -Restart
-Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-Install-ADDSForest `
-    -DomainName "DC300150527-00.local" `
-    -DomainNetbiosName "DC300150527-00" `
-    -InstallDns:$true `
-    -SafeModeAdministratorPassword (ConvertTo-SecureString "MotDePasseDSRM123!" -AsPlainText -Force) `
-    -Force
-Get-ADDomain
-Get-ADForest
-
-----------
-
-   2.2 - Vérification :
+2 - Vérification :
 
 Après l'installation, j'ai utilisé les commandes suivantes pour " vérifier que le domaine et la forêt AD DS ont été configurés correctement " :
 
@@ -40,7 +19,7 @@ Sur powershell :
 
 Les résultats de ces commandes sont visibles dans les captures jointes aussi.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 
 PS C:\Users\Administrator> Get-ADDomain
 
