@@ -2,6 +2,113 @@
 
 [:tada: Participation](.scripts/Participation.md) 
 
+
+## Installation et configuration d’un domaine **Active Directory** 👇
+
+---
+
+### **1️⃣ Qu’est-ce qu’un domaine dans Active Directory ?**
+
+Un **domaine** est une **unité logique d’administration** dans Active Directory.
+Il regroupe des **utilisateurs**, **ordinateurs**, **groupes**, et **ressources** qui partagent :
+
+* une **même base de données** (le catalogue AD DS),
+* une **même politique de sécurité**,
+* et une **même authentification** gérée par un ou plusieurs **contrôleurs de domaine (DC)**.
+
+> 🧩 Exemple : `DC999999999-0.local` est un domaine.
+
+---
+
+### **2️⃣ Quel est le rôle principal d’un contrôleur de domaine ?**
+
+Le **contrôleur de domaine (DC)** :
+
+* **héberge** la base de données Active Directory,
+* **authentifie** les utilisateurs et ordinateurs lors de la connexion au domaine,
+* **applique** les stratégies de sécurité (GPO),
+* et **réplique** les données AD avec les autres DC du même domaine.
+
+> 🔐 En résumé : le DC est le **cœur de l’infrastructure Active Directory**.
+
+---
+
+### **3️⃣ Pourquoi le DNS est-il indispensable à Active Directory ?**
+
+Le **DNS (Domain Name System)** permet :
+
+* de **localiser** les contrôleurs de domaine (DC) via des enregistrements **SRV**,
+* d’assurer la **résolution de noms** (ex. : `DC999999999-0.local` → IP du DC),
+* et de permettre aux clients et serveurs de **trouver les services AD DS** (authentification, réplication, etc.).
+
+> 🧠 Sans DNS, Active Directory **ne peut pas fonctionner correctement**.
+
+---
+
+### **4️⃣ Quelle est la différence entre une forêt et un arbre ?**
+
+| Élément   | Description                                                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------------ |
+| **Arbre** | Ensemble de domaines **hiérarchiquement liés** (ex. : `sales.DC999999999-0.local` et `hr.DC999999999-0.local`).                  |
+| **Forêt** | Ensemble d’un ou plusieurs **arbres** partageant le **même schéma AD** et la **même configuration globale**. |
+
+> 🌳 Une forêt peut contenir plusieurs arbres, chacun avec ses propres domaines.
+
+---
+
+### **5️⃣ Que contient le dossier SYSVOL ?**
+
+Le dossier **SYSVOL** contient :
+
+* les **scripts de connexion** (logon scripts),
+* les **fichiers des stratégies de groupe (GPO)**,
+* et d’autres données **synchronisées entre les contrôleurs de domaine**.
+
+> 📁 Emplacement typique :
+> `C:\Windows\SYSVOL\sysvol\<nom_du_domaine>\Policies`
+
+---
+
+### **6️⃣ Quel service gère les connexions et l’authentification au domaine ?**
+
+C’est le **service Active Directory Domain Services (AD DS)**.
+Il s’appuie sur :
+
+* le **protocole Kerberos** (authentification sécurisée),
+* et le **protocole LDAP** (accès à la base d’annuaire).
+
+> 🔑 Kerberos = authentification
+> 📚 LDAP = requêtes et gestion des objets AD
+
+---
+
+### **7️⃣ Que fait le mot de passe DSRM ?**
+
+Le **mot de passe DSRM (Directory Services Restore Mode)** sert à :
+
+* accéder au **mode de restauration d’Active Directory**,
+* lorsque le domaine est **en panne** ou doit être **réparé**.
+
+> 🩺 C’est un mot de passe **local** au serveur DC (pas un compte de domaine).
+
+---
+
+### **8️⃣ Quelle commande permet d’ouvrir la console “Active Directory Users and Computers” ?**
+
+#### 💠 En PowerShell :
+
+Tu peux aussi l’ouvrir via :
+
+```powershell
+Start-Process dsa.msc
+```
+
+> 📋 Cette console permet de gérer utilisateurs, groupes, ordinateurs et unités d’organisation (OU).
+
+
+# :abacus: Laboratoires
+
+
 Installer et configurer un contrôleur de domaine Active Directory sur **Windows Server 2022**.
 
 ---
