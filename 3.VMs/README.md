@@ -3,7 +3,7 @@
 [:tada: Participation](.scripts/Participation.md) 
 
 
-## Installation et configuration d’un domaine **Active Directory** 👇
+## :scroll: Installation et configuration d’un domaine **Active Directory** 👇
 
 ---
 
