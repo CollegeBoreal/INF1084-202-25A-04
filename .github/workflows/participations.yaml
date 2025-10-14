@@ -45,6 +45,13 @@ jobs:
           cd 3.VMs
           bash .scripts/run.sh
           cd ..
+          ##
+          ## Evaluating chapter 4.OUs Participation
+          ## 
+          echo "Evaluating chapter 4.OUs Participation"
+          cd 4.OUs
+          bash .scripts/run.sh
+          cd ..
 
       - name: Commit files
         run: |
