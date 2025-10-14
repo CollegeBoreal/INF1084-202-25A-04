@@ -350,4 +350,29 @@ Replace:
 * TAs/instructors can push/merge into `main`.
 * Students push only to `300xxxxxx` branches → and your Actions workflow runs on those.
 
+---
 
+## ✅ To **remove** this protection (unprotect `main`)
+
+You can do it **directly via CLI** using:
+
+```bash
+gh api --method DELETE repos/CollegeBoreal/INF1084-202-25A-04/branches/main/protection
+```
+
+💡 This will **completely remove the protection rule** — after that:
+
+* pushes (from CLI or Actions) to `main` will succeed,
+* you can recreate the rule later if needed.
+
+```bash
+gh api repos/CollegeBoreal/INF1084-202-25A-04/branches/main/protection
+```
+>
+```json
+{
+  "message": "Branch not protected",
+  "documentation_url": "https://docs.github.com/rest/branches/branch-protection#get-branch-protection",
+  "status": "404"
+}
+```
