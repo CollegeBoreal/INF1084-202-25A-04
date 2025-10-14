@@ -57,3 +57,8 @@ git pull --no-edit
 git merge --no-edit origin/main 
 ```
 
+## :c: Revenir à la banche principale
+
+```bash
+git checkout main
+```
