@@ -1,4 +1,4 @@
-# Participation au 14-10-2025 19:39
+# Participation au 14-10-2025 22:00
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -27,7 +27,7 @@
 | 8 | [300150205](../300150205/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994753?s=460&v=4' width=20 height=20></image>](https://github.com/blbsblm) | :x: | :x: | :x: | :x: | :x: |
 | 9 | [300150268](../300150268/README.md) [<image src='https://avatars0.githubusercontent.com/u/207268490?s=460&v=4' width=20 height=20></image>](https://github.com/kemiche06) | :x: | :x: | :x: | :x: | :x: |
 | 10 | [300150284](../300150284/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994902?s=460&v=4' width=20 height=20></image>](https://github.com/aroua-git) | :x: | :x: | :x: | :x: | :x: |
-| 11 | [300150295](../300150295/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994740?s=460&v=4' width=20 height=20></image>](https://github.com/lounasallouti1) | :x: | :x: | :x: | :x: | :x: |
+| 11 | [300150295](../300150295/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994740?s=460&v=4' width=20 height=20></image>](https://github.com/lounasallouti1) | :heavy_check_mark:| :x: | :x: | :x: | :x: |
 | 12 | [300150296](../300150296/README.md) [<image src='https://avatars0.githubusercontent.com/u/205198510?s=460&v=4' width=20 height=20></image>](https://github.com/bnnyouba99) | :x: | :x: | :x: | :x: | :x: |
 | 13 | [300150303](../300150303/README.md) [<image src='https://avatars0.githubusercontent.com/u/211592293?s=460&v=4' width=20 height=20></image>](https://github.com/jessmaud) | :x: | :x: | :x: | :x: | :x: |
 | 14 | [300150385](../300150385/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994785?s=460&v=4' width=20 height=20></image>](https://github.com/belka1996) | :x: | :x: | :x: | :x: | :x: |
@@ -46,4 +46,4 @@
 | 27 | [300151841](../300151841/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | :x: | :x: | :x: | :x: | :x: |
 | 28 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | :x: | :x: | :x: | :x: | :x: |
 | 29 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | :x: | :x: | :x: | :x: | :x: |
-| :abacus: |  $\frac{0}{30}$  =  0% | $\displaystyle\sum_{i=1}^{30} s_i$ = 0 |
+| :abacus: |  $\frac{1}{30}$  =  3% | $\displaystyle\sum_{i=1}^{30} s_i$ = 1 |
