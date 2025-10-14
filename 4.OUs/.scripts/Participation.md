@@ -1,20 +1,20 @@
-# Participation au 14-10-2025 22:00
+﻿# Participation au 14-10-2025 22:00
 
-| Table des matières            | Description                                             |
+| Table des matiÃ¨res            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
-| :a: [Présence](#a-présence)   | L'étudiant.e a fait son travail    :heavy_check_mark:   |
-| :b: [Précision](#b-précision) | L'étudiant.e a réussi son travail  :tada:               |
+| :a: [PrÃ©sence](#a-prÃ©sence)   | L'Ã©tudiant.e a fait son travail    :heavy_check_mark:   |
+| :b: [PrÃ©cision](#b-prÃ©cision) | L'Ã©tudiant.e a rÃ©ussi son travail  :tada:               |
 
-## Légende
+## LÃ©gende
 
 | Signe              | Signification                 |
 |--------------------|-------------------------------|
-| :heavy_check_mark: | Prêt à être corrigé           |
+| :heavy_check_mark: | PrÃªt Ã  Ãªtre corrigÃ©           |
 | :x:                | Projet inexistant             |
 
-## :a: Présence
+## :a: PrÃ©sence
 
-|:hash:| Boréal :id:                | README.md    | :one: | :two: | :three: | :four: |
+|:hash:| BorÃ©al :id:                | README.md    | :one: | :two: | :three: | :four: |
 |------|----------------------------|--------------|-------|-------|---------|--------|
 | 0 | [300138205](../300138205/README.md) [<image src='https://avatars0.githubusercontent.com/u/200685761?s=460&v=4' width=20 height=20></image>](https://github.com/taylor123marc) | :x: | :x: | :x: | :x: | :x: |
 | 1 | [300141368](../300141368/README.md) [<image src='https://avatars0.githubusercontent.com/u/132600996?s=460&v=4' width=20 height=20></image>](https://github.com/daniella-diwa) | :x: | :x: | :x: | :x: | :x: |
