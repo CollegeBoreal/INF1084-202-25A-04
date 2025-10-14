@@ -17,6 +17,8 @@ echo "|-------------------------------|-----------------------------------------
 echo "| :a: [Présence](#a-présence)   | L'étudiant.e a fait son travail    :heavy_check_mark:   |"
 echo "| :b: [Précision](#b-précision) | L'étudiant.e a réussi son travail  :tada:               |"
 
+:bulb: Le mot de passe Administrateur (en Anglais) de la VM est **Infra@**:two::zero::two::four:
+
 echo ""
 echo "## Légende"
 echo ""
