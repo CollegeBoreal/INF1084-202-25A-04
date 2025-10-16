@@ -1,0 +1,13 @@
+TP Gestion des utilisateurs et OUs
+
+Objectif :
+- Créer, modifier et gérer des utilisateurs Active Directory
+- Appliquer des filtres et exporter les données
+- Déplacer des utilisateurs vers une OU spécifique
+
+Résumé des étapes :
+1. Importation du module AD
+2. Création d'un utilisateur
+3. Création d'une OU
+4. Déplacement de l'utilisateur vers l'OU
+5. Vérification et export CSV
