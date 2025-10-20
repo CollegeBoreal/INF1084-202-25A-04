@@ -26,8 +26,8 @@ Write-Output "| :boom:             | Erreur d’exécution du script  |"
 Write-Output ""
 Write-Output "## :a: Présence"
 Write-Output ""
-Write-Output "|:hash:| Boréal :id: | README.md | :one: | :two: | :three: | :four: |"
-Write-Output "|------|--------------|-----------|-------|-------|---------|--------|"
+Write-Output "|:hash:| Boréal :id: | README.md | :one: | :two: | :three: | :four: | :one: | :two: | :three: | :four: |"
+Write-Output "|------|--------------|-----------|-------|-------|---------|--------|-----------|-------|-------|---------|--------|"
 
 $i = 0
 $s = 0
