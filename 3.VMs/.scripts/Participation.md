@@ -1,4 +1,4 @@
-# Participation au 20-10-2025 12:46
+# Participation au 20-10-2025 09:37
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -6,7 +6,6 @@
 | :b: [Précision](#b-précision) | L'étudiant.e a réussi son travail  :tada:               |
 
 :bulb: Le mot de passe Administrateur (en Anglais) de la VM est **Infra@**:two::zero::two::four:
-
 
 ## Légende
 
@@ -50,4 +49,4 @@
 | 28 | [300151841](../300151841/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | 10.7.236.245 | :x: |
 | 29 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | 10.7.236.246 | :x: |
 | 30 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | 10.7.236.247 | :x: |
-| :abacus: |  $\frac{3}{31}$  =  9% | | $\displaystyle\sum_{i=1}^{31} s_i$ = 3 |
+| :abacus: | \$\\frac{3}{31}$ = 9.68% | | \$\displaystyle\sum_{i=1}^{31} s_i$ = 3 |
