@@ -1,4 +1,4 @@
-# Participation au 20-10-2025 12:46
+# Participation au 20-10-2025 13:43
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -47,4 +47,4 @@
 | 28 | [300151841](../300151841.md) :point_right: [massi9313](https://github.com/massi9313) <image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 29 | [300152410](../300152410.md) :point_right: [imadboudeuf](https://github.com/imadboudeuf) <image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 30 | [300153747](../300153747.md) :point_right: [madjou15](https://github.com/madjou15) <image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
-| :abacus: |  $\frac{26}{31}$  =  83% | $\displaystyle\sum_{i=1}^{31} s_i$ = 26 |
+| :abacus: | \$\\frac{26}{31}\$ = 83.87% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 26 |
