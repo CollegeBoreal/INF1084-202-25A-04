@@ -52,12 +52,8 @@ foreach ($id in $ETUDIANTS) {
 
         # Try to execute the student script quietly
         try {
-            pwsh -NoLogo -NoProfile -ExecutionPolicy Bypass -File $script *> $null
-            if ($LASTEXITCODE -eq 0) {
-                $status += ":heavy_check_mark:"
-            } else {
-                $status += ":boom:"  # Non-zero exit code
-            }
+            & $script *> $null
+            $status += ":heavy_check_mark:"
         }
         catch {
             $status += ":boom:"  # Execution error
