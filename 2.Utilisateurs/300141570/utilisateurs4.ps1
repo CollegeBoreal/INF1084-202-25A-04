@@ -1,17 +1,19 @@
-# Étape 1 :le chemin du fichier CSV (dans le même dossier que le script)
-$CsvPath = Join-Path -Path $PSScriptRoot -ChildPath "UsersSimules.csv"
-
-# Étape 2 : Importer le fichier CSV
-$ImportedUsers = Import-Csv -Path $CsvPath
-
-# Étape 3 : Créer un nouveau groupe simulé
-$Groups = @{}
-$Groups["ImportGroupe"] = @()
-
-# Étape 4 : Ajouter tous les utilisateurs importés dans le groupe
-foreach ($user in $ImportedUsers) {
-    $Groups["ImportGroupe"] += $user
+# Définir des utilisateurs comme objets
+$Users = @(   
+    [PSCustomObject]@{ Nom="Dupont"; Prenom="Alice"; OU="Stagiaires" }  
+    [PSCustomObject]@{ Nom="Diaks"; Prenom="rahima"; OU="Professeurs" } 
+    [PSCustomObject]@{ Nom="malembe"; Prenom="driss"; OU="Stagiaires" }
+)
+# Créer le dossier C:\Temp s'il n'existe pas
+if (-not (Test-Path -Path "C:\Temp")) { 
+   New-Item -ItemType Directory -Path "C:\Temp" | Out-Null
 }
+# Exporter les utilisateurs
+$Users | Export-Csv -Path "C:\Temp\UsersSimules.csv" -NoTypeInformation -Encoding UTF8
+# Importer les utilisateurs
+$ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
+# Afficher les utilisateurs importés
+Write-Host "Utilisateurs importés depuis le CSV :" -ForegroundColor Cyan
 
-# Étape 5 : Afficher le contenu du groupe pour vérification
-$Groups["ImportGroupe"]
+$ImportedUsers | Format-Table -AutoSize
+
