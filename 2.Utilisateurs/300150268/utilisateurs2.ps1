@@ -1,18 +1,24 @@
-# Exercice 2 : groupes + ajouter tous les Stagiaires à GroupeFormation
-$Users = @(
-    @{Nom="Dupont";  Prenom="Alice"; Login="adupont";  OU="Stagiaires"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-    @{Nom="Benali";  Prenom="Karim"; Login="kbenali";  OU="Stagiaires"},
-    @{Nom="Martin";  Prenom="Jean";  Login="jmartin";  OU="Stagiaires"},
-    @{Nom="Nguyen";  Prenom="Lina";  Login="lnguyen";  OU="Stagiaires"}
+# 300150268
+# Mohand Said KEMICHE
+# Script : utilisateurs2.ps1
+# Objectif : Créer des groupes et y ajouter des utilisateurs
+
+# Exemple de groupes
+$Groupes = @("GroupeFormation", "GroupeRH")
+
+# Liste d’utilisateurs simulés
+$utilisateurs = @(
+    @{Nom="KEMICHE"; Prenom="Mohand"; OU="Stagiaires"},
+    @{Nom="BELBESSAI"; Prenom="Boualem"; OU="Professeurs"},
+    @{Nom="AMRANI"; Prenom="Sofia"; OU="Stagiaires"},
+    @{Nom="NADIR"; Prenom="Ali"; OU="Stagiaires"},
+    @{Nom="BOUZID"; Prenom="Karim"; OU="Employés"}
 )
-$Groups = @{
-    "GroupeFormation" = @()
-    "ProfesseursAD"   = @()
-}
-$stagiaires = $Users | Where-Object { $_.OU -eq "Stagiaires" }
-$Groups["GroupeFormation"] += $stagiaires
-"=== Membres de GroupeFormation ==="
-$Groups["GroupeFormation"] | ForEach-Object {
-    "{0} {1} ({2}) - OU: {3}" -f $_.Prenom, $_.Nom, $_.Login, $_.OU
+
+# Sélection des utilisateurs dont l’OU = "Stagiaires"
+$stagiaires = $utilisateurs | Where-Object { $_.OU -eq "Stagiaires" }
+
+Write-Host "`nAjout des stagiaires dans le groupe GroupeFormation :"
+foreach ($user in $stagiaires) {
+    Write-Host " - $($user.Prenom) $($user.Nom) ajouté à GroupeFormation"
 }

@@ -1,11 +1,19 @@
-# Exercice 3 : lister les prénoms contenant 'a' (insensible à la casse)
-$Users = @(
-    @{Nom="Dupont";  Prenom="Alice"; Login="adupont";  OU="Stagiaires"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-    @{Nom="Benali";  Prenom="Karim"; Login="kbenali";  OU="Stagiaires"},
-    @{Nom="Martin";  Prenom="Jean";  Login="jmartin";  OU="Stagiaires"},
-    @{Nom="Nguyen";  Prenom="Lina";  Login="lnguyen";  OU="Stagiaires"}
+# 300150268
+# Mohand Said KEMICHE
+# Script : utilisateurs3.ps1
+# Objectif : Filtrer les utilisateurs dont le prénom contient "a"
+
+# Liste d’utilisateurs simulés
+$utilisateurs = @(
+    @{Nom="KEMICHE"; Prenom="Mohand"},
+    @{Nom="BELBESSAI"; Prenom="Boualem"},
+    @{Nom="AMRANI"; Prenom="Sofia"},
+    @{Nom="NADIR"; Prenom="Ali"},
+    @{Nom="BOUZID"; Prenom="Karim"}
 )
-"=== Prénoms contenant 'a' (i) ==="
-$Users | Where-Object { $_.Prenom -imatch "a" } |
-  ForEach-Object { "{0} {1} - Login: {2}" -f $_.Prenom, $_.Nom, $_.Login }
+
+# Filtrer les utilisateurs dont le prénom contient "a" (insensible à la casse)
+$filtre = $utilisateurs | Where-Object { $_.Prenom -match "a" }
+
+Write-Host "`nUtilisateurs dont le prénom contient la lettre 'a' :"
+$filtre | ForEach-Object { "$($_.Prenom) $($_.Nom)" }

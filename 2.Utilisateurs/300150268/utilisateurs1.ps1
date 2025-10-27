@@ -1,12 +1,19 @@
-# Exercice 1 : ajouter 2 utilisateurs et afficher
-$Users = @(
-    @{Nom="Dupont";  Prenom="Alice"; Login="adupont";  OU="Stagiaires"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-    @{Nom="Benali";  Prenom="Karim"; Login="kbenali";  OU="Stagiaires"}
+# 300150268
+# Mohand Said KEMICHE
+# Script : utilisateurs1.ps1
+# Objectif : Créer une liste d’utilisateurs simulés et l’afficher
+
+# Création d'une liste d'utilisateurs
+$utilisateurs = @(
+    @{Nom="KEMICHE"; Prenom="Mohand"; OU="Stagiaires"},
+    @{Nom="BELBESSAI"; Prenom="Boualem"; OU="Professeurs"},
+    @{Nom="AMRANI"; Prenom="Sofia"; OU="Stagiaires"}
 )
-# + 2 nouveaux
-$Users += @(
-    @{Nom="Martin"; Prenom="Jean"; Login="jmartin"; OU="Stagiaires"},
-    @{Nom="Nguyen"; Prenom="Lina"; Login="lnguyen"; OU="Stagiaires"}
-)
-$Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
+
+# Ajout de 2 nouveaux utilisateurs
+$utilisateurs += @{Nom="NADIR"; Prenom="Ali"; OU="Stagiaires"}
+$utilisateurs += @{Nom="BOUZID"; Prenom="Karim"; OU="Employés"}
+
+# Afficher tous les utilisateurs
+Write-Host "`nListe complète des utilisateurs :"
+$utilisateurs | ForEach-Object { "$($_.Prenom) $($_.Nom) - OU : $($_.OU)" }

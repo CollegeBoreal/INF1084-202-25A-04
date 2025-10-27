@@ -1,26 +1,26 @@
-# Exercice 4 : Export CSV, Import CSV, créer ImportGroupe
-$Users = @(
-    @{Nom="Dupont";  Prenom="Alice"; Login="adupont";  OU="Stagiaires"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-    @{Nom="Benali";  Prenom="Karim"; Login="kbenali";  OU="Stagiaires"},
-    @{Nom="Martin";  Prenom="Jean";  Login="jmartin";  OU="Stagiaires"},
-    @{Nom="Nguyen";  Prenom="Lina";  Login="lnguyen";  OU="Stagiaires"}
+# 300150268
+# Mohand Said KEMICHE
+# Script : utilisateurs4.ps1
+# Objectif : Exporter et importer des utilisateurs simulés via CSV
+
+# Création d'une liste d'utilisateurs simulés
+$utilisateurs = @(
+    @{Nom="KEMICHE"; Prenom="Mohand"; OU="Stagiaires"},
+    @{Nom="BELBESSAI"; Prenom="Boualem"; OU="Professeurs"},
+    @{Nom="AMRANI"; Prenom="Sofia"; OU="Stagiaires"},
+    @{Nom="NADIR"; Prenom="Ali"; OU="Stagiaires"},
+    @{Nom="BOUZID"; Prenom="Karim"; OU="Employés"}
 )
 
-if (-not (Test-Path "C:\Temp")) { New-Item -ItemType Directory -Path "C:\Temp" | Out-Null }
+# Exportation des utilisateurs vers un fichier CSV
+$utilisateurs | Export-Csv -Path ".\utilisateurs.csv" -NoTypeInformation
+Write-Host "`nExport effectué vers utilisateurs.csv"
 
-$csvPath = "C:\Temp\UsersSimules.csv"
-$Users | Export-Csv -Path $csvPath -NoTypeInformation -Encoding UTF8
-"Export effectué vers: $csvPath"
+# Importation des utilisateurs depuis le fichier CSV
+$importes = Import-Csv ".\utilisateurs.csv"
 
-$ImportedUsers = Import-Csv -Path $csvPath
-"=== Utilisateurs importés ==="
-$ImportedUsers
-
-$Groups = @{ "ImportGroupe" = @() }
-$Groups["ImportGroupe"] += $ImportedUsers
-
-"=== Membres d'ImportGroupe ==="
-$Groups["ImportGroupe"] | ForEach-Object {
-    "{0} {1} - Login: {2} - OU: {3}" -f $_.Prenom, $_.Nom, $_.Login, $_.OU
+# Ajout des utilisateurs importés dans un nouveau groupe ImportGroupe
+Write-Host "`nAjout des utilisateurs importés dans le groupe ImportGroupe :"
+foreach ($user in $importes) {
+    Write-Host " - $($user.Prenom) $($user.Nom) ajouté à ImportGroupe"
 }
