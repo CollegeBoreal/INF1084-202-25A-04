@@ -10,9 +10,12 @@ INF1084 (202) - Introduction à l'administration des systèmes
 | :one:   |08-sept| [0.PlanDeCours](0.PlanDeCours/.scripts/Participation.md)       | â Noter :x: |
 | :two:   |15-sept| [0.Tutoriel sur GIT](.scripts/Participation.md)       | â Noter :x: |
 | :three: |22-sept| [1.SSH](1.SSH/.scripts/Participation.md)       | â Noter :x: |
+| :four:  |29-sept| [2.Utilisateurs](2.Utilisateurs/.scripts/Participation.md)       | â Noter :x: |
+| :five:  |06-oct| [3.VMs](3.VMs/.scripts/Participation.md)       | â Noter :x: |
+| :six:   |13-oct| [4.OUs](4.OUs/.scripts/Participation.md)       | â Noter :x: |
 
 
-# :books: Références
+# :books: References
 
 - [ ] Comment vérifier que le `commit` a été fait par le `CLI`
       

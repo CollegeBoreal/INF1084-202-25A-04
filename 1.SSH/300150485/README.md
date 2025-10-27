@@ -1,2 +1,1 @@
-󐀵 c cc󐀵 c
-particaption ssh 300150485
+Ceci est mon fichier README pour la participation SSH - 300150485
