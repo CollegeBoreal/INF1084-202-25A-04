@@ -33,3 +33,8 @@
 
 ### 💬 Commentaire
 Tout fonctionne : le rôle AD DS est actif, le domaine est opérationnel, les utilisateurs et OU sont bien créés.
+
+
+<img width="1920" height="1020" alt="domaine" src="https://github.com/user-attachments/assets/1ed53505-e251-453e-b30f-09126591b403" />
+
+
