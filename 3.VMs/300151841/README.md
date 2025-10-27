@@ -38,3 +38,6 @@ Tout fonctionne : le rôle AD DS est actif, le domaine est opérationnel, les ut
 <img width="1920" height="1020" alt="domaine" src="https://github.com/user-attachments/assets/1ed53505-e251-453e-b30f-09126591b403" />
 
 
+<img width="1920" height="1020" alt="contrôleur AD" src="https://github.com/user-attachments/assets/2196575a-83a2-418e-8e62-cb43ffe0d856" />
+
+
