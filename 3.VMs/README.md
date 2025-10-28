@@ -270,8 +270,10 @@ Installer et configurer un contrôleur de domaine Active Directory sur **Windows
 ### 1. Renommer le serveur
 
 ```powershell
-Rename-Computer -NewName "DC9999999990-00" -Restart
+Rename-Computer -NewName "DC9999999990" -Restart
 ```
+
+:warning: Le nom du serveur doit etre different du nom de domaine.
 
 *(le serveur va redémarrer)*
 
