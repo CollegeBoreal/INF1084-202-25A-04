@@ -6,6 +6,161 @@
 [:tada: Participation](.scripts/Participation.md) 
 
 
+Ah oui 😅, une leçon sur Active Directory peut vite sembler aride… ajoutons un peu de couleur et d’emojis pour rendre tout ça plus vivant ! Voici une version revisitée :
+
+---
+
+# **Module 2 – Gestion de l’organisation administrative des comptes Active Directory** 🗂️💻
+
+## **Objectif du module 🎯**
+
+Apprendre à gérer l’organisation administrative des comptes et des groupes dans Active Directory afin d’assurer la sécurité 🔒, la conformité ✅ et le respect des standards de l’entreprise 🏢.
+
+---
+
+## **1. Les types de permissions dans Active Directory (2.1) 🛡️**
+
+### **Définition**
+
+Une **permission** est un droit attribué à un utilisateur ou un groupe sur un objet AD (dossier, fichier, OU, compte). Elle détermine ce que l’utilisateur peut faire sur l’objet.
+
+### **Principaux types de permissions**
+
+1. **Lecture (Read) 👀** : Voir l’objet et ses propriétés.
+2. **Écriture (Write) ✍️** : Modifier certaines propriétés de l’objet.
+3. **Création / Suppression (Create / Delete) 🆕❌** : Créer ou supprimer des objets.
+4. **Contrôle total (Full Control) 👑** : Toutes les permissions possibles.
+
+### **Techniques d’appui 🛠️**
+
+* **RAFP GINQ/INFG 1,3** : Méthodes et outils pour vérifier et ajuster les permissions.
+* Exemple PowerShell :
+
+```powershell
+Get-Acl "OU=Etudiants,DC=entreprise,DC=local" | Format-List
+```
+
+---
+
+## **2. Organisation des comptes et des groupes (2.2) 🧑‍💼🖥️**
+
+### **Concepts clés**
+
+* **Compte utilisateur 👤** : Identité d’une personne dans l’entreprise.
+  Exemple : `jdupont@entreprise.local`
+* **Compte informatique 🖥️** : Représente un ordinateur sur le réseau.
+  Exemple : `PC-ETUDIANT01`
+* **Groupe 👥** : Regroupe des comptes pour appliquer des permissions collectives.
+  Exemple : `Groupe-RDP`, `Groupe-IT`
+
+### **Types de groupes**
+
+1. **Groupes de sécurité 🔒** : Contrôlent l’accès aux ressources.
+2. **Groupes de distribution ✉️** : Pour la messagerie, pas pour les permissions.
+
+### **Organisation administrative**
+
+* **Unités organisationnelles (OU) 🏢** : Structures hiérarchiques qui contiennent comptes et groupes.
+* **Standard recommandé ✅** : une OU par département ou fonction, avec des groupes adaptés à l’accès aux ressources.
+
+---
+
+## **3. Concepts de permission dans Active Directory (2.3) ⚙️**
+
+### **Héritage et propagation 🌱**
+
+* Les permissions peuvent être **héritées** des objets parents (OU ou domaine) aux objets enfants (comptes et groupes).
+* Permet un **contrôle centralisé** et moins d’erreurs.
+
+### **Contrôle d’accès basé sur les rôles (RBAC) 🎭**
+
+* Les **rôles** définissent quels groupes ont quelles permissions.
+* Applique le principe du **moindre privilège** 🗝️ : donner seulement les droits nécessaires.
+
+### **Exemples pratiques**
+
+1. Ajouter un utilisateur au groupe RDP pour accès à distance :
+
+```powershell
+Add-ADGroupMember -Identity "Remote Desktop Users" -Members "jdupont"
+```
+
+2. Vérifier les permissions héritées d’une OU :
+
+```powershell
+Get-ACL "OU=IT,DC=entreprise,DC=local" | Format-List
+```
+
+---
+
+## **Résumé / Bonnes pratiques 📌**
+
+* Utiliser les **OU et groupes** pour organiser les comptes. 🗂️
+* Appliquer des **permissions standardisées** 🔒 pour sécuriser les données.
+* Respecter le **moindre privilège** 🗝️ et le contrôle centralisé.
+* Documenter toutes modifications 📄 pour la traçabilité.
+
+---
+
+Voici un **schéma** qui montre **les OU, les comptes, les groupes et les permissions héritées** 👇
+
+```mermaid
+graph TD
+    %% Domaine
+    A[🌐 Domaine : entreprise.local] 
+
+    %% OU
+    A --> B[🏢 OU : IT]
+    A --> C[🏢 OU : Etudiants]
+    A --> D[🏢 OU : Finance]
+
+    %% Comptes IT
+    B --> B1[👤 jdupont]
+    B --> B2[👤 amartin]
+    B --> B3[🖥️ PC-IT01]
+
+    %% Comptes Etudiants
+    C --> C1[👤 eleve01]
+    C --> C2[👤 eleve02]
+    C --> C3[🖥️ PC-ETUDIANT01]
+
+    %% Comptes Finance
+    D --> D1[👤 comptable01]
+    D --> D2[👤 comptable02]
+    D --> D3[🖥️ PC-FIN01]
+
+    %% Groupes et permissions
+    subgraph Groupes
+        G1[🔒 Admin-IT (Full Control 🏴)]
+        G2[🔒 Remote Desktop Users (RDP 🖥️)]
+        G3[🔒 Finance-Access (Lecture/Écriture 📄✍️)]
+    end
+
+    %% Affectations IT
+    B1 --> G1
+    B2 --> G1
+    B3 --> G2
+
+    %% Affectations Etudiants
+    C1 --> G2
+    C2 --> G2
+    C3 --> G2
+
+    %% Affectations Finance
+    D1 --> G3
+    D2 --> G3
+```
+
+### ✅ Points clés visibles dans ce schéma
+
+* Les **OU** structurent l’organisation 🏢.
+* Les **comptes utilisateurs et ordinateurs** sont dans les OU correspondantes 👤🖥️.
+* Les **groupes** appliquent des **permissions standardisées** 🔒.
+* On distingue **les permissions spécifiques** (Full Control, RDP, Lecture/Écriture) avec des emojis.
+* Le **principe de moindre privilège** est visible : chaque compte a accès uniquement aux groupes nécessaires 🔑.
+
+# :abacus: Laboratoires
+
 Gérer les utilisateurs dans ton domaine **`DC999999999-0.local`**, avec les corrections pour le container `CN=Users` et la création de l’OU `Students`.
 
 ## :books: Travail à soumettre :
