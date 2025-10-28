@@ -361,7 +361,7 @@ assignment should be done to all the physical network adapters for reliable Doma
 Une fois redémarré, connecte-toi avec :
 
 ```
-DC999999999\Administrator
+DC999999999-00\Administrator
 ```
 
 Puis vérifie :
