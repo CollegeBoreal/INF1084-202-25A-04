@@ -7,7 +7,7 @@
 
 ---
 
-# **Module 2 – Gestion de l’organisation administrative des comptes Active Directory** 🗂️💻
+# **Gestion de l’organisation administrative des comptes Active Directory** 🗂️💻
 
 ## **Objectif du module 🎯**
 
