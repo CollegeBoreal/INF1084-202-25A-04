@@ -407,6 +407,15 @@ DC999999999-00\Administrator
 Puis vérifie :
 
 ```powershell
+Get-ADDomainController -Discover | Select-Object Name,HostName,Site
+```
+<details>
+Name        HostName                           Site
+----        --------                           ----
+DC999999990 {DC999999990.DC999999990-00.local} Default-First-Site-Name
+</details>
+
+```powershell
 Get-ADDomain
 Get-ADForest
 ```
