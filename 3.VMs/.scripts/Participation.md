@@ -1,4 +1,4 @@
-# Participation au 28-10-2025 17:15
+# Participation au 28-10-2025 18:06
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -18,7 +18,7 @@
 
 |:hash:| Boréal :id:                | :link: | :id:.md    | :rocket: |
 |------|----------------------------|--------|------------|----------|
-| 0 | [300138205](../300138205/README.md) [<image src='https://avatars0.githubusercontent.com/u/200685761?s=460&v=4' width=20 height=20></image>](https://github.com/taylor123marc) | 10.7.236.188 | :x: |
+| 0 | [300138205](../300138205/README.md) [<image src='https://avatars0.githubusercontent.com/u/200685761?s=460&v=4' width=20 height=20></image>](https://github.com/taylor123marc) | 10.7.236.188 | :heavy_check_mark: | :heavy_check_mark: |
 | 1 | [300141368](../300141368/README.md) [<image src='https://avatars0.githubusercontent.com/u/132600996?s=460&v=4' width=20 height=20></image>](https://github.com/daniella-diwa) | 10.7.236.189 | :x: |
 | 2 | [300141429](../300141429/README.md) [<image src='https://avatars0.githubusercontent.com/u/231347874?s=460&v=4' width=20 height=20></image>](https://github.com/barrynetwork) | 10.7.236.190 | :heavy_check_mark: | :heavy_check_mark: |
 | 3 | [300141570](../300141570/README.md) [<image src='https://avatars0.githubusercontent.com/u/66260193?s=460&v=4' width=20 height=20></image>](https://github.com/swberk) | 10.7.236.187 | :x: |
@@ -49,4 +49,4 @@
 | 28 | [300151841](../300151841/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | 10.7.236.245 | :heavy_check_mark: | :heavy_check_mark: |
 | 29 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | 10.7.236.246 | :x: |
 | 30 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | 10.7.236.247 | :heavy_check_mark: | :heavy_check_mark: |
-| :abacus: | \$\\frac{11}{31}$ = 35.48% | | \$\displaystyle\sum_{i=1}^{31} s_i$ = 11 |
+| :abacus: | \$\\frac{12}{31}$ = 38.71% | | \$\displaystyle\sum_{i=1}^{31} s_i$ = 12 |
