@@ -1,23 +1,28 @@
-# ========================================
-# TP Active Directory - Partie 3
-# Gestion des comptes
-# ========================================
+# =========================================
+# TP INF1084 - Étape 3 : Désactivation, réactivation, suppression et export
+# =========================================
 
-# ÉTAPE 5 : Désactiver un utilisateur
-Disable-ADAccount -Identity "alice.dupont" -Server $domainName
+# Variables de domaine
+$studentNumber = 300141429
+$studentInstance = 0
+$domainName = "DC300141429.local"
+$cred = Get-Credential  # Identifiants Admin
 
-# ÉTAPE 6 : Réactiver un utilisateur
-Enable-ADAccount -Identity "alice.dupont" -Server $domainName
+# Désactivation de l'utilisateur
+Disable-ADAccount -Identity "alice.dupont" -Credential $cred
+Write-Host "🚫 Utilisateur désactivé."
 
-# ÉTAPE 7 : Supprimer un utilisateur
-Remove-ADUser -Identity "alice.dupont" -Server $domainName -Confirm:$false
+# Réactivation de l'utilisateur
+Enable-ADAccount -Identity "alice.dupont" -Credential $cred
+Write-Host "🔁 Utilisateur réactivé."
 
-# ÉTAPE 8 : Rechercher des utilisateurs avec un filtre
-Get-ADUser -Filter "Name -like 's*'" -Server $domainName -Properties Name, SamAccountName |
-Select-Object Name, SamAccountName
-
-# ÉTAPE 9 : Exporter les utilisateurs dans un CSV
+# Export CSV des utilisateurs du domaine
 Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, EmailAddress, Enabled |
 Where-Object { $_.SamAccountName -notin @("Administrator","Guest","krbtgt") } |
 Select-Object Name, SamAccountName, EmailAddress, Enabled |
 Export-Csv -Path "TP_AD_Users.csv" -NoTypeInformation -Encoding UTF8
+Write-Host "📁 Export réalisé dans TP_AD_Users.csv"
+
+# Suppression de l'utilisateur
+Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
+Write-Host "❌ Utilisateur supprimé."
