@@ -8,6 +8,8 @@ Se préparer aux scripts AD réels.
 🔖 Nommez vos scripts Powershell selon le format suivant utilisateurs[1-4].ps1
 
 1️⃣ Création d'objets utilisateurs simulés
+
+```powershell
 # Créer une liste d'utilisateurs simulés
 $Users = @(
     @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
@@ -17,6 +19,8 @@ $Users = @(
 
 # Afficher les utilisateurs
 $Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
+```
+
 Exercice 1 : Ajouter 2 nouveaux utilisateurs à la liste et vérifier qu'ils s'affichent correctement.
 
 2️⃣ Création de groupes simulés
@@ -51,4 +55,5 @@ Exercice 4 : Importer le fichier CSV et créer un groupe "ImportGroupe" en ajout
 Créer 5 utilisateurs simulés dans l'OU "Promo2025".
 Créer un groupe "Etudiants2025".
 Ajoutez tous les utilisateurs de "Promo2025" dans le groupe.
+
 Exporter la liste finale du groupe en CSV.
