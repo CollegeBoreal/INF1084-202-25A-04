@@ -12,15 +12,10 @@ $netbiosName = "DC$studentNumber-$studentInstance"
 
 <details>
 
-  ```powershell
+  <img width="1677" height="778" alt="Capture d’écran 2025-10-28 145612" src="https://github.com/user-attachments/assets/447a555c-46d3-4cde-b4b7-f07dac50677c" />
 
-Success Restart Needed Exit Code      Feature Result
-------- -------------- ---------      --------------
-True    No             Success        {Active Directory Domain Services, Group P...
-
-```
 
 </details>
 
 
-<img width="1677" height="778" alt="Capture d’écran 2025-10-28 145612" src="https://github.com/user-attachments/assets/a9c4b089-a5eb-4e52-9202-20d8950b0f0d" />
+
