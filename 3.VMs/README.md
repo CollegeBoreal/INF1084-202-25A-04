@@ -410,9 +410,13 @@ Puis vérifie :
 Get-ADDomainController -Discover | Select-Object Name,HostName,Site
 ```
 <details>
+
+```lua
 Name        HostName                           Site
 ----        --------                           ----
 DC999999990 {DC999999990.DC999999990-00.local} Default-First-Site-Name
+```
+
 </details>
 
 ```powershell
