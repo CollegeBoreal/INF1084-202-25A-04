@@ -1,22 +1,36 @@
-# INF1084-202-25A-04
-INF1084 (202) - Introduction à l'administration des systèmes
+# TP Active Directory - OU
+#300150395
 
-## :date: [Épreuves](.epreuves)
+---
 
-## :one: [Devoirs](Devoirs)
+Ce TP est divisé en **4 fichiers PowerShell** :
 
-|:hash: | Date   | Cours                      | Intitulé                            |  Pratique                                                     |
-|-------|--------|:---------------------------|:------------------------------------|:--------------------------------------------------------------|
-| :one:   |08-sept| [0.PlanDeCours](0.PlanDeCours/.scripts/Participation.md)       | â Noter :x: |
-| :two:   |15-sept| [0.Tutoriel sur GIT](.scripts/Participation.md)       | â Noter :x: |
-| :three: |22-sept| [1.SSH](1.SSH/.scripts/Participation.md)       | â Noter :x: |
-| :four:  |29-sept| [2.Utilisateurs](2.Utilisateurs/.scripts/Participation.md)       | â Noter :x: |
-| :five:  |06-oct| [3.VMs](3.VMs/.scripts/Participation.md)       | â Noter :x: |
-| :six:   |13-oct| [4.OUs](4.OUs/.scripts/Participation.md)       | â Noter :x: |
+### 📄 **utilisateurs1.ps1** - Configuration et Listage
+- Configuration initiale des variables de domaine
+- Vérification de l'environnement Active Directory
+- Listage des utilisateurs actifs du domaine
 
+### 📄 **utilisateurs2.ps1** - Création et Modification
+- Création d’un utilisateur (Alice Dupont)
+- Modification de ses attributs (email, prénom, etc.)
 
-# :books: References
+### 📄 **utilisateurs3.ps1** - Gestion des comptes
+- Désactivation et réactivation
+- Suppression d’un utilisateur
+- Recherche avec filtres et export CSV
 
-- [ ] Comment vérifier que le `commit` a été fait par le `CLI`
-      
-`git log --format=fuller -- `:id:`.md`
+### 📄 **utilisateurs4.ps1** - Gestion des OU
+- Création de l’OU “Students”
+- Déplacement d’utilisateurs dans cette OU
+
+---
+
+## 🚀 Étapes du TP
+
+### Étape 0 : Configuration du domaine
+```powershell
+$studentNumber = 300150395
+$studentInstance = "00"
+
+$domainName = "DC$studentNumber-$studentInstance.local"
+$netbiosName = "DC$studentNumber-$studentInstance"

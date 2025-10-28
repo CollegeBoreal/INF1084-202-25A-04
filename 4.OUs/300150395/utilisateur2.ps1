@@ -1,32 +1,17 @@
-# ======================================================
-# TP Active Directory - Étudiant : 300150395
-# Fichier : utilisateur2.ps1
-# Objectif : Création et gestion de groupes simulés
-# ======================================================
+# TP Active Directory - Partie 2
+# Création et Modification d’utilisateurs
 
-# Liste d'utilisateurs
-$Users = @(
-    @{Nom="Dupont"; Prenom="Alice"; OU="Stagiaires"},
-    @{Nom="Lemoine"; Prenom="Sarah"; OU="Stagiaires"},
-    @{Nom="Benali"; Prenom="Karim"; OU="Stagiaires"},
-    @{Nom="Isma"; Prenom="Isma"; OU="Etudiant"},
-    @{Nom="Diallo"; Prenom="Hakin"; OU="Menuisier"}
-)
+New-ADUser -Name "Alice Dupont" `
+           -GivenName "Alice" `
+           -Surname "Dupont" `
+           -SamAccountName "alice.dupont" `
+           -UserPrincipalName "alice.dupont@$domainName" `
+           -AccountPassword (ConvertTo-SecureString "MotDePasse123!" -AsPlainText -Force) `
+           -Enabled $true `
+           -Path "CN=Users,DC=$netbiosName,DC=local" `
+           -Server $domainName
 
-# Créer des groupes
-$Groups = @{
-    "GroupeFormation" = @()
-    "ProfesseursAD"   = @()
-}
-
-# Ajouter tous les utilisateurs dont l’OU = "Stagiaires"
-foreach ($user in $Users) {
-    if ($user.OU -eq "Stagiaires") {
-        $Groups["GroupeFormation"] += "$($user.Prenom) $($user.Nom)"
-    }
-}
-
-# Afficher le contenu du groupe
-Write-Host "Membres du groupe GroupeFormation :"
-$Groups["GroupeFormation"] | ForEach-Object { Write-Host "- $_" }
-
+Set-ADUser -Identity "alice.dupont" `
+           -Server $domainName `
+           -EmailAddress "alice.dupont@exemple.com" `
+           -GivenName "Alice-Marie"
