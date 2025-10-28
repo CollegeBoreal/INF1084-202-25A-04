@@ -1,48 +1,24 @@
-# ========================================
-# TP Active Directory - Partie 4
-# Gestion des OU
-# ========================================
+# =========================================
+# TP INF1084 - Étape 4 : Déplacement vers l'OU Students
+# =========================================
 
-# Définir les variables correctes
+# Variables de domaine
+$studentNumber = 300141429
 $domainName = "DC300141429.local"
 $netbiosName = "DC300141429"
+$cred = Get-Credential  # Identifiants Admin
 
-# ========================================
-# ETAPE 10 : Créer une OU "Students"
-# ========================================
-
-# Vérifier si l'OU "Students" existe déjà
-if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'" -Server $domainName -ErrorAction SilentlyContinue)) {
-    New-ADOrganizationalUnit -Name "Students" -Path "DC=$netbiosName,DC=local" -Server $domainName
-    Write-Host "OU 'Students' créée."
-}
-else {
-    Write-Host "OU 'Students' existe déjà."
+# Vérifier si l'OU Students existe, sinon la créer
+if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'")) {
+    New-ADOrganizationalUnit -Name "Students" -Path "DC=$netbiosName,DC=local" -Credential $cred
+    Write-Host "🆕 OU 'Students' créée."
 }
 
-# ========================================
-# Déplacer l'utilisateur "Alice Dupont"
-# ========================================
+# Déplacer l'utilisateur Alice Dupont dans l'OU Students
+Move-ADObject -Identity "CN=Alice Dupont,CN=Users,DC=$netbiosName,DC=local" `
+              -TargetPath "OU=Students,DC=$netbiosName,DC=local" `
+              -Credential $cred
+Write-Host "📦 Utilisateur déplacé vers l'OU Students."
 
-# Récupérer l'utilisateur
-$user = Get-ADUser -Filter {SamAccountName -eq "alice.dupont"} -Server $domainName
-
-if ($user) {
-    Write-Host "Utilisateur trouvé : $($user.DistinguishedName)"
-
-    $targetOU = "OU=Students,DC=$netbiosName,DC=local"
-
-    Move-ADObject -Identity $user.DistinguishedName -TargetPath $targetOU -Server $domainName
-
-    Write-Host "Utilisateur déplacé vers : $targetOU"
-}
-else {
-    Write-Host "L'utilisateur 'alice.dupont' est introuvable dans le domaine $domainName."
-}
-
-# ========================================
-# Vérifier le déplacement
-# ========================================
-
-Get-ADUser -Identity "alice.dupont" -Server $domainName | Select-Object Name, DistinguishedName
-
+# Vérification du déplacement
+Get-ADUser -Identity "alice.dupont" | Select-Object Name, DistinguishedName
