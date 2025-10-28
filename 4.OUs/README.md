@@ -105,7 +105,7 @@ Get-ACL "OU=IT,DC=entreprise,DC=local" | Format-List
 Voici un **schéma** qui montre **les OU, les comptes, les groupes et les permissions héritées** 👇
 
 ```mermaid
-graph TD
+graph LR
     %% Domaine
     A[🌐 Domaine : entreprise.local] 
 
