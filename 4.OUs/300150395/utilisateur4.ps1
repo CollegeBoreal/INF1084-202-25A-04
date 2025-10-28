@@ -1,32 +1,12 @@
-# ======================================================
-# TP Active Directory - Étudiant : 300150395
-# Fichier : utilisateur4.ps1
-# Objectif : Exportation et importation CSV des utilisateurs
-# ======================================================
+# TP Active Directory - Partie 4
+# Gestion des OU
 
-# Définir des utilisateurs comme objets
-$Users = @(
-    [PSCustomObject]@{ Nom="Dupont"; Prenom="Alice"; OU="Stagiaires" }
-    [PSCustomObject]@{ Nom="Diallo"; Prenom="Ibrahima"; OU="Professeurs" }
-    [PSCustomObject]@{ Nom="Isma"; Prenom="Isma"; OU="Stagiaires" }
-)
-
-# Créer le dossier C:\Temp s'il n'existe pas
-if (-not (Test-Path -Path "C:\Temp")) {
-    New-Item -ItemType Directory -Path "C:\Temp" | Out-Null
+if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'" -Server $domainName -ErrorAction SilentlyContinue)) {
+    New-ADOrganizationalUnit -Name "Students" -Path "DC=$netbiosName,DC=local" -Server $domainName
 }
 
-# Exporter les utilisateurs simulés
-$csvPath = "C:\Temp\UsersSimules.csv"
-$Users | Export-Csv -Path $csvPath -NoTypeInformation -Encoding UTF8
-Write-Host "`n✅ Utilisateurs exportés vers $csvPath"
+Move-ADObject -Identity "CN=Alice Dupont,CN=Users,DC=$netbiosName,DC=local" `
+              -TargetPath "OU=Students,DC=$netbiosName,DC=local" `
+              -Server $domainName
 
-# Importer depuis le CSV
-$ImportedUsers = Import-Csv -Path $csvPath
-
-# Créer un groupe ImportGroupe
-$ImportGroupe = @()
-$ImportGroupe += $ImportedUsers
-
-Write-Host "`nMembres du groupe ImportGroupe :"
-$ImportGroupe | Format-Table Nom, Prenom, OU
+Get-ADUser -Identity "alice.dupont" -Server $domainName | Select-Object Name, DistinguishedName

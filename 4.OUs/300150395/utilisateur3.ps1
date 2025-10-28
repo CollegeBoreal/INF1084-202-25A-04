@@ -1,26 +1,14 @@
-# ======================================================
-# TP Active Directory - Étudiant : 300150395
-# Fichier : utilisateur3.ps1
-# Objectif : Requêtes et filtres sur les utilisateurs
-# ======================================================
+# TP Active Directory - Partie 3
+# Gestion des comptes
 
-# Liste d’utilisateurs
-$Users = @(
-    @{Nom="Dupont"; Prenom="Alice"; OU="Stagiaires"},
-    @{Nom="Benali"; Prenom="Karim"; OU="Stagiaires"},
-    @{Nom="Isma"; Prenom="Isma"; OU="Etudiant"},
-    @{Nom="Diallo"; Prenom="Hakin"; OU="Menuisier"}
-)
+Disable-ADAccount -Identity "alice.dupont" -Server $domainName
+Enable-ADAccount -Identity "alice.dupont" -Server $domainName
+Remove-ADUser -Identity "alice.dupont" -Server $domainName -Confirm:$false
 
-# Lister les utilisateurs dont le nom commence par "B"
-Write-Host "`nUtilisateurs dont le nom commence par 'B' :"
-$Users | Where-Object { $_.Nom -like "B*" }
+Get-ADUser -Filter "Name -like 'a*'" -Server $domainName -Properties Name, SamAccountName |
+Select-Object Name, SamAccountName
 
-# Lister les utilisateurs dont le prénom contient "a"
-Write-Host "`nUtilisateurs dont le prénom contient 'a' :"
-$Users | Where-Object { $_.Prenom -match "a" }
-
-# Lister les utilisateurs de l’OU "Stagiaires"
-Write-Host "`nUtilisateurs dans l’OU 'Stagiaires' :"
-$Users | Where-Object { $_.OU -eq "Stagiaires" }
-
+Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, EmailAddress, Enabled |
+Where-Object { $_.SamAccountName -notin @("Administrator","Guest","krbtgt") } |
+Select-Object Name, SamAccountName, EmailAddress, Enabled |
+Export-Csv -Path "TP_AD_Users.csv" -NoTypeInformation -Encoding UTF8
