@@ -5,9 +5,6 @@
 
 [:tada: Participation](.scripts/Participation.md) 
 
-
-Ah oui 😅, une leçon sur Active Directory peut vite sembler aride… ajoutons un peu de couleur et d’emojis pour rendre tout ça plus vivant ! Voici une version revisitée :
-
 ---
 
 # **Module 2 – Gestion de l’organisation administrative des comptes Active Directory** 🗂️💻
