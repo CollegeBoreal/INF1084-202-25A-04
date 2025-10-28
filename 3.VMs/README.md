@@ -270,10 +270,48 @@ Installer et configurer un contrôleur de domaine Active Directory sur **Windows
 ### 1. Renommer le serveur
 
 ```powershell
-Rename-Computer -NewName "DC9999999990" -Restart
+Rename-Computer -NewName "DC9999999990-00" -Restart
 ```
 
 *(le serveur va redémarrer)*
+
+1. **Nom de l’ordinateur (NetBIOS) :**
+
+```powershell
+$env:COMPUTERNAME
+```
+
+2. **Nom complet (FQDN / DNS) :**
+
+```powershell
+[System.Net.Dns]::GetHostName()
+[System.Net.Dns]::GetHostEntry("localhost").HostName
+```
+
+3. **Via cmdlet AD pour les DC (si AD installé) :**
+
+```powershell
+Get-ADDomainController -Discover | Select-Object Name,HostName,Site
+```
+
+* `Name` : nom NetBIOS du DC
+* `HostName` : FQDN
+* `Site` : site AD
+
+4. **Informations complètes sur le système :**
+
+```powershell
+Get-ComputerInfo | Select-Object CsName,DnsHostName
+```
+
+💡 **Résumé rapide** :
+
+| Info recherchée   | Cmdlet / Commande                                      |
+| ----------------- | ------------------------------------------------------ |
+| Nom NetBIOS local | `$env:COMPUTERNAME` / `hostname`                       |
+| Nom FQDN / DNS    | `[System.Net.Dns]::GetHostEntry("localhost").HostName` |
+| Nom du DC AD      | `Get-ADDomainController -Discover`                     |
+
 
 ---
 
