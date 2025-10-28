@@ -79,7 +79,7 @@ graph TD
     B --> D[🏰 Domaine enfant : formation.entreprise.local]
 
     %% Domaine principal
-    C --> C1[🖥️ Contrôleur de domaine (DC)]
+    C --> C1[🖥️ Contrôleur de domaine {DC}]
     C --> C2[📁 OU : Utilisateurs]
     C --> C3[📁 OU : Ordinateurs]
     C --> C4[📁 OU : Imprimantes]
