@@ -1,7 +1,6 @@
 # :link: VMs
 
-[:tada: Participation](.scripts/Participation.md) 
-
+[:tada: Participation](.scripts/Participation.md) [:checkered_flag: Verification](.scripts/Check.md)
 
 ## :scroll: Installation et configuration d’un domaine **Active Directory** 👇
 
