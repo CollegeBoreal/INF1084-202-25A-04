@@ -131,9 +131,9 @@ graph TD
 
     %% Groupes et permissions
     subgraph Groupes
-        G1[🔒 Admin-IT (Full Control 🏴)]
-        G2[🔒 Remote Desktop Users (RDP 🖥️)]
-        G3[🔒 Finance-Access (Lecture/Écriture 📄✍️)]
+        G1[🔒 Admin-IT - Full Control 🏴 ]
+        G2[🔒 Remote Desktop Users - RDP 🖥️ ]
+        G3[🔒 Finance-Access - Lecture/Écriture 📄✍️]
     end
 
     %% Affectations IT
