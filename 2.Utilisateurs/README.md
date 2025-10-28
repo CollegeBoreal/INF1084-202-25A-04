@@ -83,3 +83,68 @@ $ImportedUsers
 3. Ajouter tous les utilisateurs de "Promo2025" dans le groupe.
 4. Exporter la liste finale du groupe en CSV.
 
+---
+
+# :books: References
+
+:bulb: Il y a **plusieurs façons d’importer ou d’exécuter un fichier PowerShell**. Voici un résumé :
+
+---
+
+## **1️⃣ Exécution avec le point (`.`) : dot-sourcing**
+
+```powershell
+. .\utilisateurs1.ps1
+```
+
+* Le **premier `.`** : dot-sourcing
+* Le **deuxième `.`** : chemin relatif vers le script
+* ⚡ Effet : les fonctions et variables du script **restent disponibles dans la session courante**.
+
+---
+
+## **2️⃣ Exécution directe**
+
+```powershell
+.\utilisateurs1.ps1
+```
+
+* ⚡ Effet : le script s’exécute **dans un contexte isolé**.
+* Les variables ou fonctions définies **ne restent pas** après l’exécution.
+
+---
+
+## **3️⃣ Avec `Invoke-Command`**
+
+```powershell
+Invoke-Command -ScriptBlock { . C:\chemin\utilisateurs1.ps1 }
+```
+
+* Permet d’exécuter le script **localement ou à distance**.
+* Nécessaire si tu veux l’exécuter sur une **autre machine** via PowerShell Remoting.
+
+---
+
+## **4️⃣ Importer comme module (si c’est un module)**
+
+Si ton script est structuré en **fonctions réutilisables**, tu peux le transformer en **module PowerShell `.psm1`** :
+
+```powershell
+Import-Module .\utilisateurs1.psm1
+```
+
+* Les fonctions deviennent disponibles dans la session.
+* ⚡ Pratique pour regrouper plusieurs scripts réutilisables.
+
+---
+
+### ✅ **Résumé**
+
+| Méthode          | Conservation des variables/fonctions |
+| ---------------- | ------------------------------------ |
+| `. .\script.ps1` | Oui                                  |
+| `.\script.ps1`   | Non                                  |
+| `Invoke-Command` | Selon le contexte                    |
+| `Import-Module`  | Oui, pour les fonctions/modules      |
+
+
