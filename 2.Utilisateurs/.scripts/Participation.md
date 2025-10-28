@@ -1,4 +1,4 @@
-# Participation au 28-10-2025 23:54
+# Participation au 28-10-2025 23:56
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -21,7 +21,7 @@
 | 1 | [300141368](../300141368/README.md) [<image src='https://avatars0.githubusercontent.com/u/132600996?s=460&v=4' width=20 height=20></image>](https://github.com/daniella-diwa) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | 2 | [300141429](../300141429/README.md) [<image src='https://avatars0.githubusercontent.com/u/231347874?s=460&v=4' width=20 height=20></image>](https://github.com/barrynetwork) | :heavy_check_mark: | :x: | :boom: | :boom: | :boom: |
 | 3 | [300141570](../300141570/README.md) [<image src='https://avatars0.githubusercontent.com/u/66260193?s=460&v=4' width=20 height=20></image>](https://github.com/swberk) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 4 | [300145940](../300145940/README.md) [<image src='https://avatars0.githubusercontent.com/u/234069235?s=460&v=4' width=20 height=20></image>](https://github.com/TasnimMarzouki) | :x: | :x: | :x: | :x: | :x: |
+| 4 | [300145940](../300145940/README.md) [<image src='https://avatars0.githubusercontent.com/u/234069235?s=460&v=4' width=20 height=20></image>](https://github.com/TasnimMarzouki) | :heavy_check_mark: | :boom: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 5 | [300146545](../300146545/README.md) [<image src='https://avatars0.githubusercontent.com/u/211592881?s=460&v=4' width=20 height=20></image>](https://github.com/saoudialaoua) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 6 | [300146667](../300146667/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994773?s=460&v=4' width=20 height=20></image>](https://github.com/djaberbenyezza) | :x: | :x: | :x: | :x: | :x: |
 | 7 | [300147629](../300147629/README.md) [<image src='https://avatars0.githubusercontent.com/u/231347782?s=460&v=4' width=20 height=20></image>](https://github.com/zoumarbalde-blip) | :x: | :x: | :x: | :x: | :x: |
@@ -48,4 +48,4 @@
 | 28 | [300151841](../300151841/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | :x: | :x: | :x: | :x: | :x: |
 | 29 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :boom: |
 | 30 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| :abacus: | \$\\frac{16}{31}$ = 51.61% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 16 |
+| :abacus: | \$\\frac{17}{31}$ = 54.84% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 17 |
