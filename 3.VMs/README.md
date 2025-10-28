@@ -2,7 +2,7 @@
 
 [:tada: Participation](.scripts/Participation.md) [:checkered_flag: Verification](.scripts/Check.md)
 
-# <details>
+<details>
 <summary>📚 Table des matières</summary>
 
 - [:link: **VMs**](#link-vms)  
