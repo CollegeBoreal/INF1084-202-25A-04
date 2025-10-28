@@ -72,7 +72,7 @@ Voici un **schéma** pour illustrer la **structure hiérarchique d’Active Dire
 ---
 
 ```mermaid
-graph TD
+flowchart LR
     A[🌐 Active Directory] --> B[🌲 Forêt : entreprise.local]
 
     B --> C[🏰 Domaine principal : entreprise.local]
