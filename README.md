@@ -5,13 +5,14 @@ INF1084 (202) - Introduction à l'administration des systèmes
 
 ## :one: [Devoirs](Devoirs)
 
-|:hash: | Date   | Cours                      | Intitulé                            |  Pratique                                                     |
-|-------|--------|:---------------------------|:------------------------------------|:--------------------------------------------------------------|
-| :one:   |08-sept| [0.PlanDeCours](0.PlanDeCours/.scripts/Participation.md)       | â Noter :x: |
-| :two:   |15-sept| [0.Tutoriel sur GIT](.scripts/Participation.md)       | â Noter :x: |
-| :three: |22-sept| [1.SSH](1.SSH/.scripts/Participation.md)       | â Noter :x: |
-| :four:  |29-sept| [2.Utilisateurs](2.Utilisateurs/.scripts/Participation.md)       | â Noter :x: |
-| :five:  |06-oct| [3.VMs](3.VMs/.scripts/Participation.md)       | â Noter :x: |
+|:hash:   | Date  | Participations                                                   | Verifications                      |
+|---------|-------|:-----------------------------------------------------------------|:-----------------------------------|
+| :one:   |08-sept| [0.PlanDeCours](0.PlanDeCours/.scripts/Participation.md)         |
+| :two:   |15-sept| [0.Tutoriel sur GIT](.scripts/Participation.md)                  |
+| :three: |22-sept| [1.SSH](1.SSH/.scripts/Participation.md)                         |
+| :four:  |29-sept| [2.Utilisateurs](2.Utilisateurs/.scripts/Participation.md)       |
+| :five:  |06-oct | [3.VMs](3.VMs/.scripts/Participation.md)                         | [3.VMs](3.VMs/.scripts/Check.md)
+| :six:   |13-oct | [4.OUs](4.OUs/.scripts/Participation.md)                         |
 
 
 # :books: References
