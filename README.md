@@ -5,7 +5,7 @@ INF1084 (202) - Introduction à l'administration des systèmes
 
 ## :one: [Devoirs](Devoirs)
 
-|:hash:   | Date  | Participations                                                   | Verification                       |
+|:hash:   | Date  | Participations                                                   | Verifications                      |
 |---------|-------|:-----------------------------------------------------------------|:-----------------------------------|
 | :one:   |08-sept| [0.PlanDeCours](0.PlanDeCours/.scripts/Participation.md)         |
 | :two:   |15-sept| [0.Tutoriel sur GIT](.scripts/Participation.md)                  |
