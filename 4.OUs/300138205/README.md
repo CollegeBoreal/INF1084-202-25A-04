@@ -17,5 +17,24 @@ $netbiosName = "DC$studentNumber-$studentInstance"
 
 </details>
 
+# 1️⃣ Préparer l'environnement
+
+```powershell
+# Importer le module AD
+Import-Module ActiveDirectory
+
+# Vérifier le domaine et les DC
+Get-ADDomain -Server $domainName
+Get-ADDomainController -Filter * -Server $domainName
+```
+
+<details>
+
+  <img width="1692" height="872" alt="image" src="https://github.com/user-attachments/assets/eb3bbd0b-5714-4610-8862-ff3ac486e0fd" />
+
+<img width="1501" height="603" alt="image" src="https://github.com/user-attachments/assets/73da0c7c-a7b0-49b9-8a34-6728198ceae3" />
+
+</details>
+
 
 
