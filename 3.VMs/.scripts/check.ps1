@@ -7,7 +7,7 @@
 $PSDefaultParameterValues['Set-Content:Encoding'] = 'utf8'
 
 # Charger la liste des VMs depuis students.ps1
-. ../../.scripts/students.ps1 # le point suivi d'espace permet d'importer les variables
+. ../.scripts/students.ps1 # le point suivi d'espace permet d'importer les variables
 
 # Vérifier que $SERVERS existe
 if (-not $SERVERS) {
@@ -87,6 +87,6 @@ foreach ($VM in $SERVERS) {
 $md += "| :abacus: | $COUNT = $STATS% | | $SUM = $s |"
 
 # Exporter le README.md
-$md | Set-Content -Path "Check.md" -Encoding UTF8
+$md | Set-Content -Path ".scripts/Check.md" -Encoding UTF8
 Write-Host "README.md généré avec succès !" -ForegroundColor Green
 
