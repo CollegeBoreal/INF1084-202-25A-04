@@ -1,19 +1,28 @@
-# utilisateurs2.ps1
-# Exercice 2 : Création de groupes simulés
+# Liste d'utilisateurs simulés
+$Users = @(
+    @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
+    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
+    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
+    @{Nom="Martin"; Prenom="Louis"; Login="lmartin"; OU="Stagiaires"},
+    @{Nom="Nguyen"; Prenom="Lina"; Login="lnguyen"; OU="Stagiaires"}
+)
 
-# Importer la liste depuis le CSV
-$Users = Import-Csv -Path "C:\Temp\UsersSimules.csv"
-
-# Créer les groupes
+# Création de groupes simulés
 $Groups = @{
     "GroupeFormation" = @()
-    "ProfesseursAD" = @()
+    "ProfesseursAD"   = @()
 }
 
-# Ajouter tous les utilisateurs dont l’OU = "Stagiaires"
-$Groups["GroupeFormation"] += $Users | Where-Object { $_.OU -eq "Stagiaires" }
+# Ajouter tous les utilisateurs dont l’OU = "Stagiaires" dans "GroupeFormation"
+foreach ($user in $Users) {
+    if ($user.OU -eq "Stagiaires") {
+        $Groups["GroupeFormation"] += $user
+    }
+}
 
-# Afficher les membres du groupe
-Write-Host "=== Membres de GroupeFormation ===" -ForegroundColor Cyan
-$Groups["GroupeFormation"] | ForEach-Object { "$($_.Prenom) $($_.Nom) ($($_.Login))" }
+# Vérifier le contenu du groupe
+Write-Host "📘 Membres du GroupeFormation :"
+$Groups["GroupeFormation"] | ForEach-Object {
+"$($_.Prenom) $($_.Nom) - Login: $($_.Login)"
+}
 
