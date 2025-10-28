@@ -310,7 +310,8 @@ Export-Csv -Path "TP_AD_Users.csv" -NoTypeInformation -Encoding UTF8
 
 ---
 
-## **10️⃣ Déplacer un utilisateur vers une OU `Students`**
+## **1️⃣ 0️⃣ Déplacer un utilisateur vers une OU `Students`**
+
 
 1. Crée l’OU si elle n’existe pas :
 
