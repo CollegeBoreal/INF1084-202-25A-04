@@ -4,55 +4,70 @@ on: [push]
 
 jobs:
   presence:
-    name: presence de fichiers pour la participation
-    runs-on: macos-latest
+    name: Vérification de la participation
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v1
-    
-      - shell: bash
+
+      - name: Évaluer les chapitres
+        shell: pwsh
         run: |
           ##
-          ## Evaluating chapter 0.PlanDeCours
-          ## 
-          echo "Evaluating chapter 0.PlanDeCours Participation"
-          cd 0.PlanDeCours
-          bash .scripts/run.sh
-          cd ..
+          ## Évaluation du chapitre 0.PlanDeCours
           ##
-          ## Evaluating manual githug commit/push
-          ## 
-          echo "Evaluating git commands Participation"
-          bash .scripts/run.sh
+          Write-Host "Evaluating chapter 0.PlanDeCours Participation"
+          Set-Location 0.PlanDeCours
+          pwsh .scripts/run.ps1
+          Set-Location ..
+
           ##
-          ## Evaluating chapter 1.SSH Participation
-          ## 
-          echo "Evaluating chapter 1.SSH Participation"
-          cd 1.SSH
-          bash .scripts/run.sh
-          cd ..
+          ## Évaluation des commandes Git
           ##
-          ## Evaluating chapter 2.Utilisateurs Participation
-          ## 
-          echo "Evaluating chapter 2.Utilisateurs Participation"
-          cd 2.Utilisateurs
-          bash .scripts/run.sh
-          cd ..
+          Write-Host "Evaluating git commands Participation"
+          pwsh .scripts/run.ps1
+
           ##
-          ## Evaluating chapter 3.VMs Participation
-          ## 
-          echo "Evaluating chapter 3.VMs Participation"
-          cd 3.VMs
-          bash .scripts/run.sh
-          cd ..
+          ## Évaluation du chapitre 1.SSH
+          ##
+          Write-Host "Evaluating chapter 1.SSH Participation"
+          Set-Location 1.SSH
+          pwsh .scripts/run.ps1
+          Set-Location ..
+
+          ##
+          ## Évaluation du chapitre 2.Utilisateurs
+          ##
+          Write-Host "Evaluating chapter 2.Utilisateurs Participation"
+          Set-Location 2.Utilisateurs
+          pwsh .scripts/run.ps1
+          Set-Location ..
+
+          ##
+          ## Évaluation du chapitre 3.VMs
+          ##
+          Write-Host "Evaluating chapter 3.VMs Participation"
+          Set-Location 3.VMs
+          pwsh .scripts/run.ps1
+          Set-Location ..
+
+          ##
+          ## Évaluation du chapitre 4.OUs
+          ##
+          Write-Host "Evaluating chapter 4.OUs Participation"
+          Set-Location 4.OUs
+          pwsh .scripts/run.ps1
+          Set-Location ..
 
       - name: Commit files
+        shell: pwsh
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Vérification de la participation" -a
-          
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
