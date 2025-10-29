@@ -1,9 +1,5 @@
 # script4_MoveUser.ps1
 
-$studentNumber = 300141429
-$studentInstance = 00
-$domainName = "DC300141429.local"
-$netbiosName = "DC300141429"
 
 Import-Module ActiveDirectory
 $cred = Get-Credential  # Saisir Administrator@$domainName
