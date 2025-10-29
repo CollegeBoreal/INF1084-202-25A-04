@@ -1,4 +1,5 @@
-# TP Active Directory - OU
-#300150395
+# Étudiant : 300150395
+# Domaine : DC300150395-0.local
+
 
 

@@ -4,11 +4,6 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
 
 # Puis recréer l'utilisateur
 
-$studentNumber = 300141429
-$studentInstance = 00
-$domainName = "DC300141429.local"
-$netbiosName = "DC300141429"
-
 Import-Module ActiveDirectory
 
 # Créer un compte administrateur pour les opérations sécurisées
