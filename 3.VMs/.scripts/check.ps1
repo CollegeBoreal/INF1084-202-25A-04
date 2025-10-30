@@ -6,6 +6,9 @@
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $PSDefaultParameterValues['Set-Content:Encoding'] = 'utf8'
 
+# Autorise toutes les IP pour les connexions WinRM
+Set-Item WSMan:\localhost\Client\TrustedHosts -Value "10.7.236.*" -Force
+
 # Charger la liste des VMs depuis students.ps1
 . ../.scripts/students.ps1 # le point suivi d'espace permet d'importer les variables
 
