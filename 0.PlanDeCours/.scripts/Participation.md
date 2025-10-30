@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Participation au 28-10-2025 23:59
-=======
-# Participation au 29-10-2025 00:05
->>>>>>> cabd423637c38577e3acf29042c328a128302d96
-=======
-# Participation au 29-10-2025 14:08
->>>>>>> 9f0ff05f757ebbbc21618f59f2760663da80d5cf
+# Participation au 30-10-2025 20:53
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|

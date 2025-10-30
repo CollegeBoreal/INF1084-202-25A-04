@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Participation au 28-10-2025 23:59
-=======
-# Participation au 29-10-2025 00:05
->>>>>>> cabd423637c38577e3acf29042c328a128302d96
-=======
-# Participation au 29-10-2025 14:08
->>>>>>> 9f0ff05f757ebbbc21618f59f2760663da80d5cf
+# Participation au 30-10-2025 20:53
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -55,12 +47,4 @@
 | 28 | [300151841](../300151841/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | :x: | :x: | :x: | :x: | :x: |
 | 29 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 30 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | :heavy_check_mark: | :x: | :x: | :x: | :x: |
-<<<<<<< HEAD
-<<<<<<< HEAD
 | :abacus: | \$\\frac{9}{31}$ = 29.03% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 9 |
-=======
-| :abacus: | \$\\frac{8}{31}$ = 25.81% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 8 |
->>>>>>> cabd423637c38577e3acf29042c328a128302d96
-=======
-| :abacus: | \$\\frac{9}{31}$ = 29.03% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 9 |
->>>>>>> 9f0ff05f757ebbbc21618f59f2760663da80d5cf
