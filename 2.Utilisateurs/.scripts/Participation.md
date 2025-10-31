@@ -1,4 +1,4 @@
-# Participation au 31-10-2025 03:43
+# Participation au 31-10-2025 03:45
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -44,8 +44,8 @@
 | 24 | [300151354](../300151354/README.md) [<image src='https://avatars0.githubusercontent.com/u/212047331?s=460&v=4' width=20 height=20></image>](https://github.com/massinissamakoudi) | :x: | :x: | :x: | :x: | :x: |
 | 25 | [300151492](../300151492/README.md) [<image src='https://avatars0.githubusercontent.com/u/206000307?s=460&v=4' width=20 height=20></image>](https://github.com/hacen19) | :heavy_check_mark: | :heavy_check_mark: | :boom: | :heavy_check_mark: | :heavy_check_mark: |
 | 26 | [300151608](../300151608/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994734?s=460&v=4' width=20 height=20></image>](https://github.com/mohammedaiche434) | :x: | :x: | :x: | :x: | :x: |
-| 27 | [300151833](../300151833/README.md) [<image src='https://avatars0.githubusercontent.com/u/109877652?s=460&v=4' width=20 height=20></image>](https://github.com/raoufbrs15) | :x: | :x: | :x: | :x: | :x: |
+| 27 | [300151833](../300151833/README.md) [<image src='https://avatars0.githubusercontent.com/u/109877652?s=460&v=4' width=20 height=20></image>](https://github.com/raoufbrs15) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :boom: |
 | 28 | [300151841](../300151841/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | :x: | :x: | :x: | :x: | :x: |
 | 29 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :boom: |
 | 30 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| :abacus: | \$\\frac{19}{31}$ = 61.29% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 19 |
+| :abacus: | \$\\frac{20}{31}$ = 64.52% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 20 |
