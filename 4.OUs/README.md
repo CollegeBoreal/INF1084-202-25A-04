@@ -25,6 +25,38 @@ Gérer les utilisateurs dans ton domaine **`DC999999999-0.local`**, avec les cor
   - [ ] `git commit -m "mon fichier ..."`
   - [ ] `git push`
 
+### :o: Vérification
+
+Pour permettre une vérification des scripts, cloner le cours sur votre machine virtuelle.
+
+- [ ] Dans le répertoire principal
+
+:bulb: De votre utilisateur `Administrator`
+
+```powershell
+cd $HOME
+```
+
+- [ ] Créer le répertoire `Developer`
+
+```powershell
+mkdir Developer
+```
+
+- [ ] Cloner le cours
+
+:bulb: Vous pouvez également cloner avec SSH. 
+
+```powershell
+git clone https://github.com/CollegeBoreal/INF1084-202-25A-04.git
+```
+
+:bangbang: Le répertoire ci-dessous doit être présent sur votre machine virtuelle
+
+```powershell
+~/Developer/INF1084-202-25A-04
+```
+
 ---
 
 **Domaine cible :** `DC999999999-0.local`
