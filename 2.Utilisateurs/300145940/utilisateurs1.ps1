@@ -9,4 +9,4 @@ $Users = @(
 )
 
 #JE VEUT AFICHER LES USERS
-$Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)"
+$Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }

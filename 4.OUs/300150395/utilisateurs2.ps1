@@ -11,6 +11,7 @@ New-ADUser -Name "Alice Dupont" `
            -Path "CN=Users,DC=$netbiosName,DC=local" `
            -Server $domainName
 
+
 Set-ADUser -Identity "alice.dupont" `
            -Server $domainName `
            -EmailAddress "alice.dupont@exemple.com" `
