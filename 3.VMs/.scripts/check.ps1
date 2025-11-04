@@ -6,6 +6,9 @@
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $PSDefaultParameterValues['Set-Content:Encoding'] = 'utf8'
 
+# Autorise toutes les IP pour les connexions WinRM
+Set-Item WSMan:\localhost\Client\TrustedHosts -Value "10.7.236.*" -Force
+
 # Charger la liste des VMs depuis students.ps1
 . ../.scripts/students.ps1 # le point suivi d'espace permet d'importer les variables
 
@@ -17,7 +20,9 @@ if (-not $SERVERS) {
 
 # Identifiants administrateur (local ou domaine)
 $User = "Administrator"
-$Password = Read-Host -AsSecureString "Mot de passe de $User"
+# $Password = Read-Host -AsSecureString "Mot de passe de $User"
+$plain = 'Infra@2024'
+$Password = ConvertTo-SecureString $plain -AsPlainText -Force
 
 # Préparer le contenu Markdown
 $timestamp = Get-Date -Format "dd-MM-yyyy HH:mm"
