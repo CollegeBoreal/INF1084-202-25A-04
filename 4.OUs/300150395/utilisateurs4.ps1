@@ -5,6 +5,7 @@ if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'" -Server $domain
     New-ADOrganizationalUnit -Name "Students" -Path "DC=$netbiosName,DC=local" -Server $domainName
 }
 
+
 Move-ADObject -Identity "CN=Alice Dupont,CN=Users,DC=$netbiosName,DC=local" `
               -TargetPath "OU=Students,DC=$netbiosName,DC=local" `
               -Server $domainName
