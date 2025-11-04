@@ -2,8 +2,7 @@
 # Exercice 4 : Importer le fichier CSV et créer un groupe ImportGroupe avec les utilisateurs
 
 # Importer les utilisateurs depuis le fichier CSV (dans le même dossier que le script)
-$ImportedUsers = Import-Csv -Path 
-
+$ImportedUsers = Import-Csv -Path ".\UsersSimules.csv"
 
 # Créer un groupe ImportGroupe
 $Groups = @{
