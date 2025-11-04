@@ -19,7 +19,9 @@ if (-not $SERVERS) {
 
 # Identifiants administrateur
 $User = "Administrator"
-$Password = Read-Host -AsSecureString "Mot de passe de $User"
+# $Password = Read-Host -AsSecureString "Mot de passe de $User"
+$plain = 'Infra@2024'
+$Password = ConvertTo-SecureString $plain -AsPlainText -Force
 
 # Préparer le Markdown
 $timestamp = Get-Date -Format "dd-MM-yyyy HH:mm"
