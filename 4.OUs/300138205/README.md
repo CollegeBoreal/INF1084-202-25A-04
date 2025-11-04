@@ -12,7 +12,8 @@ $netbiosName = "DC$studentNumber-$studentInstance"
 
   ```powershell
 
-<img width="1208" height="546" alt="image" src="https://github.com/user-attachments/assets/0b34dba4-f76b-4c6d-891b-470050c630ce" />
+<img width="1209" height="546" alt="Capture d’écran 2025-11-04 154824" src="https://github.com/user-attachments/assets/ea9ebe2c-23cc-4549-a47f-24f599554fff" />
+
 
 
 ```
@@ -37,7 +38,8 @@ Get-ADDomainController -Filter * -Server $domainName
 
   ```powershell
 
-<img width="1413" height="680" alt="image" src="https://github.com/user-attachments/assets/c4d307d7-a414-48ae-9e45-b0af503dca22" />
+<img width="1414" height="680" alt="Capture d’écran 2025-11-04 155934" src="https://github.com/user-attachments/assets/11f911f7-8a98-46eb-8a12-a16aa15118cc" />
+
 
 
 
@@ -56,7 +58,8 @@ Select-Object Name, SamAccountName
 
   ```powershell
 
-<img width="411" height="142" alt="image" src="https://github.com/user-attachments/assets/13f03925-ca81-4481-9d5a-054ab661169f" />
+<img width="411" height="142" alt="Capture d’écran 2025-11-04 162037" src="https://github.com/user-attachments/assets/a41b6bf3-8565-4213-a337-a3bf45b58b4e" />
+
 
 
 
