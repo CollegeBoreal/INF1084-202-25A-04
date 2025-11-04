@@ -72,7 +72,7 @@ foreach ($VM in $SERVERS) {
         $dirExists = Invoke-Command -Session $Session -ScriptBlock {
             param($studentID)
             $userProfile = $env:USERPROFILE
-            $path = Join-Path $userProfile "Developer\INF1084-202-25A-03\4.OUs\$studentID"
+            $path = Join-Path $userProfile "Developer\INF1084-202-25A-04\4.OUs\$studentID"
             Test-Path $path
         } -ArgumentList $id
 
