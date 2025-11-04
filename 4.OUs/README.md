@@ -88,6 +88,31 @@ $netbiosName = "DC$studentNumber-$studentInstance"
 
 ---
 
+- [ ] Créer un fichier bootstrap.ps1 oû vous mettrerai les informations concernant vos informations.
+
+```powershell
+# vos informations
+$studentNumber = 300098957
+$studentInstance = 40
+
+# les noms respectifs
+$domainName = "DC$studentNumber-$studentInstance.local"
+$netbiosName = "DC$studentNumber-$studentInstance"
+
+# les informations de sécurité
+$plain = 'Infra@2024'
+$secure = ConvertTo-SecureString $plain -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential("Administrator@$domainName", $secure)
+```
+
+---
+
+:key: Pour les operations néscessitant les informations sécurisées de l'administrateur
+
+```powershell
+$cred = Get-Credential  # entrer Administrator@$domainName et le mot de passe
+```
+
 ---
 
 ## **1️⃣ Préparer l’environnement**
@@ -113,13 +138,6 @@ Select-Object Name, SamAccountName
 
 > ⚠️ Remarque : les utilisateurs créés par défaut sont dans **`CN=Users`**, pas dans une OU.
 
----
-
-:key: Pour les operations néscessitant les informations sécurisées de l'administrateur
-
-```powershell
-$cred = Get-Credential  # entrer Administrator@$domainName et le mot de passe
-```
 
 ## **3️⃣ Créer un nouvel utilisateur**
 
