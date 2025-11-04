@@ -52,7 +52,7 @@ foreach ($id in $ETUDIANTS) {
             if (Test-Path $USR3) { $OK_USR3 = ":heavy_check_mark:" }
             if (Test-Path $USR4) { $OK_USR4 = ":heavy_check_mark:" }
 
-            $FULL_OK = "| $i | [$id](..) $URL | [:heavy_check_mark:](../$FILE) | [$OK_BOOT](../$BOOT) | $OK_USR1 | $OK_USR2 | $OK_USR3 | $OK_USR4 |"
+            $FULL_OK = "| $i | [$id](../$id) $URL | [:heavy_check_mark:](../$FILE) | [$OK_BOOT](../$BOOT) | $OK_USR1 | $OK_USR2 | $OK_USR3 | $OK_USR4 |"
             Write-Output $FULL_OK
             $s++
         }
