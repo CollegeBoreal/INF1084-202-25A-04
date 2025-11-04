@@ -7,7 +7,7 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
 Import-Module ActiveDirectory
 
 # Créer un compte administrateur pour les opérations sécurisées
-$cred = Get-Credential  # Saisir Administrator@$domainName
+# $cred = Get-Credential  # Saisir Administrator@$domainName
 
 # Créer un nouvel utilisateur
 New-ADUser -Name "Alice Dupont" `

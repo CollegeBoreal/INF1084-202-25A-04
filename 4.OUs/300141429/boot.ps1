@@ -1,8 +1,8 @@
-$studentNumber = 300098957
-$studentInstance = 40
+$studentNumber = 300141429
+$studentInstance = ""
 
-$domainName = "DC$studentNumber-$studentInstance.local"
-$netbiosName = "DC$studentNumber-$studentInstance"
+$domainName = "DC$studentNumber.local"
+$netbiosName = "DC$studentNumber"
 
 $plain = 'Infra@2024'
 $secure = ConvertTo-SecureString $plain -AsPlainText -Force
