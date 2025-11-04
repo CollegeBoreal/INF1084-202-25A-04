@@ -1,7 +1,6 @@
 # TP Active Directory - Partie 3
 # Gestion des comptes
 
-
 Disable-ADAccount -Identity "alice.dupont" -Server $domainName
 Enable-ADAccount -Identity "alice.dupont" -Server $domainName
 Remove-ADUser -Identity "alice.dupont" -Server $domainName -Confirm:$false
