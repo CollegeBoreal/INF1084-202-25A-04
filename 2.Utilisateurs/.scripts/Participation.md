@@ -1,4 +1,4 @@
-# Participation au 04-11-2025 19:16
+# Participation au 04-11-2025 19:24
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -19,7 +19,7 @@
 |------|--------------|-----------|-------|-------|---------|--------|
 | 0 | [300138205](../300138205/README.md) [<image src='https://avatars0.githubusercontent.com/u/200685761?s=460&v=4' width=20 height=20></image>](https://github.com/taylor123marc) | :heavy_check_mark: | :heavy_check_mark: | :boom: | :boom: | :boom: |
 | 1 | [300141368](../300141368/README.md) [<image src='https://avatars0.githubusercontent.com/u/132600996?s=460&v=4' width=20 height=20></image>](https://github.com/daniella-diwa) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| 2 | [300141429](../300141429/README.md) [<image src='https://avatars0.githubusercontent.com/u/231347874?s=460&v=4' width=20 height=20></image>](https://github.com/barrynetwork) | :heavy_check_mark: | :x: | :boom: | :boom: | :boom: |
+| 2 | [300141429](../300141429/README.md) [<image src='https://avatars0.githubusercontent.com/u/231347874?s=460&v=4' width=20 height=20></image>](https://github.com/barrynetwork) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 3 | [300141570](../300141570/README.md) [<image src='https://avatars0.githubusercontent.com/u/66260193?s=460&v=4' width=20 height=20></image>](https://github.com/swberk) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 4 | [300145940](../300145940/README.md) [<image src='https://avatars0.githubusercontent.com/u/234069235?s=460&v=4' width=20 height=20></image>](https://github.com/TasnimMarzouki) | :heavy_check_mark: | :boom: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 5 | [300146545](../300146545/README.md) [<image src='https://avatars0.githubusercontent.com/u/211592881?s=460&v=4' width=20 height=20></image>](https://github.com/saoudialaoua) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
