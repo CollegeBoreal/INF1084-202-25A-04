@@ -88,7 +88,7 @@ $netbiosName = "DC$studentNumber-$studentInstance"
 
 ---
 
-- [ ] Créer un fichier bootstrap.ps1 oû vous mettrerai les informations concernant vos informations.
+- [ ] Créer un fichier bootstrap.ps1 oû vous mettrez les informations concernant vos informations.
 
 ```powershell
 # vos informations
