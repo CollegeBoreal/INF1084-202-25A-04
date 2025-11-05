@@ -119,19 +119,20 @@ Write-Host "`nService DFSR redémarré avec succès !" -ForegroundColor Green
 ## Captures d’écran
 
 1. Liste et état des services AD  
-<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="" />
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot 2025-10-28 204827.png" />
 
 
 2. Journaux Directory Service (Event Viewer / PowerShell)  
-<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="" />
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot 2025-11-04 182339.png" />
 
 
 3. Export des logs CSV dans `C:\Logs`  
-<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="" />
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot 2025-11-04 182737.png
+" />
 
 
 4. Arrêt et redémarrage du service DFSR  
-<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot 2025-10-28 204827.png" />
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot 2025-11-04 183025.png" />
 
 ---
 
