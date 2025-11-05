@@ -5,6 +5,7 @@ Disable-ADAccount -Identity "alice.dupont" -Server $domainName
 Enable-ADAccount -Identity "alice.dupont" -Server $domainName
 Remove-ADUser -Identity "alice.dupont" -Server $domainName -Confirm:$false
 
+
 Get-ADUser -Filter "Name -like 'a*'" -Server $domainName -Properties Name, SamAccountName |
 Select-Object Name, SamAccountName
 
