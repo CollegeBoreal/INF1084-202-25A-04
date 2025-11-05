@@ -127,8 +127,7 @@ Write-Host "`nService DFSR redémarré avec succès !" -ForegroundColor Green
 
 
 3. Export des logs CSV dans `C:\Logs`  
-<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot 2025-11-04 182737.png
-" />
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot 2025-11-04 182737.png" />
 
 
 4. Arrêt et redémarrage du service DFSR  
