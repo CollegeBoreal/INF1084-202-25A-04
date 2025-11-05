@@ -267,7 +267,6 @@ Select-Object Name, SamAccountName, EmailAddress, Enabled |
 Export-Csv -Path "TP_AD_Users.csv" -NoTypeInformation -Encoding UTF8
 ```
 
-<details>
 
 
 
