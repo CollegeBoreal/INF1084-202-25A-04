@@ -139,8 +139,8 @@ Select-Object Name, SamAccountName
 
 <details>
 <summary>🖼️ Capture d'écran</summary>
-
-![Étape 2 Screenshot](images/Screenshot2025-11-04200152.png)
+  
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot2025-11-04200152.png" />
 
 </details>
 
@@ -165,8 +165,9 @@ New-ADUser -Name "Alice Dupont" `
 
 <details>
 <summary>🖼️ Capture d'écran</summary>
+  
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot2025-11-04201040.png" />
 
-![Étape 3 Screenshot](images/Screenshot2025-11-04201040.png)
 
 </details>
 
@@ -183,8 +184,9 @@ Set-ADUser -Identity "alice.dupont" `
 
 <details>
 <summary>🖼️ Capture d'écran</summary>
+  
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot2025-11-04201325.png" />
 
-![Étape 4 Screenshot](images/Screenshot2025-11-04201325.png)
 
 </details>
 
@@ -199,7 +201,8 @@ Disable-ADAccount -Identity "alice.dupont" -Credential $cred
 <details>
 <summary>🖼️ Capture d'écran</summary>
 
-![Étape 5 Screenshot](images/Screenshot2025-11-04201541.png)
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot2025-11-04201541.png" />
+
 
 </details>
 
@@ -213,8 +216,9 @@ Enable-ADAccount -Identity "alice.dupont" -Credential $cred
 
 <details>
 <summary>🖼️ Capture d'écran</summary>
+  
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot2025-11-04201641.png" />
 
-![Étape 6 Screenshot](images/Screenshot2025-11-04201641.png)
 
 </details>
 
@@ -229,7 +233,8 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
 <details>
 <summary>🖼️ Capture d'écran</summary>
 
-![Étape 7 Screenshot](images/Screenshot2025-11-04201744)
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot2025-11-04201744.png" />
+
 
 </details>
 
@@ -245,7 +250,9 @@ Select-Object Name, SamAccountName
 <details>
 <summary>🖼️ Capture d'écran</summary>
 
-![Étape 8 Screenshot](images/Screenshot2025-11-04201848.png)
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot2025-11-04201848.png" />
+
+
 
 </details>
 
@@ -284,7 +291,6 @@ Get-ADUser -Identity "alice.dupont" | Select-Object Name, DistinguishedName
 ```
 
 <details>
-<summary>🖼️ Capture d'écran</summary>
 
 
 
