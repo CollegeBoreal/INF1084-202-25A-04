@@ -131,7 +131,7 @@ Write-Host "`nService DFSR redémarré avec succès !" -ForegroundColor Green
 
 
 4. Arrêt et redémarrage du service DFSR  
-<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="" />
+<img width="1919" height="1014" alt="Screenshot-2025-10-07-203028" src="images/Screenshot 2025-10-28 204827.png" />
 
 ---
 
