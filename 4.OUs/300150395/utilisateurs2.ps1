@@ -1,6 +1,7 @@
 # TP Active Directory - Partie 2
 # Création et Modification d’utilisateurs
 
+
 New-ADUser -Name "Alice Dupont" `
            -GivenName "Alice" `
            -Surname "Dupont" `

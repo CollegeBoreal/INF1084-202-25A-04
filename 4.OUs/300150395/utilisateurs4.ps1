@@ -1,6 +1,7 @@
 # TP Active Directory - Partie 4
 # Gestion des OU
 
+
 if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'" -Server $domainName -ErrorAction SilentlyContinue)) {
     New-ADOrganizationalUnit -Name "Students" -Path "DC=$netbiosName,DC=local" -Server $domainName
 }
