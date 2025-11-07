@@ -14,18 +14,17 @@ $Users = @(
     @{Nom="Rabia"; Prenom="Bouhali"; Login="brabia"; OU="Professeurs"}
 )
 
-# Créer des groupes (Collections pour pouvoir ajouter des éléments)
+# Créer des groupes - SOLUTION SIMPLE
 $Groups = @{
-    "GroupeFormation" = [System.Collections.ArrayList]@()
-    "ProfesseursAD" = [System.Collections.ArrayList]@()
+    "GroupeFormation" = @()
+    "ProfesseursAD" = @()
 }
 
-# Filtrer et ajouter tous les stagiaires dans GroupeFormation
+# Filtrer tous les stagiaires
 $Stagiaires = $Users | Where-Object {$_.OU -eq "Stagiaires"}
 
-foreach ($Stagiaire in $Stagiaires) {
-    [void]$Groups["GroupeFormation"].Add($Stagiaire)
-}
+# Assigner directement le tableau de stagiaires
+$Groups["GroupeFormation"] = $Stagiaires
 
 # Afficher les membres du GroupeFormation
 Write-Host "`n=== Membres du GroupeFormation ===" -ForegroundColor Cyan
@@ -34,5 +33,3 @@ $Groups["GroupeFormation"] | ForEach-Object {
 }
 
 Write-Host "`nNombre de membres dans GroupeFormation : $($Groups['GroupeFormation'].Count)" -ForegroundColor Green
-
-
