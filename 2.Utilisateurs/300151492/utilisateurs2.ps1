@@ -1,5 +1,5 @@
- ============================================
-# utilisateurs2.ps1 - Exercice 2
+# ============================================
+# utilisateurs2.ps1 - Exercice 2 
 # Ajouter tous les stagiaires au GroupeFormation
 # ============================================
 
@@ -10,19 +10,22 @@ $Users = @(
     @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
     @{Nom="Martin"; Prenom="Thomas"; Login="tmartin"; OU="Stagiaires"},
     @{Nom="Garcia"; Prenom="Marie"; Login="mgarcia"; OU="Professeurs"},
-    @{Nom="hammiche"; Prenom="hacen"; Login="hm"; OU="psycholouge"},
-    @{Nom="rabia"; Prenom="bouhali"; Login="rabi3"; OU="Professeurs"}
+    @{Nom="Hammiche"; Prenom="Hacen"; Login="hhammiche"; OU="Psychologue"},
+    @{Nom="Rabia"; Prenom="Bouhali"; Login="brabia"; OU="Professeurs"}
 )
 
-# Créer des groupes
+# Créer des groupes (Collections pour pouvoir ajouter des éléments)
 $Groups = @{
-    "GroupeFormation" = @()
-    "ProfesseursAD" = @()
+    "GroupeFormation" = [System.Collections.ArrayList]@()
+    "ProfesseursAD" = [System.Collections.ArrayList]@()
 }
 
-# Ajouter tous les utilisateurs dont l'OU = "Stagiaires" dans "GroupeFormation"
+# Filtrer et ajouter tous les stagiaires dans GroupeFormation
 $Stagiaires = $Users | Where-Object {$_.OU -eq "Stagiaires"}
-$Groups["GroupeFormation"] += $Stagiaires
+
+foreach ($Stagiaire in $Stagiaires) {
+    [void]$Groups["GroupeFormation"].Add($Stagiaire)
+}
 
 # Afficher les membres du GroupeFormation
 Write-Host "`n=== Membres du GroupeFormation ===" -ForegroundColor Cyan
