@@ -1,25 +1,17 @@
-Clear-Host
+# utilisateurs4.ps1
+# Exercice 4 : 
 
-$Users = @(
-    @{ Nom="Dupont";  Prenom="Alice";  Login="alice01";  OU="Stagiaires" },
-    @{ Nom="Lemoine"; Prenom="Sarah";  Login="sarah02";  OU="Stagiaires" },
-    @{ Nom="Benali";  Prenom="Karim";  Login="karim03";  OU="Stagiaires" },
-    @{ Nom="Bouraoui"; Prenom="Akrem"; Login="akrem04";  OU="Stagiaires" },
-    @{ Nom="Neymar";  Prenom="Jr";     Login="neymar05"; OU="Stagiaires" }
-)
+# Importer les utilisateurs depuis le fichier CSV (dans le même dossier que le script)
+$ImportedUsers = Import-Csv -Path ".\UsersSimules.csv"
 
+# Créer un groupe ImportGroupe
+$Groups = @{
+    "ImportGroupe" = @()
+}
 
-$csvPath = "C:\Users\hp-01\Documents\INF1084-202-25A-04\2.Utilisateurs\_scripts\UsersSimules.csv"
-$Users | Export-Csv -Path $csvPath -NoTypeInformation -Encoding UTF8
-Write-Host "`nUtilisateurs exportés vers $csvPath"
-
-$ImportedUsers = Import-Csv -Path $csvPath
-
-
-$Groups = @{ "ImportGroupe" = @() }
+# Ajouter tous les utilisateurs importés dans ImportGroupe
 $Groups["ImportGroupe"] += $ImportedUsers
 
-
-Write-Host "`n--- Membres du groupe ImportGroupe ---"
-$Groups["ImportGroupe"] | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login)" }
-
+# Afficher les utilisateurs du groupe ImportGroupe
+"Utilisateurs dans ImportGroupe :"
+$Groups["ImportGroupe"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
