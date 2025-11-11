@@ -37,11 +37,13 @@ foreach ($id in $ETUDIANTS) {
     $FILE = "$id/README.md"
 
     $scripts = @(
-        "$id/utilisateurs1.ps1",
-        "$id/utilisateurs2.ps1",
-        "$id/utilisateurs3.ps1",
-        "$id/utilisateurs4.ps1"
+        ".\utilisateurs1.ps1",
+        ".\utilisateurs2.ps1",
+        ".\utilisateurs3.ps1",
+        ".\utilisateurs4.ps1"
     )
+
+    cd $id
 
     $status = @()
     foreach ($script in $scripts) {
@@ -50,6 +52,7 @@ foreach ($id in $ETUDIANTS) {
             continue
         }
 
+
         # Try to execute the student script quietly
         try {
             & $script *> $null
@@ -57,8 +60,12 @@ foreach ($id in $ETUDIANTS) {
         }
         catch {
             $status += ":boom:"  # Execution error
+            # Write-Host "❌ Error executing $script : $($_.Exception.Message)" -ForegroundColor Red
         }
+
     }
+
+    cd ..
 
     $KO = "| $i | [$id](../$FILE) $URL | :x: | :x: | :x: | :x: | :x: |"
 
