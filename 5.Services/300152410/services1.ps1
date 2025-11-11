@@ -1,9 +1,4 @@
-# Auteur : Boudeuf imad 
-# ID : 300152410
-# Objectif : Lister les services AD
+# TP Services AD - Boudeuf Imad 300152410
+# Vérification de l’état des services Active Directory
 
-Get-Service | Where-Object {
-    $_.DisplayName -like "*Directory*" -or $_.Name -match "NTDS|ADWS|DFSR|kdc|Netlogon|IsmServ"
-} | Sort-Object DisplayName
-
-Get-Service -Name NTDS, ADWS, DFSR, KDC, Netlogon, IsmServ
+Get-Service -Name ADWS, NTDS, DNS, DFSR | Select-Object Name, Status, StartType
