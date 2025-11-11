@@ -1,5 +1,5 @@
 
-
+```powershell
 AllowedDNSSuffixes                 : {}
 ChildDomains                       : {}
 ComputersContainer                 : CN=Computers,DC=DC300150303-00,DC=local
@@ -55,3 +55,7 @@ Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
 
 UPNSuffixes           : {}
+```
+
+
+
