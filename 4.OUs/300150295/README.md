@@ -1,11 +1,11 @@
 ﻿# 🚀 TP : Gestion des utilisateurs Active Directory avec PowerShell
 ### 👨‍💻 Étudiant : 300150295  
-### 🌐 Domaine : DC300150295-0.local  
+### 🌐 Domaine : DC300150295-00.local  
 
 ---
 
 ## 🎯 Objectif du TP
-Gérer les utilisateurs dans ton domaine **DC300150295-0.local**, avec les corrections pour le container CN=Users et la création de l’OU Students.
+Gérer les utilisateurs dans ton domaine **DC300150295-00.local**, avec les corrections pour le container CN=Users et la création de l’OU Students.
 
 ---
 
@@ -21,7 +21,7 @@ Gérer les utilisateurs dans ton domaine **DC300150295-0.local**, avec les corre
 ## 📚 Commandes principales (PowerShell)
 
 \ = 300150295
-\ = 0
+\ = 00
 \ = "DC\-\.local"
 \ = "DC\-\"
 
