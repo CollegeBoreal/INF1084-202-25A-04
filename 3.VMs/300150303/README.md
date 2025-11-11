@@ -1,4 +1,5 @@
 
+
 AllowedDNSSuffixes                 : {}
 ChildDomains                       : {}
 ComputersContainer                 : CN=Computers,DC=DC300150303-00,DC=local
@@ -52,4 +53,5 @@ RootDomain            : DC300150303-00.local
 SchemaMaster          : DC300150303.DC300150303-00.local
 Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
+
 UPNSuffixes           : {}
