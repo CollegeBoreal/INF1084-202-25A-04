@@ -22,7 +22,9 @@ $cred = New-Object System.Management.Automation.PSCredential("Administrator@$dom
 📁 Fichier : bootstrap.ps1
 Ce script initialise les variables globales du domaine et les identifiants administrateur.
 
-🧩 Étape 1 – Préparation de l’environnement
+---
+
+## 🧩 Étape 1 – Préparation de l’environnement
 powershell
 Copier le code
 Import-Module ActiveDirectory
@@ -30,7 +32,9 @@ Get-ADDomain -Server $domainName
 Get-ADDomainController -Filter * -Server $domainName
 📄 Vérifie la configuration du domaine et le contrôleur de domaine.
 
-👥 Étape 2 – Liste des utilisateurs du domaine
+---
+
+## 👥 Étape 2 – Liste des utilisateurs du domaine
 powershell
 Copier le code
 Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, Enabled |
@@ -38,7 +42,9 @@ Where-Object { $_.Enabled -eq $true -and $_.SamAccountName -notin @("Administrat
 Select-Object Name, SamAccountName
 📋 Liste les utilisateurs actifs créés dans le domaine.
 
-🧍 Étape 3 – Créer un utilisateur
+---
+
+## 🧍 Étape 3 – Créer un utilisateur
 powershell
 Copier le code
 New-ADUser -Name "Alice Dupont" `
@@ -52,7 +58,9 @@ New-ADUser -Name "Alice Dupont" `
            -Credential $cred
 ✅ Utilisateur Alice Dupont ajouté avec succès.
 
-📝 Étape 4 – Modifier un utilisateur
+---
+
+## 📝 Étape 4 – Modifier un utilisateur
 powershell
 Copier le code
 Set-ADUser -Identity "alice.dupont" `
@@ -61,25 +69,33 @@ Set-ADUser -Identity "alice.dupont" `
            -Credential $cred
 🖊️ Mise à jour du prénom et de l’adresse courriel.
 
-🚫 Étape 5 – Désactiver un utilisateur
+---
+
+## 🚫 Étape 5 – Désactiver un utilisateur
 powershell
 Copier le code
 Disable-ADAccount -Identity "alice.dupont" -Credential $cred
 👤 L’utilisateur Alice Dupont est désactivé.
 
-🔁 Étape 6 – Réactiver un utilisateur
+---
+
+## 🔁 Étape 6 – Réactiver un utilisateur
 powershell
 Copier le code
 Enable-ADAccount -Identity "alice.dupont" -Credential $cred
 🔓 L’utilisateur est maintenant réactivé.
 
-❌ Étape 7 – Supprimer un utilisateur
+---
+
+## ❌ Étape 7 – Supprimer un utilisateur
 powershell
 Copier le code
 Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
 🗑️ L’utilisateur a été supprimé définitivement.
 
-🧾 Étape 8 – Exporter la liste des utilisateurs
+---
+
+## 🧾 Étape 8 – Exporter la liste des utilisateurs
 powershell
 Copier le code
 Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, EmailAddress, Enabled |
@@ -88,7 +104,9 @@ Select-Object Name, SamAccountName, EmailAddress, Enabled |
 Export-Csv -Path "TP_AD_Users.csv" -NoTypeInformation -Encoding UTF8
 📤 Génère un fichier CSV contenant la liste des utilisateurs.
 
-🗂️ Étape 9 – Créer une Unité d’Organisation (OU)
+---
+
+## 🗂️ Étape 9 – Créer une Unité d’Organisation (OU)
 powershell
 Copier le code
 if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'")) {
@@ -96,9 +114,14 @@ if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'")) {
 }
 📁 OU Students créée avec succès.
 
-🚀 Étape 10 – Déplacer un utilisateur vers une OU
+---
+
+## 🚀 Étape 10 – Déplacer un utilisateur vers une OU
 powershell
 Copier le code
 Move-ADObject -Identity "CN=Alice Dupont,CN=Users,DC=$netbiosName,DC=local" `
               -TargetPath "OU=Students,DC=$netbiosName,DC=local" `
               -Credential $cred
+
+Vérifier le déplacement
+Get-ADUser -Identity "alice.dupont" | Select-Object Name, DistinguishedName
