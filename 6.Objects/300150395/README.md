@@ -23,7 +23,7 @@ Ce laboratoire a pour but de manipuler les objets Active Directory et d automati
     ├── README.txt
     ├── utilisateurs1.ps1
     ├── utilisateurs2.ps1
-    ├── images
+    ├── images/
 
 ---
 
