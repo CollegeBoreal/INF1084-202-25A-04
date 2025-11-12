@@ -1,24 +1,24 @@
-Clear-Host
+# utilisateurs2.ps1
+# Exercice 2 : 
 
+# Liste des utilisateurs simulés
 $Users = @(
-    @{ Nom="Dupont";  Prenom="Alice";  Login="alice01";  OU="Stagiaires" },
-    @{ Nom="Lemoine"; Prenom="Sarah";  Login="sarah02";  OU="Stagiaires" },
-    @{ Nom="Benali";  Prenom="Karim";  Login="karim03";  OU="Stagiaires" },
-    @{ Nom="Bouraoui"; Prenom="Akrem"; Login="akrem04";  OU="Stagiaires" },
-    @{ Nom="Neymar";  Prenom="Jr";     Login="neymar05"; OU="Stagiaires" }
+    @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
+    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
+    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
+    @{Nom="Moulin"; Prenom="Jean"; Login="jmoulin"; OU="Stagiaires"},
+    @{Nom="Martin"; Prenom="Paul"; Login="pmartin"; OU="Informatique"}
 )
 
+# Création des groupes
 $Groups = @{
     "GroupeFormation" = @()
-    "ProfesseursAD"   = @()
+    "ProfesseursAD" = @()
 }
 
-$stagiaires = $Users | Where-Object { $_.OU -eq "Stagiaires" }
-$Groups["GroupeFormation"] += $stagiaires
+# Ajouter tous les utilisateurs avec OU = Stagiaires dans GroupeFormation
+$Groups["GroupeFormation"] += $Users | Where-Object { $_.OU -eq "Stagiaires" }
 
-Write-Host "`n--- Liste des groupes et membres ---"
-$Groups.GetEnumerator() | ForEach-Object {
-    $membres = ($_.Value | ForEach-Object { "$($_.Prenom) $($_.Nom)" }) -join ", "
-    Write-Host "Groupe: $($_.Key) - Membres: $membres"
-}
-
+# Afficher les utilisateurs du groupe
+"Utilisateurs dans GroupeFormation :"
+$Groups["GroupeFormation"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
