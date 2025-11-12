@@ -24,9 +24,12 @@ Ce TP utilise PowerShell pour gérer les utilisateurs dans un domaine Active Dir
   ![wait](https://github.com/user-attachments/assets/b0583024-4d78-4fa5-8645-325eb667122f)
 
 
-- `utilisateurs4.ps1` : crée l’OU **Students**, déplace Alice dans cette OU et lance l’export des utilisateurs vers `TP_AD_Users.csv`.  
-- `TP_AD_Users_300151841.ps1` : script qui exporte les utilisateurs du domaine dans le fichier `TP_AD_Users.csv`.
+- `utilisateurs4.ps1` : crée l’OU **Students**, déplace Alice dans cette OU et lance l’export des utilisateurs vers `TP_AD_Users.csv`.
 ![wait](https://github.com/user-attachments/assets/28078d73-367f-4edb-9527-90d42092025f)
+-  
+- `TP_AD_Users_300151841.ps1` : script qui exporte les utilisateurs du domaine dans le fichier `TP_AD_Users.csv`.
+
+![wait](https://github.com/user-attachments/assets/b47e3710-29db-4999-83c4-6e9e3e0ac6b9)
 
   
 
