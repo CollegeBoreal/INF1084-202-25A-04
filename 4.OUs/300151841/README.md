@@ -14,7 +14,8 @@ Ce TP utilise PowerShell pour gérer les utilisateurs dans un domaine Active Dir
 ![wait](https://github.com/user-attachments/assets/7cd57d06-1df5-413a-9b62-6f573d362dff)
 
 - `utilisateurs1.ps1` : crée l'utilisateur **Alice Dupont** dans le conteneur `CN=Users`.
-  ![wait](https://github.com/user-attachments/assets/6c814542-dc8b-4588-9a1c-09e5f74ae9ba")
+  !(https://github.com/user-attachments/assets/b49ada20-fdd1-4982-aa83-63b5b49e0157)
+
 
 - `utilisateurs2.ps1` : modifie les informations d'Alice (prénom et courriel) et affiche la liste des utilisateurs actifs.
 - ![wait](https://github.com/user-attachments/assets/635b91fd-cb37-481d-b315-5b97ae487fbf)
