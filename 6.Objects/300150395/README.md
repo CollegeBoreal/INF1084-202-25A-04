@@ -23,18 +23,7 @@ Ce laboratoire a pour but de manipuler les objets Active Directory et d automati
     ├── README.txt
     ├── utilisateurs1.ps1
     ├── utilisateurs2.ps1
-    ├── images/
-        ├── Screenshot2025-11-11182725.png
-        ├── Screenshot2025-11-11182825.png
-        ├── Screenshot2025-11-11182919.png
-        ├── Screenshot2025-11-11182949.png
-        ├── Screenshot2025-11-11183027.png
-        ├── Screenshot2025-11-11183054.png
-        ├── Screenshot2025-11-11183149.png
-        ├── Screenshot2025-11-11183248.png
-        ├── Screenshot2025-11-11183328.png
-        ├── Screenshot2025-11-11183412.png
-        ├── Screenshot2025-11-11183520.png
+    ├── images
 
 ---
 
