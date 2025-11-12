@@ -1,0 +1,14 @@
+# Script : services4.ps1
+# Objectif : Arrêter, vérifier et redémarrer un service AD
+
+# Arrêter le service DFSR
+Stop-Service -Name DFSR
+
+# Vérifier le statut après l'arrêt
+Get-Service -Name DFSR
+
+# Redémarrer le service DFSR
+Start-Service -Name DFSR
+
+# Vérifier de nouveau son statut
+Get-Service -Name DFSR
