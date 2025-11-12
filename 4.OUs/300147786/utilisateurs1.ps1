@@ -1,8 +1,12 @@
 # ÉTAPE 1 : Vérification de l'environnement
 Import-Module ActiveDirectory
+#ouverture
+. .\bootstrap.ps1
+#vérification du domaine
 
 Get-ADDomain -Server $domainName
 Get-ADDomainController -Filter * -Server $domainName
+
 
 # ÉTAPE 2 : Liste des utilisateurs du domaine
 Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, Enabled |

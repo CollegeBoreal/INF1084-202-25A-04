@@ -1,3 +1,6 @@
+Import-Module ActiveDirectory
+. .\bootstrap.ps1
+
 # ÉTAPE 10 : Créer une OU "Students"
 # Vérifier si l'OU existe
 if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'" -Server $domainName -ErrorAction SilentlyContinue)) {
