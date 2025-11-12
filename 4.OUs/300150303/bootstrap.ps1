@@ -1,6 +1,6 @@
 # vos informations
-$studentNumber = 300147786
-$studentInstance = "00"
+$studentNumber = 3000150303
+$studentInstance = "oo"
 
 # les noms respectifs
 $domainName = "DC$studentNumber-$studentInstance.local"

@@ -1,7 +1,7 @@
-Import-Module ActiveDirectory
-. .\bootstrap.ps1
+# TP Active Directory - Partie 2
+# Création et Modification d’utilisateurs
 
-# ÉTAPE 3 : Créer un nouvel utilisateur
+
 New-ADUser -Name "Alice Dupont" `
            -GivenName "Alice" `
            -Surname "Dupont" `
@@ -12,7 +12,6 @@ New-ADUser -Name "Alice Dupont" `
            -Path "CN=Users,DC=$netbiosName,DC=local" `
            -Server $domainName
 
-# ÉTAPE 4 : Modifier un utilisateur
 Set-ADUser -Identity "alice.dupont" `
            -Server $domainName `
            -EmailAddress "alice.dupont@exemple.com" `
