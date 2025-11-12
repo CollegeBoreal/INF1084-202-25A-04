@@ -1,3 +1,4 @@
+O
 # Importer le module Active Directory
 Import-Module ActiveDirectory
 
