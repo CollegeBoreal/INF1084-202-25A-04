@@ -12,7 +12,7 @@ Get-Service -Name NTDS, ADWS, DFSR
 
 </details>
  
-services2.ps1
+
   ```powershell
 
 Status   Name               DisplayName
@@ -31,6 +31,7 @@ Running  NTDS               Active Directory Domain Services
 
 </details>
 
+services2.ps1
 ```powershell
 # Afficher les 20 derniers événements liés à NTDS
 Get-EventLog -LogName "Directory Service" -Newest 20
