@@ -10,7 +10,7 @@ Get-Service | Where-Object {
 Get-Service -Name NTDS, ADWS, DFSR
 ```
 
-</details>
+<details>
  
 
   ```powershell
