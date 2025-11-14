@@ -115,3 +115,85 @@ SamAccountName : student1
 ```
 
 </details>
+
+0️⃣ utilidateurs2.ps1
+```powershell
+# Définir le domaine
+. .\bootstrap.ps1
+
+# Créer un nouvel utilisateur
+New-ADUser `
+    -Name "Alice Dupont" `
+    -GivenName "Alice" `
+    -Surname "Dupont" `
+    -SamAccountName "alice.dupont" `
+    -UserPrincipalName "alice.dupont@$domainName" `
+    -Path "CN=Users,DC=DC300138205-00,DC=local" `
+    -AccountPassword (ConvertTo-SecureString "MotDePasse123!" -AsPlainText -Force) `
+    -Enabled $true
+
+# Modifier une propriété
+Set-ADUser -Identity "alice.dupont" -Description "Utilisateur de test"
+
+# Désactiver le compte
+Disable-ADAccount -Identity "alice.dupont"
+
+# Réactiver le compte
+Enable-ADAccount -Identity "alice.dupont"
+
+# Supprimer le compte
+Remove-ADUser -Identity "alice.dupont" -Confirm:$false
+```
+
+<details>
+
+  ```powershell
+
+
+<img width="1337" height="417" alt="image" src="https://github.com/user-attachments/assets/c563a68e-3559-4886-993b-04ba2bb4eb9b" />
+
+
+```
+
+</details>
+
+
+0️⃣ Nom du domaine basé sur le numéro étudiant
+```powershell
+$studentNumber = 300138205
+$studentInstance = "00"
+$domainName = "DC$studentNumber-$studentInstance.local"
+$netbiosName = "DC$studentNumber-$studentInstance"
+```
+
+<details>
+
+  ```powershell
+
+
+
+
+```
+
+</details>
+
+
+0️⃣ Nom du domaine basé sur le numéro étudiant
+```powershell
+$studentNumber = 300138205
+$studentInstance = "00"
+$domainName = "DC$studentNumber-$studentInstance.local"
+$netbiosName = "DC$studentNumber-$studentInstance"
+```
+
+<details>
+
+  ```powershell
+
+
+
+
+```
+
+</details>
+
