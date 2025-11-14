@@ -150,7 +150,8 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false
   ```powershell
 
 
-<img width="1337" height="417" alt="image" src="https://github.com/user-attachments/assets/c563a68e-3559-4886-993b-04ba2bb4eb9b" />
+<img width="1337" height="417" alt="image" src="https://github.com/user-attachments/assets/930fe9c4-846f-4cdd-aa55-732e69737950" />
+
 
 
 ```
