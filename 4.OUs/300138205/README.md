@@ -1,11 +1,19 @@
 #300138205
 
-0️⃣ Nom du domaine basé sur le numéro étudiant
+0️⃣ bootstrap.ps1
 ```powershell
+# vos informations
 $studentNumber = 300138205
 $studentInstance = "00"
+
+# les noms respectifs
 $domainName = "DC$studentNumber-$studentInstance.local"
 $netbiosName = "DC$studentNumber-$studentInstance"
+
+# les informations de sécurité
+$plain = 'Infra@2024'
+$secure = ConvertTo-SecureString $plain -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential("Administrator@$domainName", $secure)
 ```
 
 <details>
@@ -151,7 +159,8 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false
 
 
 
-![tay](https://github.com/ton-utilisateur/ton-repo/blob/main/assets/image.png?raw=true)
+
+<img width="1337" height="385" alt="tay" src="https://github.com/user-attachments/assets/625a3003-108e-4fd8-972d-f77b768d9364" />
 
 
 
@@ -161,17 +170,47 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false
 </details>
 
 
-0️⃣ Nom du domaine basé sur le numéro étudiant
+0️⃣ utilisateurs3.ps1
 ```powershell
-$studentNumber = 300138205
-$studentInstance = "00"
-$domainName = "DC$studentNumber-$studentInstance.local"
-$netbiosName = "DC$studentNumber-$studentInstance"
+# --- Script 1 : Recherche et export des utilisateurs AD ---
+param(
+    [string]$domain = "DC300138205-00.local"
+)
+
+$cred = Get-Credential -Message "Entrez vos identifiants AD"
+
+Write-Host "Recherche des utilisateurs dont le prénom commence par 'A'..."
+
+Get-ADUser -Filter "GivenName -like 'A*'" -Properties Name, SamAccountName -Server $domain -Credential $cred |
+Select-Object Name, SamAccountName |
+Format-Table -AutoSize
+
+Write-Host "Exportation de tous les utilisateurs vers TP_AD_Users.csv..."
+
+Get-ADUser -Filter * -Server $domain -Credential $cred -Properties Name, SamAccountName, EmailAddress, Enabled |
+Where-Object { $_.SamAccountName -notin @('Administrator','Guest','krbtgt') } |
+Select-Object Name, SamAccountName, EmailAddress, Enabled |
+Export-Csv -Path "TP_AD_Users.csv" -NoTypeInformation -Encoding UTF8
+
+Write-Host "Export terminé : fichier 'TP_AD_Users.csv' créé."
 ```
 
 <details>
 
   ```powershell
+
+
+PS C:\Users\Administrator\Developer\INF1084-202-25A-04\4.OUs\300138205> .\utilisateurs3.ps1
+Recherche des utilisateurs dont le prÃ©nom commence par 'A'...
+Exportation de tous les utilisateurs vers TP_AD_Users.csv...
+Export terminÃ© : fichier 'TP_AD_Users.csv' crÃ©Ã©.
+PS C:\Users\Administrator\Developer\INF1084-202-25A-04\4.OUs\300138205>
+
+
+
+
+
+
 
 
 
@@ -181,19 +220,60 @@ $netbiosName = "DC$studentNumber-$studentInstance"
 </details>
 
 
-0️⃣ Nom du domaine basé sur le numéro étudiant
+0️⃣ utilisateurs4.ps1
 ```powershell
-$studentNumber = 300138205
-$studentInstance = "00"
-$domainName = "DC$studentNumber-$studentInstance.local"
-$netbiosName = "DC$studentNumber-$studentInstance"
+# Définir le nom de domaine
+. .\bootstrap.ps1
+param(
+    [string]$domainDN = "DC=DC300138205-00,DC=local"  # Domaine complet sous forme DN
+)
+
+# Demande des identifiants administratifs
+$cred = Get-Credential -Message "Entrez vos identifiants AD"
+
+Write-Host "Vérification de l'existence de l'OU 'Students'..." -ForegroundColor Cyan
+
+# Vérifie si l’OU existe déjà
+$ouExist = Get-ADOrganizationalUnit -Filter "Name -eq 'Students'" -ErrorAction SilentlyContinue
+
+if (-not $ouExist) {
+    New-ADOrganizationalUnit -Name "Students" -Path $domainDN -Credential $cred
+    Write-Host "OU 'Students' créée avec succès." -ForegroundColor Green
+} else {
+    Write-Host "L'OU 'Students' existe déjà." -ForegroundColor Yellow
+}
+
+# Déplacement de l'utilisateur
+Write-Host "Déplacement de l'utilisateur 'Alice Dupont' vers l'OU 'Students'..." -ForegroundColor Cyan
+
+$sourcePath = "CN=Alice Dupont,CN=Users,$domainDN"
+$targetPath = "OU=Students,$domainDN"
+
+# Vérifie si l’utilisateur existe avant le déplacement
+$user = Get-ADUser -Filter "SamAccountName -eq 'alice.dupont'" -ErrorAction SilentlyContinue
+if ($user) {
+    Move-ADObject -Identity $sourcePath -TargetPath $targetPath -Credential $cred
+    Write-Host "L'utilisateur 'Alice Dupont' a été déplacé vers 'Students'." -ForegroundColor Green
+} else {
+    Write-Host "L'utilisateur 'alice.dupont' n'existe pas dans le domaine." -ForegroundColor Red
+}
+
+# Vérification du déplacement
+Write-Host "Vérification du déplacement..." -ForegroundColor Cyan
+Get-ADUser -Identity "alice.dupont" -Properties DistinguishedName |
+Select-Object Name, DistinguishedName
 ```
 
 <details>
 
   ```powershell
 
-
+PS C:\Users\Administrator\Developer\INF1084-202-25A-04\4.OUs\300138205> .\utilisateurs4.ps1
+VÃ©rification de l'existence de l'OU 'Students'...
+L'OU 'Students' existe dÃ©jÃ .
+DÃ©placement de l'utilisateur 'Alice Dupont' vers l'OU 'Students'...
+L'utilisateur 'alice.dupont' n'existe pas dans le domaine.
+VÃ©rification du dÃ©placement...
 
 
 ```
