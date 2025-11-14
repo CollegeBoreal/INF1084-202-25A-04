@@ -160,7 +160,7 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false
 
 
 
-<img width="1337" height="385" alt="tay" src="https://github.com/user-attachments/assets/625a3003-108e-4fd8-972d-f77b768d9364" />
+<img src="images/tay.png" alt="Girl in a jacket" width="500" height="600">
 
 
 
