@@ -151,8 +151,7 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false
 
 
 
-<img width="1337" height="417" alt="Capture d’écran 2025-11-14 154553" src="https://github.com/user-attachments/assets/db158618-6c5b-4819-8343-ce5cf8bf681e" />
-
+![tay](https://github.com/ton-utilisateur/ton-repo/blob/main/assets/image.png?raw=true)
 
 
 
