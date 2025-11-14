@@ -150,7 +150,8 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false
   ```powershell
 
 
-<img width="1337" height="417" alt="Capture d’écran 2025-11-14 154553" src="https://github.com/user-attachments/assets/375a468a-9971-4b80-98a5-82279e830e90" />
+![Capture](https://github.com/user-attachments/assets/375a468a-9971-4b80-98a5-82279e830e90)
+
 
 
 
