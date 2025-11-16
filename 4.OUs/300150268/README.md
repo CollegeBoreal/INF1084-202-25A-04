@@ -4,7 +4,7 @@
 🎓 **Étudiant :** Mohand Said Kemiche  
 🆔 **Matricule :** 300150268  
 📅 **Date :** 11 novembre 2025  
-🏫 **Cours :** INF1084 - Développement d’applications  
+ 
 
 ---
 
