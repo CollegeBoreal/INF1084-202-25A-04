@@ -1,11 +1,11 @@
-﻿. $(Join-Path  'bootstrap.ps1')
+﻿. "$(Join-Path $PSScriptRoot 'bootstrap.ps1')"
 Import-Module ActiveDirectory
 
-# Vérif domaine / DC
-Get-ADDomain -Server 
-Get-ADDomainController -Filter * -Server 
+# Vérifier le domaine et les contrôleurs de domaine
+Get-ADDomain -Server $domainName
+Get-ADDomainController -Filter * -Server $domainName
 
-# Créer OU=Students si n'existe pas
+# Créer OU=Students si elle n'existe pas déjà
 if (-not (Get-ADOrganizationalUnit -LDAPFilter '(ou=Students)' -ErrorAction SilentlyContinue)) {
-    New-ADOrganizationalUnit -Name "Students" -Path "DC=,DC=local" -Credential 
+    New-ADOrganizationalUnit -Name "Students" -Path "DC=$netbiosName,DC=local" -Credential $cred
 }
