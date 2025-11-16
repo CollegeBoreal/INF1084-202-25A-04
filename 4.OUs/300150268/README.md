@@ -1,11 +1,6 @@
  
 🚀 **TP : Simulation Active Directory avec PowerShell**
-
-🎓 **Étudiant :** Mohand Said Kemiche  
-🆔 **Matricule :** 300150268  
-📅 **Date :** 11 novembre 2025  
  
-
 ---
 
 ## 🧩 Installation et configuration du domaine Active Directory
@@ -47,7 +42,7 @@
 ---
 
 ## 📸 Captures d’écran
-1️⃣ Capture 1 – Création des OU (Informatique et Comptabilité)  
+1️⃣ Capture 1 – Création des OU (Informatique et Comptabilité) 
 2️⃣ Capture 2 – Utilisateur Alice Dupont dans OU Informatique  
 3️⃣ Capture 3 – Utilisateur Bob Martin ajouté  
 4️⃣ Capture 4 – Groupe Techniciens créé  
