@@ -142,3 +142,9 @@ $SERVERS = @(
     '10.7.236.246'
     '10.7.236.247'
 )
+
+
+# Groupe d'Étudiants (student numbers)
+$GROUPES = @(
+300098957-300099999
+)
