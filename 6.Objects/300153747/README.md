@@ -24,3 +24,39 @@ foreach ($user in $Users) {
 New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess $GroupName
 
 ```
+<detail>
+```powershell
+PS C:\Users\Public\developper\INF1084-202-25A-04\6.Objects\300153747> .\utilisateurs1.ps1
+
+
+    Directory: C:\
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        11/18/2025   5:21 PM                SharedResources
+
+AvailabilityType      : NonClustered
+CachingMode           : Manual
+CATimeout             : 0
+CompressData          : False
+ConcurrentUserLimit   : 0
+ContinuouslyAvailable : False
+CurrentUsers          : 0
+Description           :
+EncryptData           : False
+FolderEnumerationMode : Unrestricted
+IdentityRemoting      : False
+Infrastructure        : False
+LeasingMode           : Full
+Name                  : SharedResources
+Path                  : C:\SharedResources
+Scoped                : False                                                                                           ScopeName             : *                                                                                               SecurityDescriptor    : O:SYG:SYD:(A;;FA;;;S-1-5-21-447135690-91861430-3213525697-1106)                                 ShadowCopy            : False                                                                                           ShareState            : Online                                                                                          ShareType             : FileSystemDirectory
+SmbInstance           : Default
+Special               : False
+Temporary             : False
+Volume                : \\?\Volume{d9f7716d-765c-4de2-bbd2-1c33f3e87e19}\
+PSComputerName        :
+PresetPathAcl         : System.Security.AccessControl.DirectorySecurity
+```
+</detail>
