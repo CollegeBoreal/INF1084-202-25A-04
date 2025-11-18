@@ -7,11 +7,11 @@
 - **Nom de domaine :** DC300150527-00.local  
 - **Nom NetBIOS :** DC300150527-00  
 
--------------------------------------------------
+
 
 ## ⚙️ Étape 0 – Configuration des variables
 
-```powershell
+
 $studentNumber = 300150527
 $studentInstance = "00"
 $domainName = "DC$studentNumber-$studentInstance.local"
@@ -22,11 +22,12 @@ $cred = New-Object System.Management.Automation.PSCredential("Administrator@$dom
 📁 Fichier : bootstrap.ps1
 Ce script initialise les variables globales du domaine et les identifiants administrateur.
 
------------------------------------------------------------
+
+
 
 ## 🧩 Étape 1 – Préparation de l’environnement
 
-```powershell
+
 Import-Module ActiveDirectory
 Get-ADDomain -Server $domainName
 Get-ADDomainController -Filter * -Server $domainName
@@ -36,7 +37,6 @@ Get-ADDomainController -Filter * -Server $domainName
 
 ## 👥 Étape 2 – Liste des utilisateurs du domaine
 
-```powershell
 Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, Enabled |
 Where-Object { $_.Enabled -eq $true -and $_.SamAccountName -notin @("Administrator","Guest","krbtgt") } |
 Select-Object Name, SamAccountName
@@ -46,7 +46,6 @@ Select-Object Name, SamAccountName
 
 ## 🧍 Étape 3 – Créer un utilisateur
 
-```powershell
 New-ADUser -Name "Alice Dupont" `
            -GivenName "Alice" `
            -Surname "Dupont" `
@@ -62,7 +61,6 @@ New-ADUser -Name "Alice Dupont" `
 
 ## 📝 Étape 4 – Modifier un utilisateur
 
-```powershell
 Set-ADUser -Identity "alice.dupont" `
            -EmailAddress "alice.dupont@exemple.com" `
            -GivenName "Alice-Marie" `
@@ -73,7 +71,6 @@ Set-ADUser -Identity "alice.dupont" `
 
 ## 🚫 Étape 5 – Désactiver un utilisateur
 
-```powershell
 Disable-ADAccount -Identity "alice.dupont" -Credential $cred
 👤 L’utilisateur Alice Dupont est désactivé.
 
@@ -81,7 +78,6 @@ Disable-ADAccount -Identity "alice.dupont" -Credential $cred
 
 ## 🔁 Étape 6 – Réactiver un utilisateur
 
-```powershell
 Enable-ADAccount -Identity "alice.dupont" -Credential $cred
 🔓 L’utilisateur est maintenant réactivé.
 
@@ -90,7 +86,6 @@ Enable-ADAccount -Identity "alice.dupont" -Credential $cred
 ## ❌ Étape 7 – Supprimer un utilisateur
 
 
-```powershell
 Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
 🗑️ L’utilisateur a été supprimé définitivement.
 
@@ -98,7 +93,7 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
 
 ## 🧾 Étape 8 – Exporter la liste des utilisateurs
 
-```powershell
+
 Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, EmailAddress, Enabled |
 Where-Object { $_.SamAccountName -notin @("Administrator","Guest","krbtgt") } |
 Select-Object Name, SamAccountName, EmailAddress, Enabled |
@@ -109,17 +104,15 @@ Export-Csv -Path "TP_AD_Users.csv" -NoTypeInformation -Encoding UTF8
 
 ## 🗂️ Étape 9 – Créer une Unité d’Organisation (OU)
 
-```powershell
 if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'")) {
     New-ADOrganizationalUnit -Name "Students" -Path "DC=$netbiosName,DC=local"
 }
 📁 OU Students créée avec succès.
 
----
+--------------
 
 ## 🚀 Étape 10 – Déplacer un utilisateur vers une OU
 
-```powershell
 Move-ADObject -Identity "CN=Alice Dupont,CN=Users,DC=$netbiosName,DC=local" `
               -TargetPath "OU=Students,DC=$netbiosName,DC=local" `
               -Credential $cred
