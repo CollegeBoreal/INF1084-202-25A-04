@@ -4,7 +4,7 @@
 #            des utilisateurs AD et un partage SMB.
 # ================================
 
-# 1️⃣ Chemin du dossier
+# 11️⃣ Chemin du dossier
 $SharedFolder = "C:\SharedResources"
 
 # 2️⃣ Créer le dossier (si n'existe pas)
