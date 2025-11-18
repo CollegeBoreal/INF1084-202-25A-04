@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Participation au 01-11-2025 03:32
-=======
-# Participation au 04-11-2025 22:27
->>>>>>> 4f7a18d36f52e1effab7f89ec59d542c56107cf7
-=======
-# Participation au 18-11-2025 22:53
->>>>>>> fcbfb6dab68ea4a5b5ad00f502d016701b23114b
+# Participation au 18-11-2025 22:58
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
