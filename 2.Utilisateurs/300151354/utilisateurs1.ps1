@@ -1,5 +1,3 @@
-
-
 $Users = @(
      @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
      @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
@@ -8,6 +6,5 @@ $Users = @(
      @{Nom="Sow"; Prenom="Lil"; Login="lsow"; OU="Stagiaires"}
 )
 
-# je veux aficher letulisateur
 $Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
 
