@@ -1,4 +1,4 @@
-# Charger les informations du bootstrap
+﻿# Charger les informations du bootstrap
 . .\bootstrap.ps1
 
 # Importer le module AD
@@ -10,6 +10,7 @@ Write-Host "Utilisateur désactivé" -ForegroundColor Yellow
 
 Start-Sleep -Seconds 2
 
-Write-Host "`n=== Réactivation de l'utilisateur ===" -ForegroundColor Green
+Write-Host "
+=== Réactivation de l'utilisateur ===" -ForegroundColor Green
 Enable-ADAccount -Identity "alice.dupont" -Server $domainName -Credential $cred
 Write-Host "Utilisateur réactivé" -ForegroundColor Green

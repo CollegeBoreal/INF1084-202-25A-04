@@ -1,4 +1,4 @@
-# Charger les informations du bootstrap
+﻿# Charger les informations du bootstrap
 . .\bootstrap.ps1
 
 # Importer le module AD
@@ -16,7 +16,8 @@ if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'" -Server $domain
     Write-Host "OU 'Students' existe déjà" -ForegroundColor Yellow
 }
 
-Write-Host "`n=== Déplacement de l'utilisateur ===" -ForegroundColor Cyan
+Write-Host "
+=== Déplacement de l'utilisateur ===" -ForegroundColor Cyan
 
 Move-ADObject -Identity "CN=Alice Dupont,CN=Users,$domainDN" `
               -TargetPath "OU=Students,$domainDN" `
@@ -26,5 +27,6 @@ Move-ADObject -Identity "CN=Alice Dupont,CN=Users,$domainDN" `
 Write-Host "Utilisateur déplacé vers OU=Students" -ForegroundColor Green
 
 # Vérification
-Write-Host "`n=== Vérification ===" -ForegroundColor Cyan
+Write-Host "
+=== Vérification ===" -ForegroundColor Cyan
 Get-ADUser -Identity "alice.dupont" -Server $domainName | Select-Object Name, DistinguishedName

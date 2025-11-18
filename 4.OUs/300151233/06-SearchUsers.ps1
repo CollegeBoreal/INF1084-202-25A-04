@@ -1,4 +1,4 @@
-# Charger les informations du bootstrap
+﻿# Charger les informations du bootstrap
 . .\bootstrap.ps1
 
 # Importer le module AD
