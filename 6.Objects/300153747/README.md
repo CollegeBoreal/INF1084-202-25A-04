@@ -24,7 +24,7 @@ foreach ($user in $Users) {
 New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess $GroupName
 
 ```
-<detail>
+  <details>
 ```powershell
 PS C:\Users\Public\developper\INF1084-202-25A-04\6.Objects\300153747> .\utilisateurs1.ps1
 
@@ -59,4 +59,4 @@ Volume                : \\?\Volume{d9f7716d-765c-4de2-bbd2-1c33f3e87e19}\
 PSComputerName        :
 PresetPathAcl         : System.Security.AccessControl.DirectorySecurity
 ```
-</detail>
+</details>
