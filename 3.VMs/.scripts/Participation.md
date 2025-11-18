@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Participation au 01-11-2025 03:32
+=======
+# Participation au 04-11-2025 22:27
+>>>>>>> 4f7a18d36f52e1effab7f89ec59d542c56107cf7
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -25,7 +29,7 @@
 | 4 | [300145940](../300145940/README.md) [<image src='https://avatars0.githubusercontent.com/u/234069235?s=460&v=4' width=20 height=20></image>](https://github.com/TasnimMarzouki) | 10.7.236.191 | :x: |
 | 5 | [300146545](../300146545/README.md) [<image src='https://avatars0.githubusercontent.com/u/211592881?s=460&v=4' width=20 height=20></image>](https://github.com/saoudialaoua) | 10.7.236.192 | :x: |
 | 6 | [300146667](../300146667/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994773?s=460&v=4' width=20 height=20></image>](https://github.com/djaberbenyezza) | 10.7.236.193 | :x: |
-| 7 | [300147629](../300147629/README.md) [<image src='https://avatars0.githubusercontent.com/u/231347782?s=460&v=4' width=20 height=20></image>](https://github.com/zoumarbalde-blip) | 10.7.236.195 | :x: |
+| 7 | [300147629](../300147629/README.md) [<image src='https://avatars0.githubusercontent.com/u/231347782?s=460&v=4' width=20 height=20></image>](https://github.com/zoumarbalde-blip) | 10.7.236.195 | :heavy_check_mark: | :heavy_check_mark: |
 | 8 | [300147786](../300147786/README.md) [<image src='https://avatars0.githubusercontent.com/u/231366133?s=460&v=4' width=20 height=20></image>](https://github.com/300786147) | 10.7.236.225 | :heavy_check_mark: | :heavy_check_mark: |
 | 9 | [300150205](../300150205/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994753?s=460&v=4' width=20 height=20></image>](https://github.com/blbsblm) | 10.7.236.226 | :heavy_check_mark: | :heavy_check_mark: |
 | 10 | [300150268](../300150268/README.md) [<image src='https://avatars0.githubusercontent.com/u/207268490?s=460&v=4' width=20 height=20></image>](https://github.com/kemiche06) | 10.7.236.227 | :x: |

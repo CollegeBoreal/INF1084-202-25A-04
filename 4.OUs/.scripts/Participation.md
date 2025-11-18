@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Participation au 01-11-2025 03:32
+=======
+# Participation au 04-11-2025 22:27
+>>>>>>> 4f7a18d36f52e1effab7f89ec59d542c56107cf7
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -35,7 +39,7 @@
 | 16 | [300150395](../300150395/README.md) [<image src='https://avatars0.githubusercontent.com/u/211577767?s=460&v=4' width=20 height=20></image>](https://github.com/ismailtrache) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 17 | [300150399](../300150399/README.md) [<image src='https://avatars0.githubusercontent.com/u/195236786?s=460&v=4' width=20 height=20></image>](https://github.com/chkips) | :x: | :x: | :x: | :x: | :x: |
 | 18 | [300150417](../300150417/README.md) [<image src='https://avatars0.githubusercontent.com/u/212187666?s=460&v=4' width=20 height=20></image>](https://github.com/latifmuristaga) | :heavy_check_mark: | :x: | :x: | :x: | :x: |
-| 19 | [300150485](../300150485/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994799?s=460&v=4' width=20 height=20></image>](https://github.com/nad1111) | :x: | :x: | :x: | :x: | :x: |
+| 19 | [300150485](../300150485/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994799?s=460&v=4' width=20 height=20></image>](https://github.com/nad1111) | :heavy_check_mark: | :x: | :x: | :x: | :x: |
 | 20 | [300150527](../300150527/README.md) [<image src='https://avatars0.githubusercontent.com/u/212277460?s=460&v=4' width=20 height=20></image>](https://github.com/akrembouraoui) | :x: | :x: | :x: | :x: | :x: |
 | 21 | [300151042](../300151042/README.md) [<image src='https://avatars0.githubusercontent.com/u/62858035?s=460&v=4' width=20 height=20></image>](https://github.com/hichemhamdi10) | :x: | :x: | :x: | :x: | :x: |
 | 22 | [300151233](../300151233/README.md) [<image src='https://avatars0.githubusercontent.com/u/223416913?s=460&v=4' width=20 height=20></image>](https://github.com/syphax25) | :x: | :x: | :x: | :x: | :x: |
