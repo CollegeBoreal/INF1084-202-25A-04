@@ -59,6 +59,22 @@ jobs:
           pwsh .scripts/run.ps1
           Set-Location ..
 
+          ##
+          ## Évaluation du chapitre 5.Services
+          ##
+          Write-Host "Evaluating chapter 5.Services Participation"
+          Set-Location 5.Services
+          pwsh .scripts/run.ps1
+          Set-Location ..
+
+          ##
+          ## Évaluation du chapitre 6.Objects
+          ##
+          Write-Host "Evaluating chapter 6.Objects Participation"
+          Set-Location 6.Objects
+          pwsh .scripts/run.ps1
+          Set-Location ..
+
       - name: Commit files
         shell: pwsh
         run: |

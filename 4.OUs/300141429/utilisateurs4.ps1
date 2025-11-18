@@ -2,7 +2,7 @@
 
 
 Import-Module ActiveDirectory
-$cred = Get-Credential  # Saisir Administrator@$domainName
+# $cred = Get-Credential  # Saisir Administrator@$domainName
 
 # Créer l'OU Students si elle n'existe pas
 if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'")) {

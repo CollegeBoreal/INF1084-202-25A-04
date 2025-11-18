@@ -3,13 +3,6 @@
 # Configuration et Listage des utilisateurs
 # ========================================
 
-# ÉTAPE 0 : Configuration des variables
-$studentNumber = 300150395
-$studentInstance = "00"
-
-$domainName = "DC$studentNumber-$studentInstance.local"
-$netbiosName = "DC$studentNumber-$studentInstance"
-
 # ÉTAPE 1 : Vérification de l'environnement
 Import-Module ActiveDirectory
 

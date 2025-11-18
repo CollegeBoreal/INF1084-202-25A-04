@@ -2,7 +2,7 @@
 
 
 Import-Module ActiveDirectory
-$cred = Get-Credential  # Saisir Administrator@$domainName
+# $cred = Get-Credential  # Saisir Administrator@$domainName
 
 # Modifier un utilisateur
 Set-ADUser -Identity "alice.dupont" `
