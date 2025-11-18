@@ -157,7 +157,10 @@ secedit /import /cfg C:\secpol.cfg /db C:\secpol.sdb /overwrite
 Write-Host ""
 Write-Host "Script completed successfully."
 ```
-<details>
+
+ <details>
+ ```powershell
+     
     PS C:\Users\Public\developper\INF1084-202-25A-04\6.Objects\300153747> .\utilisateurs2.ps1
 GPO already exists. Using existing one.
 
