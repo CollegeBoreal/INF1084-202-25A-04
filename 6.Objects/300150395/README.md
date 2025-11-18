@@ -24,17 +24,6 @@ Ce laboratoire a pour but de manipuler les objets Active Directory et d automati
     ├── utilisateurs1.ps1
     ├── utilisateurs2.ps1
     ├── images/
-        ├── Screenshot2025-11-11182725.png
-        ├── Screenshot2025-11-11182825.png
-        ├── Screenshot2025-11-11182919.png
-        ├── Screenshot2025-11-11182949.png
-        ├── Screenshot2025-11-11183027.png
-        ├── Screenshot2025-11-11183054.png
-        ├── Screenshot2025-11-11183149.png
-        ├── Screenshot2025-11-11183248.png
-        ├── Screenshot2025-11-11183328.png
-        ├── Screenshot2025-11-11183412.png
-        ├── Screenshot2025-11-11183520.png
 
 ---
 
@@ -176,22 +165,81 @@ Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
 ---
 
-## Etape 6 - Verification optionnelle du mappage reseau (a faire)
+==================================================
+## ETAPE 6 - VERIFICATION DU MAPPAGE RESEAU (RESOLUE)
+==================================================
 
-Sur une machine cliente membre du domaine, connecte-toi avec un compte Etudiant (ex: Etudiant1), puis:
+Lors du premier test, le message suivant est apparu :
+"Windows cannot access \\DC300150395\SharedResources"
+Cela etait du a un probleme d'autorisations SMB sur le dossier partage.
 
+--------------------------------------------------
+SOLUTION APPLIQUEE SUR LE DC
+--------------------------------------------------
+
+Pour corriger le probleme, le partage a ete supprime puis recree avec les 
+bonnes autorisations pour le groupe Students :
+
+```powershell
+# Supprimer et recreer le partage avec les bons droits
+Remove-SmbShare -Name "SharedResources" -Force
+
+$SharedFolder = "C:\SharedResources"
+$GroupName = "Students"
+
+if (-not (Test-Path $SharedFolder)) { New-Item -ItemType Directory -Path $SharedFolder | Out-Null }
+
+# Droits NTFS
+$acl = Get-Acl $SharedFolder
+$rule = New-Object System.Security.AccessControl.FileSystemAccessRule("$GroupName","FullControl","ContainerInherit,ObjectInherit","None","Allow")
+$acl.SetAccessRule($rule)
+Set-Acl $SharedFolder $acl
+
+# Partage SMB
+New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess "$GroupName","Administrator"
+
+# Verification des droits
+Get-SmbShareAccess -Name "SharedResources"
+```
+
+Resultat attendu :
+SharedResources  DC300150395-00\Students      Full
+SharedResources  DC300150395-00\Administrator Full
+[CAPTURE 11] GPO liee a l OU OK  
+![](./images/Screenshot2025-11-11195851.png)
+--> Resultat net use et verification du partage SMB
+
+--------------------------------------------------
+TEST FINAL DEPUIS LA MACHINE CLIENTE
+--------------------------------------------------
+
+Connexion avec le compte :
+Utilisateur : DC300150395-00\Etudiant1
+Mot de passe : Pass123!
+
+Commande PowerShell :
 ```powershell
 net use
 ```
-Attendu:
-```
-Z:  \\DC300150395-00\SharedResources
-```
+
+Resultat obtenu :
+OK     \\DC300150395\SharedResources    Microsoft Windows Network
+The command completed successfully.
+![](./images/Screenshot2025-11-11195646.png)
+
+--> Acces au dossier SharedResources depuis la VM Etudiant1
+
+--------------------------------------------------
+## CONCLUSION
+--------------------------------------------------
+
+Toutes les verifications du TP ont ete realisees avec succes :
+- La GPO MapSharedFolder-300150395 fonctionne.
+- Le lecteur Z: se monte correctement pour les utilisateurs du groupe Students.
+- Les autorisations NTFS et SMB sont configurees adequatement.
+- La connexion RDP et l'acces au partage sont operationnels.
+
+Le probleme de permission initial a ete resolu en recreant le partage avec les bons droits d'acces.
 
 ---
 
-## Conclusion
-
-Les scripts ont ete testes avec succes sur le domaine DC300150395-00.local.  
-Toutes les verifications techniques realisees confirment la bonne configuration du laboratoire AD, GPO, partage SMB et RDP.  
-La verification optionnelle du mappage reseau sera ajoutee apres test utilisateur (Etudiant1) sur une machine cliente membre du domaine.
