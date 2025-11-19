@@ -1,50 +1,36 @@
-# ===================================================================
+############################################################
 # Script : utilisateurs1.ps1
-# Objectif : Créer un dossier partagé, un groupe et des utilisateurs AD
-# Auteur : Arona
-# ===================================================================
+# Objectif : Créer un dossier partagé + groupe Students + utilisateurs
+############################################################
 
-Import-Module ActiveDirectory -ErrorAction SilentlyContinue
+# Charger les modules AD et SMB
+Import-Module ActiveDirectory
+Import-Module SmbShare
 
-# Variables
+# 1️⃣ Créer le dossier partagé
 $SharedFolder = "C:\SharedResources"
+New-Item -Path $SharedFolder -ItemType Directory -Force
+
+# 2️⃣ Créer le groupe AD
 $GroupName = "Students"
-$Users = @("Etudiant1", "Etudiant2")
+New-ADGroup -Name $GroupName -GroupScope Global -Description "Users allowed RDP and shared folder access" -ErrorAction SilentlyContinue
 
-# 1. Créer le dossier partagé
-if (-not (Test-Path $SharedFolder)) {
-    New-Item -Path $SharedFolder -ItemType Directory -Force
-    Write-Host "Dossier $SharedFolder créé avec succès."
-} else {
-    Write-Host "Le dossier $SharedFolder existe déjà."
-}
+# 3️⃣ Créer des utilisateurs AD et les ajouter au groupe
+$Users = @("Etudiant1","Etudiant2")
 
-# 2. Créer le groupe AD
-if (-not (Get-ADGroup -Filter "Name -eq '$GroupName'")) {
-    New-ADGroup -Name $GroupName -GroupScope Global -Description "Users allowed RDP and shared folder access"
-    Write-Host "Groupe $GroupName créé."
-} else {
-    Write-Host "Le groupe $GroupName existe déjà."
-}
-
-# 3. Créer les utilisateurs AD et les ajouter au groupe
 foreach ($user in $Users) {
-    if (-not (Get-ADUser -Filter "SamAccountName -eq '$user'")) {
-        New-ADUser -Name $user -SamAccountName $user -AccountPassword (ConvertTo-SecureString "Pass123!" -AsPlainText -Force) -Enabled $true
-        Add-ADGroupMember -Identity $GroupName -Members $user
-        Write-Host "Utilisateur $user créé et ajouté au groupe $GroupName."
-    } else {
-        Write-Host "L'utilisateur $user existe déjà."
-    }
+    New-ADUser -Name $user `
+               -SamAccountName $user `
+               -AccountPassword (ConvertTo-SecureString "Pass123!" -AsPlainText -Force) `
+               -Enabled $true `
+               -PasswordNeverExpires $true `
+               -ErrorAction SilentlyContinue
+
+    Add-ADGroupMember -Identity $GroupName -Members $user -ErrorAction SilentlyContinue
 }
 
-# 4. Partager le dossier avec le groupe
-if (-not (Get-SmbShare -Name "SharedResources" -ErrorAction SilentlyContinue)) {
-    New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess $GroupName
-    Write-Host "Partage SMB 'SharedResources' créé pour le groupe $GroupName."
-} else {
-    Write-Host "Le partage SMB 'SharedResources' existe déjà."
-}
+# 4️⃣ Créer le partage SMB avec autorisation FullAccess au groupe Students
+New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess $GroupName -ErrorAction SilentlyContinue
 
-Write-Host "Etape 1 terminée : Groupe, utilisateurs et partage créés."
+Write-Host "📁 Dossier partagé + utilisateurs + groupe créés avec succès."
 
