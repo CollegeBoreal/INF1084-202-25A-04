@@ -8,7 +8,7 @@ Import-Module GroupPolicy
 # 1️⃣ Variables
 $GPOName = "MapSharedFolder"
 $netbiosName = "DC300141429"   # <<< ADAPTE ICI
-$OU = "OU=Students,DC=$netbiosName,DC=local"
+$OU = "OU=Students,DC=300141429,DC=local"
 
 # 2️⃣ Créer la GPO
 New-GPO -Name $GPOName -ErrorAction SilentlyContinue
