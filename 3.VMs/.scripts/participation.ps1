@@ -46,14 +46,14 @@ foreach ($id in $ETUDIANTS) {
 
     if (Test-Path $FILE) {
         # Get Git author info for this file
-        $authorCheck = git log --format=fuller -- $FILE | Select-String "Author"
-        if ($authorCheck -match "noreply") {
-            Write-Output $KO_WEB
-        }
-        else {
+        # $authorCheck = git log --format=fuller -- $FILE | Select-String "Author"
+        # if ($authorCheck -match "noreply") {
+        #     Write-Output $KO_WEB
+        # }
+        # else {
             Write-Output $OK
             $s++
-        }
+        # }
     }
     else {
         Write-Output $KO

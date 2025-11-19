@@ -37,27 +37,37 @@ foreach ($id in $ETUDIANTS) {
     $FILE = "$id/README.md"
 
     $scripts = @(
-        "$id/utilisateurs1.ps1",
-        "$id/utilisateurs2.ps1",
-        "$id/utilisateurs3.ps1",
-        "$id/utilisateurs4.ps1"
+        ".\utilisateurs1.ps1",
+        ".\utilisateurs2.ps1",
+        ".\utilisateurs3.ps1",
+        ".\utilisateurs4.ps1"
     )
 
-    $status = @()
-    foreach ($script in $scripts) {
-        if (-not (Test-Path $script)) {
-            $status += ":x:"
-            continue
+    if (Test-Path $id) {
+
+        Set-Location $id
+
+        $status = @()
+        foreach ($script in $scripts) {
+            if (-not (Test-Path $script)) {
+                $status += ":x:"
+                continue
+            }
+
+
+            # Try to execute the student script quietly
+            try {
+                & $script *> $null
+                $status += ":heavy_check_mark:"
+            }
+            catch {
+                $status += ":boom:"  # Execution error
+                # Write-Host "❌ Error executing $script : $($_.Exception.Message)" -ForegroundColor Red
+            }
+
         }
 
-        # Try to execute the student script quietly
-        try {
-            & $script *> $null
-            $status += ":heavy_check_mark:"
-        }
-        catch {
-            $status += ":boom:"  # Execution error
-        }
+        Set-Location ..
     }
 
     $KO = "| $i | [$id](../$FILE) $URL | :x: | :x: | :x: | :x: | :x: |"

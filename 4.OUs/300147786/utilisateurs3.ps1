@@ -1,3 +1,6 @@
+Import-Module ActiveDirectory
+. .\bootstrap.ps1
+
 # ÉTAPE 5 : Désactiver un utilisateur
 Disable-ADAccount -Identity "alice.dupont" -Server $domainName
 
