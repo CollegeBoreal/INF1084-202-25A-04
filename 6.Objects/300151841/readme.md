@@ -72,7 +72,7 @@ Dans verify.cfg :
 SeRemoteInteractiveLogonRight = Students
 
 
-![wait}(https://github.com/user-attachments/assets/7148f218-51a4-4647-90df-0d6e886ebf76)
+![wait](https://github.com/user-attachments/assets/7148f218-51a4-4647-90df-0d6e886ebf76)
 
 
 🔹 7. Ajout du groupe Students au groupe local RDP
