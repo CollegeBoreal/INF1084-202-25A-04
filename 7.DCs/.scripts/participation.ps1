@@ -46,7 +46,7 @@ foreach ($id in $GROUPES) {
 
     $URL1 = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i1])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i1]))"
 
-    if ($2 -eq 300098957) {
+    if ($second -eq 300098957) {
        $URL2 = "[<image src='https://avatars0.githubusercontent.com/u/b300098957?s=460&v=4' width=20 height=20></image>](https://github.com/b300098957))"
     }
     else {
