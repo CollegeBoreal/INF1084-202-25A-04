@@ -86,6 +86,27 @@ Avant redémarrage : Stopped
 
 Après redémarrage : Running
 
+capture d'ecran 
+## 📸 Résultats des scripts
+
+Lister les services AD
+
+![services1](images/services1.png)
+
+Lire les événements AD
+
+![services21](images/services21.png)
+
+(partie 2)
+![services22](images/services22.png)
+
+Exporter les logs
+
+![services3](images/services3.png)
+
+Stop/Start DFSR
+
+![services4](images/services4.png)
 
 
 ✨ Auteur
