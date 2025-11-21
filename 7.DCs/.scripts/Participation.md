@@ -1,4 +1,4 @@
-# Participation au 21-11-2025 19:27
+# Participation au 21-11-2025 19:28
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -31,5 +31,5 @@
 | 12 | [300145940-300150303](../300145940-300150303/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/234069235?s=460&v=4' width=20 height=20></image>](https://github.com/TasnimMarzouki) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/211592293?s=460&v=4' width=20 height=20></image>](https://github.com/jessmaud) | :x: | :x: |
 | 13 | [300150395-300150295](../300150395-300150295/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/211577767?s=460&v=4' width=20 height=20></image>](https://github.com/ismailtrache) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/205994740?s=460&v=4' width=20 height=20></image>](https://github.com/lounasallouti1) | :x: | :x: |
 | 14 | [300150399-300151833](../300150399-300151833/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/195236786?s=460&v=4' width=20 height=20></image>](https://github.com/chkips) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/109877652?s=460&v=4' width=20 height=20></image>](https://github.com/raoufbrs15) | :x: | :x: |
-| 15 | [300146667-300098957](../300146667-300098957/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/205994773?s=460&v=4' width=20 height=20></image>](https://github.com/djaberbenyezza) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/62551735?s=460&v=4' width=20 height=20></image>](https://github.com/b300098957)) | :x: | :x: |
+| 15 | [300146667-300098957](../300146667-300098957/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/205994773?s=460&v=4' width=20 height=20></image>](https://github.com/djaberbenyezza) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/62551735?s=460&v=4' width=20 height=20></image>](https://github.com/b300098957) | :x: | :x: |
 | :abacus: | \$\\frac{0}{16}\$ = 0% | \$\displaystyle\sum_{i=1}^{16} s_i\$ = 0 |
