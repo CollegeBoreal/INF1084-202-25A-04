@@ -45,7 +45,13 @@ foreach ($id in $GROUPES) {
     $i2 = [Array]::IndexOf($ETUDIANTS, $second)
 
     $URL1 = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i1])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i1]))"
-    $URL2 = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i2])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i2]))"
+
+    if ($2 -eq 300098957) {
+       $URL2 = "[<image src='https://avatars0.githubusercontent.com/u/b300098957?s=460&v=4' width=20 height=20></image>](https://github.com/b300098957))"
+    }
+    else {
+       $URL2 = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i2])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i2]))"
+    }
 
     $FILE = "$id/README.md"
     $FOLDER = "$id/images"
