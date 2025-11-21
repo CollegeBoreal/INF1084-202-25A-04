@@ -22,6 +22,7 @@ $cred = New-Object System.Management.Automation.PSCredential("Administrator@$dom
 📁 Fichier : bootstrap.ps1
 Ce script initialise les variables globales du domaine et les identifiants administrateur.
 
+<img width="1042" height="425" alt="hh" src="https://github.com/user-attachments/assets/09441503-2db2-4a7f-9f62-613bcda754c6" />
 
 ---------------------------------
 
