@@ -38,7 +38,7 @@
 | 19 | [300150485](../300150485/README.md) :point_right: [nad1111](https://github.com/nad1111) <image src='https://avatars0.githubusercontent.com/u/205994799?s=460&v=4' width=20 height=20></image> | :x: |
 | 20 | [300150527](../300150527/README.md) :point_right: [akrembouraoui](https://github.com/akrembouraoui) <image src='https://avatars0.githubusercontent.com/u/212277460?s=460&v=4' width=20 height=20></image> | :x: |
 | 21 | [300151042](../300151042/README.md) :point_right: [hichemhamdi10](https://github.com/hichemhamdi10) <image src='https://avatars0.githubusercontent.com/u/62858035?s=460&v=4' width=20 height=20></image> | :x: |
-| 22 | [300151233](../300151233/README.md) :point_right: [syphax25](https://github.com/syphax25) <image src='https://avatars0.githubusercontent.com/u/223416913?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :x: |
+| 22 | [300151233](../300151233/README.md) :point_right: [syphax25](https://github.com/syphax25) <image src='https://avatars0.githubusercontent.com/u/223416913?s=460&v=4' width=20 height=20></image> | :x: |
 | 23 | [300151292](../300151292/README.md) :point_right: [akahil521](https://github.com/akahil521) <image src='https://avatars0.githubusercontent.com/u/205994792?s=460&v=4' width=20 height=20></image> | :x: |
 | 24 | [300151354](../300151354/README.md) :point_right: [massinissamakoudi](https://github.com/massinissamakoudi) <image src='https://avatars0.githubusercontent.com/u/212047331?s=460&v=4' width=20 height=20></image> | :x: |
 | 25 | [300151492](../300151492/README.md) :point_right: [hacen19](https://github.com/hacen19) <image src='https://avatars0.githubusercontent.com/u/206000307?s=460&v=4' width=20 height=20></image> | :x: |
