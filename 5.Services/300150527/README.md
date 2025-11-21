@@ -1,7 +1,7 @@
 ## 📘 LABO 5 – Services Active Directory (AD)
-👤 Étudiant : Akrem Bouraoui - 300150527
-📚 Cours : INF1084 – Administration Windows / Active Directory
-🖥️ Projet : Gestion des Services Windows & Active Directory
+- 👤 Étudiant : Akrem Bouraoui - 300150527
+- 📚 Cours : INF1084 – Administration Windows / Active Directory
+- 🖥️ Projet : Gestion des Services Windows & Active Directory
 
 -----------------------------------------------
 
@@ -46,11 +46,13 @@ L’objectif principal était d’utiliser PowerShell pour analyser et manipuler
 ✔️ Fonctionnalités :
 
 - Lister tous les services liés à AD
+  
 Get-Service | Where-Object {
     $_.DisplayName -like "*Directory*" -or $_.Name -match "NTDS|ADWS|DFSR|kdc|Netlogon|IsmServ"
 } | Sort-Object DisplayName
 
 - Vérifier l’état d’un service spécifique
+  
 Get-Service -Name NTDS, ADWS, DFSR
 
 <img width="1093" height="543" alt="2" src="https://github.com/user-attachments/assets/82c701a4-ac34-41ab-bcb5-0d1405b7843c" />
@@ -162,3 +164,4 @@ Netlogon : Authentification réseau
 
 Ce laboratoire m’a permis d’approfondir mes compétences en administration Windows Server, en particulier dans la gestion des services Active Directory et l’utilisation de PowerShell.
 Ces compétences sont essentielles pour diagnostiquer des problèmes, automatiser des tâches administratives et gérer un environnement professionnel AD DS.
+
