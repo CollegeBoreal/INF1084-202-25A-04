@@ -1,5 +1,9 @@
 # 🎛️ DC Domain Controler
 
+|:hash: | Fonctions                                          |
+|-------|:---------------------------------------------------|
+| :one: | [:tada: Participation](.scripts/Participation.md)  |
+
 ## :books: Travail à soumettre :
 
 - [ ] Créer un répertoire avec ton  :id: (votre identifiant boreal)
@@ -108,4 +112,10 @@ Get-ChildItem
 * Aucune manipulation via l’interface graphique.
 * Les scripts doivent être réutilisables et documentés.
 
+# :books: References
+
+- [ ] Assigner un DNS
+
+* https://www.name.com/partner/github-students
+* https://www.youtube.com/watch?v=YXqqfjjVXmo
 
