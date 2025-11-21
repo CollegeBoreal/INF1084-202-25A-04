@@ -10,6 +10,7 @@
 Avant de commencer les scripts PowerShell, j’ai d’abord effectué une configuration complète de mon environnement :
 
 ✔️ 1. Récupération du projet depuis GitHub
+
 git pull
 
 - Cette étape garantit que j’ai la dernière version du dépôt partagé avant d’ajouter mon travail.
@@ -173,5 +174,6 @@ Netlogon : Authentification réseau
 
 Ce laboratoire m’a permis d’approfondir mes compétences en administration Windows Server, en particulier dans la gestion des services Active Directory et l’utilisation de PowerShell.
 Ces compétences sont essentielles pour diagnostiquer des problèmes, automatiser des tâches administratives et gérer un environnement professionnel AD DS.
+
 
 
