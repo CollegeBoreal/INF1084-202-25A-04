@@ -89,19 +89,23 @@ Get-WinEvent -LogName "Directory Service" -MaxEvents 20 | Format-Table TimeCreat
 
 - Vérifie si le dossier C:\Logs existe, Le crée automatiquement si nécessaire, Exporte les événements AD dans ADLogs.csv :
 
-- 1. Créer le dossier C:\Logs s'il n'existe pas
+- Créer le dossier C:\Logs s'il n'existe pas
+  
 if (!(Test-Path -Path "C:\Logs")) {
     New-Item -ItemType Directory -Path "C:\Logs" | Out-Null
 }
 
-- 2. Exporter les événements Directory Service vers CSV
+- Exporter les événements Directory Service vers CSV
+  
 Get-WinEvent -LogName "Directory Service" -MaxEvents 50 |
 Export-Csv -Path "C:\Logs\ADLogs.csv" -NoTypeInformation
 
-- 3. Vérifier que le dossier existe
+- Vérifier que le dossier existe
+  
 Test-Path C:\Logs
 
-- 4. Lister le contenu (pour confirmer la présence de ADLogs.csv)
+- Lister le contenu (pour confirmer la présence de ADLogs.csv)
+  
 Get-ChildItem C:\Logs
 
 
@@ -117,19 +121,24 @@ Get-ChildItem C:\Logs
 
 ✔️ Fonctionnalités :
 
-- 1. Vérifier l'état initial du service
+- Vérifier l'état initial du service
+  
 Get-Service -Name DFSR
 
-- 2. Arrêter le service DFSR
+- Arrêter le service DFSR
+  
 Stop-Service -Name DFSR 
 
-- 3. Vérifier l'état après arrêt
+- Vérifier l'état après arrêt
+  
 (Get-Service -Name DFSR).Status
 
-- 4. Démarrer le service DFSR
+- Démarrer le service DFSR
+  
 Start-Service -Name DFSR
 
-- 5. Vérifier l'état final
+- Vérifier l'état final
+  
 (Get-Service -Name DFSR).Status
 
 <img width="1113" height="540" alt="5" src="https://github.com/user-attachments/assets/4a85ed4c-2e3f-4f99-b276-2e660d84ea5a" />
@@ -164,4 +173,5 @@ Netlogon : Authentification réseau
 
 Ce laboratoire m’a permis d’approfondir mes compétences en administration Windows Server, en particulier dans la gestion des services Active Directory et l’utilisation de PowerShell.
 Ces compétences sont essentielles pour diagnostiquer des problèmes, automatiser des tâches administratives et gérer un environnement professionnel AD DS.
+
 
