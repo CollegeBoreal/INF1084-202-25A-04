@@ -13,4 +13,4 @@ Ce dossier contient les cinq scripts PowerShell créés dans le cadre du laborat
 - utilisateurs4.ps1 → Exportation et importation CSV  
 - utilisateurs5.ps1 → Simulation complète de groupes et export CSV  
 
-✅ Travail complété et vérifié sur GitHub.
+✅ Travail complété 
