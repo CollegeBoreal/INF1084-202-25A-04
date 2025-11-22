@@ -15,8 +15,8 @@ et de manipuler des objets via des scripts PowerShell.
 
 ---------------------------------------------------
 
-## 🔧 Contenu du travail réalisé
-✔️ 1. Création d’utilisateurs simulés
+## 🔧 Contenu du travail réalisé :
+## ✔️ 1. Création d’utilisateurs simulés
 
 J’ai exécuté le script utilisateurs1.ps1 qui permet de créer des objets utilisateurs simulés avec les attributs : Nom, Prénom, Login et OU.
 
