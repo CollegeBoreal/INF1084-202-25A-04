@@ -20,17 +20,6 @@ et de manipuler des objets via des scripts PowerShell.
 
 J’ai exécuté le script utilisateurs1.ps1 qui permet de créer des objets utilisateurs simulés avec les attributs : Nom, Prénom, Login et OU.
 
-$Users = @(
-    @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"}
-)
-
-$Users += @{Nom="Martin"; Prenom="Julie"; Login="jmartin"; OU="Stagiaires"}
-$Users += @{Nom="Nguyen"; Prenom="David"; Login="dnguyen"; OU="Stagiaires"}
-
-$Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
-
 
 <img width="1366" height="727" alt="1" src="https://github.com/user-attachments/assets/0f692157-76c5-4a6b-89ac-77d583c340a3" />
 
