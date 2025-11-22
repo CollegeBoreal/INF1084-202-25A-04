@@ -1,4 +1,4 @@
-# Participation au 22-11-2025 21:13
+# Participation au 22-11-2025 21:20
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -21,7 +21,7 @@
 | 2 | [300141429](../300141429) [<image src='https://avatars0.githubusercontent.com/u/231347874?s=460&v=4' width=20 height=20></image>](https://github.com/barrynetwork) | [:heavy_check_mark:](../300141429/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 3 | [300141570](../300141570/README.md) [<image src='https://avatars0.githubusercontent.com/u/66260193?s=460&v=4' width=20 height=20></image>](https://github.com/swberk) | :x: | :x: | :x: |
 | 4 | [300145940](../300145940/README.md) [<image src='https://avatars0.githubusercontent.com/u/234069235?s=460&v=4' width=20 height=20></image>](https://github.com/TasnimMarzouki) | :x: | :x: | :x: |
-| 5 | [300146545](../300146545) [<image src='https://avatars0.githubusercontent.com/u/211592881?s=460&v=4' width=20 height=20></image>](https://github.com/saoudialaoua) | [:heavy_check_mark:](../300146545/README.md) | :x: | :x: 
+| 5 | [300146545](../300146545/README.md) [<image src='https://avatars0.githubusercontent.com/u/211592881?s=460&v=4' width=20 height=20></image>](https://github.com/saoudialaoua) | :x: | :x: | :x: |
 | 6 | [300146667](../300146667) [<image src='https://avatars0.githubusercontent.com/u/205994773?s=460&v=4' width=20 height=20></image>](https://github.com/djaberbenyezza) | [:heavy_check_mark:](../300146667/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 7 | [300147629](../300147629) [<image src='https://avatars0.githubusercontent.com/u/231347782?s=460&v=4' width=20 height=20></image>](https://github.com/zoumarbalde-blip) | [:heavy_check_mark:](../300147629/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 8 | [300147786](../300147786) [<image src='https://avatars0.githubusercontent.com/u/231366133?s=460&v=4' width=20 height=20></image>](https://github.com/300786147) | [:heavy_check_mark:](../300147786/README.md) | :heavy_check_mark: | :heavy_check_mark: 
@@ -47,4 +47,4 @@
 | 28 | [300151841](../300151841) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | [:heavy_check_mark:](../300151841/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 29 | [300152410](../300152410) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | [:heavy_check_mark:](../300152410/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 30 | [300153747](../300153747) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | [:heavy_check_mark:](../300153747/README.md) | :heavy_check_mark: | :heavy_check_mark: 
-| :abacus: | \$\\frac{16}{31}$ = 51.61% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 16 |
+| :abacus: | \$\\frac{15}{31}$ = 48.39% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 15 |
