@@ -1,12 +1,4 @@
-# INF1084-202-25A-03
-INF1084 (202) - Introduction à l'administration des systèmes
-
-## :date: [Épreuves](.epreuves)
-
-## :one: [Devoirs](Devoirs)
-
-| :hash:  | Date   | Leçons                                                           | 🎉 Participations | 🏁 Vérifications |
-|-------- |--------|:-----------------------------------------------------------------|:------------------|:--------------|
+------------|
 | :one:   |08-sept | [0.PlanDeCours](0.PlanDeCours)                       | [🎉](0.PlanDeCours/.scripts/Participation.md) 👉  â Noter :x:|
 | :two:   |15-sept | [0.Tutoriel sur GIT](.PlanDeCours/README.md#bulb-tutoriel-sur-git) | [🎉](.scripts/Participation.md) 👉  â Noter :x:|
 | :three: |22-sept | [1.SSH](1.SSH/.scripts/Participation.md)                     | [🎉](1.SSH/.scripts/Participation.md) 👉  â Noter :x:|
