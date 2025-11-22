@@ -1,5 +1,11 @@
-## LABO 6.Objects
-## Étudiant : Akrem Bouraoui - 300150527
+## 🧭 TP Active Directory – 6.Objects
+
+## 👤 Informations Étudiant
+- **Nom :** Bouraoui Akrem  
+- **Numéro étudiant :** 300150527  
+- **Instance :** 00  
+- **Nom de domaine :** DC300150527-00.local  
+- **Nom NetBIOS :** DC300150527-00  
 
 ----------------------------------------------------
 
@@ -83,11 +89,16 @@ Get-ADUser -Identity Etudiant2
 
 <img width="832" height="500" alt="5-2-1" src="https://github.com/user-attachments/assets/f0b6374d-bc06-487d-9449-d250d4e5b34f" />
 
+-----
+
 ```powershell
 Get-ADGroupMember -Identity "Students"*
 ```
+----
 
 <img width="1105" height="501" alt="5-2-2" src="https://github.com/user-attachments/assets/49f7605a-bad4-4e7e-a85d-c001880f724d" />
+
+------
 
 ```powershell
 Get-SmbShare -Name "SharedResources"
@@ -167,6 +178,7 @@ secedit /export /cfg C:\secpol.cfg
 
 <img width="919" height="473" alt="6-5" src="https://github.com/user-attachments/assets/9359bfea-91c6-420b-a78a-52494dcc47d8" />
 
+-----
 
 **Modifier le fichier pour inclure Students dans "SeRemoteInteractiveLogonRight", puis réimporter**
 
@@ -177,6 +189,7 @@ secedit /import /cfg C:\secpol.cfg /db C:\secpol.sdb /overwrite
 <img width="922" height="466" alt="6-6" src="https://github.com/user-attachments/assets/8a4e797c-a13f-411e-94dc-930c70241ca4" />
 
 <img width="918" height="472" alt="6-7" src="https://github.com/user-attachments/assets/799e7c17-0650-4f0e-9dcf-7f7a5967aa4c" />
+
 
 
 
