@@ -29,12 +29,14 @@ Ce TP m’a permis de renforcer ma maîtrise d’Active Directory, de PowerShell
 
 Cette capture montre que le rôle Active Directory Domain Services (AD DS) est installé avec succès.
 Le contrôleur de domaine DC300151608 apparaît en état Online, ce qui confirme que le serveur fonctionne correctement et que la configuration est opérationnelle.
+
 <img width="760" height="452" alt="vm1" src="https://github.com/user-attachments/assets/f2a17e1d-d19a-4a9c-a385-7dc95bdb8aa4" />
 
 🔍 Get-ADDomain
 
 Cette capture montre les informations principales du domaine dc300151608.local.
 La commande confirme que le domaine est bien configuré et fonctionne correctement.
+
 <img width="769" height="494" alt="vm2" src="https://github.com/user-attachments/assets/9fe9bb48-4905-4e50-b89d-8e80584d890f" />
 
 🌳 Get-ADForest
