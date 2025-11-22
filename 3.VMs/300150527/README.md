@@ -36,10 +36,7 @@ Après connexion au serveur, le rôle AD DS a été installé via Server Manager
 
 - Une fois le serveur promu comme contrôleur de domaine, la commande suivante a été exécutée :
 
-```powershell
-Get-ADDomain
-
----------------------------------------------------
+**Get-ADDomain**
 
 Cette commande permet d’afficher les informations liées au domaine :
 
@@ -58,8 +55,7 @@ Cette commande permet d’afficher les informations liées au domaine :
 
 - La commande suivante a été exécutée pour vérifier la forêt :
 
-```powershell
-Get-ADForest
+**Get-ADForest**
 
 Cette commande affiche notamment :
 
@@ -86,6 +82,7 @@ L’utilisation de PowerShell a simplifié la validation de la configuration AD,
 
 --------------------------------------
 
+```powershell
 PS C:\Users\Administrator> Get-ADDomain
 
 
