@@ -1,12 +1,15 @@
-Collège Boréal – Techniques des Systèmes Informatiques
-Cours : INF1084 – Active Directory & PowerShell
+Techniques des Systèmes Informatiques – Collège Boréal
 
 TP : Installation et Validation d’un Contrôleur de Domaine
 
 👤 Étudiant : Mohammed Aiche
+
 🆔 ID : 300151608
+
 🖥️ Domaine AD : DC300151608-00.local
+
 📅 Session : Automne 2025
+
 ⭐ Introduction
 
 Dans ce travail pratique, j’ai installé et configuré un contrôleur de domaine Active Directory sur Windows Server.
