@@ -9,6 +9,23 @@
 
 ----------------------------------------------------
 
+## 🌟 Introduction
+
+Dans le cadre du laboratoire 6.Objects du cours INF1084 – Services Réseau Windows, j’ai réalisé une série complète d’opérations liées à la gestion d’un environnement Active Directory.
+
+L’objectif principal était de créer, configurer et tester plusieurs objets dans un domaine Windows Server 2022, incluant :
+
+- la création de groupes et d’utilisateurs Active Directory ;
+- la mise en place d’un dossier partagé sécurisé ;
+- la configuration d'une GPO pour mapper automatiquement un lecteur réseau ;
+- l’activation et la sécurisation de l’accès RDP ;
+- la vérification fonctionnelle via une connexion distante.
+
+Ce travail m’a permis de comprendre le fonctionnement global d’un domaine Windows, de manipuler des objets AD à l’aide de PowerShell, et de tester une configuration complète du côté client.
+
+-----------------------------
+
+
 ## 📌 1. Création du dossier du laboratoire
 
 Dans le répertoire 6.Objects, création du dossier principal :
@@ -94,7 +111,6 @@ Get-ADUser -Identity Etudiant2
 ```powershell
 Get-ADGroupMember -Identity "Students"*
 ```
-----
 
 <img width="1105" height="501" alt="5-2-2" src="https://github.com/user-attachments/assets/49f7605a-bad4-4e7e-a85d-c001880f724d" />
 
@@ -190,7 +206,52 @@ secedit /import /cfg C:\secpol.cfg /db C:\secpol.sdb /overwrite
 
 <img width="918" height="472" alt="6-7" src="https://github.com/user-attachments/assets/799e7c17-0650-4f0e-9dcf-7f7a5967aa4c" />
 
+--------------------------------------------
 
+## 📘 Ce que j’ai appris dans ce laboratoire
 
+Au cours de ce devoir, j’ai appris à :
 
+✔️ 1. Manipuler Active Directory via PowerShell
+
+- Créer des utilisateurs, groupes, OU
+- Gérer les permissions et déplacer des objets
+- Vérifier les objets AD existants
+
+✔️ 2. Configurer un dossier partagé sécurisé
+
+- Créer un partage SMB
+- Accorder les droits à un groupe AD spécifique
+- Vérifier l’accès et les permissions
+
+✔️ 3. Configurer une GPO (Group Policy Object)
+
+- Créer une GPO
+- La lier à une OU
+- Automatiser le mappage d’un lecteur réseau
+- Gérer les scripts de logon
+
+✔️ 4. Activer et sécuriser l’accès RDP
+
+- Modifier les stratégies pour autoriser la connexion
+- Donner les droits nécessaires au groupe Students
+- Vérifier qu’un utilisateur non autorisé est bloqué
+
+------------------------------------
+
+## 🏁 Conclusion
+
+Ce laboratoire m’a offert une expérience pratique très complète sur la gestion d’un environnement Active Directory.
+
+J’ai pu comprendre, étape par étape, comment un administrateur système crée et contrôle des objets AD, sécurise l’accès aux ressources, et automatise des configurations via GPO et scripts.
+
+Grâce à ce travail, je maîtrise désormais :
+
+- la création d’utilisateurs et de groupes.
+- la gestion des permissions sur un partage réseau.
+- la mise en place d’une GPO fonctionnelle.
+- la configuration et la sécurisation du Remote Desktop.
+- l’utilisation systématique de PowerShell pour administrer un domaine Windows.
+
+C’est un laboratoire essentiel qui simule le travail réel d’un administrateur réseau dans une entreprise moderne.
 
