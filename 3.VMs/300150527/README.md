@@ -39,6 +39,8 @@ Après connexion au serveur, le rôle AD DS a été installé via Server Manager
 ```powershell
 Get-ADDomain
 
+---------------------------------------------------
+
 Cette commande permet d’afficher les informations liées au domaine :
 
 - DistinguishedName
