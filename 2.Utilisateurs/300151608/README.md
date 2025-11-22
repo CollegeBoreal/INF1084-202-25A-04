@@ -10,7 +10,7 @@ Ce dossier contient les cinq scripts PowerShell créés dans le cadre du laborat
 ### Contenu :
 - utilisateurs1.ps1 → Création d’utilisateurs simples
 - <img width="571" height="341" alt="utilis3" src="https://github.com/user-attachments/assets/56c76b6f-365e-4cd2-9eb9-4d3e70834a8d" />
-<img width="786" height="471" alt="lunix2" src="https://github.com/user-attachments/assets/c6ba04ee-3d9d-440c-ae7f-4998185e8f63" />
+
 
 - utilisateurs2.ps1 → Ajout des groupes  
 - utilisateurs3.ps1 → Filtrage et affichage des utilisateurs  
