@@ -1,8 +1,13 @@
 Travail Pratique – Active Directory (Gestion des Utilisateurs et OU)
+
 INF1084 – Services Réseau
+
 Étudiant : Mohammed Aiche
+
 ID : 300151608
+
 Collège Boréal – Automne 2025
+
 🟦 INTRODUCTION 
 
 Dans ce travail pratique 🖥️, j’ai appris à utiliser PowerShell pour gérer les utilisateurs dans un domaine Active Directory.
@@ -85,6 +90,7 @@ Cela permet de générer des rapports ou de sauvegarder les données des utilisa
 Ce TP m’a aidé à maîtriser les commandes essentielles d’Active Directory ⚙️.
 J’ai compris comment créer, gérer, déplacer et exporter les utilisateurs, ainsi que l’importance d’organiser un domaine avec des OU.
 C’était une bonne expérience pour développer mes compétences en administration système 💼💪.
+
 
 
 
