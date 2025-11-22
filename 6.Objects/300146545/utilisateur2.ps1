@@ -1,44 +1,51 @@
-# ============================
-# Utilisateur 2 - GPO + RDP
-# ============================
+# Récupérer le NetBIOS du domaine
+$netbiosName = (Get-ADDomain).NetBIOSName
 
 # Nom de la GPO
 $GPOName = "MapSharedFolder"
 
-# Créer la GPO
-New-GPO -Name $GPOName
+Write-Host "Création/Vérification de la GPO $GPOName..." -ForegroundColor Cyan
 
-# Lier la GPO à une OU spécifique (ex: "Students")
+# Vérifier si la GPO existe déjà
+$ExistingGPO = Get-GPO -Name $GPOName -ErrorAction SilentlyContinue
+if ($ExistingGPO) {
+    Write-Host "La GPO $GPOName existe déjà."
+} else {
+    New-GPO -Name $GPOName | Out-Null
+    Write-Host "GPO $GPOName créée."
+}
+
+# Lier la GPO à l’OU Students
 $OU = "OU=Students,DC=$netbiosName,DC=local"
-New-GPLink -Name $GPOName -Target $OU
+Write-Host "Liaison de la GPO à l'OU $OU..." -ForegroundColor Cyan
 
-# Créer une preference pour mapper le lecteur réseau
+New-GPLink -Name $GPOName -Target $OU -ErrorAction SilentlyContinue
+
+# Mapping Drive Settings
 $DriveLetter = "Z:"
 $SharePath = "\\$netbiosName\SharedResources"
-
-# Créer un script logon
 $ScriptFolder = "C:\Scripts"
 $ScriptPath = "$ScriptFolder\MapDrive-$DriveLetter.bat"
-if (-not (Test-Path $ScriptFolder)) { New-Item -ItemType Directory -Path $ScriptFolder }
 
+# Créer le dossier Scripts si nécessaire
+if (-not (Test-Path $ScriptFolder)) {
+    New-Item -ItemType Directory -Path $ScriptFolder | Out-Null
+    Write-Host "Dossier C:\Scripts créé."
+}
+
+# Contenu du script
 $scriptContent = "net use $DriveLetter $SharePath /persistent:no"
 Set-Content -Path $ScriptPath -Value $scriptContent
 
-# Lier le script logon à la GPO
+Write-Host "Script de mapping $DriveLetter créé : $ScriptPath"
+
+# Ajouter le script comme logon script dans la GPO
+Write-Host "Application du script dans la GPO..." -ForegroundColor Cyan
+
 Set-GPRegistryValue -Name $GPOName `
-                    -Key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
-                    -ValueName "LogonScript" `
-                    -Type String `
-                    -Value $ScriptPath
+    -Key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
+    -ValueName "LogonScript" `
+    -Type String `
+    -Value $ScriptPath
 
-# Autoriser RDP sur la machine
-Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0
-
-# Autoriser le firewall RDP
-Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-
-# Donner le droit logon via RDP au groupe Students
-secedit /export /cfg C:\secpol.cfg
-# Modifier le fichier pour inclure Students dans "SeRemoteInteractiveLogonRight"
-# Puis réimporter
-secedit /import /cfg C:\secpol.cfg /db C:\secpol.sdb /overwrite
+Write-Host "Le script de logon a été ajouté à la GPO." -ForegroundColor Green
