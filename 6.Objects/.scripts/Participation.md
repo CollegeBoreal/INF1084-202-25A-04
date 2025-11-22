@@ -1,4 +1,4 @@
-# Participation au 22-11-2025 00:52
+# Participation au 22-11-2025 01:20
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -36,7 +36,7 @@
 | 17 | [300150399](../300150399/README.md) [<image src='https://avatars0.githubusercontent.com/u/195236786?s=460&v=4' width=20 height=20></image>](https://github.com/chkips) | :x: | :x: | :x: |
 | 18 | [300150417](../300150417/README.md) [<image src='https://avatars0.githubusercontent.com/u/212187666?s=460&v=4' width=20 height=20></image>](https://github.com/latifmuristaga) | :x: | :x: | :x: |
 | 19 | [300150485](../300150485/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994799?s=460&v=4' width=20 height=20></image>](https://github.com/nad1111) | :x: | :x: | :x: |
-| 20 | [300150527](../300150527) [<image src='https://avatars0.githubusercontent.com/u/212277460?s=460&v=4' width=20 height=20></image>](https://github.com/akrembouraoui) | [:heavy_check_mark:](../300150527/README.md) | :x: | :x: 
+| 20 | [300150527](../300150527) [<image src='https://avatars0.githubusercontent.com/u/212277460?s=460&v=4' width=20 height=20></image>](https://github.com/akrembouraoui) | [:heavy_check_mark:](../300150527/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 21 | [300151042](../300151042/README.md) [<image src='https://avatars0.githubusercontent.com/u/62858035?s=460&v=4' width=20 height=20></image>](https://github.com/hichemhamdi10) | :x: | :x: | :x: |
 | 22 | [300151233](../300151233) [<image src='https://avatars0.githubusercontent.com/u/223416913?s=460&v=4' width=20 height=20></image>](https://github.com/syphax25) | [:heavy_check_mark:](../300151233/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 23 | [300151292](../300151292/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994792?s=460&v=4' width=20 height=20></image>](https://github.com/akahil521) | :x: | :x: | :x: |
