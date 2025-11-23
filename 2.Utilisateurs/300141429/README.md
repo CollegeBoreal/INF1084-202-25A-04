@@ -35,19 +35,19 @@ Linh Nguyen - Login: lnguyen
 
 3️⃣ Requêtes et filtres
 ```powershell
-Exercice 3 : Lister tous les utilisateurs dont le prénom contient "a"
+Exercice 3 : Lister tous les utilisateurs dont le prénom contient "a" et "b"
 ```
 <details>
 
 ```powershell
-Script utilisateurs2.ps1 : Groupes et ajout d'utilisateurs
+Utilisateurs dont le prÃ©nom contient 'a' 
+Alice Dupont - Login: adupont - OU: Stagiaires
+Sarah Lemoine - Login: slemoine - OU: Stagiaires
+Karim Benali - Login: kbenali - OU: Stagiaires
+Moussa Diallo - Login: mdiallo - OU: Stagiaires
 
-Membres du GroupeFormation :
-Alice Dupont - Login: adupont
-Sarah Lemoine - Login: slemoine
+Utilisateurs dont le nom commence par 'B' 
 Karim Benali - Login: kbenali
-Moussa Diallo - Login: mdiallo
-Linh Nguyen - Login: lnguyen
 ```
 </details>
 
@@ -66,7 +66,3 @@ Moussa Diallo - Login: mdiallo - OU: Stagiaires
 Linh Nguyen - Login: lnguyen - OU: Stagiaires
 ```
 </details>
-
-
-
-
