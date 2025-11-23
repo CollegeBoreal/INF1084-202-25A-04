@@ -16,7 +16,8 @@ $Users = @(
 
 $Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
 📸 Capture :
-![Capture utilisateur1](images/utilisateurs1.png)
+<img src="images/utilisateurs1.jpg" 
+     alt="Photo du projet" width="50%" height="100%">
 
 </details>
 
