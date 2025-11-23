@@ -1,10 +1,10 @@
-# utilisateurs1.ps1
-﻿# Créer une liste d'utilisateurs simulés avec des objets personnalisés
+# Créer une liste d'utilisateurs simulés
 $Users = @(
     @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
     @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
     @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
-    @{Nom="Ngue"; Prenom="Taylor"; Login="tngue"; OU="Etudiants"}
+    @{Nom="Isma"; Prenom="Isma"; Login="IIsma"; OU="Etudiant"},
+    @{Nom="Diallo"; Prenom="Hakin"; Login="Hdiallo"; OU="Menusier"} 
 )
 
 # Afficher les utilisateurs
