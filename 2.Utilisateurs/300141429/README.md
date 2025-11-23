@@ -15,7 +15,7 @@ $Users = @(
 )
 
 $Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
-
+```powershell
 ![Capture utilisateur](images/utilisateurs1.png)
 
 
