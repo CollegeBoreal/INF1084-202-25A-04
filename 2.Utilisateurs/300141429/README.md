@@ -3,7 +3,7 @@
 ## 1️⃣ Création d’utilisateurs simulés
 ```powershell
 Exercice 1 : Créer une liste d’utilisateurs et en ajouter 2 nouveaux
-```powershell
+```
 <details>
 
 powershell
@@ -23,8 +23,9 @@ $Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($
 </details>
 
 2️⃣ Création de groupes simulés
-powershell
+```powershell
 Exercice 2 : Ajouter tous les utilisateurs dont l’OU = "Stagiaires" dans GroupeFormation
+```
 <details>
 
 powershell
