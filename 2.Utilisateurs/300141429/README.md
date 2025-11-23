@@ -13,8 +13,6 @@ $Users = @(
     @{Nom="Diallo"; Prenom="Moussa"; Login="mdiallo"; OU="Stagiaires"},
     @{Nom="Nguyen"; Prenom="Linh"; Login="lnguyen"; OU="Stagiaires"}
 )
-
-$Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
 ```
 </details>
 
@@ -24,7 +22,7 @@ Exercice 2 : Ajouter tous les utilisateurs dont l’OU = "Stagiaires" dans Group
 ```
 <details>
 ```powershell
---- Script utilisateurs2.ps1 : Groupes et ajout d'utilisateurs ---
+Script utilisateurs2.ps1 : Groupes et ajout d'utilisateurs 
 
 Membres du GroupeFormation :
 Alice Dupont - Login: adupont
@@ -42,7 +40,7 @@ Exercice 3 : Lister tous les utilisateurs dont le prénom contient "a"
 <details>
 
 ```powershell
---- Script utilisateurs2.ps1 : Groupes et ajout d'utilisateurs ---
+Script utilisateurs2.ps1 : Groupes et ajout d'utilisateurs
 
 Membres du GroupeFormation :
 Alice Dupont - Login: adupont
