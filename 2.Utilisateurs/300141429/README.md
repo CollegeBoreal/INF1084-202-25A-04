@@ -16,7 +16,7 @@ $Users = @(
 
 $Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
 📸 Capture :
-![](images/utilisateurs1.png)
+![](300141429/images/utilisateurs1.png)
 </details>
 
 2️⃣ Création de groupes simulés
