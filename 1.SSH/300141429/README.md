@@ -8,7 +8,6 @@ cd ~/.ssh
 mv id_ed25519 ma_cle.pk
 mv id_ed25519.pub ma_cle.pub
 ```
-
 Configuration SSH
 ```powershell
 Éditer le fichier ~/.ssh/config :
