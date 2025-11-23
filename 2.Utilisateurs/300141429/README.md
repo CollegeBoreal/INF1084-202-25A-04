@@ -3,6 +3,7 @@
 ## 1️⃣ Création d’utilisateurs simulés
 ```powershell
 Exercice 1 : Créer une liste d’utilisateurs et en ajouter 2 nouveaux
+```powershell
 <details>
 
 powershell
@@ -15,7 +16,7 @@ $Users = @(
 )
 
 $Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
-```powershell
+
 ![Capture utilisateur](images/utilisateurs1.png)
 
 
