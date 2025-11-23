@@ -16,11 +16,11 @@ $Users = @(
 
 $Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
 
-
+![Capture utilisateur](images/utilisateurs1.png)
 
 
 </details>
-![Capture utilisateur](images/utilisateurs1.png)
+
 2️⃣ Création de groupes simulés
 powershell
 Exercice 2 : Ajouter tous les utilisateurs dont l’OU = "Stagiaires" dans GroupeFormation
