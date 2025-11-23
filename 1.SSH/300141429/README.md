@@ -14,7 +14,7 @@ Configuration SSH
 Éditer le fichier ~/.ssh/config :
 nano ~/.ssh/config
 ```
-<detail>
+<detail>    
 ```powershell
 Ajouter :
 Host github.com
