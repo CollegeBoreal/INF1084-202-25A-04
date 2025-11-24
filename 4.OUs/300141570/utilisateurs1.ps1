@@ -1,4 +1,3 @@
-
 $Users = @(
     @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
     @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
@@ -16,12 +15,15 @@ $Groups = @{
 
 $Groups["GroupeFormation"] += $Users | Where-Object { $_.OU -eq "Stagiaires" }
 
+
 Write-Host "`nUtilisateurs dont le prénom contient 'a' :"
 $Users | Where-Object { $_.Prenom -match "a" }
+
 
 $Path = "C:\Temp\UsersSimules.csv"
 $Users | Export-Csv -Path $Path -NoTypeInformation
 Write-Host "`nExporté vers : $Path"
+
 
 $Promo2025 = @(
     @{Nom="Diallo"; Prenom="Amina"; Login="adiallo"; OU="Promo2025"},
@@ -37,4 +39,3 @@ $Etudiants2025 += $Promo2025
 $PromoPath = "C:\Temp\Etudiants2025.csv"
 $Etudiants2025 | Export-Csv -Path $PromoPath -NoTypeInformation
 Write-Host "`nExporté vers : $PromoPath"
-
