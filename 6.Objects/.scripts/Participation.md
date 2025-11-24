@@ -1,4 +1,4 @@
-# Participation au 24-11-2025 08:23
+# Participation au 24-11-2025 08:25
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -34,7 +34,7 @@
 | 15 | [300150385](../300150385/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994785?s=460&v=4' width=20 height=20></image>](https://github.com/belka1996) | :x: | :x: | :x: |
 | 16 | [300150395](../300150395) [<image src='https://avatars0.githubusercontent.com/u/211577767?s=460&v=4' width=20 height=20></image>](https://github.com/ismailtrache) | [:heavy_check_mark:](../300150395/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 17 | [300150399](../300150399/README.md) [<image src='https://avatars0.githubusercontent.com/u/195236786?s=460&v=4' width=20 height=20></image>](https://github.com/chkips) | :x: | :x: | :x: |
-| 18 | [300150417](../300150417/README.md) [<image src='https://avatars0.githubusercontent.com/u/212187666?s=460&v=4' width=20 height=20></image>](https://github.com/latifmuristaga) | :x: | :x: | :x: |
+| 18 | [300150417](../300150417) [<image src='https://avatars0.githubusercontent.com/u/212187666?s=460&v=4' width=20 height=20></image>](https://github.com/latifmuristaga) | [:heavy_check_mark:](../300150417/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 19 | [300150485](../300150485/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994799?s=460&v=4' width=20 height=20></image>](https://github.com/nad1111) | :x: | :x: | :x: |
 | 20 | [300150527](../300150527) [<image src='https://avatars0.githubusercontent.com/u/212277460?s=460&v=4' width=20 height=20></image>](https://github.com/akrembouraoui) | [:heavy_check_mark:](../300150527/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 21 | [300151042](../300151042/README.md) [<image src='https://avatars0.githubusercontent.com/u/62858035?s=460&v=4' width=20 height=20></image>](https://github.com/hichemhamdi10) | :x: | :x: | :x: |
@@ -47,4 +47,4 @@
 | 28 | [300151841](../300151841) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | [:heavy_check_mark:](../300151841/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 29 | [300152410](../300152410) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | [:heavy_check_mark:](../300152410/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 30 | [300153747](../300153747) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | [:heavy_check_mark:](../300153747/README.md) | :heavy_check_mark: | :heavy_check_mark: 
-| :abacus: | \$\\frac{16}{31}$ = 51.61% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 16 |
+| :abacus: | \$\\frac{17}{31}$ = 54.84% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 17 |
