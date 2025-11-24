@@ -1,5 +1,41 @@
-﻿"Name","SamAccountName","EmailAddress","Enabled"
-"student1","student1",,"True"
-"Bob Martin","bmartin",,"True"
-"Test User","testuser1",,"True"
-"Alice Dupont","alice.dupont","alice.dupont@exemple.com","True"
+# Auteur : Haroune Berkani (300141570)
+
+# Step 1
+$users = @(
+    [PSCustomObject]@{
+        Name          = "Yassine Benali"
+        SamAccountName = "ybenali"
+        EmailAddress  = $null
+        Enabled       = $true
+    }
+    [PSCustomObject]@{
+        Name          = "Nadia Khaldi"
+        SamAccountName = "nkhaldi"
+        EmailAddress  = $null
+        Enabled       = $true
+    }
+    [PSCustomObject]@{
+        Name          = "Karim Haddad"
+        SamAccountName = "khaddad"
+        EmailAddress  = $null
+        Enabled       = $true
+    }
+    [PSCustomObject]@{
+        Name          = "Sabrina Rouane"
+        SamAccountName = "srouane"
+        EmailAddress  = "s.rouane@exemple.com"
+        Enabled       = $true
+    }
+)
+
+# Step 2
+$enabledUsers = $users | Where-Object { $_.Enabled -eq $true }
+
+# Step 3
+if (!(Test-Path "C:\Temp")) {
+    New-Item -Path "C:\Temp" -ItemType Directory | Out-Null
+}
+
+$csvPath = "C:\Temp\UsersFromScript.csv"
+$enabledUsers | Export-Csv -Path $csvPath -NoTypeInformation
+Write-Host "`nUtilisateurs actifs exportés vers : $csvPath"
