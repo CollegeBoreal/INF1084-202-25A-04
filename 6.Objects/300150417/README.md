@@ -50,6 +50,7 @@ mkdir 300150417
 cd 300150417
 mkdir images
 New-Item README.md
+```
 
 📸 Capture 1
 
@@ -61,9 +62,11 @@ Script exécuté : utilisateurs1.ps1
 
 ✔️ Extrait du script
 # Création du dossier partagé
+
+```powershell
 $SharedFolder = "C:\SharedResources"
 New-Item -Path $SharedFolder -ItemType Directory -Force
-
+```
 # Création du groupe Students
 New-ADGroup -Name "Students" -GroupScope Global -Description "Groupe des étudiants"
 
@@ -178,3 +181,4 @@ RDP activé + règles firewall OK
 Droits SeRemoteInteractiveLogonRight configurés
 
 Vérifications PowerShell complètes
+
