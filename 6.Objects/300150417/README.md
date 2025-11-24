@@ -1,7 +1,6 @@
 # TP Active Directory – 6.Objects  
 **Étudiant : Abdelatif Nemous (300150417)**  
 **Cours : INF1084 – Administration Windows Server**  
-**Professeur : Adi Bal-Mayel Adi**  
 
 ---
 
@@ -193,5 +192,6 @@ RDP activé + règles firewall OK
 Droits SeRemoteInteractiveLogonRight configurés
 
 Vérifications PowerShell complètes
+
 
 
