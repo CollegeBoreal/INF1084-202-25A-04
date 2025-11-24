@@ -1,5 +1,5 @@
 # Définir le domaine
-$domainName = "DC300138205-00.local"
+. .\bootstrap.ps1
 
 # Créer un nouvel utilisateur
 New-ADUser `

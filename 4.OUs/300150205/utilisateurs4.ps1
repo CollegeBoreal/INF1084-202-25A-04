@@ -3,16 +3,28 @@
 # Gestion des OU
 # ========================================
 
-# ÉTAPE 10 : Créer une OU "Students"
+. .\bootstrap.ps1   # Dot sourcing du bootstrap
+
+[Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding(1252)
+
 # Vérifier si l'OU existe
 if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'" -Server $domainName -ErrorAction SilentlyContinue)) {
     New-ADOrganizationalUnit -Name "Students" -Path "DC=$netbiosName,DC=local" -Server $domainName
 }
 
-# Déplacer l'utilisateur depuis CN=Users
-Move-ADObject -Identity "CN=Alice Dupont,CN=Users,DC=$netbiosName,DC=local" `
-              -TargetPath "OU=Students,DC=$netbiosName,DC=local" `
-              -Server $domainName
+# Vérifier si l'utilisateur existe
+$user = Get-ADUser -Filter {SamAccountName -eq "alice.dupont"} -Server $domainName -ErrorAction SilentlyContinue
 
-# Vérifier le déplacement
-Get-ADUser -Identity "alice.dupont" -Server $domainName | Select-Object Name, DistinguishedName
+if ($null -eq $user) {
+    Write-Host "`nERREUR : L'utilisateur 'alice.dupont' n'existe pas." -ForegroundColor Red
+    Write-Host "   Il a ete SUPPRIME a l'ETAPE 7 dans utilisateurs3.ps1" -ForegroundColor Yellow
+    Write-Host "  Executez d'abord : .\utilisateurs2.ps1 pour le recreer`n" -ForegroundColor Cyan
+} else {
+    # Déplacer l'utilisateur depuis CN=Users
+    Move-ADObject -Identity "CN=Alice Dupont,CN=Users,DC=$netbiosName,DC=local" `
+                  -TargetPath "OU=Students,DC=$netbiosName,DC=local" `
+                  -Server $domainName
+    
+    # Vérifier le déplacement
+    Get-ADUser -Identity "alice.dupont" -Server $domainName | Select-Object Name, DistinguishedName
+}
