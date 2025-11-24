@@ -68,9 +68,12 @@ $SharedFolder = "C:\SharedResources"
 New-Item -Path $SharedFolder -ItemType Directory -Force
 ```
 # Création du groupe Students
+```powershell
 New-ADGroup -Name "Students" -GroupScope Global -Description "Groupe des étudiants"
+```
 
 # Création des utilisateurs
+```powershell
 $Users = @("Etudiant1","Etudiant2")
 foreach ($user in $Users) {
     New-ADUser -Name $user -SamAccountName $user `
@@ -78,10 +81,11 @@ foreach ($user in $Users) {
         -Enabled $true
     Add-ADGroupMember -Identity "Students" -Members $user
 }
-
+```
 # Partage SMB
+```powershell
 New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess "Students"
-
+```
 📸 Capture 2 — Dossier partagé
 
 ![objects2](images/objects2.png)
@@ -95,6 +99,7 @@ New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess "Students"
 Script exécuté : utilisateurs2.ps1
 
 ✔️ Extrait du script
+```powershell
 $GPOName = "MapSharedFolder-300150417"
 New-GPO -Name $GPOName
 
@@ -107,7 +112,7 @@ $ScriptPath = "$ScriptFolder\MapDrive-Z.bat"
 New-Item -ItemType Directory -Path $ScriptFolder -Force
 
 Set-Content -Path $ScriptPath -Value 'net use Z: \\DC300150417-00\SharedResources /persistent:no'
-
+```
 📸 Capture 4 — GPO créée
 
 ![objects4](images/objects4.png)
@@ -122,20 +127,23 @@ Set-Content -Path $ScriptPath -Value 'net use Z: \\DC300150417-00\SharedResource
 
 🧩 Étape 4 – Activation du RDP + Pare-feu + Droits
 ✔️ Activer Remote Desktop
+```powershell
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" `
 -Name "fDenyTSConnections" -Value 0
-
+```
 ✔️ Vérification
+```powershell
 Get-ItemProperty "HKLM:\System\CurrentControlSet\Control\Terminal Server" fDenyTSConnections
-
+```
 📸 Capture 7
 
 ![objects7](images/objects7.png)
 
 ✔️ Activer les règles Firewall RDP
+```powershell
 Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 Get-NetFirewallRule -DisplayGroup "Remote Desktop"
-
+```
 📸 Capture 8
 
 ![objects8](images/objects8.png)
@@ -144,24 +152,28 @@ Get-NetFirewallRule -DisplayGroup "Remote Desktop"
 
 Fichier verify.cfg après modification :
 
+```powershell
 SeRemoteInteractiveLogonRight = *S-1-5-32-544,DC300150417-00\Students
-
+```
 📸 Capture 9
 
 ![objects9](images/objects9.png)
 
 🧩 Étape 5 – Vérifications AD (OU / Groupe / GPO)
 ✔️ Vérifier l’OU Students
+```powershell
 Get-ADOrganizationalUnit -LDAPFilter "(OU=Students)" `
 -SearchBase "DC=DC300150417-00,DC=local"
-
+```
 ✔️ Vérifier le groupe Students
+```powershell
 Get-ADGroupMember "Students" | Select Name,SamAccountName,ObjectClass
-
+```
 ✔️ Vérifier le lien GPO
+```
 Get-ADOrganizationalUnit -Identity "OU=Students,DC=DC300150417-00,DC=local" `
 -Properties gPLink | Select Name,gplink
-
+```
 📸 Capture 10
 
 ![objects10](images/objects10.png)
@@ -181,4 +193,5 @@ RDP activé + règles firewall OK
 Droits SeRemoteInteractiveLogonRight configurés
 
 Vérifications PowerShell complètes
+
 
