@@ -1,20 +1,18 @@
+# Auteur : Haroune Berkani (300141570)
+
+# Step 1
 $utilisateurs = @(
-    @{Nom="KEMICHE"; Prenom="Mohand"; OU="Stagiaires"},
-    @{Nom="BELBESSAI"; Prenom="Boualem"; OU="Professeurs"},
-    @{Nom="AMRANI"; Prenom="Sofia"; OU="Stagiaires"},
-    @{Nom="NADIR"; Prenom="Ali"; OU="Stagiaires"},
-    @{Nom="BOUZID"; Prenom="Karim"; OU="Employés"}
+    @{Nom="BENALI";   Prenom="Yassine"},
+    @{Nom="KHALDI";   Prenom="Nadia"},
+    @{Nom="HADDAD";   Prenom="Karim"},
+    @{Nom="SAIDANI";  Prenom="Amine"},
+    @{Nom="ROUANE";   Prenom="Sabrina"}
 )
 
-# Exportation des utilisateurs vers un fichier CSV
-$utilisateurs | Export-Csv -Path ".\utilisateurs.csv" -NoTypeInformation
-Write-Host "`nExport effectué vers utilisateurs.csv"
+# Step 2
+$filtre = $utilisateurs | Where-Object { $_.Prenom -match "a" }
 
-# Importation des utilisateurs depuis le fichier CSV
-$importes = Import-Csv ".\utilisateurs.csv"
+# Step 3
+Write-Host "`nUtilisateurs dont le prénom contient la lettre 'a' :"
+$filtre | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
 
-# Ajout des utilisateurs importés dans un nouveau groupe ImportGroupe
-Write-Host "`nAjout des utilisateurs importés dans le groupe ImportGroupe :"
-foreach ($user in $importes) {
-    Write-Host " - $($user.Prenom) $($user.Nom) ajouté à ImportGroupe"
-}

@@ -1,19 +1,20 @@
-# 300141570
+# Auteur : Haroune Berkani (300141570)
 
-# Exemple de groupes
+# Step 1
 $Groupes = @("GroupeFormation", "GroupeRH")
 
 $utilisateurs = @(
-    @{Nom="KEMICHE"; Prenom="Mohand"; OU="Stagiaires"},
-    @{Nom="BELBESSAI"; Prenom="Boualem"; OU="Professeurs"},
-    @{Nom="AMRANI"; Prenom="Sofia"; OU="Stagiaires"},
-    @{Nom="NADIR"; Prenom="Ali"; OU="Stagiaires"},
-    @{Nom="BOUZID"; Prenom="Karim"; OU="Employés"}
+    @{Nom="BENALI";   Prenom="Yassine"; OU="Stagiaires"},
+    @{Nom="KHALDI";   Prenom="Nadia";   OU="Professeurs"},
+    @{Nom="HADDAD";   Prenom="Karim";   OU="Stagiaires"},
+    @{Nom="SAIDANI";  Prenom="Amine";   OU="Stagiaires"},
+    @{Nom="ROUANE";   Prenom="Sabrina"; OU="Employés"}
 )
 
-# Sélection des utilisateurs dont l’OU = "Stagiaires"
+# Step 2
 $stagiaires = $utilisateurs | Where-Object { $_.OU -eq "Stagiaires" }
 
+# Step 3
 Write-Host "`nAjout des stagiaires dans le groupe GroupeFormation :"
 foreach ($user in $stagiaires) {
     Write-Host " - $($user.Prenom) $($user.Nom) ajouté à GroupeFormation"

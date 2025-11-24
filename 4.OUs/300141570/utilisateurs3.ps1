@@ -1,13 +1,17 @@
+# Auteur : Haroune Berkani (300141570)
+
+# Step 1
 $utilisateurs = @(
-    @{Nom="KEMICHE"; Prenom="Mohand"},
-    @{Nom="BELBESSAI"; Prenom="Boualem"},
-    @{Nom="AMRANI"; Prenom="Sofia"},
-    @{Nom="NADIR"; Prenom="Ali"},
-    @{Nom="BOUZID"; Prenom="Karim"}
+    @{Nom="BENALI";   Prenom="Yassine"},
+    @{Nom="KHALDI";   Prenom="Nadia"},
+    @{Nom="HADDAD";   Prenom="Karim"},
+    @{Nom="SAIDANI";  Prenom="Amine"},
+    @{Nom="ROUANE";   Prenom="Sabrina"}
 )
 
-# Filtrer les utilisateurs dont le prénom contient "a" (insensible à la casse)
+# Step 2
 $filtre = $utilisateurs | Where-Object { $_.Prenom -match "a" }
 
+# Step 3
 Write-Host "`nUtilisateurs dont le prénom contient la lettre 'a' :"
 $filtre | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
