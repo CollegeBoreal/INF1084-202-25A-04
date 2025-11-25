@@ -5,7 +5,7 @@ Exercice 1 : Créer une liste d’utilisateurs et en ajouter 2 nouveaux
 Exercice 2 : Ajouter tous les utilisateurs dont l’OU = "Stagiaires" dans GroupeFormation
 
 ![](https://github.com/CollegeBoreal/INF1084-202-25A-04/blob/main/2.Utilisateurs/300141429/images/utilisateurs2.png?raw=true)
-<details>
+
 
 
 3️⃣ Requêtes et filtres
