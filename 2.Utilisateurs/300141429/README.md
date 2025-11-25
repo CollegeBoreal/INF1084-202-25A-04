@@ -1,12 +1,5 @@
 Exercice 1 : Créer une liste d’utilisateurs et en ajouter 2 nouveaux
 
-$Users = @(
-    @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
-    @{Nom="Diallo"; Prenom="Moussa"; Login="mdiallo"; OU="Stagiaires"},
-    @{Nom="Nguyen"; Prenom="Linh"; Login="lnguyen"; OU="Stagiaires"}
-)
 ![nom de l'image](https://github.com/CollegeBoreal/INF1084-202-25A-04/blob/main/2.Utilisateurs/300141429/images/utilisateurs1.png?raw=true)
 
 Exercice 2 : Ajouter tous les utilisateurs dont l’OU = "Stagiaires" dans GroupeFormation
@@ -25,15 +18,5 @@ Exercice 3 : Lister tous les utilisateurs dont le prénom contient "a" et "b"
 ```powershell
 Exercice 4 : Exporter les utilisateurs simulés et créer un groupe ImportGroupe
 ```
-<details>
-
-```powershell
-Membres du groupe ImportGroupe :
-Alice Dupont - Login: adupont - OU: Stagiaires
-Sarah Lemoine - Login: slemoine - OU: Stagiaires
-Karim Benali - Login: kbenali - OU: Stagiaires
-Moussa Diallo - Login: mdiallo - OU: Stagiaires
-Linh Nguyen - Login: lnguyen - OU: Stagiaires
-```
-</details>
+![](https://github.com/CollegeBoreal/INF1084-202-25A-04/blob/main/2.Utilisateurs/300141429/images/utilisateurs4.png?raw=true)
 
