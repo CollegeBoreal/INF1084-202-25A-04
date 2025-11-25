@@ -1,4 +1,4 @@
-# Participation au 25-11-2025 22:12
+# Participation au 25-11-2025 22:34
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -28,7 +28,7 @@
 | 8 | [300147786](../300147786/README.md) [<image src='https://avatars0.githubusercontent.com/u/231366133?s=460&v=4' width=20 height=20></image>](https://github.com/300786147) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 9 | [300150205](../300150205/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994753?s=460&v=4' width=20 height=20></image>](https://github.com/blbsblm) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 10 | [300150268](../300150268/README.md) [<image src='https://avatars0.githubusercontent.com/u/207268490?s=460&v=4' width=20 height=20></image>](https://github.com/kemiche06) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 11 | [300150284](../300150284/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994902?s=460&v=4' width=20 height=20></image>](https://github.com/aroua-git) | :x: | :x: | :x: | :x: | :x: |
+| 11 | [300150284](../300150284/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994902?s=460&v=4' width=20 height=20></image>](https://github.com/aroua-git) | :heavy_check_mark: | :x: | :x: | :x: | :x: |
 | 12 | [300150295](../300150295/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994740?s=460&v=4' width=20 height=20></image>](https://github.com/lounasallouti1) | :heavy_check_mark: | :boom: | :boom: | :boom: | :boom: |
 | 13 | [300150296](../300150296/README.md) [<image src='https://avatars0.githubusercontent.com/u/205198510?s=460&v=4' width=20 height=20></image>](https://github.com/bnnyouba99) | :heavy_check_mark: | :x: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | 14 | [300150303](../300150303/README.md) [<image src='https://avatars0.githubusercontent.com/u/211592293?s=460&v=4' width=20 height=20></image>](https://github.com/jessmaud) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -48,4 +48,4 @@
 | 28 | [300151841](../300151841/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 29 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 30 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| :abacus: | \$\\frac{30}{31}$ = 96.77% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 30 |
+| :abacus: | \$\\frac{31}{31}$ = 100% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 31 |
