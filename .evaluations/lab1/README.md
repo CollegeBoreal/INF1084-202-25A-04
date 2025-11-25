@@ -2,23 +2,19 @@
 | 0️⃣.PlanDeCours | 🎉 Parfait 1 point | ✅ Present 0.5 point | ❌ Non fait 0 point | Note du critère
 |-|-|-|-|-|
 | 1️⃣ 🗒️README.md | | | | / 1 |
-| 2️⃣ 📂 images   | | | | / 1
+| 2️⃣ 📂 images   | | | | / 1 |
 
 | 0️⃣.Tutoriel sur GIT | ✅ Present 0.5 point | ❌ Non fait 0 point | Note du critère
 |-|-|-|-
 | 1️⃣ 🗒️README.md | | | / 0.5 |
-| 2️⃣ 📂 images   | | | / 0.5
+| 2️⃣ 📂 images   | | | / 0.5 |
 	
-✅ Present
-0.5 point
-❌ Non fait
-0 point
-Note du critère
-🗒️README.md
-Score de 🗒️README.md,/ 
-📂 images
-Score de 📂 images,/ 0.5
-1️⃣.SSH	
+| 1️⃣.SSH	 | ✅ Present 0.5 point | ❌ Non fait 0 point | Note du critère
+|-|-|-|-
+| 1️⃣ 🗒️README.md | | | / 0.5 |
+| 2️⃣ 📂 images   | | | / 0.5 |
+
+
 ✅ Present
 0.5 point
 ❌ Non fait
