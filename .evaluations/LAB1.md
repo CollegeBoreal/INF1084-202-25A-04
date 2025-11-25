@@ -1,6 +1,6 @@
 
 | 0️⃣.PlanDeCours | 🎉 Parfait 1 point | ✅ Present 0.5 point | ❌ Non fait 0 point | Note du critère
-|-|-|-|-|
+|-|-|-|-|-|
 1️⃣ 🗒️README.md
 Score de 1️⃣ 🗒️README.md,/ 1
 2️⃣ 📂 images
