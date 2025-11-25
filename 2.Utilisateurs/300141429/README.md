@@ -12,6 +12,7 @@ $Users = @(
 ```powershell
 Exercice 2 : Ajouter tous les utilisateurs dont l’OU = "Stagiaires" dans GroupeFormation
 ```
+![](https://github.com/CollegeBoreal/INF1084-202-25A-04/blob/main/2.Utilisateurs/300141429/images/utilisateurs2.png?raw=true)
 <details>
 ```powershell
 Script utilisateurs2.ps1 : Groupes et ajout d'utilisateurs 
