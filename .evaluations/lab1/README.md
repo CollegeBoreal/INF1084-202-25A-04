@@ -10,31 +10,15 @@
 | 2️⃣ 📂 images   | | | / 0.5 |
 	
 | 1️⃣.SSH	 | ✅ Present 0.5 point | ❌ Non fait 0 point | Note du critère
-|-|-|-|-
+|-|-|-|-|
 | 1️⃣ 🗒️README.md | | | / 0.5 |
 | 2️⃣ 📂 images   | | | / 0.5 |
 
 
-✅ Present
-0.5 point
-❌ Non fait
-0 point
-Note du critère
-🗒️README.md
-Score de 🗒️README.md,/ 0.5
-📂 images
-Score de 📂 images,/ 0.5
-2️⃣.Utilisateurs	
-🎉 Parfait
-1.5 point
-✅ Present
-0.5 point
-💥 Error
-0.25 point
-❌ Non fait
-0 point
-Note du critère
-🗒️README.md
+| 2️⃣.Utilisateurs	 | ✅ Present 0.5 point | 💥 Error 0.25 point | ❌ Non fait 0 point | Note du critère
+|-|-|-|-|
+| 1️⃣ 🗒️README.md | | | / 0.5 |
+
 Score de 🗒️README.md,/ 1.5
 1️⃣ utilisateurs1.ps1
 Score de 1️⃣ utilisateurs1.ps1,/ 1.5
