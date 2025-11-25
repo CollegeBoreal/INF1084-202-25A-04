@@ -1,4 +1,4 @@
-# Participation au 25-11-2025 17:07
+# Participation au 25-11-2025 17:09
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -37,7 +37,7 @@
 | 18 | [300150417](../300150417) [<image src='https://avatars0.githubusercontent.com/u/212187666?s=460&v=4' width=20 height=20></image>](https://github.com/latifmuristaga) | [:heavy_check_mark:](../300150417/README.md) | [:hiking_boot:](../300150417/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 19 | [300150485](../300150485) [<image src='https://avatars0.githubusercontent.com/u/205994799?s=460&v=4' width=20 height=20></image>](https://github.com/nad1111) | [:heavy_check_mark:](../300150485/README.md) | [:hiking_boot:](../300150485/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 20 | [300150527](../300150527) [<image src='https://avatars0.githubusercontent.com/u/212277460?s=460&v=4' width=20 height=20></image>](https://github.com/akrembouraoui) | [:heavy_check_mark:](../300150527/README.md) | [:hiking_boot:](../300150527/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 21 | [300151042](../300151042/README.md) [<image src='https://avatars0.githubusercontent.com/u/62858035?s=460&v=4' width=20 height=20></image>](https://github.com/hichemhamdi10) | :x: | :x: | :x: | :x: | :x: | :x: |
+| 21 | [300151042](../300151042) [<image src='https://avatars0.githubusercontent.com/u/62858035?s=460&v=4' width=20 height=20></image>](https://github.com/hichemhamdi10) | [:heavy_check_mark:](../300151042/README.md) | [:x:](../300151042/bootstrap.ps1) | :x: | :x: | :x: | :x: |
 | 22 | [300151233](../300151233) [<image src='https://avatars0.githubusercontent.com/u/223416913?s=460&v=4' width=20 height=20></image>](https://github.com/syphax25) | [:heavy_check_mark:](../300151233/README.md) | [:hiking_boot:](../300151233/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 23 | [300151292](../300151292) [<image src='https://avatars0.githubusercontent.com/u/205994792?s=460&v=4' width=20 height=20></image>](https://github.com/akahil521) | [:heavy_check_mark:](../300151292/README.md) | [:hiking_boot:](../300151292/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 24 | [300151354](../300151354) [<image src='https://avatars0.githubusercontent.com/u/212047331?s=460&v=4' width=20 height=20></image>](https://github.com/massinissamakoudi) | [:heavy_check_mark:](../300151354/README.md) | [:hiking_boot:](../300151354/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -47,4 +47,4 @@
 | 28 | [300151841](../300151841) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | [:heavy_check_mark:](../300151841/README.md) | [:hiking_boot:](../300151841/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 29 | [300152410](../300152410) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | [:heavy_check_mark:](../300152410/README.md) | [:hiking_boot:](../300152410/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 30 | [300153747](../300153747) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | [:heavy_check_mark:](../300153747/README.md) | [:hiking_boot:](../300153747/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| :abacus: | \$\\frac{28}{31}$ = 90.32% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 28 |
+| :abacus: | \$\\frac{29}{31}$ = 93.55% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 29 |
