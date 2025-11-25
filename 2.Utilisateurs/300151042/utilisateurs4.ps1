@@ -1,12 +1,9 @@
- creat folder C:\Temp s'il n'existe pas
-if (-not (Test-Path -Path "C:\Temp")) { 
-   New-Item -ItemType Directory -Path "C:\Temp" | Out-Null
-}
-# Export users
-$Users | Export-Csv -Path "C:\Temp\UsersSimules.csv" -NoTypeInformation -Encoding UTF8
-# import users
-$ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
-# Show the users
-Write-Host "Utilisateurs importés depuis le CSV :" -ForegroundColor Cyan
+  Import des utilisateurs
+. .\utilisateurs1.ps1
 
-$ImportedUsers | Format-Table -AutoSize
+# Exporter les utilisateurs simulés
+$Users | Export-Csv -Path "C:\Temp\UsersSimules.csv" -NoTypeInformation
+
+# Importer depuis CSV
+$ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
+$ImportedUsers
