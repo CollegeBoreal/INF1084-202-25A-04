@@ -5,6 +5,7 @@
 Exercice 1 : Créer une liste d’utilisateurs et en ajouter 2 nouveaux
 ```
 <details>
+    
 ```powershell
 $Users = @(
     @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
