@@ -52,7 +52,8 @@ Objectif : arrêter, vérifier et redémarrer le service DFSR afin d’observer 
 
 ### 📸 Capture d’écran
  
-![Wait](https://github.com/user-attachments/assets/a865e96f-54fc-4d56-98e0-93e1c537f64d)
+![Wait](https://github.com/user-attachments/assets/fe0e0543-389a-423a-a852-ac4df6d9ded0)
+
   
 
 ---
