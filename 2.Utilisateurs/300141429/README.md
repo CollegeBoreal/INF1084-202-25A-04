@@ -9,9 +9,9 @@ Exercice 2 : Ajouter tous les utilisateurs dont l’OU = "Stagiaires" dans Group
 
 
 3️⃣ Requêtes et filtres
-```powershell
+
 Exercice 3 : Lister tous les utilisateurs dont le prénom contient "a" et "b"
-```
+
 ![](https://github.com/CollegeBoreal/INF1084-202-25A-04/blob/main/2.Utilisateurs/300141429/images/utilisateurs3.png?raw=true)
 
 4️⃣ Export et import CSV
