@@ -73,7 +73,6 @@ Set-GPRegistryValue -Name $GPOName `
                     -Value $ScriptPath
 ```
 
-### 📸 Capture 2 à insérer ici
 
 
 ## 🖥️ 3. Activer RDP pour le groupe Students
@@ -90,13 +89,6 @@ secedit /export /cfg C:\secpol.cfg
 # Puis réimporter
 secedit /import /cfg C:\secpol.cfg /db C:\secpol.sdb /overwrite
 ```
-
-> 💡 **Astuce :** On peut aussi utiliser `ntrights.exe` du Resource Kit pour assigner les droits RDP via PowerShell.
-
-### 📸 Capture 3 à insérer ici
-
-*(Ex. : configuration du RDP ou firewall)*
-
 ---
 
 ## 🧪 4. Test
@@ -110,5 +102,4 @@ Connectez-vous avec un des utilisateurs du groupe **Students**.
 
 ---
 
-README complet et prêt pour insertion de captures d’écran.
 
