@@ -1,10 +1,10 @@
 
-🔑 Commandes de preuves pour ton TP Active Directory
+
 1️⃣ Vérifier le domaine et les DC
 powershell
 Get-ADDomain -Server $domainName
 Get-ADDomainController -Filter * -Server $domainName
-👉 Preuve : tu dois voir ton domaine DC300098957-40.local et le contrôleur de domaine.
+![](images/11.png)
 
 2️⃣ Lister les utilisateurs actifs
 powershell
@@ -52,4 +52,5 @@ Get-Content TP_AD_Users.csv | more
 powershell
 Get-ADUser -Identity "alice.dupont" | Select-Object Name, DistinguishedName
 👉 Preuve : le champ DistinguishedName doit montrer OU=Students,....
+
 
