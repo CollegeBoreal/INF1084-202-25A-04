@@ -4,9 +4,10 @@
 <details>
 
 ```powershell Install-WindowsFeature AD-Domain-Services -IncludeManagementTool
-DisplayName                      Name               InstallState
------------                      ----               ------------
-Active Directory Domain Services AD-Domain-Services    Installed
+<img width="683" height="198" alt="win1" src="https://github.com/user-attachments/assets/d16debd2-e66e-46b9-8da2-2ca726412e84" />
+
+
+
 ```
 </details>
 
