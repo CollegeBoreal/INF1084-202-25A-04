@@ -1,36 +1,19 @@
-# ------------------------------------------------------------------------
-# Section 3 : Déploiement des objets ordinateurs dans l’Active Directory
-# Étudiante : Tasnim
-# Identifiant : 300145940
-# ------------------------------------------------------------------------
+# Script modifié par : Tasnim (300145940)
+# Objectif : Filtrage de prénoms contenant une lettre spécifique
 
-Write-Host "`n----------------------------------------" -ForegroundColor Cyan
-Write-Host "GÉNÉRATION DES POSTES INFORMATIQUES" -ForegroundColor Cyan
-Write-Host "----------------------------------------`n" -ForegroundColor Cyan
+# Étape 1 – Définition d’une liste d’utilisateurs fictifs
+$utilisateurs = @(
+    @{Nom="LEFEBVRE"; Prenom="Alex"},
+    @{Nom="MOREAU";   Prenom="Leila"},
+    @{Nom="BENALI";   Prenom="Yasmine"},
+    @{Nom="DURAND";   Prenom="Hugo"},
+    @{Nom="KHELIFA";  Prenom="Maya"}
+)
 
-# Ajout de postes de bureau dans l’unité Ordinateurs
-Write-Host "→ Ajout du poste PC-300145940-01..." -ForegroundColor Yellow
-New-ADComputer -Name "PC-300145940-01" -Path "OU=Ordinateurs,OU=300145940,DC=DC300145940-00,DC=local"
+# Étape 2 – Sélection des utilisateurs dont le prénom contient la lettre “a”
+$filtre = $utilisateurs | Where-Object { $_.Prenom -match "a" }
 
-Write-Host "→ Ajout du poste PC-300145940-02..." -ForegroundColor Yellow
-New-ADComputer -Name "PC-300145940-02" -Path "OU=Ordinateurs,OU=300145940,DC=DC300145940-00,DC=local"
-
-# Ajout des ordinateurs portables dans la même unité
-Write-Host "→ Ajout du portable LAPTOP-300145940-01..." -ForegroundColor Yellow
-New-ADComputer -Name "LAPTOP-300145940-01" -Path "OU=Ordinateurs,OU=300145940,DC=DC300145940-00,DC=local"
-
-Write-Host "→ Ajout du portable LAPTOP-300145940-02..." -ForegroundColor Yellow
-New-ADComputer -Name "LAPTOP-300145940-02" -Path "OU=Ordinateurs,OU=300145940,DC=DC300145940-00,DC=local"
-
-# Ajout d’un serveur
-Write-Host "→ Déclaration du serveur SRV-300145940-01..." -ForegroundColor Yellow
-New-ADComputer -Name "SRV-300145940-01" -Path "OU=Ordinateurs,OU=300145940,DC=DC300145940-00,DC=local"
-
-Write-Host "`n✔ Les objets ordinateurs ont été créés avec succès !" -ForegroundColor Green
-
-# Contrôle de la liste des ordinateurs ajoutés
-Write-Host "`nListe des ordinateurs enregistrés :" -ForegroundColor Cyan
-Get-ADComputer -Filter * -SearchBase "OU=Ordinateurs,OU=300145940,DC=DC300145940-00,DC=local" |
-    Select-Object Name, DNSHostName, DistinguishedName |
-    Format-Table -AutoSize
+# Étape 3 – Affichage du résultat du filtrage
+Write-Host "`nUtilisateurs dont le prénom contient la lettre 'a' :"
+$filtre | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
 
