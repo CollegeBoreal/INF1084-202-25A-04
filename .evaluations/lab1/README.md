@@ -6,8 +6,8 @@
 
 | 0️⃣.Tutoriel sur GIT | ✅ Present 0.5 point | ❌ Non fait 0 point | Note du critère
 |-|-|-|-
-| 1️⃣ 🗒️README.md | | | | / 0.5 |
-| 2️⃣ 📂 images   | | | | / 0.5
+| 1️⃣ 🗒️README.md | | | / 0.5 |
+| 2️⃣ 📂 images   | | | / 0.5
 	
 ✅ Present
 0.5 point
