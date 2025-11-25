@@ -6,7 +6,7 @@
 
 ## :books: Travail à soumettre :
 
-- [ ] Un répertoire a été créé avec ton  :id: et celui de ton partenaire (votre identifiant boreal)
+- [ ] Un répertoire a été créé avec ton  :id: et celui de ton partenaire (votre identifiant boreal) tu pourras voir la liste [ici :point_right:](.scripts/Participation.md)
   - [ ] `cd ` :id:-:id:
 - [ ] dans le répertoire ajouter le fichier `README.md`
   - [ ] `touch README.md`
