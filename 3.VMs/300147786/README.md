@@ -4,8 +4,8 @@
 <details>
 
 ```powershell Install-WindowsFeature AD-Domain-Services -IncludeManagementTool
-<img width="683" height="198" alt="win1" src="https://github.com/user-attachments/assets/d16debd2-e66e-46b9-8da2-2ca726412e84" />
-
+ 
+<img width="683" height="198" alt="win1" src="https://github.com/user-attachments/assets/b8ecb736-f7b3-476d-95a2-7918ada20bcb" />
 
 
 ```
