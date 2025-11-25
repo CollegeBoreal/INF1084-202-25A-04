@@ -1,4 +1,3 @@
-Parfait Elhadji 👌. Tu as déjà fait le travail, donc ce qu’il te faut maintenant ce sont les commandes de preuves pour chaque question du TP. L’idée est simple : chaque action doit être validée par une commande PowerShell qui montre le résultat attendu. Voici un guide clair et organisé :
 
 🔑 Commandes de preuves pour ton TP Active Directory
 1️⃣ Vérifier le domaine et les DC
@@ -53,3 +52,4 @@ Get-Content TP_AD_Users.csv | more
 powershell
 Get-ADUser -Identity "alice.dupont" | Select-Object Name, DistinguishedName
 👉 Preuve : le champ DistinguishedName doit montrer OU=Students,....
+
