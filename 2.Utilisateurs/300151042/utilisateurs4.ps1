@@ -1,6 +1,10 @@
 # Exporter les utilisateurs simulés
 $Users | Export-Csv -Path "C:\Temp\UsersSimules.csv" -NoTypeInformation
-
-# Importer depuis CSV
+# Import du CSV
 $ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
-$ImportedUsers
+
+# Création du groupe
+$Groups["ImportGroupe"] = @()
+
+# Ajout des utilisateurs importés
+$Groups["ImportGroupe"] += $ImportedUsers
