@@ -2,9 +2,7 @@
 | 0️⃣.PlanDeCours | 🎉 Parfait 1 point | ✅ Present 0.5 point | ❌ Non fait 0 point | Note du critère
 |-|-|-|-|-|
 | 1️⃣ 🗒️README.md | | | | / 1 |
-Score de 1️⃣ 🗒️README.md,
-2️⃣ 📂 images
-Score de 2️⃣ 📂 images,/ 1
+| 2️⃣ 📂 images   | | | | / 1
 0️⃣.Tutoriel sur GIT	
 ✅ Present
 0.5 point
