@@ -3,7 +3,12 @@
 |-|-|-|-|-|
 | 1️⃣ 🗒️README.md | | | | / 1 |
 | 2️⃣ 📂 images   | | | | / 1
-0️⃣.Tutoriel sur GIT	
+
+| 0️⃣.Tutoriel sur GIT | ✅ Present 0.5 point | ❌ Non fait 0 point | Note du critère
+|-|-|-|-
+| 1️⃣ 🗒️README.md | | | | / 1 |
+| 2️⃣ 📂 images   | | | | / 1
+	
 ✅ Present
 0.5 point
 ❌ Non fait
