@@ -1,3 +1,6 @@
+Import-Module ActiveDirectory
+. .\bootstrap.ps1
+
 # ÉTAPE 3 : Créer un nouvel utilisateur
 New-ADUser -Name "Alice Dupont" `
            -GivenName "Alice" `
