@@ -13,36 +13,13 @@ Exercice 2 : Ajouter tous les utilisateurs dont l’OU = "Stagiaires" dans Group
 
 ![](https://github.com/CollegeBoreal/INF1084-202-25A-04/blob/main/2.Utilisateurs/300141429/images/utilisateurs2.png?raw=true)
 <details>
-```powershell
-Script utilisateurs2.ps1 : Groupes et ajout d'utilisateurs 
-
-Membres du GroupeFormation :
-Alice Dupont - Login: adupont
-Sarah Lemoine - Login: slemoine
-Karim Benali - Login: kbenali
-Moussa Diallo - Login: mdiallo
-Linh Nguyen - Login: lnguyen
-```
-</details>
 
 
 3️⃣ Requêtes et filtres
 ```powershell
 Exercice 3 : Lister tous les utilisateurs dont le prénom contient "a" et "b"
 ```
-<details>
-
-```powershell
-Utilisateurs dont le prÃ©nom contient 'a' 
-Alice Dupont - Login: adupont - OU: Stagiaires
-Sarah Lemoine - Login: slemoine - OU: Stagiaires
-Karim Benali - Login: kbenali - OU: Stagiaires
-Moussa Diallo - Login: mdiallo - OU: Stagiaires
-
-Utilisateurs dont le nom commence par 'B' 
-Karim Benali - Login: kbenali
-```
-</details>
+![](https://github.com/CollegeBoreal/INF1084-202-25A-04/blob/main/2.Utilisateurs/300141429/images/utilisateurs3.png?raw=true)
 
 4️⃣ Export et import CSV
 ```powershell
