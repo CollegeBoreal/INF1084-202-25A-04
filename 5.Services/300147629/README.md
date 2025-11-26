@@ -8,7 +8,8 @@ Get-Service | Where-Object {
 Get-Service -Name NTDS, ADWS, DFSR
 ```
 ----------------------
-</detail>
-Services2
+
+
+
 
 
