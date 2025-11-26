@@ -5,7 +5,8 @@
 # voici la commande de l’installations
 Install-WindowsFeature AD-Domain-Services –IncludeManagementTools
 
-![](images/Vm2.png)
+<img width="797" height="228" alt="Vm2 png" src="https://github.com/user-attachments/assets/c6e8921c-4a98-4c61-bfea-202b43ad0f1f" />
+
 
 
 ```powershell
