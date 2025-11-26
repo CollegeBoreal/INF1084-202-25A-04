@@ -1,4 +1,4 @@
-# Participation au 26-11-2025 00:32
+# Participation au 26-11-2025 17:03
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -17,7 +17,7 @@
 |:hash:| Boréal :id:                | README.md    | bootstrap.ps1 | :one: | :two: | :three: | :four: |
 |------|----------------------------|--------------|---------------|-------|-------|---------|--------|
 | 0 | [300138205](../300138205) [<image src='https://avatars0.githubusercontent.com/u/200685761?s=460&v=4' width=20 height=20></image>](https://github.com/taylor123marc) | [:heavy_check_mark:](../300138205/README.md) | [:hiking_boot:](../300138205/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 1 | [300141368](../300141368/README.md) [<image src='https://avatars0.githubusercontent.com/u/132600996?s=460&v=4' width=20 height=20></image>](https://github.com/daniella-diwa) | :x: | :x: | :x: | :x: | :x: | :x: |
+| 1 | [300141368](../300141368) [<image src='https://avatars0.githubusercontent.com/u/132600996?s=460&v=4' width=20 height=20></image>](https://github.com/daniella-diwa) | [:heavy_check_mark:](../300141368/README.md) | [:hiking_boot:](../300141368/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 2 | [300141429](../300141429) [<image src='https://avatars0.githubusercontent.com/u/231347874?s=460&v=4' width=20 height=20></image>](https://github.com/barrynetwork) | [:heavy_check_mark:](../300141429/README.md) | [:hiking_boot:](../300141429/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 3 | [300141570](../300141570) [<image src='https://avatars0.githubusercontent.com/u/66260193?s=460&v=4' width=20 height=20></image>](https://github.com/swberk) | [:heavy_check_mark:](../300141570/README.md) | [:hiking_boot:](../300141570/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 4 | [300145940](../300145940) [<image src='https://avatars0.githubusercontent.com/u/234069235?s=460&v=4' width=20 height=20></image>](https://github.com/TasnimMarzouki) | [:heavy_check_mark:](../300145940/README.md) | [:hiking_boot:](../300145940/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -47,4 +47,4 @@
 | 28 | [300151841](../300151841) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | [:heavy_check_mark:](../300151841/README.md) | [:hiking_boot:](../300151841/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 29 | [300152410](../300152410) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | [:heavy_check_mark:](../300152410/README.md) | [:hiking_boot:](../300152410/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 30 | [300153747](../300153747) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | [:heavy_check_mark:](../300153747/README.md) | [:hiking_boot:](../300153747/bootstrap.ps1) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| :abacus: | \$\\frac{30}{31}$ = 96.77% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 30 |
+| :abacus: | \$\\frac{31}{31}$ = 100% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 31 |
