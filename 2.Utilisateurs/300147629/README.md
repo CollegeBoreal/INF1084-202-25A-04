@@ -1,2 +1,5 @@
 Exercice 1: Creer une liste utilisateurs et  en les ajoutants
 ![](images/utilisateurs1.jpg)
+
+
+Exercice 2:Ajouter tous les utilisateursdont l'OU ="Stagiaires" dans Groupe
