@@ -36,7 +36,7 @@ Ce laboratoire a pour objectif de vérifier la communication et l’accès entre
 
 ## Étape 1 – Vérifier la connectivité
 
-```powershell
+
 Test-Connection -ComputerName DC300150295-00 -Count 2
 Resolve-DnsName DC300150295-00.local
 
