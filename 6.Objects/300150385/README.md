@@ -52,7 +52,7 @@ Ce script active les connexions RDP, ouvre les règles du firewall nécessaires,
 
 ### 📸 Capture d’écran  
 
-![Wait]https://github.com/user-attachments/assets/6a8468aa-2d77-4e37-a5d7-00802a4d9c62)
+![Wait](https://github.com/user-attachments/assets/6a8468aa-2d77-4e37-a5d7-00802a4d9c62)
 
 
 ---
