@@ -1,10 +1,10 @@
-# 300147629
-
-<details>
-
 # voici la commande de l’installations
 Install-WindowsFeature AD-Domain-Services –IncludeManagementTools
 
+<img width="797" height="228" alt="Vm2 png" src="https://github.com/user-attachments/assets/c6e8921c-4a98-4c61-bfea-202b43ad0f1f" />
+
+
+--------------------------------
 
 ```powershell
 Success Restart Needed Exit Code      Feature Result
@@ -12,7 +12,8 @@ Success Restart Needed Exit Code      Feature Result
 True    No             Success        {Active Directory Domain Services, Group P...
 ```
 
-</details>
+-----------------------
+
 
 
 # verification de l'installations
@@ -76,9 +77,5 @@ Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
 UPNSuffixes           : {}
 ```
+<img width="1305" height="702" alt="Vm1 png" src="https://github.com/user-attachments/assets/fadf7744-c670-4296-9850-8731fbee402a" />
 
-</details>
-<<<<<<< HEAD
-
-=======
->>>>>>> fcbfb6dab68ea4a5b5ad00f502d016701b23114b
