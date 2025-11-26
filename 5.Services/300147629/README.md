@@ -1,4 +1,4 @@
-
+</detail>
 Services1.ps1
 
 ----------------------
@@ -8,6 +8,7 @@ Get-Service | Where-Object {
 
 Get-Service -Name NTDS, ADWS, DFSR
 ------------------------
+
 
 
 
