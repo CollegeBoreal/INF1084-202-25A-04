@@ -1,4 +1,4 @@
-# Participation au 26-11-2025 01:22
+# Participation au 26-11-2025 01:25
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -27,11 +27,11 @@
 | 8 | [300147786](../300147786) [<image src='https://avatars0.githubusercontent.com/u/231366133?s=460&v=4' width=20 height=20></image>](https://github.com/300786147) | [:heavy_check_mark:](../300147786/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 9 | [300150205](../300150205/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994753?s=460&v=4' width=20 height=20></image>](https://github.com/blbsblm) | :x: | :x: | :x: |
 | 10 | [300150268](../300150268) [<image src='https://avatars0.githubusercontent.com/u/207268490?s=460&v=4' width=20 height=20></image>](https://github.com/kemiche06) | [:heavy_check_mark:](../300150268/README.md) | :heavy_check_mark: | :heavy_check_mark: 
-| 11 | [300150284](../300150284) [<image src='https://avatars0.githubusercontent.com/u/205994902?s=460&v=4' width=20 height=20></image>](https://github.com/aroua-git) | [:heavy_check_mark:](../300150284/README.md) | :x: | :x: 
+| 11 | [300150284](../300150284) [<image src='https://avatars0.githubusercontent.com/u/205994902?s=460&v=4' width=20 height=20></image>](https://github.com/aroua-git) | [:heavy_check_mark:](../300150284/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 12 | [300150295](../300150295/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994740?s=460&v=4' width=20 height=20></image>](https://github.com/lounasallouti1) | :x: | :x: | :x: |
 | 13 | [300150296](../300150296) [<image src='https://avatars0.githubusercontent.com/u/205198510?s=460&v=4' width=20 height=20></image>](https://github.com/bnnyouba99) | [:heavy_check_mark:](../300150296/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 14 | [300150303](../300150303/README.md) [<image src='https://avatars0.githubusercontent.com/u/211592293?s=460&v=4' width=20 height=20></image>](https://github.com/jessmaud) | :x: | :x: | :x: |
-| 15 | [300150385](../300150385/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994785?s=460&v=4' width=20 height=20></image>](https://github.com/belka1996) | :x: | :x: | :x: |
+| 15 | [300150385](../300150385) [<image src='https://avatars0.githubusercontent.com/u/205994785?s=460&v=4' width=20 height=20></image>](https://github.com/belka1996) | [:heavy_check_mark:](../300150385/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 16 | [300150395](../300150395) [<image src='https://avatars0.githubusercontent.com/u/211577767?s=460&v=4' width=20 height=20></image>](https://github.com/ismailtrache) | [:heavy_check_mark:](../300150395/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 17 | [300150399](../300150399/README.md) [<image src='https://avatars0.githubusercontent.com/u/195236786?s=460&v=4' width=20 height=20></image>](https://github.com/chkips) | :x: | :x: | :x: |
 | 18 | [300150417](../300150417) [<image src='https://avatars0.githubusercontent.com/u/212187666?s=460&v=4' width=20 height=20></image>](https://github.com/latifmuristaga) | [:heavy_check_mark:](../300150417/README.md) | :heavy_check_mark: | :heavy_check_mark: 
@@ -47,4 +47,4 @@
 | 28 | [300151841](../300151841) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | [:heavy_check_mark:](../300151841/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 29 | [300152410](../300152410) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | [:heavy_check_mark:](../300152410/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 30 | [300153747](../300153747) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | [:heavy_check_mark:](../300153747/README.md) | :heavy_check_mark: | :heavy_check_mark: 
-| :abacus: | \$\\frac{21}{31}$ = 67.74% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 21 |
+| :abacus: | \$\\frac{22}{31}$ = 70.97% | \$\displaystyle\sum_{i=1}^{31} s_i$ = 22 |
