@@ -74,7 +74,7 @@ UPNSuffixes           : {}
 ----------------------------
 
 # verification de l'installations
-
+</detail>
 
 <img width="1305" height="702" alt="Vm1 png" src="https://github.com/user-attachments/assets/cbf4589c-a49a-4c96-9275-80a27366af57" />
 
