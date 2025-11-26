@@ -21,49 +21,6 @@ Get-Service -Name NTDS, ADWS, DFSR
 ```
 
 
-
-<details>
-
-\&nbsp;
-
-
-
-\&nbsp; ```powershell
-
-
-
-Status   Name               DisplayName
-
-------   ----               -----------
-
-Running  NTDS               Active Directory Domain Services
-
-Running  ADWS               Active Directory Web Services
-
-Running  DFSR               DFS Replication
-
-Running  IsmServ            Intersite Messaging
-
-Running  Kdc                Kerberos Key Distribution Center
-
-Running  Netlogon           Netlogon
-
-Running  ADWS               Active Directory Web Services
-
-Running  DFSR               DFS Replication
-
-Running  NTDS               Active Directory Domain Services
-
-
-
-```
-
-
-
-</details>
-
-
-
 services2.ps1
 
 ```powershell
