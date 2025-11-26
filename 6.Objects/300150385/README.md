@@ -26,6 +26,8 @@ Il vérifie également l’existence des objets avant de les créer.
 
 ### 📸 Capture d’écran  
 
+![Wait](https://github.com/user-attachments/assets/c68f47c0-f268-4ca4-8095-9ceddf3a7636)
+
 
 
 ---
@@ -38,6 +40,8 @@ Un script `.bat` est créé dans `C:\Scripts` et assigné comme script de logon 
 
 ### 📸 Capture d’écran  
 
+![Wait](https://github.com/user-attachments/assets/53ab379c-4fab-4229-852b-3b4511de6ea4)
+
 
 ---
 
@@ -47,6 +51,9 @@ Un script `.bat` est créé dans `C:\Scripts` et assigné comme script de logon 
 Ce script active les connexions RDP, ouvre les règles du firewall nécessaires, et modifie les droits locaux afin que les membres du groupe Students puissent se connecter en bureau à distance.
 
 ### 📸 Capture d’écran  
+
+![Wait]https://github.com/user-attachments/assets/6a8468aa-2d77-4e37-a5d7-00802a4d9c62)
+
 
 ---
 
@@ -62,7 +69,9 @@ Le dernier script effectue plusieurs vérifications :
 Il annonce ensuite les tests manuels à faire : RDP + présence du disque Z:.
 
 ### 📸 Capture d’écran  
- 
+
+![Wait](https://github.com/user-attachments/assets/2f87e78e-b2f4-4b85-bc17-3044f6082f0d)
+
 
 ---
 
