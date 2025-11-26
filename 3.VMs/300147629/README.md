@@ -15,6 +15,7 @@ True    No             Success        {Active Directory Domain Services, Group P
 -----------------------
 
 
+
 # verification de l'installations
 
 <details>
@@ -76,3 +77,5 @@ Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
 UPNSuffixes           : {}
 ```
+<img width="1305" height="702" alt="Vm1 png" src="https://github.com/user-attachments/assets/fadf7744-c670-4296-9850-8731fbee402a" />
+
