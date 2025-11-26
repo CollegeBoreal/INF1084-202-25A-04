@@ -19,6 +19,6 @@ True    No             Success        {Active Directory Domain Services, Group P
 ```
 Get-ADDomain
 Get-ADForest
-
+```
 
 
