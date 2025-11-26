@@ -1,48 +1,52 @@
-# TP 6.Objects - Script utilisateurs2.ps1
-# Etudiant : Rahmani Chakib (300150399)
-# Objectif : Créer une GPO qui servira au mappage du lecteur Z: pour les utilisateurs
+# ===================================================================
+# Script : utilisateurs2.ps1
+# Auteur : Chakib Rahmani (300150399)
+# Objectif : Creer une GPO pour mapper un lecteur reseau et activer RDP
+# Domaine : DC300150399-00.local
+# ===================================================================
 
-Import-Module ActiveDirectory
-Import-Module GroupPolicy
+Import-Module GroupPolicy -ErrorAction SilentlyContinue
+Import-Module ActiveDirectory -ErrorAction SilentlyContinue
 
-# Nom de la GPO
-$GpoName = "MapSharedFolder-300150399"
+# === Variables ===
+$GPOName = "MapSharedFolder-300150399"
+$OU = "OU=Students,DC=DC300150399-00,DC=local"
+$DriveLetter = "Z:"
+$netbiosName = $env:COMPUTERNAME
+$SharePath = "\\$netbiosName\SharedResources"
+$ScriptFolder = "C:\Scripts"
+$ScriptPath = "$ScriptFolder\MapDrive-$DriveLetter.bat"
 
-# Récupérer le DN du domaine (ex: DC=DC300150399-00,DC=local)
-$domainDN = (Get-ADDomain).DistinguishedName
+Write-Host "=== Demarrage du script utilisateurs2.ps1 ==="
 
-# Cible : le conteneur Users, car tes comptes Etudiant1 / Etudiant2 sont dedans
-$target = "CN=Users,$domainDN"
-
-Write-Host "Domaine : $domainDN"
-Write-Host "Cible GPO : $target"
-
-# 1) Créer (ou récupérer) la GPO
-$gpo = Get-GPO -Name $GpoName -ErrorAction SilentlyContinue
-if (-not $gpo) {
-    Write-Host "Création de la GPO $GpoName..."
-    $gpo = New-GPO -Name $GpoName -Comment "Mappage Z: vers \\DC300150399-00\SharedResources"
+# === 1. Creation de la GPO ===
+if (-not (Get-GPO -Name $GPOName -ErrorAction SilentlyContinue)) {
+    New-GPO -Name $GPOName | Out-Null
+    Write-Host "GPO '$GPOName' creee."
 } else {
-    Write-Host "La GPO $GpoName existe déjà, on la réutilise."
+    Write-Host "La GPO '$GPOName' existe deja."
 }
 
-# 2) Lier la GPO au conteneur Users
-Write-Host "Lien de la GPO sur $target..."
-New-GPLink -Name $GpoName -Target $target -Enforced:$false -LinkEnabled Yes | Out-Null
-
-# 3) Créer le script batch de mappage dans C:\Scripts
-$scriptFolder = "C:\Scripts"
-if (-not (Test-Path $scriptFolder)) {
-    New-Item -ItemType Directory -Path $scriptFolder | Out-Null
+# === 2. Lien de la GPO a l'OU Students ===
+try {
+    New-GPLink -Name $GPOName -Target $OU -Enforced:$false | Out-Null
+    Write-Host "GPO liee a l'OU : $OU"
+} catch {
+    Write-Host "Attention : verifier que l'OU Students existe dans le domaine."
 }
 
-$scriptPath = Join-Path $scriptFolder "MapDrive-Z.bat"
+# === 3. Script de mappage du lecteur reseau ===
+if (-not (Test-Path $ScriptFolder)) {
+    New-Item -ItemType Directory -Path $ScriptFolder | Out-Null
+}
+$scriptContent = "net use $DriveLetter $SharePath /persistent:no"
+Set-Content -Path $ScriptPath -Value $scriptContent
+Write-Host "Script de connexion cree : $ScriptPath"
 
-Write-Host "Création du script $scriptPath ..."
+# === 4. Activation du RDP sur le serveur ===
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" `
+                 -Name "fDenyTSConnections" -Value 0
+Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+Write-Host "RDP active et pare-feu configure pour les connexions a distance."
 
-@"
-@echo off
-net use Z: \\DC300150399-00\SharedResources /persistent:no
-"@ | Set-Content -Path $scriptPath -Encoding ASCII
-
-Write-Host "Script créé. Tu dois maintenant l'attacher à la GPO dans la console GPMC."
+Write-Host "=== Etape 2 terminee : GPO et RDP configures avec succes. ==="

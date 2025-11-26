@@ -1,52 +1,56 @@
-# TP 6.Objects - Script utilisateurs1.ps1
-# Etudiant : Rahmani Chakib (300150399)
-# Objectif : Créer dossier partagé, groupe Students, utilisateurs et partage SMB
+# ===================================================================
+# Script : utilisateurs1.ps1
+# Auteur : Chakib Rahmani(300150399)
+# Objectif : Creer un dossier partage, un groupe AD et des utilisateurs
+# Domaine : DC300150399-00.local
+# ===================================================================
 
-# 1) Importer le module Active Directory
-Import-Module ActiveDirectory
+Import-Module ActiveDirectory -ErrorAction SilentlyContinue
 
-# 2) Chemin du dossier partagé
+# === Variables principales ===
 $SharedFolder = "C:\SharedResources"
+$GroupName = "Students"
+$Users = @("Etudiant1", "Etudiant2", "Etudiant3")
 
-# Créer le dossier s'il n'existe pas
+Write-Host "=== Demarrage du script utilisateurs1.ps1 ==="
+
+# === 1. Creation du dossier partage ===
 if (-not (Test-Path $SharedFolder)) {
     New-Item -Path $SharedFolder -ItemType Directory -Force | Out-Null
+    Write-Host "Dossier cree : $SharedFolder"
+} else {
+    Write-Host "Le dossier existe deja : $SharedFolder"
 }
 
-# 3) Créer le groupe AD "Students" (s'il n'existe pas déjà)
-$GroupName = "Students"
-
-if (-not (Get-ADGroup -Filter "Name -eq '$GroupName'" -ErrorAction SilentlyContinue)) {
-    New-ADGroup -Name $GroupName -GroupScope Global -Description "Users allowed RDP and shared folder access"
+# === 2. Creation du groupe AD ===
+if (-not (Get-ADGroup -Filter "Name -eq '$GroupName'")) {
+    New-ADGroup -Name $GroupName -GroupScope Global -Description "Groupe des etudiants autorises RDP et partage reseau"
+    Write-Host "Groupe '$GroupName' cree avec succes."
+} else {
+    Write-Host "Le groupe '$GroupName' existe deja."
 }
 
-# 4) Créer des utilisateurs et les ajouter au groupe
-$Users = @("Etudiant1", "Etudiant2")
-
+# === 3. Creation des utilisateurs et ajout au groupe ===
 foreach ($user in $Users) {
-
-    # Vérifier si l'utilisateur existe déjà
-    $existingUser = Get-ADUser -Filter "SamAccountName -eq '$user'" -ErrorAction SilentlyContinue
-
-    if (-not $existingUser) {
+    if (-not (Get-ADUser -Filter "SamAccountName -eq '$user'")) {
         New-ADUser -Name $user `
                    -SamAccountName $user `
                    -AccountPassword (ConvertTo-SecureString "Pass123!" -AsPlainText -Force) `
-                   -Enabled $true
+                   -Enabled $true `
+                   -Path "OU=Students,DC=DC300150399-00,DC=local"
+        Add-ADGroupMember -Identity $GroupName -Members $user
+        Write-Host "Utilisateur '$user' cree et ajoute au groupe '$GroupName'."
+    } else {
+        Write-Host "L'utilisateur '$user' existe deja."
     }
-
-    # Ajouter l'utilisateur au groupe Students
-    Add-ADGroupMember -Identity $GroupName -Members $user -ErrorAction SilentlyContinue
 }
 
-# 5) Créer le partage SMB pour le groupe Students
-# Si un partage du même nom existe déjà, on peut le laisser ou le recréer
-
-$ShareName = "SharedResources"
-
-# Vérifier si le partage existe déjà
-$existingShare = Get-SmbShare -Name $ShareName -ErrorAction SilentlyContinue
-
-if (-not $existingShare) {
-    New-SmbShare -Name $ShareName -Path $SharedFolder -FullAccess $GroupName
+# === 4. Creation du partage SMB ===
+if (-not (Get-SmbShare -Name "SharedResources" -ErrorAction SilentlyContinue)) {
+    New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess $GroupName
+    Write-Host "Partage SMB 'SharedResources' cree pour le groupe '$GroupName'."
+} else {
+    Write-Host "Le partage SMB 'SharedResources' existe deja."
 }
+
+Write-Host "=== Etape 1 terminee : utilisateurs, groupe et partage configures. ==="
