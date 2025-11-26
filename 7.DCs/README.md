@@ -1,10 +1,13 @@
 # 🎛️ DC Domain Controler
 
+|:hash: | Fonctions                                          |
+|-------|:---------------------------------------------------|
+| :one: | [:tada: Participation](.scripts/Participation.md)  |
+
 ## :books: Travail à soumettre :
 
-- [ ] Créer un répertoire avec ton  :id: (votre identifiant boreal)
-  - [ ] `mkdir ` :id:
-  - [ ] `cd ` :id:
+- [ ] Un répertoire a été créé avec ton  :id: et celui de ton partenaire (votre identifiant boreal) tu pourras voir la liste [ici :point_right:](.scripts/Participation.md)
+  - [ ] `cd ` :id:-:id:
 - [ ] dans le répertoire ajouter le fichier `README.md`
   - [ ] `touch README.md`
   - [ ] Créer un répertoire images
@@ -13,8 +16,8 @@
 - [ ] envoyer vers le serveur `git`
   - [ ] remonter au repertoire précédent
     - [ ] `cd ..`
-  - [ ] `git add `:id:
-  - [ ] `git commit -m "mon fichier ..."`
+  - [ ] `git add `:id:-:id:
+  - [ ] `git commit -m "mon groupe ..."`
   - [ ] `git push`
 
 ## :o: **Projet : Création d’une relation de confiance entre deux forêts Active Directory** :busts_in_silhouette:
@@ -108,4 +111,10 @@ Get-ChildItem
 * Aucune manipulation via l’interface graphique.
 * Les scripts doivent être réutilisables et documentés.
 
+# :books: References
+
+- [ ] Assigner un DNS
+
+* https://www.name.com/partner/github-students
+* https://www.youtube.com/watch?v=YXqqfjjVXmo
 
