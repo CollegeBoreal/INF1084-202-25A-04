@@ -40,7 +40,11 @@ Ce laboratoire a pour objectif de vérifier la communication et l’accès entre
 Test-Connection -ComputerName DC300150295-00 -Count 2
 Resolve-DnsName DC300150295-00.local
 
-<img src="0.png" width="600">        
+
+[CAPTURE 1] Vérification du ping et de la résolution DNS
+
+![](/images/0.png)
+        
 
 Étape 2 – Informations du domaine distant
 <details> <summary>Commande PowerShell utilisée</summary>
@@ -50,7 +54,9 @@ $credAD2 = Get-Credential
 Get-ADDomain -Server DC300150295-00.local -Credential $credAD2
 </details>
 
-<img src="1.png" width="600">        
+[CAPTURE 2] Infos complètes du domaine distant
+
+![](/images/1.png)         
 
 Étape 3 – Navigation dans l’AD distant (PSDrive AD2:)
 <details> <summary>Création du lecteur Active Directory AD2:\</summary>
@@ -66,16 +72,19 @@ Set-Location AD2:\
 Get-ChildItem
 </details>
 
-<img src="2.png" width="600">        
+[CAPTURE 3] PSDrive AD2 créé
+        
+![](/images/2.png) 
 
-<img src="3.png" width="600">        
+[CAPTURE 4] Navigation dans les OU du domaine distant
+
+![](/images/3.png) 
 
 Navigation dans les OU du domaine distant
 
 Étape 4 – Script d’automatisation (verif.ps1)
 <details> <summary>Code complet du script utilisé</summary>
-powershell
-Copier le code
+
 param(
     [string]$RemoteDomainFqdn = "DC300150295-00.local",
     [string]$RemoteDC = "DC300150295-00"
@@ -104,8 +113,9 @@ Set-Location C:\
 Write-Host "=== Fin du script ==="
 </details>
 
-<img src="4.png" width="600">        
-
+[CAPTURE 5] Exécution du script + fenêtre Credential
+        
+![](/images/4.png) 
 
 Étape 5 – Résultat final
 Toutes les vérifications ont été réussies :
@@ -122,7 +132,9 @@ Navigation dans les OU possible
 
 Automatisation OK
 
-<img src="5.png" width="600">        
+[CAPTURE 6] Fin du script – état final
+
+![](/images/5.png)         
 
 Conclusion
 Les deux domaines peuvent communiquer correctement.
