@@ -1,9 +1,11 @@
-# TP Services AD - Boudeuf Imad 300152410
-# Exportation des 50 derniers journaux Directory Service vers un fichier CSV
+# services2.ps1
+# Objectif : Afficher les événements récents des services AD
 
-$path = "C:\Logs"
-if (!(Test-Path $path)) {
-    New-Item -Path $path -ItemType Directory
-}
-Get-WinEvent -LogName "Directory Service" -MaxEvents 50 | Export-Csv -Path "$path\ADLogs.csv" -NoTypeInformation
-Write-Host "Fichier ADLogs.csv créé dans $path"
+Write-Host "=== 20 derniers événements du service NTDS ===" -ForegroundColor Cyan
+Get-EventLog -LogName "Directory Service" -Newest 20 | Format-Table TimeGenerated, EntryType, Source, EventID, Message -AutoSize
+
+Write-Host "`n=== Logs du service Netlogon ===" -ForegroundColor Yellow
+Get-EventLog -LogName "System" -Newest 20 | Where-Object { $_.Source -eq "Netlogon" } | Format-Table TimeGenerated, EntryType, EventID, Message -AutoSize
+
+Write-Host "`n=== Journaux modernes (Event Viewer v2) ===" -ForegroundColor Green
+Get-WinEvent -LogName "Directory Service" -MaxEvents 20 | Format-Table TimeCreated, Id, LevelDisplayName, Message -AutoSize
