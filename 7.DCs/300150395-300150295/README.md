@@ -44,7 +44,8 @@ Resolve-DnsName DC300150295-00.local
 [CAPTURE 1] Vérification du ping et de la résolution DNS
 
 <img width="1919" height="1014" alt="0" src="images/0.png"/>
-        
+<img width="1919" height="1014" alt="1A" src="images/1A.png"/>
+
 
 Étape 2 – Informations du domaine distant
 <details> <summary>Commande PowerShell utilisée</summary>
@@ -81,10 +82,12 @@ Get-ChildItem
 [CAPTURE 3] PSDrive AD2 créé
         
 <img width="1919" height="1014" alt="2" src="images/2.png"/>     
+<img width="1919" height="1014" alt="2A" src="images/2A.png"/>     
 
 [CAPTURE 4] Navigation dans les OU du domaine distant
 
-<img width="1919" height="1014" alt="3" src="images/3.png"/>                                                                
+<img width="1919" height="1014" alt="3" src="images/3.png"/>                                                               <img width="1919" height="1014" alt="3A" src="images/3A.png"/>                                                                
+
 
 Navigation dans les OU du domaine distant
 
@@ -125,6 +128,7 @@ Write-Host "=== Fin du script ==="
 [CAPTURE 5] Exécution du script + fenêtre Credential
         
  <img width="1919" height="1014" alt="4" src="images/4.png"/> 
+ <img width="1919" height="1014" alt="4A" src="images/4A.png"/> 
 
 Étape 5 – Résultat final
 Toutes les vérifications ont été réussies :
@@ -144,6 +148,7 @@ Automatisation OK
 [CAPTURE 6] Fin du script – état final
 
 <img width="1919" height="1014" alt="4.5" src="images/4.5.png"/> 
+<img width="1919" height="1014" alt="5A" src="images/5A.png"/> 
 
 Conclusion
 Les deux domaines peuvent communiquer correctement.
