@@ -24,17 +24,6 @@ Ce laboratoire a pour but de manipuler les objets Active Directory et d automati
     ├── utilisateurs1.ps1
     ├── utilisateurs2.ps1
     ├── images/
-        ├── Screenshot2025-11-11182725.png
-        ├── Screenshot2025-11-11182825.png
-        ├── Screenshot2025-11-11182919.png
-        ├── Screenshot2025-11-11182949.png
-        ├── Screenshot2025-11-11183027.png
-        ├── Screenshot2025-11-11183054.png
-        ├── Screenshot2025-11-11183149.png
-        ├── Screenshot2025-11-11183248.png
-        ├── Screenshot2025-11-11183328.png
-        ├── Screenshot2025-11-11183412.png
-        ├── Screenshot2025-11-11183520.png
 
 ---
 
@@ -216,8 +205,9 @@ Get-SmbShareAccess -Name "SharedResources"
 Resultat attendu :
 SharedResources  DC300150395-00\Students      Full
 SharedResources  DC300150395-00\Administrator Full
-
-[CAPTURE] Screenshot2025-11-11195851.png  --> Resultat net use et verification du partage SMB
+[CAPTURE 11] GPO liee a l OU OK  
+![](./images/Screenshot2025-11-11195851.png)
+--> Resultat net use et verification du partage SMB
 
 --------------------------------------------------
 TEST FINAL DEPUIS LA MACHINE CLIENTE
@@ -235,8 +225,9 @@ net use
 Resultat obtenu :
 OK     \\DC300150395\SharedResources    Microsoft Windows Network
 The command completed successfully.
+![](./images/Screenshot2025-11-11195646.png)
 
-[CAPTURE] Screenshot2025-11-11195646.png  --> Acces au dossier SharedResources depuis la VM Etudiant1
+--> Acces au dossier SharedResources depuis la VM Etudiant1
 
 --------------------------------------------------
 ## CONCLUSION

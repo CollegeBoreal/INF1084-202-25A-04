@@ -2,6 +2,9 @@ param(
     [string]$domainDN = "DC=DC300138205-00,DC=local"  # Domaine complet sous forme DN
 )
 
+# Définir le nom de domaine
+. .\bootstrap.ps1
+
 # Demande des identifiants administratifs
 $cred = Get-Credential -Message "Entrez vos identifiants AD"
 
@@ -36,3 +39,4 @@ if ($user) {
 Write-Host "Vérification du déplacement..." -ForegroundColor Cyan
 Get-ADUser -Identity "alice.dupont" -Properties DistinguishedName |
 Select-Object Name, DistinguishedName
+

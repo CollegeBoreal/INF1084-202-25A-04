@@ -4,9 +4,8 @@ $studentNumber = 300150385
 $studentInstance = 0
 
 # Noms du domaine et du NetBIOS
-$domainName = "DC300150385-00.local"
-$netbiosName = "DC300150385-00"
-
+$domainName = "DC$studentNumber-$studentInstance.local"
+$netbiosName = "DC$studentNumber-$studentInstance"
 
 # Informations de sécurité (mot de passe administrateur)
 $plain = 'Infra@2024'
