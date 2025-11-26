@@ -1,9 +1,11 @@
-# 300147629
+
 
 <details>
 
 # voici la commande de l’installations
 Install-WindowsFeature AD-Domain-Services –IncludeManagementTools
+
+
 
 
 ```powershell
