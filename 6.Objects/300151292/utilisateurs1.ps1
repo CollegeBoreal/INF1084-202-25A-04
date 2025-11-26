@@ -1,5 +1,5 @@
 # utilisateurs1.ps1
-# TP 6.Objects - Création du dossier partagé + groupe + utilisateurs
+# TP : Partage de ressources + RDP
 
 # Chemin du dossier partagé
 $SharedFolder = "C:\SharedResources"
@@ -7,14 +7,14 @@ $SharedFolder = "C:\SharedResources"
 # Créer le dossier partagé
 New-Item -Path $SharedFolder -ItemType Directory -Force
 
-# Nom du groupe
+# Groupe Students
 $GroupName = "Students"
 
 # Créer le groupe AD
-New-ADGroup -Name $GroupName -GroupScope Global -Description "Users allowed RDP and shared folder access"
+New-ADGroup -Name $GroupName -GroupScope Global -Description "Groupe pour partage et RDP"
 
-# Liste des utilisateurs à créer
-$Users = @("Etudiant1", "Etudiant2")
+# Liste des utilisateurs
+$Users = @("Etudiant1","Etudiant2")
 
 foreach ($user in $Users) {
     New-ADUser -Name $user `
@@ -22,9 +22,8 @@ foreach ($user in $Users) {
                -AccountPassword (ConvertTo-SecureString "Pass123!" -AsPlainText -Force) `
                -Enabled $true
 
-    # Ajouter au groupe Students
     Add-ADGroupMember -Identity $GroupName -Members $user
 }
 
-# Partager le dossier avec le groupe Students
+# Créer le partage SMB
 New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess $GroupName
