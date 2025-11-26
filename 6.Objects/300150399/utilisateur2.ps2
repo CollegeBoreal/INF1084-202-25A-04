@@ -1,7 +1,0 @@
-- Création de la GPO : MapSharedFolder-300150399
-- Lien de la GPO sur l’OU : Students
-- Création du script de logon :
-
-    C:\Scripts\MapDrive-Z.bat
-    Contenu :
-        net use Z: \\DC300150399-00\SharedResources /persistent:no
