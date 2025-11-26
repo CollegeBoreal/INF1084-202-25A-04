@@ -1,8 +1,0 @@
-- Création du partage : C:\SharedResources
-- Attribution des permissions NTFS / partage
-- Création de l’OU : Students
-- Création des comptes utilisateurs :
-    - Etudiant1
-    - Etudiant2
-- Création du groupe global : Students
-- Ajout des utilisateurs Etudiant1 et Etudiant2 dans le groupe Students
