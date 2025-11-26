@@ -8,7 +8,7 @@ New-ADUser `
     -Surname "Dupont" `
     -SamAccountName "alice.dupont" `
     -UserPrincipalName "alice.dupont@$domainName" `
-    -Path "CN=Users,DC=DC300138205-00,DC=local" `
+    -Path "CN=Users,DC=DC300141368-00,DC=local" `
     -AccountPassword (ConvertTo-SecureString "MotDePasse123!" -AsPlainText -Force) `
     -Enabled $true
 
