@@ -43,25 +43,29 @@ Resolve-DnsName DC300150295-00.local
 
 [CAPTURE 1] Vérification du ping et de la résolution DNS
 
-![](/images/0.png)
+<img width="1919" height="1014" alt="0" src="images/0.png"/>
         
 
 Étape 2 – Informations du domaine distant
 <details> <summary>Commande PowerShell utilisée</summary>
-powershell
-Copier le code
+```powershell
+
 $credAD2 = Get-Credential
 Get-ADDomain -Server DC300150295-00.local -Credential $credAD2
+
 </details>
+
+```
 
 [CAPTURE 2] Infos complètes du domaine distant
 
-![](/images/1.png)         
+<img width="1919" height="1014" alt="1" src="images/1.png"/>   
 
 Étape 3 – Navigation dans l’AD distant (PSDrive AD2:)
 <details> <summary>Création du lecteur Active Directory AD2:\</summary>
-powershell
-Copier le code
+
+```powershell 
+
 New-PSDrive -Name AD2 `
     -PSProvider ActiveDirectory `
     -Root "DC=DC300150295-00,DC=local" `
@@ -72,18 +76,22 @@ Set-Location AD2:\
 Get-ChildItem
 </details>
 
+```
+
 [CAPTURE 3] PSDrive AD2 créé
         
-![](/images/2.png) 
+<img width="1919" height="1014" alt="2" src="images/2.png"/>     
 
 [CAPTURE 4] Navigation dans les OU du domaine distant
 
-![](/images/3.png) 
+<img width="1919" height="1014" alt="3" src="images/3.png"/>                                                                
 
 Navigation dans les OU du domaine distant
 
 Étape 4 – Script d’automatisation (verif.ps1)
+
 <details> <summary>Code complet du script utilisé</summary>
+```powershell 
 
 param(
     [string]$RemoteDomainFqdn = "DC300150295-00.local",
@@ -112,10 +120,11 @@ Set-Location C:\
 
 Write-Host "=== Fin du script ==="
 </details>
+```
 
 [CAPTURE 5] Exécution du script + fenêtre Credential
         
-![](/images/4.png) 
+ <img width="1919" height="1014" alt="4" src="images/4.png"/> 
 
 Étape 5 – Résultat final
 Toutes les vérifications ont été réussies :
@@ -134,7 +143,7 @@ Automatisation OK
 
 [CAPTURE 6] Fin du script – état final
 
-![](/images/5.png)         
+<img width="1919" height="1014" alt="4.5" src="images/4.5.png"/> 
 
 Conclusion
 Les deux domaines peuvent communiquer correctement.
