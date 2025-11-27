@@ -7,3 +7,4 @@ Exercice 2:Ajouter tous les utilisateursdont l'OU ="Stagiaires" dans Groupe
 
 Exercice 3: afficher tous les utilisateurs ayant prenom 'a' et 'b'
 
+![](images/utilisateurs.jpg)
