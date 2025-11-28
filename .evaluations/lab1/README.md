@@ -26,10 +26,9 @@
 | | | | | | |	
 | 🗒️README.md | | | | | / 1 |
 | 🏁 Vérification | | | | | / 1 |
-
-
-| 4️⃣.OUs	 | 🎉 Parfait 1 point | ✅ Present 0.5 point | 💥 Error 0.25 point | ❌ Non fait 0 point | Note du critère |
-|-|-|-|-|-|-|
+| | | | | | |	
+| #️⃣ 4️⃣.***OUs***	 | 🎉 Parfait 1 point | ✅ Present 0.5 point | 💥 Error 0.25 point | ❌ Non fait 0 point | ___Note du critère___ |
+| | | | | | |	
 | 🗒️README.md | | | | | / 1 |
 | 🥾bootstrap.ps1 | | | | | / 1 |
 | 1️⃣ utilisateurs1.ps1 | | | | | / 1 |
