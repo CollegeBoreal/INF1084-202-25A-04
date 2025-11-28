@@ -39,77 +39,18 @@
 | 4️⃣ utilisateurs4.ps1 | | | | | / 1 |
 | 🏁 Vérification | | | | | / 1 |
 
+| 5️⃣.Services | 🎉 Parfait 1 point | ✅ Present 0.5 point | 💥 Error 0.25 point | ❌ Non fait 0 point | Note du critère |
+|-|-|-|-|-|-|
+| 🗒️README.md | | | | | / 1 |
+| 1️⃣ services1.ps1 | | | | | / 1 |
+| 2️⃣ services2.ps1 | | | | | / 1 |
+| 3️⃣ services3.ps1 | | | | | / 1 |
+| 4️⃣ services4.ps1 | | | | | / 1 |
 
-| 	
-🎉 Parfait
-1.5 point
-✅ Present
-0.5 point
-💥 Error
-0.25 point
-❌ Non fait
-0 point
-Note du critère
-🗒️README.md
-Score de 🗒️README.md,/ 1.5
-🥾bootstrap.ps1
-Score de 🥾bootstrap.ps1,/ 1.5
-1️⃣ utilisateurs1.ps1
-Score de 1️⃣ utilisateurs1.ps1,/ 1.5
-2️⃣ utilisateurs2.ps1
-Score de 2️⃣ utilisateurs2.ps1,/ 1.5
-3️⃣ utilisateurs3.ps1
-Score de 3️⃣ utilisateurs3.ps1,/ 1.5
-4️⃣ utilisateurs4.ps1
-Score de 4️⃣ utilisateurs4.ps1,/ 1.5
-🏁 Vérifications
-Score de 🏁 Vérifications,/ 1.5
-5️⃣.Services	
-🎉 Parfait
-1.5 point
-✅ Present
-0.5 point
-💥 Error
-0.25 point
-❌ Non fait
-0 point
-Note du critère
-🗒️README.md
-Score de 🗒️README.md,/ 1.5
-1️⃣ services1.ps1
-Score de 1️⃣ services1.ps1,/ 1.5
-2️⃣ services2.ps1
-Score de 2️⃣ services2.ps1,/ 1.5
-3️⃣ services3.ps1
-Score de 3️⃣ services3.ps1,/ 1.5
-4️⃣ services4.ps1
-Score de 4️⃣ services4.ps1,/ 1.5
-6️⃣.Objects	
-🎉 Parfait
-1.5 point
-✅ Present
-0.5 point
-💥 Error
-0.25 point
-❌ Non fait
-0 point
-Note du critère
-🗒️README.md
-Score de 🗒️README.md,/ 1.5
-1️⃣ utilisateurs1.ps1
-Score de 1️⃣ utilisateurs1.ps1,/ 1.5
-2️⃣ utilisateurs2.ps1
-Score de 2️⃣ utilisateurs2.ps1,/ 1.5
-🏁 Vérifications
-Score de 🏁 Vérifications,/ 1.5
-Total
-Score de Lab1,/ 38.5
-Note globale
-Niveau 4
-11 points minimum
-Niveau 3
-8 points minimum
-Niveau 2
-5 points minimum
-Niveau 1
-0 point minimum
+| 6️⃣.Objects | 🎉 Parfait 1 point | ✅ Present 0.5 point | 💥 Error 0.25 point | ❌ Non fait 0 point | Note du critère |
+|-|-|-|-|-|-|
+| 🗒️README.md | | | | | / 1 |
+| 1️⃣ utilisateurs1.ps1 | | | | | / 1 |
+| 2️⃣ utilisateurs2.ps1 | | | | | / 1 |
+| 🏁 Vérification | | | | | / 1 |
+
