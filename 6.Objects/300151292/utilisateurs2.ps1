@@ -1,16 +1,10 @@
-# ===================================================================
-# Script : utilisateurs2.ps1
-# Auteur : Chakib Rahmani (300150399)
-# Objectif : Creer une GPO pour mapper un lecteur reseau et activer RDP
-# Domaine : DC300150399-00.local
-# ===================================================================
 
 Import-Module GroupPolicy -ErrorAction SilentlyContinue
 Import-Module ActiveDirectory -ErrorAction SilentlyContinue
 
 # === Variables ===
-$GPOName = "MapSharedFolder-300150399"
-$OU = "OU=Students,DC=DC300150399-00,DC=local"
+$GPOName = "MapSharedFolder-300151292"
+$OU = "OU=Students,DC=DC300151292-00,DC=local"
 $DriveLetter = "Z:"
 $netbiosName = $env:COMPUTERNAME
 $SharePath = "\\$netbiosName\SharedResources"
