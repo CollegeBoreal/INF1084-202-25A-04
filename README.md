@@ -3,6 +3,8 @@ INF1084 (202) - Introduction à l'administration des systèmes
 
 ## :date: [Épreuves](.epreuves)
 
+## 🧨 [Évaluations](.evaluations)
+
 ## :one: [Devoirs](Devoirs)
 
 | :hash:  | Date   | Leçons                                                           | 🎉 Participations | 🏁 Vérifications |
