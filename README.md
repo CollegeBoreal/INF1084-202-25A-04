@@ -5,6 +5,11 @@ INF1084 (202) - Introduction à l'administration des systèmes
 
 ## 🧨 [Évaluations](.evaluations)
 
+| :hash:  | Date   | Evaluations                                        |
+|-------- |--------|:---------------------------------------------------|
+| :one:   |10-dec  | [0.Lab1](.evaluations/0.Lab1)                      |
+| :two:   |10-dec  | [1.Projet](.evaluations/0.Projet)                  |
+
 ## :one: [Devoirs](Devoirs)
 
 | :hash:  | Date   | Leçons                                                           | 🎉 Participations | 🏁 Vérifications |
