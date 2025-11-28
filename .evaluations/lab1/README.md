@@ -28,7 +28,19 @@
 | 🗒️README.md | | | | | / 1 |
 | 🏁 Vérification | | | | | / 1 |
 
-| 4️⃣.OUs	
+
+| 4️⃣.OUs	 | 🎉 Parfait 1 point | ✅ Present 0.5 point | 💥 Error 0.25 point | ❌ Non fait 0 point | Note du critère |
+|-|-|-|-|-|-|
+| 🗒️README.md | | | | | / 1 |
+| 🥾bootstrap.ps1 | | | | | / 1 |
+| 1️⃣ utilisateurs1.ps1 | | | | | / 1 |
+| 2️⃣ utilisateurs2.ps1 | | | | | / 1 |
+| 3️⃣ utilisateurs3.ps1 | | | | | / 1 |
+| 4️⃣ utilisateurs4.ps1 | | | | | / 1 |
+| 🏁 Vérification | | | | | / 1 |
+
+
+| 	
 🎉 Parfait
 1.5 point
 ✅ Present
