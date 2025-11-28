@@ -1,6 +1,6 @@
 # Lab 1
 
- ___Note du critère___ |
+Grille d'évaluation des laboratoires:
 
 | | | | | | |
 |-|-|-|-|-|-|
