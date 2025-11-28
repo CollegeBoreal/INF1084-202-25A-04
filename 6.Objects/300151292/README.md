@@ -35,8 +35,6 @@ Copier le code
 - Ajout des utilisateurs dans le groupe Students
 - Création du partage SMB : **\\DC300151292-00\SharedResources**
 
-📸 *Capture à insérer ici*  
-(images/shared-folder.png)
 
 ---
 
@@ -48,8 +46,6 @@ Copier le code
 - Création d’un script logon : `C:\Scripts\MapDrive-Z.bat`
 - Configuration du lecteur **Z:** → `\\DC300151292-00\SharedResources`
 
-📸 *Capture GPO ici*  
-(images/gpo.png)
 
 ---
 
@@ -64,8 +60,6 @@ Copier le code
 - Ajout du groupe Students dans **Remote Desktop Users**
 - Test réussi de connexion RDP avec **Etudiant1**
 
-📸 *Capture RDP ici*  
-(images/rdp.png)
 
 ---
 
@@ -74,13 +68,14 @@ Copier le code
 ### 🔹 RDP depuis la VM cliente  
 ➡ **OK : connexion réussie avec Etudiant1 / Pass123!**
 
-### 🔹 Lecteur réseau Z:  
-➡ **OK : mappé automatiquement via GPO**
+<img width="959" height="494" alt="test" src="images/test.png>
+
 
 ### 🔹 Accès au partage  
 ➡ **OK : accès complet pour Students**
 
----
+<img width="959" height="539" alt="image" src="images/test2.png>
+
 
 ## 🏁 Conclusion
 Ce laboratoire m’a permis de comprendre et configurer un environnement Active Directory complet à l’aide de scripts PowerShell.  
