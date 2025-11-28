@@ -8,7 +8,7 @@ INF1084 (202) - Introduction à l'administration des systèmes
 | :hash:  | Date   | Evaluations                                        |
 |-------- |--------|:---------------------------------------------------|
 | :one:   |10-dec  | [0.Lab1](.evaluations/0.Lab1)                      |
-| :two:   |10-dec  | [1.Projet](.evaluations/0.Projet)                  |
+| :two:   |10-dec  | [1.Projet](.evaluations/1.Projet)                  |
 
 ## :one: [Devoirs](Devoirs)
 
