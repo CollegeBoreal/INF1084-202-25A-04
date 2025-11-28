@@ -1,8 +1,9 @@
+O
 # Importer le module Active Directory
 Import-Module ActiveDirectory
 
 # Définir le nom de domaine
-$domainName = "DC300138205-00.local"
+. .\bootstrap.ps1
 
 # Vérifier le domaine
 Get-ADDomain -Server $domainName
