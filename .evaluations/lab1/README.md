@@ -17,17 +17,12 @@
 
 | 2️⃣.Utilisateurs	 | 🎉 Parfait 1 point | ✅ Present 0.5 point | 💥 Error 0.25 point | ❌ Non fait 0 point | Note du critère |
 |-|-|-|-|-|-|
-| 1️⃣ 🗒️README.md | | | | | / 1.5 |
+| 🗒️README.md | | | | | / 1.5 |
+| 1️⃣ utilisateurs1.ps1 | | | | | / 1.5 |
+| 2️⃣ utilisateurs2.ps1 | | | | | / 1.5 |
+| 3️⃣ utilisateurs3.ps1 | | | | | / 1.5 |
+| 4️⃣ utilisateurs4.ps1 | | | | | / 1.5 |
 
-Score de 🗒️README.md,/ 1.5
-1️⃣ utilisateurs1.ps1
-Score de 1️⃣ utilisateurs1.ps1,/ 1.5
-2️⃣ utilisateurs2.ps1
-Score de 2️⃣ utilisateurs2.ps1,/ 1.5
-3️⃣ utilisateurs3.ps1
-Score de 3️⃣ utilisateurs3.ps1,/ 1.5
-4️⃣ utilisateurs4.ps1
-Score de 4️⃣ utilisateurs4.ps1,/ 1.5
 3️⃣.VM	
 🎉 Parfait
 1.5 point
