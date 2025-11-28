@@ -23,20 +23,11 @@
 | 3️⃣ utilisateurs3.ps1 | | | | | / 1.5 |
 | 4️⃣ utilisateurs4.ps1 | | | | | / 1.5 |
 
-3️⃣.VM	
-🎉 Parfait
-1.5 point
-✅ Present
-0.5 point
-💥 Error
-0.25 point
-❌ Non fait
-0 point
-Note du critère
-🗒️README.md
-Score de 🗒️README.md,/ 1.5
-🏁 Vérification
-Score de 🏁 Vérification,/ 1.5
+| 3️⃣.VM		 | 🎉 Parfait 1 point | ✅ Present 0.5 point | 💥 Error 0.25 point | ❌ Non fait 0 point | Note du critère |
+|-|-|-|-|-|-|
+| 🗒️README.md | | | | | / 1.5 |
+| 🏁 Vérification | | | | | / 1.5 |
+
 4️⃣.OUs	
 🎉 Parfait
 1.5 point
