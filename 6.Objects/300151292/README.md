@@ -68,13 +68,13 @@ Copier le code
 ### 🔹 RDP depuis la VM cliente  
 ➡ **OK : connexion réussie avec Etudiant1 / Pass123!**
 
-<img width="959" height="494" alt="test" src="images/test.png>
+![](./images/test.png)
 
 
 ### 🔹 Accès au partage  
 ➡ **OK : accès complet pour Students**
 
-<img width="959" height="539" alt="image" src="images/test2.png>
+![](./images/test2.png)
 
 
 ## 🏁 Conclusion
