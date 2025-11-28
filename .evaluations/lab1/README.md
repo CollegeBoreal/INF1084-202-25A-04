@@ -49,12 +49,3 @@
 | | | | | | |	
 | Total  | | | | | / 25 |	
 
-Note globale
-Niveau 4
-11 points minimum
-Niveau 3
-8 points minimum
-Niveau 2
-5 points minimum
-Niveau 1
-0 point minimum
