@@ -4,13 +4,6 @@ Grille d'évaluation des laboratoires:
 
 | | | | | | |
 |-|-|-|-|-|-|
-| #️⃣ 2️⃣.***Utilisateurs***	| 🎉 Parfait `1` point | ✅ Present `0.5` point | 💥 Error `0.25` point | ❌ Non fait `0` point | ___Note critère___ |
-| 🗒️README.md | | | | | / 1 |
-| 1️⃣ utilisateurs1.ps1 | | | | | / 1 |
-| 2️⃣ utilisateurs2.ps1 | | | | | / 1 |
-| 3️⃣ utilisateurs3.ps1 | | | | | / 1 |
-| 4️⃣ utilisateurs4.ps1 | | | | | / 1 |
-| | | | | | |	
 | #️⃣ 3️⃣.***VM***		        | 🎉 Parfait `1` point | ✅ Present `0.5` point | 💥 Error `0.25` point | ❌ Non fait `0` point | ___Note critère___ |
 | 🗒️README.md | | | | | / 1 |
 | 🏁 Vérification | | | | | / 1 |
