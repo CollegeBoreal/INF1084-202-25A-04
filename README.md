@@ -5,7 +5,7 @@ INF1084 (202) - Introduction à l'administration des systèmes
 
 | :hash:  | Date   | Épreuves                                           |
 |-------- |--------|:---------------------------------------------------|
-| :one:   |04-dec  | Final                                              |
+| :one:   |09-dec  | Final                                              |
 
 ## 🧨 [Évaluations](.evaluations)
 
