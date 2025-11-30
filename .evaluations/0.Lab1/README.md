@@ -30,5 +30,5 @@ Grille d'évaluation des laboratoires:
 | 2️⃣ utilisateurs2.ps1 | | | | | / 1 |
 | 🏁 Vérification | | | | | / 1 |
 | | | | | | |	
-| Total  | | | | | / 25 |	
+| Total  | | | | | / 18 |	
 
