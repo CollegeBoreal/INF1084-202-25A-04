@@ -27,6 +27,7 @@ Grille d'évaluation du projet:
 | 🗒️README.md | | | | | / 1 |
 | 1️⃣ trusts1.ps1 | | | | | / 1 |
 | 2️⃣ trusts2.ps1 | | | | | / 1 |
+| 🏁 Vérification | | | | | / 1 |
 | | | | | | |	
 | #️⃣ 🔢.***Domaine***   |   |                     | ✅ Present `1` point | ❌ Non fait `0` point | ___Note critère___ |
 | 🌐 netbios | | | | | / 1 |
