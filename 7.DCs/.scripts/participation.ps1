@@ -59,6 +59,10 @@ foreach ($id in $GROUPES) {
        $URL4 = "$($DOMAINS[$i2])"
     }
 
+    # ---- REMPLACEMENT PAR :eyes: SI monboreal.ca ----
+    if ($URL3 -match "monboreal\.ca$") { $URL3 = ":eyes:" }
+    if ($URL4 -match "monboreal\.ca$") { $URL4 = ":eyes:" }
+
     $FILE = "$id/README.md"
     $FOLDER = "$id/images"
 
