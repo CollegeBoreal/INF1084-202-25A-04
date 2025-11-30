@@ -1,4 +1,4 @@
-# Participation au 30-11-2025 00:05
+# Participation au 30-11-2025 00:08
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -14,8 +14,8 @@
 
 ## :a: Présence
 
-|:hash:| Boréal :id:                | README.md    | images | Domaines |
-|------|----------------------------|--------------|--------|---------|
+|:hash:| Boréal :id:                | README.md    | images | :globe_with_meridians: Domaines |
+|------|----------------------------|--------------|--------|---------------------------------|
 | 0 | [300138205-300141429](../300138205-300141429/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/200685761?s=460&v=4' width=20 height=20></image>](https://github.com/taylor123marc) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/231347874?s=460&v=4' width=20 height=20></image>](https://github.com/barrynetwork) | :x: | :x: | :eyes: :link: :eyes: |
 | 1 | [300141368-300153747](../300141368-300153747/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/132600996?s=460&v=4' width=20 height=20></image>](https://github.com/daniella-diwa) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | :x: | :x: | :eyes: :link: :eyes: |
 | 2 | [300141570-300151233](../300141570-300151233/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/66260193?s=460&v=4' width=20 height=20></image>](https://github.com/swberk) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/223416913?s=460&v=4' width=20 height=20></image>](https://github.com/syphax25) | :x: | :x: | :eyes: :link: :eyes: |
