@@ -53,7 +53,7 @@ foreach ($id in $GROUPES) {
     # Domaines
     $URL3 = "$($DOMAINS[$i1])"
     if ($second -eq 300098957) {
-       $URL4 = "lab208@collegeboreal.ca"
+       $URL4 = "lab208.collegeboreal.ca"
     }
     else {
        $URL4 = "$($DOMAINS[$i2])"
