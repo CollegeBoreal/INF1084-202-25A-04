@@ -1,9 +1,8 @@
 #!/usr/bin/env pwsh
 # --------------------------------------
-# PowerShell equivalent of participation.sh
+# PowerShell equivalent of participation.sh (with domain column)
 # --------------------------------------
 
-# Import variables from another script (students.ps1)
 . ../.scripts/students.ps1
 
 # Header
@@ -25,19 +24,17 @@ Write-Output "| :x:                | Projet inexistant             |"
 Write-Output ""
 Write-Output "## :a: Présence"
 Write-Output ""
-Write-Output "|:hash:| Boréal :id:                | README.md    | images |"
-Write-Output "|------|----------------------------|--------------|--------|"
+Write-Output "|:hash:| Boréal :id:                | README.md    | images | :globe_with_meridians: Domaines |"
+Write-Output "|------|----------------------------|--------------|--------|---------------------------------|"
 
 # Initialize counters
 $i = 0
 $s = 0
 
-# Loop through student IDs
 foreach ($id in $GROUPES) {
 
     $first, $second = $id -split '-'
 
-    # Convert to int
     $first = [int]$first
     $second = [int]$second
 
@@ -53,13 +50,26 @@ foreach ($id in $GROUPES) {
        $URL2 = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i2])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i2]))"
     }
 
+    # Domaines
+    $URL3 = "$($DOMAINS[$i1])"
+    if ($second -eq 300098957) {
+       $URL4 = "lab208.collegeboreal.ca"
+    }
+    else {
+       $URL4 = "$($DOMAINS[$i2])"
+    }
+
+    # ---- REMPLACEMENT PAR :eyes: SI monboreal.ca ----
+    if ($URL3 -match "monboreal\.ca$") { $URL3 = ":eyes:" }
+    if ($URL4 -match "monboreal\.ca$") { $URL4 = ":eyes:" }
+
     $FILE = "$id/README.md"
     $FOLDER = "$id/images"
 
-    $OK = "| $i | [$id](../$FILE) :point_right: $URL1 :busts_in_silhouette: $URL2 | :heavy_check_mark: | :x: |"
-    $FULL_OK = "| $i | [$id](../$FILE) :point_right: $URL1 :busts_in_silhouette: $URL2 | :heavy_check_mark: | :heavy_check_mark: |"
-    $KO = "| $i | [$id](../$FILE) :point_right: $URL1 :busts_in_silhouette: $URL2 | :x: | :x: |"
-
+    $OK = "| $i | [$id](../$FILE) :point_right: $URL1 :busts_in_silhouette: $URL2 | :heavy_check_mark: | :x: | $URL3 :link: $URL4 |"
+    $FULL_OK = "| $i | [$id](../$FILE) :point_right: $URL1 :busts_in_silhouette: $URL2 | :heavy_check_mark: | :heavy_check_mark: | $URL3 :link: $URL4 |"
+    $KO = "| $i | [$id](../$FILE) :point_right: $URL1 :busts_in_silhouette: $URL2 | :x: | :x: | $URL3 :link: $URL4 |"
+    
     if (Test-Path $FILE) {
         $ACTUAL_NAME = Split-Path -Leaf (Resolve-Path $FILE)
         if ($ACTUAL_NAME -eq "README.md") {
