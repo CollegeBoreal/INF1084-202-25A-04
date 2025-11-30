@@ -24,8 +24,8 @@ Write-Output "| :x:                | Projet inexistant             |"
 Write-Output ""
 Write-Output "## :a: Présence"
 Write-Output ""
-Write-Output "|:hash:| Boréal :id:                | README.md    | images | Domaines |"
-Write-Output "|------|----------------------------|--------------|--------|---------|"
+Write-Output "|:hash:| Boréal :id:                | README.md    | images | :globe_with_meridians: Domaines |"
+Write-Output "|------|----------------------------|--------------|--------|---------------------------------|"
 
 # Initialize counters
 $i = 0
