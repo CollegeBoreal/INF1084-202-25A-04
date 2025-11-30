@@ -1,4 +1,4 @@
-# Participation au 22-11-2025 04:09
+# Participation au 25-11-2025 21:57
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -39,7 +39,7 @@
 | 18 | [300150417](../300150417/README.md) [<image src='https://avatars0.githubusercontent.com/u/212187666?s=460&v=4' width=20 height=20></image>](https://github.com/latifmuristaga) | 10.7.236.235 | :heavy_check_mark: | :heavy_check_mark: |
 | 19 | [300150485](../300150485/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994799?s=460&v=4' width=20 height=20></image>](https://github.com/nad1111) | 10.7.236.236 | :heavy_check_mark: | :heavy_check_mark: |
 | 20 | [300150527](../300150527/README.md) [<image src='https://avatars0.githubusercontent.com/u/212277460?s=460&v=4' width=20 height=20></image>](https://github.com/akrembouraoui) | 10.7.236.237 | :heavy_check_mark: | :heavy_check_mark: |
-| 21 | [300151042](../300151042/README.md) [<image src='https://avatars0.githubusercontent.com/u/62858035?s=460&v=4' width=20 height=20></image>](https://github.com/hichemhamdi10) | 10.7.236.238 | :x: |
+| 21 | [300151042](../300151042/README.md) [<image src='https://avatars0.githubusercontent.com/u/62858035?s=460&v=4' width=20 height=20></image>](https://github.com/hichemhamdi10) | 10.7.236.238 | :heavy_check_mark: | :heavy_check_mark: |
 | 22 | [300151233](../300151233/README.md) [<image src='https://avatars0.githubusercontent.com/u/223416913?s=460&v=4' width=20 height=20></image>](https://github.com/syphax25) | 10.7.236.239 | :x: |
 | 23 | [300151292](../300151292/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994792?s=460&v=4' width=20 height=20></image>](https://github.com/akahil521) | 10.7.236.240 | :heavy_check_mark: | :heavy_check_mark: |
 | 24 | [300151354](../300151354/README.md) [<image src='https://avatars0.githubusercontent.com/u/212047331?s=460&v=4' width=20 height=20></image>](https://github.com/massinissamakoudi) | 10.7.236.241 | :heavy_check_mark: | :heavy_check_mark: |
@@ -49,4 +49,4 @@
 | 28 | [300151841](../300151841/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | 10.7.236.245 | :heavy_check_mark: | :heavy_check_mark: |
 | 29 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | 10.7.236.246 | :x: |
 | 30 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | 10.7.236.247 | :heavy_check_mark: | :heavy_check_mark: |
-| :abacus: | \$\\frac{26}{31}$ = 83.87% | | \$\displaystyle\sum_{i=1}^{31} s_i$ = 26 |
+| :abacus: | \$\\frac{27}{31}$ = 87.1% | | \$\displaystyle\sum_{i=1}^{31} s_i$ = 27 |
