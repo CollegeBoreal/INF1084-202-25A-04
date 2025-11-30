@@ -1,4 +1,4 @@
-# Lab 1
+# Projet
 
 Grille d'évaluation du projet:
 
@@ -23,5 +23,13 @@ Grille d'évaluation du projet:
 | 3️⃣ utilisateurs3.ps1 | | | | | / 1 |
 | 4️⃣ utilisateurs4.ps1 | | | | | / 1 |
 | | | | | | |	
-| Total  | | | | | / 25 |	
+| #️⃣ 7️⃣.***DCs***	| 🎉 Parfait `1` point | ✅ Present `0.5` point | 💥 Error `0.25` point | ❌ Non fait `0` point | ___Note critère___ |
+| 🗒️README.md | | | | | / 1 |
+| 1️⃣ trusts1.ps1 | | | | | / 1 |
+| 2️⃣ trusts2.ps1 | | | | | / 1 |
+| | | | | | |	
+| #️⃣ 🔢.***Domaine***   |   |                     | ✅ Present `1` point | ❌ Non fait `0` point | ___Note critère___ |
+| 🌐 netbios | | | | | / 1 |
+| | | | | | |	
+| Total  | | | | | / 12 |	
 
