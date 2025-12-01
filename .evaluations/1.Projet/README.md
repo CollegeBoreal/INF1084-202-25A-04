@@ -23,13 +23,13 @@ Grille d'évaluation du projet:
 | 3️⃣ utilisateurs3.ps1 | | | | | / 1 |
 | 4️⃣ utilisateurs4.ps1 | | | | | / 1 |
 | | | | | | |	
-| #️⃣ 7️⃣.***DCs***	| 🎉 Parfait `1` point | ✅ Present `0.5` point | 💥 Error `0.25` point | ❌ Non fait `0` point | ___Note critère___ |
+| #️⃣ 7️⃣.***DCs***	| 🎉 Parfait `2.25` point | ✅ Present `1.5` point | 💥 Error `1` point | ❌ Non fait `0` point | ___Note critère___ |
 | 🗒️README.md | | | | | / 2.25 |
 | 1️⃣ trusts1.ps1 | | | | | / 2.25 |
 | 2️⃣ trusts2.ps1 | | | | | / 2.25 |
 | 🏁 Vérification | | | | | / 2.25 |
 | | | | | | |	
-| #️⃣ 🔢.***Domaine***   |                | ✅ Present `1` point | 💥 Tente `0.75` point | ❌ Non fait `0` point | ___Note critère___ |
+| #️⃣ 🔢.***Domaine***   |                | ✅ Present `1.5` point | 💥 Tente `0.75` point | ❌ Non fait `0` point | ___Note critère___ |
 | 🌐 netbios | | | | | / 1.5 |
 | | | | | | |	
 | Total  | | | | | / 18 |	
