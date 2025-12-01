@@ -1,5 +1,12 @@
 # Lab 1
 
+| Signe   | Signification             |
+|:------- |:--------------------------|
+| 🎉      | Présent                        |
+| ✅      | Fichier/Script Présent      |
+| 💥      | Fichier/Script Présent ou Tentative de présence générant une erreur |
+| ❌      | Non fait                       |
+
 Grille d'évaluation des laboratoires:
 
 | | | | | | |
