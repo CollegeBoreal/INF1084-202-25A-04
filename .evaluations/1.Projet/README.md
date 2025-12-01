@@ -12,9 +12,9 @@ Grille d'évaluation du projet:
 | 1️⃣ 🗒️README.md | | | | | / 0.25 |
 | 2️⃣ 📂 images   | | | | | / 0.25 |
 | | | | | | |	
-| #️⃣ 1️⃣.***SSH***                |  |                        | ✅ Present `0.25` point | ❌ Non fait `0` point | ___Note critère___ |
-| 1️⃣ 🗒️README.md | | | | | / 0.25 |
-| 2️⃣ 📂 images   | | | | | / 0.25 |
+| #️⃣ 1️⃣.***SSH***                |  |                        | ✅ Present `0.5` point | ❌ Non fait `0` point | ___Note critère___ |
+| 1️⃣ 🗒️README.md | | | | | / 0.5 |
+| 2️⃣ 📂 images   | | | | | / 0.5 |
 | | | | | | |	
 | #️⃣ 2️⃣.***Utilisateurs***	| 🎉 Parfait `1` point | ✅ Present `0.5` point | 💥 Error `0.25` point | ❌ Non fait `0` point | ___Note critère___ |
 | 🗒️README.md | | | | | / 1 |
@@ -24,13 +24,13 @@ Grille d'évaluation du projet:
 | 4️⃣ utilisateurs4.ps1 | | | | | / 1 |
 | | | | | | |	
 | #️⃣ 7️⃣.***DCs***	| 🎉 Parfait `1` point | ✅ Present `0.5` point | 💥 Error `0.25` point | ❌ Non fait `0` point | ___Note critère___ |
-| 🗒️README.md | | | | | / 1 |
-| 1️⃣ trusts1.ps1 | | | | | / 1 |
-| 2️⃣ trusts2.ps1 | | | | | / 1 |
-| 🏁 Vérification | | | | | / 1 |
+| 🗒️README.md | | | | | / 2.25 |
+| 1️⃣ trusts1.ps1 | | | | | / 2.25 |
+| 2️⃣ trusts2.ps1 | | | | | / 2.25 |
+| 🏁 Vérification | | | | | / 2.25 |
 | | | | | | |	
 | #️⃣ 🔢.***Domaine***   |                | ✅ Present `1` point | 💥 Tente `0.75` point | ❌ Non fait `0` point | ___Note critère___ |
-| 🌐 netbios | | | | | / 1 |
+| 🌐 netbios | | | | | / 1.5 |
 | | | | | | |	
-| Total  | | | | | / 12 |	
+| Total  | | | | | / 18 |	
 
