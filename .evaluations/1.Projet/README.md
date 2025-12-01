@@ -29,7 +29,7 @@ Grille d'évaluation du projet:
 | 2️⃣ trusts2.ps1 | | | | | / 1 |
 | 🏁 Vérification | | | | | / 1 |
 | | | | | | |	
-| #️⃣ 🔢.***Domaine***   |   |                     | ✅ Present `1` point | ❌ Non fait `0` point | ___Note critère___ |
+| #️⃣ 🔢.***Domaine***   |                | ✅ Present `1` point | 💥 Tentative `0.75` point | ❌ Non fait `0` point | ___Note critère___ |
 | 🌐 netbios | | | | | / 1 |
 | | | | | | |	
 | Total  | | | | | / 12 |	
