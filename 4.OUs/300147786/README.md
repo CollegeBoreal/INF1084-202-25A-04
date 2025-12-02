@@ -13,8 +13,9 @@ Vérifier le domaine et les contrôleurs de domaine
 Get-ADDomain -Server $domainName
 Get-ADDomainController -Filter * -Server $domainName
 
+<img width="845" height="486" alt="1" src="https://github.com/user-attachments/assets/4e746c17-17a5-429d-896b-f4c9243392bc" />
 
-<img width="845" height="486" alt="1" src="https://github.com/user-attachments/assets/598dcec7-61c6-4a37-832c-8f03bdb12e14" />
+
 
 
 2️⃣ Liste des utilisateurs du domaine
@@ -136,6 +137,7 @@ Get-ADUser -Identity "alice.dupont" | Select-Object Name, DistinguishedName
 <img width="842" height="129" alt="10 1" src="https://github.com/user-attachments/assets/af0a3e34-6b32-47f0-ae77-51109f2a9b96" />
 
 <img width="722" height="302" alt="10" src="https://github.com/user-attachments/assets/e387f1b6-b914-4f27-9a7b-43b84137a338" />
+
 
 
 
