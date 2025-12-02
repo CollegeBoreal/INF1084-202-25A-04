@@ -1,4 +1,4 @@
-# Participation au 02-12-2025 23:02
+# Participation au 02-12-2025 23:08
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -20,7 +20,7 @@
 
 |:hash:| Boréal :id:                | 🗒️ | 🖼️📂 | :globe_with_meridians: Domaines | T :one: | T :two: |
 |------|----------------------------|----|------|---------------------------------|-------------|-------------|
-| 0 | [300138205-300141429](../300138205-300141429/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/200685761?s=460&v=4' width=20 height=20></image>](https://github.com/taylor123marc) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/231347874?s=460&v=4' width=20 height=20></image>](https://github.com/barrynetwork) | :x: | :x: | :eyes: :link: :eyes: | :x: | :x: |
+| 0 | [300138205-300141429](../300138205-300141429/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/200685761?s=460&v=4' width=20 height=20></image>](https://github.com/taylor123marc) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/231347874?s=460&v=4' width=20 height=20></image>](https://github.com/barrynetwork) | :heavy_check_mark: | :heavy_check_mark: | :eyes: :link: :eyes: | :x: | :x: |
 | 1 | [300141368-300153747](../300141368-300153747/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/132600996?s=460&v=4' width=20 height=20></image>](https://github.com/daniella-diwa) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | :heavy_check_mark: | :heavy_check_mark: | :eyes: :link: :eyes: | :x: | :x: |
 | 2 | [300141570-300151233](../300141570-300151233/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/66260193?s=460&v=4' width=20 height=20></image>](https://github.com/swberk) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/223416913?s=460&v=4' width=20 height=20></image>](https://github.com/syphax25) | :x: | :x: | :eyes: :link: :eyes: | :x: | :x: |
 | 3 | [300145940-300150303](../300145940-300150303/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/234069235?s=460&v=4' width=20 height=20></image>](https://github.com/TasnimMarzouki) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/211592293?s=460&v=4' width=20 height=20></image>](https://github.com/jessmaud) | :x: | :x: | :eyes: :link: :eyes: | :x: | :x: |
@@ -36,4 +36,4 @@
 | 13 | [300151042-300151608](../300151042-300151608/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/62858035?s=460&v=4' width=20 height=20></image>](https://github.com/hichemhamdi10) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/205994734?s=460&v=4' width=20 height=20></image>](https://github.com/mohammedaiche434) | :x: | :x: | :eyes: :link: :eyes: | :x: | :x: |
 | 14 | [300151354-300152410](../300151354-300152410/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/212047331?s=460&v=4' width=20 height=20></image>](https://github.com/massinissamakoudi) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | :x: | :x: | :eyes: :link: :eyes: | :x: | :x: |
 | 15 | [300151841-300150385](../300151841-300150385/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) :busts_in_silhouette: [<image src='https://avatars0.githubusercontent.com/u/205994785?s=460&v=4' width=20 height=20></image>](https://github.com/belka1996) | :x: | :x: | :eyes: :link: :eyes: | :x: | :x: |
-| :abacus: | \$\\frac{7}{16}\$ = 43.75% | | | \$\displaystyle\sum_{i=1}^{16} s_i\$ = 7 |
+| :abacus: | \$\\frac{8}{16}\$ = 50% | | | \$\displaystyle\sum_{i=1}^{16} s_i\$ = 8 |
