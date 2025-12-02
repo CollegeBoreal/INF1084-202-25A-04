@@ -1,24 +1,25 @@
 # utilisateurs2.ps1
-# Exercice 2 : 
+# Création de groupes simulés
 
-# Liste des utilisateurs simulés
+# Recréer la liste des utilisateurs (comme dans utilisateurs1.ps1)
 $Users = @(
-    @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
-    @{Nom="Moulin"; Prenom="Jean"; Login="jmoulin"; OU="Stagiaires"},
-    @{Nom="Martin"; Prenom="Paul"; Login="pmartin"; OU="Informatique"}
+    @{Nom="Dupont";  Prenom="Alice";   Login="adupont";  OU="Stagiaires"},
+    @{Nom="Lemoine"; Prenom="Sarah";   Login="slemoine"; OU="Stagiaires"},
+    @{Nom="Benali";  Prenom="Karim";   Login="kbenali";  OU="Stagiaires"},
+    @{Nom="Bouraoui"; Prenom="Akrem";  Login="abouraoui"; OU="Stagiaires"},
+    @{Nom="Junior";   Prenom="Neymar"; Login="njunior";   OU="Stagiaires"}
 )
 
-# Création des groupes
+# Créer les groupes
 $Groups = @{
     "GroupeFormation" = @()
-    "ProfesseursAD" = @()
+    "ProfesseursAD"   = @()
 }
 
-# Ajouter tous les utilisateurs avec OU = Stagiaires dans GroupeFormation
+# Ajouter tous les utilisateurs dont l'OU = "Stagiaires"
 $Groups["GroupeFormation"] += $Users | Where-Object { $_.OU -eq "Stagiaires" }
 
-# Afficher les utilisateurs du groupe
-"Utilisateurs dans GroupeFormation :"
-$Groups["GroupeFormation"] | ForEach-Object { "$($_.Prenom) $($_.Nom)" }
+# Afficher le contenu du groupe
+$Groups["GroupeFormation"] | ForEach-Object {
+    "$($_.Prenom) $($_.Nom) - Login: $($_.Login)"
+}
