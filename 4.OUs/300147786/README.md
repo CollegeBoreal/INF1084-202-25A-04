@@ -89,7 +89,7 @@ Select-Object SamAccountName, Enabled
 Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
 
 
-Vérification :
+Vérification : Alice Dupont ne fais pas partie de la liste d'utilisateurs.
 
 Get-ADUser -Identity "alice.dupont"
 
@@ -138,6 +138,7 @@ Get-ADUser -Identity "alice.dupont" | Select-Object Name, DistinguishedName
 <img width="842" height="129" alt="10 1" src="https://github.com/user-attachments/assets/af0a3e34-6b32-47f0-ae77-51109f2a9b96" />
 
 <img width="722" height="302" alt="10" src="https://github.com/user-attachments/assets/e387f1b6-b914-4f27-9a7b-43b84137a338" />
+
 
 
 
