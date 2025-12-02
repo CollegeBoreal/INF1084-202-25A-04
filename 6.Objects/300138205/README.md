@@ -120,3 +120,5 @@ PS C:\Users\Administrator\Developer\INF1084-202-25A-04\6.Objects\300138205>
 ```
 
 </details>
+
+<img src="images/1.jpg" alt="Girl in a jacket" width="500" height="600">
