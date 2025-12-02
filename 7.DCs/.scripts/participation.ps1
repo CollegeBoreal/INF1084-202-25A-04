@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
 # --------------------------------------
-# PowerShell equivalent of participation.sh (with domain column)
+# PowerShell equivalent of participation.sh (with domain + trusts check)
 # --------------------------------------
 
 . ../.scripts/students.ps1
@@ -19,13 +19,17 @@ Write-Output "## Légende"
 Write-Output ""
 Write-Output "| Signe              | Signification                 |"
 Write-Output "|--------------------|-------------------------------|"
+Write-Output "| 🗒️                 | ***README.md***               |"
+Write-Output "| 🖼️📂               | ***images***                  |"
+Write-Output "| T :one:            | ***trusts1.ps1***             |"
+Write-Output "| T :two:            | ***trusts2.ps1***             |"
 Write-Output "| :heavy_check_mark: | Prêt à être corrigé           |"
 Write-Output "| :x:                | Projet inexistant             |"
 Write-Output ""
 Write-Output "## :a: Présence"
 Write-Output ""
-Write-Output "|:hash:| Boréal :id:                | README.md    | images | :globe_with_meridians: Domaines |"
-Write-Output "|------|----------------------------|--------------|--------|---------------------------------|"
+Write-Output "|:hash:| Boréal :id:                | 🗒️ | 🖼️📂 | :globe_with_meridians: Domaines | T :one: | T :two: |"
+Write-Output "|------|----------------------------|----|------|---------------------------------|-------------|-------------|"
 
 # Initialize counters
 $i = 0
@@ -51,25 +55,32 @@ foreach ($id in $GROUPES) {
     }
 
     # Domaines
-    $URL3 = "$($DOMAINS[$i1])"
+    $URL3 = "netbios.$($DOMAINS[$i1])"
     if ($second -eq 300098957) {
        $URL4 = "lab208.collegeboreal.ca"
     }
     else {
-       $URL4 = "$($DOMAINS[$i2])"
+       $URL4 = "netbios.$($DOMAINS[$i2])"
     }
 
-    # ---- REMPLACEMENT PAR :eyes: SI monboreal.ca ----
+    # REMPLACEMENT PAR :eyes: SI monboreal.ca
     if ($URL3 -match "monboreal\.ca$") { $URL3 = ":eyes:" }
     if ($URL4 -match "monboreal\.ca$") { $URL4 = ":eyes:" }
+
+    # Vérification trusts scripts
+    $TRUSTS1_FILE = "$id/trusts1.ps1"
+    $TRUSTS2_FILE = "$id/trusts2.ps1"
+
+    $TRUSTS1_STATUS = if (Test-Path $TRUSTS1_FILE) { ":heavy_check_mark:" } else { ":x:" }
+    $TRUSTS2_STATUS = if (Test-Path $TRUSTS2_FILE) { ":heavy_check_mark:" } else { ":x:" }
 
     $FILE = "$id/README.md"
     $FOLDER = "$id/images"
 
-    $OK = "| $i | [$id](../$FILE) :point_right: $URL1 :busts_in_silhouette: $URL2 | :heavy_check_mark: | :x: | $URL3 :link: $URL4 |"
-    $FULL_OK = "| $i | [$id](../$FILE) :point_right: $URL1 :busts_in_silhouette: $URL2 | :heavy_check_mark: | :heavy_check_mark: | $URL3 :link: $URL4 |"
-    $KO = "| $i | [$id](../$FILE) :point_right: $URL1 :busts_in_silhouette: $URL2 | :x: | :x: | $URL3 :link: $URL4 |"
-    
+    $OK = "| $i | [$id](../$FILE) :point_right: $URL1 :busts_in_silhouette: $URL2 | :heavy_check_mark: | :x: | $URL3 :link: $URL4 | $TRUSTS1_STATUS | $TRUSTS2_STATUS |"
+    $FULL_OK = "| $i | [$id](../$FILE) :point_right: $URL1 :busts_in_silhouette: $URL2 | :heavy_check_mark: | :heavy_check_mark: | $URL3 :link: $URL4 | $TRUSTS1_STATUS | $TRUSTS2_STATUS |"
+    $KO = "| $i | [$id](../$FILE) :point_right: $URL1 :busts_in_silhouette: $URL2 | :x: | :x: | $URL3 :link: $URL4 | $TRUSTS1_STATUS | $TRUSTS2_STATUS |"
+
     if (Test-Path $FILE) {
         $ACTUAL_NAME = Split-Path -Leaf (Resolve-Path $FILE)
         if ($ACTUAL_NAME -eq "README.md") {
@@ -100,5 +111,5 @@ foreach ($id in $GROUPES) {
     $SUM = "\$\displaystyle\sum_{i=1}^{$i} s_i\$"
 }
 
-Write-Output "| :abacus: | $COUNT = $STATS% | $SUM = $s |"
+Write-Output "| :abacus: | $COUNT = $STATS% | | | $SUM = $s |"
 
