@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Participation au 02-12-2025 23:08
-=======
-# Participation au 02-12-2025 23:49
->>>>>>> f126ac4093eb1cff88df1c65652fad65939eb0d4
+# Participation au 02-12-2025 23:57
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
