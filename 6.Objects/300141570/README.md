@@ -1,3 +1,5 @@
+<img width="1915" height="1078" alt="2" src="https://github.com/user-attachments/assets/8804caf1-a8fb-49b5-83e5-96388625c4c1" />
+<img width="1918" height="1078" alt="1" src="https://github.com/user-attachments/assets/1b4f40d2-121f-4c2a-a968-51f8932a110a" />
 # TP 6.Objects – Objets AD, partage et RDP  
 Étudiant : **300141570**
 
@@ -35,5 +37,3 @@ Dans une console PowerShell **en administrateur**, se placer dans le dossier du 
 
 ```powershell
 cd C:\Users\Administrator\INF1084-202-25A-04\6.Objects\300141570
-<img width="1915" height="1078" alt="2" src="https://github.com/user-attachments/assets/8804caf1-a8fb-49b5-83e5-96388625c4c1" />
-<img width="1918" height="1078" alt="1" src="https://github.com/user-attachments/assets/1b4f40d2-121f-4c2a-a968-51f8932a110a" />
