@@ -88,7 +88,7 @@ net localgroup "Remote Desktop Users" /add "dc300150295\RDPStudents"
 ##  **6. Tests réalisés**
 <img width="960" height="540" alt="image" src="https://github.com/user-attachments/assets/fa501d88-cf10-49fb-8b8d-bb176ddbf212" />
 
-
+vous pouvez tester la connectivité maintenant.
 ###  Membre du groupe **RDPStudents**
 - RDP : **OK**  
 - Lecteur réseau Z : **mappé automatiquement**  
