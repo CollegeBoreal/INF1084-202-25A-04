@@ -337,3 +337,11 @@ Get-ADUser -Filter * -Properties * | Export-Csv "tous_les_utilisateurs.csv" -NoT
 ## 📄 Licence
 
 Ce projet est destiné à des fins éducatives dans le cadre du cours INF1084.
+
+capture d`ecran :
+![wait](https://github.com/user-attachments/assets/011e0e5c-0800-4b98-9b08-bc0744bdfe5b)
+
+
+
+
+
