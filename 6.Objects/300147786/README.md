@@ -33,8 +33,6 @@ foreach ($user in $Users) {
 New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess $GroupName
 ```
 
-<img width="871" height="291" alt="étape1" src="https://github.com/user-attachments/assets/1f94986b-956f-4c2b-b4bf-0a8421d7553a" />
-
 
 
 
@@ -101,5 +99,6 @@ Connectez-vous avec un des utilisateurs du groupe **Students**.
 * ✔️ L’utilisateur peut se connecter en **RDP**
 
 ---
+
 
 

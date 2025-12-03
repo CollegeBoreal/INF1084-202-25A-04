@@ -1,4 +1,14 @@
-# ETAPE 3 : Créer un nouvel utilisateur
+# ============================
+# VARIABLES DU DOMAINE
+# ============================
+$domainName = "DC300153747-00.local"
+$netbiosName = "DC300153747-00"
+
+
+# ============================
+# ÉTAPE 3 : CRÉER UN NOUVEL UTILISATEUR
+# ============================
+
 New-ADUser -Name "Alice Dupont" `
            -GivenName "Alice" `
            -Surname "Dupont" `
@@ -9,8 +19,17 @@ New-ADUser -Name "Alice Dupont" `
            -Path "CN=Users,DC=$netbiosName,DC=local" `
            -Server $domainName
 
-# ETAPE 4 : Modifier un utilisateur
+Write-Host "Utilisateur 'Alice Dupont' créé avec succès."
+
+# ============================
+# ÉTAPE 4 : MODIFIER L'UTILISATEUR
+# ============================
+
 Set-ADUser -Identity "alice.dupont" `
            -Server $domainName `
            -EmailAddress "alice.dupont@exemple.com" `
+           -GivenName "Alice-Marie"
+
+Write-Host "Utilisateur 'alice.dupont' modifié avec succès."
+
            -GivenName "Alice-Marie"

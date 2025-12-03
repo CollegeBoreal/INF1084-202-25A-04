@@ -1,14 +1,14 @@
 ############################################################
 # Script : utilisateurs2.ps1
 # Objectif : Créer la GPO MapSharedFolder + script logon + map Z:
-############################################################
+
 
 Import-Module GroupPolicy
 
 # 1️⃣ Variables
 $GPOName = "MapSharedFolder"
-$netbiosName = "DC300141429"   # <<< ADAPTE ICI
-$OU = "OU=Students,DC=300141429,DC=local"
+$netbiosName = "DC300152410"   
+$OU = "OU=Students,DC=152410152,DC=local"
 
 # 2️⃣ Créer la GPO
 New-GPO -Name $GPOName -ErrorAction SilentlyContinue
@@ -39,9 +39,8 @@ Set-GPRegistryValue -Name $GPOName `
 
 Write-Host "📜 GPO + mapping du lecteur réseau configurés."
 
-############################################################
+
 # BONUS : Activer RDP pour les membres du groupe Students
-############################################################
 
 # Autoriser RDP
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0
