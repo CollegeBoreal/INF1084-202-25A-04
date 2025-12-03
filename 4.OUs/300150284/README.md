@@ -341,7 +341,8 @@ Ce projet est destiné à des fins éducatives dans le cadre du cours INF1084.
 capture d`ecran :
 ![wait](https://github.com/user-attachments/assets/011e0e5c-0800-4b98-9b08-bc0744bdfe5b)
 ![wait](https://github.com/user-attachments/assets/30e002aa-6d6a-4081-8a1e-acd6541ddd99)
-![wait](github.com/user-attachments/assets/a6112627-0821-47f6-945c-d849b0d4c911)
+![wait](https://github.com/user-attachments/assets/96c9ae49-1502-400d-8816-7fcd63a36bb6)
+
 
 
 
