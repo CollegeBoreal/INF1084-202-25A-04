@@ -343,6 +343,8 @@ capture d`ecran :
 ![wait](https://github.com/user-attachments/assets/30e002aa-6d6a-4081-8a1e-acd6541ddd99)
 ![wait](https://github.com/user-attachments/assets/96c9ae49-1502-400d-8816-7fcd63a36bb6)
 ![wait](https://github.com/user-attachments/assets/5a19ab18-ce7b-4b42-9c4c-1d782609f989)
+![wait](https://github.com/user-attachments/assets/a2f00bf6-eaff-48ef-be63-bacdb2d7c089)
+
 
 
 
