@@ -1,25 +1,30 @@
-# utilisateurs2.ps1
-$bootstrapPath = Join-Path $PSScriptRoot '..\..\4.OUs\300141570\bootstrap.ps1'
+$netbiosName = "DC999999999-00"
+$GPOName = "MapSharedFolder"
 
-if (-not (Test-Path $bootstrapPath)) {
-    Write-Error "Bootstrap introuvable à l'emplacement : $bootstrapPath"
-    exit 1
+if (-not (Get-GPO -Name $GPOName -ErrorAction SilentlyContinue)) {
+    New-GPO -Name $GPOName | Out-Null
 }
 
-. $bootstrapPath
+$OU = "OU=Students,DC=DC999999999-00,DC=local"
+New-GPLink -Name $GPOName -Target $OU -Enforced $true | Out-Null
 
-Import-Module ActiveDirectory
-Import-Module GroupPolicy
+$DriveLetter = "Z:"
+$SharePath = "\\$netbiosName\SharedResources"
 
-$SharedFolder = "C:\SharedResources"
-$groupName = "Students"
+$ScriptFolder = "C:\Scripts"
+if (-not (Test-Path $ScriptFolder)) { New-Item -ItemType Directory -Path $ScriptFolder | Out-Null }
 
-if (-not (Test-Path $SharedFolder)) { New-Item -Path $SharedFolder -ItemType Directory | Out-Null }
+$ScriptPath = "$ScriptFolder\MapDrive-Z.bat"
+$scriptContent = "net use Z: $SharePath /persistent:no"
+Set-Content -Path $ScriptPath -Value $scriptContent
 
-if (-not (Get-SmbShare -Name "SharedResources" -ErrorAction SilentlyContinue)) {
-    New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess $groupName
-}
+$GPO = Get-GPO -Name $GPOName
+$GPOID = $GPO.Id
+$SysVolPath = "\\$netbiosName\SYSVOL\DC999999999-00.local\Policies\{$GPOID}\User\Scripts\Logon"
 
-# Activer RDP
-Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0
-Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+if (-not (Test-Path $SysVolPath)) { New-Item -ItemType Directory -Path $SysVolPath -Force | Out-Null }
+
+Copy-Item $ScriptPath -Destination $SysVolPath -Force
+
+$ScriptName = Split-Path $ScriptPath -Leaf
+Set-GPRegistryValue -Name $GPOName -Key "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" -ValueName "MapDriveZ" -Type String -Value $ScriptPath
