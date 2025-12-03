@@ -1,4 +1,4 @@
-# Participation au 03-12-2025 00:19
+# Participation au 03-12-2025 00:39
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -40,7 +40,7 @@
 | 21 | [300151042](../300151042) [<image src='https://avatars0.githubusercontent.com/u/62858035?s=460&v=4' width=20 height=20></image>](https://github.com/hichemhamdi10) | [:heavy_check_mark:](../300151042/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 22 | [300151233](../300151233) [<image src='https://avatars0.githubusercontent.com/u/223416913?s=460&v=4' width=20 height=20></image>](https://github.com/syphax25) | [:heavy_check_mark:](../300151233/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 23 | [300151292](../300151292) [<image src='https://avatars0.githubusercontent.com/u/205994792?s=460&v=4' width=20 height=20></image>](https://github.com/akahil521) | [:heavy_check_mark:](../300151292/README.md) | :heavy_check_mark: | :heavy_check_mark: 
-| 24 | [300151354](../300151354) [<image src='https://avatars0.githubusercontent.com/u/212047331?s=460&v=4' width=20 height=20></image>](https://github.com/massinissamakoudi) | [:heavy_check_mark:](../300151354/README.md) | :x: | :x: 
+| 24 | [300151354](../300151354) [<image src='https://avatars0.githubusercontent.com/u/212047331?s=460&v=4' width=20 height=20></image>](https://github.com/massinissamakoudi) | [:heavy_check_mark:](../300151354/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 25 | [300151492](../300151492) [<image src='https://avatars0.githubusercontent.com/u/206000307?s=460&v=4' width=20 height=20></image>](https://github.com/hacen19) | [:heavy_check_mark:](../300151492/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 26 | [300151608](../300151608) [<image src='https://avatars0.githubusercontent.com/u/205994734?s=460&v=4' width=20 height=20></image>](https://github.com/mohammedaiche434) | [:heavy_check_mark:](../300151608/README.md) | :heavy_check_mark: | :heavy_check_mark: 
 | 27 | [300151833](../300151833) [<image src='https://avatars0.githubusercontent.com/u/109877652?s=460&v=4' width=20 height=20></image>](https://github.com/raoufbrs15) | [:heavy_check_mark:](../300151833/README.md) | :heavy_check_mark: | :heavy_check_mark: 
