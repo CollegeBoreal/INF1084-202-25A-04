@@ -1,4 +1,4 @@
-# Participation au 25-11-2025 23:03
+# Participation au 26-11-2025 01:13
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -47,6 +47,6 @@
 | 26 | [300151608](../300151608/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994734?s=460&v=4' width=20 height=20></image>](https://github.com/mohammedaiche434) | 10.7.236.243 | :heavy_check_mark: | :heavy_check_mark: |
 | 27 | [300151833](../300151833/README.md) [<image src='https://avatars0.githubusercontent.com/u/109877652?s=460&v=4' width=20 height=20></image>](https://github.com/raoufbrs15) | 10.7.236.244 | :heavy_check_mark: | :heavy_check_mark: |
 | 28 | [300151841](../300151841/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994823?s=460&v=4' width=20 height=20></image>](https://github.com/massi9313) | 10.7.236.245 | :heavy_check_mark: | :heavy_check_mark: |
-| 29 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | 10.7.236.246 | :x: |
+| 29 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | 10.7.236.246 | :heavy_check_mark: | :heavy_check_mark: |
 | 30 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | 10.7.236.247 | :heavy_check_mark: | :heavy_check_mark: |
-| :abacus: | \$\\frac{28}{31}$ = 90.32% | | \$\displaystyle\sum_{i=1}^{31} s_i$ = 28 |
+| :abacus: | \$\\frac{29}{31}$ = 93.55% | | \$\displaystyle\sum_{i=1}^{31} s_i$ = 29 |
