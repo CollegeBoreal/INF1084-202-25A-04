@@ -27,6 +27,12 @@ Ce README résume les étapes principales et inclut des captures d’écran réa
 
 Après connexion au serveur, le rôle AD DS a été installé via Server Manager.
 
+<img width="656" height="106" alt="1" src="https://github.com/user-attachments/assets/c3a5abd7-32e7-4514-ad9b-6d3f7642b70b" />
+
+
+---------------------------
+
+
 <img width="1366" height="713" alt="ADDS" src="https://github.com/user-attachments/assets/963a6815-7922-4428-8949-d0767a16c6cc" />
 
 
