@@ -2,6 +2,7 @@
 # Importer le module Active Directory
 Import-Module ActiveDirectory
 
+. .\bootstrap.ps1
 # Vérifier le domaine et les contrôleurs de domaine
 Get-ADDomain -Server $domainName
 Get-ADDomainController -Filter * -Server $domainName

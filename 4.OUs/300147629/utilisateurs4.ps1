@@ -1,6 +1,7 @@
 
 # export_deplacement.ps1 – Export et déplacement vers OU Students
-
+Import-Module ActiveDirectory
+. .\bootstrap.ps1
 # Exporter tous les utilisateurs dans un CSV
 Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, EmailAddress, Enabled |
 Where-Object { $_.SamAccountName -notin @("Administrator","Guest","krbtgt") } |
