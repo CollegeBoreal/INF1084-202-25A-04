@@ -39,6 +39,17 @@ trusts.ps1
 
 </details>
 
+### **b. Vérifieons la connectivité au contrôleur de domaine DC300141429**
+
+```powershell
+Test-Connection -ComputerName DC300141429.local -Count 2
+```
+
+
+
+---
+
+
 
 
 
