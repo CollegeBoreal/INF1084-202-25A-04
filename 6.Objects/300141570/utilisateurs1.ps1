@@ -1,48 +1,30 @@
-# utilisateurs1.ps1
-$bootstrapPath = Join-Path $PSScriptRoot '..\..\4.OUs\300141570\bootstrap.ps1'
+#300141570 Haroune Berkani
+$SharedFolder = "C:\SharedResources"
 
-if (-not (Test-Path $bootstrapPath)) {
-    Write-Error "Bootstrap introuvable à l'emplacement : $bootstrapPath"
-    exit 1
+
+if (-not (Test-Path $SharedFolder)) {
+    New-Item -Path $SharedFolder -ItemType Directory
 }
 
-. $bootstrapPath
+$GroupName = "Students"
 
-Import-Module ActiveDirectory -ErrorAction Stop
 
-$domain = Get-ADDomain -Server $domainName
-$domainDN = $domain.DistinguishedName
-
-$ouDN = "OU=Students,$domainDN"
-$groupName = "Students"
-
-# CREATION OU
-if (-not (Get-ADOrganizationalUnit -LDAPFilter "(ou=Students)" -SearchBase $domainDN -ErrorAction SilentlyContinue)) {
-    New-ADOrganizationalUnit -Name "Students" -Path $domainDN -ProtectedFromAccidentalDeletion $false
+if (-not (Get-ADGroup -Filter "Name -eq '$GroupName'")) {
+    New-ADGroup -Name $GroupName -GroupScope Global -Description "Users allowed RDP and shared folder access"
 }
 
-# CREATION GROUPE
-if (-not (Get-ADGroup -Filter "Name -eq 'Students'")) {
-    New-ADGroup -Name "Students" -GroupScope Global -GroupCategory Security -Path $ouDN
-}
 
-# CREATATION UTILISATEURS
-$password = ConvertTo-SecureString "Infra@2024" -AsPlainText -Force
-
-$users = @(
-    @{ Sam = "Etudiant1"; Prenom = "Etudiant"; Nom = "Un" }
-    @{ Sam = "Etudiant2"; Prenom = "Etudiant"; Nom = "Deux" }
-)
-
-foreach ($u in $users) {
-    if (-not (Get-ADUser -Filter "SamAccountName -eq '$($u.Sam)'")) {
-        New-ADUser -Name "$($u.Prenom) $($u.Nom)" `
-                   -SamAccountName $u.Sam `
-                   -GivenName $u.Prenom `
-                   -Surname $u.Nom `
-                   -AccountPassword $password `
-                   -Enabled $true `
-                   -Path $ouDN
-        Add-ADGroupMember -Identity $groupName -Members $u.Sam
+$Users = @("Etudiant1","Etudiant2")
+foreach ($user in $Users) {
+    if (-not (Get-ADUser -Filter "SamAccountName -eq '$user'")) {
+        New-ADUser -Name $user `
+                   -SamAccountName $user `
+                   -AccountPassword (ConvertTo-SecureString "Pass123!" -AsPlainText -Force) `
+                   -Enabled $true
+        Add-ADGroupMember -Identity $GroupName -Members $user
     }
+}
+
+if (-not (Get-SmbShare -Name "SharedResources" -ErrorAction SilentlyContinue)) {
+    New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess $GroupName
 }
