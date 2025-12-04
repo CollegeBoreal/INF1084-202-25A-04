@@ -1,18 +1,12 @@
-$studentNumber   = 300141570
-$studentInstance = 0
+Import-Module ActiveDirectory -ErrorAction Stop
 
-$domainName  = "DC$studentNumber-$studentInstance.local"
-$netbiosName = "DC$studentNumber-$studentInstance"
+$domain      = Get-ADDomain
+$domainName  = $domain.DNSRoot
+$netbiosName = $domain.NetBIOSName
 
 $plain  = 'Infra@2024'
 $secure = ConvertTo-SecureString $plain -AsPlainText -Force
 $cred   = New-Object System.Management.Automation.PSCredential("Administrator@$domainName", $secure)
 
-Import-Module ActiveDirectory
-
 Write-Host "Domain FQDN : $domainName"
 Write-Host "NetBIOS     : $netbiosName"
-
-Get-ADDomain -Server $domainName
-Get-ADDomainController -Filter * -Server $domainName
-
