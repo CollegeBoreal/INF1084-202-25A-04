@@ -32,6 +32,7 @@ netdom trust DC300147629-00.local /Domain:DC300147786-00.local /UserO:Administra
 ```powershell
 nltest /domain_trusts
 ```
+<img width="1062" height="377" alt="capt2025" src="https://github.com/user-attachments/assets/a42fb84f-d1f0-4898-81dc-8b7d067fd503" />
 
 ---
 
@@ -88,6 +89,7 @@ quser
 * Toutes les commandes et scripts doivent être exécutés avec **des droits administrateur**.
 * Les adresses IP et noms de serveurs doivent correspondre à votre **topologie réseau VM**.
 * Pour chaque étape, **vérifier la réussite** avant de passer à la suivante.
+
 
 
 
