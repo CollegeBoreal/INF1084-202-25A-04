@@ -14,13 +14,13 @@ Resolve-DnsName $RemoteDC
 Write-Host "=== Trust password required ===" -ForegroundColor Cyan
 $TrustPassword = Read-Host "Enter trust password" -AsSecureString
 
-Write-Host "=== Creating bidirectional trust ===" -ForegroundColor Cyan
+Write-Host "=== Creating unidirectional trust ===" -ForegroundColor Cyan
 New-ADTrust `
     -Name $RemoteDomain `
     -SourceName $LocalDomain `
     -TargetName $RemoteDomain `
     -TrustType External `
-    -Direction Bidirectional `
+    -Direction Unidirectional `
     -TrustPassword $TrustPassword `
     -Confirm:$false
 
