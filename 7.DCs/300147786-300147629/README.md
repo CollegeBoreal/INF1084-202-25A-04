@@ -74,6 +74,7 @@ Get-ChildItem \\10.7.236.225\SharedResources
 # Liste des utilisateurs du domaine local
 Get-ADUser -Filter * -Server DC300147786-00.local
 ```
+<img width="1186" height="387" alt="capt2029" src="https://github.com/user-attachments/assets/0c28698a-71c2-4b65-95d2-f794143439c9" />
 
 ---
 
@@ -93,6 +94,7 @@ quser
 * Toutes les commandes et scripts doivent être exécutés avec **des droits administrateur**.
 * Les adresses IP et noms de serveurs doivent correspondre à votre **topologie réseau VM**.
 * Pour chaque étape, **vérifier la réussite** avant de passer à la suivante.
+
 
 
 
