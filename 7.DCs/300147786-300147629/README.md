@@ -8,11 +8,11 @@
 ```powershell
 # Vérifier le DNS du domaine local
 nslookup DC300147786-00.local
-https://github.com/CollegeBoreal/INF1084-202-25A-04/blob/main/7.DCs/300147786-300147629/images/image1.png
+
 # Vérifier le DNS du domaine distant
 nslookup DC300147629-00.local
 ```
-
+https://github.com/CollegeBoreal/INF1084-202-25A-04/blob/main/7.DCs/300147786-300147629/images/image1.png
 ---
 
 ## 🔐 2. Création du trust via CLI
@@ -84,4 +84,5 @@ quser
 * Toutes les commandes et scripts doivent être exécutés avec **des droits administrateur**.
 * Les adresses IP et noms de serveurs doivent correspondre à votre **topologie réseau VM**.
 * Pour chaque étape, **vérifier la réussite** avant de passer à la suivante.
+
 
