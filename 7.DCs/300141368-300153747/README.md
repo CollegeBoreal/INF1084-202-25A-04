@@ -35,7 +35,7 @@ trusts.ps1
   
 
 <img src="images/Screenshot 2025-12-04 150356.png" alt="Girl in a jacket" width="500" height="600">
-<img src="images/Screenshot 2025-12-04 152019.png" alt="Girl in a jacket" width="500" height="600">
+
 <img src="images/Screenshot 2025-12-04 151910.png" alt="Girl in a jacket" width="500" height="600">
 
 </details>
@@ -45,7 +45,7 @@ trusts.ps1
 ```powershell
 Test-Connection -ComputerName DC300141429.local -Count 2
 ```
-
+<img src="images/Screenshot 2025-12-04 152019.png" alt="Girl in a jacket" width="500" height="600">
 
 
 ---
