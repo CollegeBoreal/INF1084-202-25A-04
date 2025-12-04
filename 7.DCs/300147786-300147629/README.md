@@ -29,6 +29,8 @@ net use \\10.7.236.225\SharedResources /user:DC300147786-00.local\Administrator 
 #Verification des utilisateurs du server local depuis en distance
 
 
+#Le domaine DC300147786-00.local possède une relation de confiance de type realm non transitive avec le domaine DC300147629-00.local, en entrée comme en sortie.
+
 
 
 
