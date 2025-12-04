@@ -65,6 +65,8 @@ net use \\10.7.236.225\SharedResources /user:DC300147786-00.local\Administrator 
 # Lister le contenu du partage distant
 Get-ChildItem \\10.7.236.225\SharedResources
 ```
+<img width="775" height="641" alt="Capt2028" src="https://github.com/user-attachments/assets/a4410ed4-a644-4663-be7a-c07e537af21d" />
+
 
 ### 👥 e. Vérification des utilisateurs du serveur local depuis le domaine distant
 
@@ -91,6 +93,7 @@ quser
 * Toutes les commandes et scripts doivent être exécutés avec **des droits administrateur**.
 * Les adresses IP et noms de serveurs doivent correspondre à votre **topologie réseau VM**.
 * Pour chaque étape, **vérifier la réussite** avant de passer à la suivante.
+
 
 
 
