@@ -57,6 +57,7 @@ Test-Connection -ComputerName dc01.ad2.local -Count 2
 # Monter le partage distant avec un utilisateur du domaine local
 net use \\10.7.236.225\SharedResources /user:DC300147786-00.local\Administrator *
 ```
+<img width="948" height="312" alt="capt2027" src="https://github.com/user-attachments/assets/fc94ac30-35ec-4573-ae56-12b543389b4a" />
 
 ### 📂 d. Vérification du contenu du partage distant
 
@@ -90,6 +91,7 @@ quser
 * Toutes les commandes et scripts doivent être exécutés avec **des droits administrateur**.
 * Les adresses IP et noms de serveurs doivent correspondre à votre **topologie réseau VM**.
 * Pour chaque étape, **vérifier la réussite** avant de passer à la suivante.
+
 
 
 
