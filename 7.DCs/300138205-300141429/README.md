@@ -14,10 +14,29 @@ Ce laboratoire a pour objectif de vérifier la communication et l’accès entre
 
 ---
 
-##🔐 Définition d’un Trust dans AD DS
+## 🔐 Définition d’un Trust dans AD DS
 
 Une relation d’approbation (trust) dans Active Directory est un lien d’authentification sécurisé entre deux domaines ou forêts permettant aux utilisateurs d’un domaine d’accéder aux ressources d’un autre domaine.
 
 ---
+
+#  le script  trusts.ps1
+
+Dans ce laboration, nous avons realisé un trust unidirectionnel et celui qui a fait cette action est le serveur 10.7.236.188 ( DC300138205-00)
+
+```powershell
+trusts.ps1
+```
+
+<details>
+
+  ```powershell
+
+<img src="images/lab7.1.png" alt="Girl in a jacket" width="500" height="600">
+
+```
+
+</details>
+
 
 
