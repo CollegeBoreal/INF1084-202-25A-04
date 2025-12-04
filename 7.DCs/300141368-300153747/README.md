@@ -42,7 +42,7 @@ trusts.ps1
 ### **b. Vérifieons la connectivité au contrôleur de domaine DC300141429**
 
 ```powershell
-Test-Connection -ComputerName DC300141429.local -Count 2
+Test-Connection -ComputerName DC300141369.local -Count 2
 ```
 
 <img src="images/Screenshot 2025-12-04 151910.png" alt="Girl in a jacket" width="500" height="600">
