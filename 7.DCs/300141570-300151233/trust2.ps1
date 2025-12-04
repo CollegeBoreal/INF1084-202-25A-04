@@ -13,8 +13,9 @@ Get-ADTrust -Filter * | Select-Object Name, Direction, TrustType, TrustAttribute
 Write-Host "`n[2] Détails du trust vers $remoteDnsRoot :" -ForegroundColor Yellow
 try {
     Get-ADTrust -Identity $remoteDnsRoot | Format-List *
-} catch {
-    Write-Host "Aucun objet de trust trouvé pour $remoteDnsRoot via Get-ADTrust." -ForegroundColor Red
+}
+catch {
+    Write-Warning "Aucun objet de trust trouvé pour $remoteDnsRoot."
 }
 
 Write-Host "`n[3] Vérification via nltest /domain_trusts :" -ForegroundColor Yellow

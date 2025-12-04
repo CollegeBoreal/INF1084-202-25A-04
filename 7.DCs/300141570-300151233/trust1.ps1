@@ -9,6 +9,7 @@ Write-Host "  Local  : $localDnsRoot"
 Write-Host "  Distant: $remoteDnsRoot"
 Write-Host ""
 
+# netdom va demander les mots de passe des 2 domaines
 $cmd = "netdom trust $localDnsRoot /domain:$remoteDnsRoot /add /twoway /userO:Administrator /passwordO:* /userD:Administrator /passwordD:* /force"
 
 Write-Host "Commande exécutée :" -ForegroundColor Cyan
@@ -16,5 +17,4 @@ Write-Host $cmd -ForegroundColor DarkGray
 Write-Host ""
 
 Invoke-Expression $cmd
-
 
