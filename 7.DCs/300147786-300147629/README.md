@@ -10,7 +10,7 @@ nslookup DC300147629-0.local
 #2. Création du trust via CLI
 
 Création d’un trust bidirectionnel transitif entre les deux forêts :
-netdom trust DC300147629-0.local /Domain:DC300147786-00.local /UserO:Administrator /PasswordO:* /UserD:Administrator /PasswordD:* /Forest /Twoway
+```netdom trust DC300147629-0.local /Domain:DC300147786-00.local /UserO:Administrator /PasswordO:* /UserD:Administrator /PasswordD:* /Forest /Twoway```
 
 #Vérification que le trust a été créé :
 nltest /domain_trusts
@@ -34,6 +34,7 @@ net use \\10.7.236.225\SharedResources /user:DC300147786-00.local\Administrator 
 
 
 #L’utilisateur administrator est actuellement connecté en session RDP sur le serveur local, qui affiche cette activité via la commande quser.
+
 
 
 
