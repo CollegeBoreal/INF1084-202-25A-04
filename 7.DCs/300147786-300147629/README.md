@@ -13,6 +13,8 @@ nslookup DC300147786-00.local
 nslookup DC300147629-00.local
 ```
 <img width="465" height="192" alt="image1" src="https://github.com/user-attachments/assets/1170a725-03e4-427a-a1ab-affd40261b41" />
+<img width="507" height="220" alt="baldewindow" src="https://github.com/user-attachments/assets/3e56c500-5627-4d01-980c-75bd86306ad0" />
+
 
 
 ---
@@ -86,6 +88,7 @@ quser
 * Toutes les commandes et scripts doivent être exécutés avec **des droits administrateur**.
 * Les adresses IP et noms de serveurs doivent correspondre à votre **topologie réseau VM**.
 * Pour chaque étape, **vérifier la réussite** avant de passer à la suivante.
+
 
 
 
