@@ -24,8 +24,10 @@ Test-Connection -ComputerName dc01.ad2.local -Count 2
 e. Accès aux ressources partagées du domaine distant
 net use \\10.7.236.225\SharedResources /user:DC300147786-00.local\Administrator *
 
-
 #Verifiacation du contenue du partage du server distance vers le server local .
+
+#Verification des utilisateurs du server local depuis en distance
+
 
 
 
