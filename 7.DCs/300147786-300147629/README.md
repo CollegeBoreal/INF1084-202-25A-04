@@ -41,8 +41,14 @@ nltest /domain_trusts
 ### 📡 b. Vérification de la connectivité au contrôleur de domaine AD2
 
 ```powershell
+Resolve-DnsName DC300147629-00.local
+```
+![capt1_abdull](https://github.com/user-attachments/assets/6c49cf9a-b903-485b-87e2-bf600f8fbdbb)
+
+```powershell
 Test-Connection -ComputerName dc01.ad2.local -Count 2
 ```
+![Capture_alll](https://github.com/user-attachments/assets/2211f081-d75a-4eba-a582-dc964a96f721)
 
 
 ### 📁 c. Accès aux ressources partagées du domaine distant
