@@ -38,17 +38,12 @@ nltest /domain_trusts
 
 ## 🧪 3. Vérification du trust et tests d’accès
 
-### 🌐 a. Vérification de la résolution DNS depuis la VM locale
-
-```powershell
-Resolve-DnsName DC300147629-00.local
-```
-
 ### 📡 b. Vérification de la connectivité au contrôleur de domaine AD2
 
 ```powershell
 Test-Connection -ComputerName dc01.ad2.local -Count 2
 ```
+
 
 ### 📁 c. Accès aux ressources partagées du domaine distant
 
@@ -89,6 +84,7 @@ quser
 * Toutes les commandes et scripts doivent être exécutés avec **des droits administrateur**.
 * Les adresses IP et noms de serveurs doivent correspondre à votre **topologie réseau VM**.
 * Pour chaque étape, **vérifier la réussite** avant de passer à la suivante.
+
 
 
 
