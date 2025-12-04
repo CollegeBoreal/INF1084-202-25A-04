@@ -33,5 +33,7 @@ net use \\10.7.236.225\SharedResources /user:DC300147786-00.local\Administrator 
 
 
 
+#L’utilisateur administrator est actuellement connecté en session RDP sur le serveur local, qui affiche cette activité via la commande quser.
+
 
 
