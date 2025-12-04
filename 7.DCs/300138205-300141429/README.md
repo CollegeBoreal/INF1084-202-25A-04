@@ -1,3 +1,5 @@
+<img src="images/lab7.2.png" alt="Girl in a jacket" width="500" height="600">
+
 # Projet final Active Directory : Trusts entre deux domains
 ### Etudiants : TAYLOR (300138205) , BARRY (300141429)
 ### Cours : INF1084 – Administration Windows Server
@@ -37,6 +39,7 @@ trusts.ps1
 ```
 
 </details>
+
 
 
 
