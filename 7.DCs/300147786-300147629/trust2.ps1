@@ -1,8 +1,10 @@
-# ===============================
 # VERIFY TRUST BETWEEN TWO DOMAINS
 # Local Domain: DC300147786-00.local
 # Remote Domain: DC300147629-00.local
 # ===============================
+
+# For proper UTF-8 encoding in console
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 $LocalDomain  = "DC300147786-00.local"
 $RemoteDomain = "DC300147629-00.local"
@@ -17,13 +19,12 @@ try {
 }
 
 Write-Host "=== Vérification du trust avec NETDOM ===" -ForegroundColor Cyan
-# On teste le trust bidirectionnel
-$trustCheck = netdom trust $LocalDomain /Domain:$RemoteDomain /Verify
+netdom trust $LocalDomain /Domain:$RemoteDomain /Verify
 
-if ($trustCheck -match "The command completed successfully") {
+if ($LASTEXITCODE -eq 0) {
     Write-Host "Trust entre $LocalDomain et $RemoteDomain vérifié avec succès ✅" -ForegroundColor Green
 } else {
     Write-Host "Échec de la vérification du trust ❌" -ForegroundColor Red
-    Write-Host $trustCheck
+    Write-Host "Veuillez vérifier la configuration du trust et la connectivité réseau."
 }
 
