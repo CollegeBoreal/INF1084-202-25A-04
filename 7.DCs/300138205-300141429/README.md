@@ -18,4 +18,6 @@ Ce laboratoire a pour objectif de vérifier la communication et l’accès entre
 
 Une relation d’approbation (trust) dans Active Directory est un lien d’authentification sécurisé entre deux domaines ou forêts permettant aux utilisateurs d’un domaine d’accéder aux ressources d’un autre domaine.
 
+---
+
 
