@@ -32,11 +32,12 @@ trusts.ps1
 
   ```powershell
 
-<img src="images/lab7.1.png" alt="Girl in a jacket" width="500" height="600">
+<img src="images/lab7.2.png" alt="Girl in a jacket" width="500" height="600">
 
 ```
 
 </details>
+
 
 
 
