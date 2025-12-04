@@ -13,3 +13,8 @@ Ce laboratoire a pour objectif de vérifier la communication et l’accès entre
 - Naviguer dans l’Active Directory distant
 
 ---
+
+🔐 Définition d’un Trust dans AD DS
+
+Une relation d’approbation (trust) dans Active Directory est un lien d’authentification sécurisé entre deux domaines ou forêts permettant aux utilisateurs d’un domaine d’accéder aux ressources d’un autre domaine.
+
