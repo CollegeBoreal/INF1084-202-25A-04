@@ -86,14 +86,11 @@ Get-ADUser -Filter * -Server DC300147786-00.local
 ```powershell
 quser
 ```
+![captabdoul](https://github.com/user-attachments/assets/6dd8c01c-fa71-4345-8d34-b65548a57dd5)
 
 ---
 
-## 💡 Notes importantes
 
-* Toutes les commandes et scripts doivent être exécutés avec **des droits administrateur**.
-* Les adresses IP et noms de serveurs doivent correspondre à votre **topologie réseau VM**.
-* Pour chaque étape, **vérifier la réussite** avant de passer à la suivante.
 
 
 
