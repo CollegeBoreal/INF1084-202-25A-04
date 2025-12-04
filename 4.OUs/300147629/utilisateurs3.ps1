@@ -1,4 +1,6 @@
 # gestion_utilisateurs.ps1 – Activer, désactiver, supprimer, rechercher
+Import-Module ActiveDirectory
+. .\bootstrap.ps1
 
 # Désactiver un utilisateur
 Disable-ADAccount -Identity "alice.dupont" -Credential $cred
