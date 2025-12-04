@@ -1,46 +1,48 @@
+###############################################
+# TP Active Directory – GPO Map Lecteur Réseau
+# Étudiant : 300151292
+# Script : utilisateurs2.ps1
+###############################################
 
-Import-Module GroupPolicy -ErrorAction SilentlyContinue
-Import-Module ActiveDirectory -ErrorAction SilentlyContinue
+# Nom de la GPO
+$GPOName = "MapSharedFolder"
 
-# === Variables ===
-$GPOName = "MapSharedFolder-300151292"
+# Vérifier si la GPO existe
+$gpo = Get-GPO -Name $GPOName -ErrorAction SilentlyContinue
+if (-not $gpo) {
+    $gpo = New-GPO -Name $GPOName
+}
+
+# OU cible
 $OU = "OU=Students,DC=DC300151292-00,DC=local"
+
+# Lier la GPO à l’OU Students
+try {
+    New-GPLink -Name $GPOName -Target $OU -ErrorAction Stop
+}
+catch {
+    Write-Host "⚠ La GPO était déjà liée à l’OU. Continuité..." -ForegroundColor Yellow
+}
+
+# Création du script logon
 $DriveLetter = "Z:"
-$netbiosName = $env:COMPUTERNAME
-$SharePath = "\\$netbiosName\SharedResources"
+$SharePath = "\\DC300151292-00\SharedResources"
 $ScriptFolder = "C:\Scripts"
 $ScriptPath = "$ScriptFolder\MapDrive-$DriveLetter.bat"
 
-Write-Host "=== Demarrage du script utilisateurs2.ps1 ==="
-
-# === 1. Creation de la GPO ===
-if (-not (Get-GPO -Name $GPOName -ErrorAction SilentlyContinue)) {
-    New-GPO -Name $GPOName | Out-Null
-    Write-Host "GPO '$GPOName' creee."
-} else {
-    Write-Host "La GPO '$GPOName' existe deja."
-}
-
-# === 2. Lien de la GPO a l'OU Students ===
-try {
-    New-GPLink -Name $GPOName -Target $OU -Enforced:$false | Out-Null
-    Write-Host "GPO liee a l'OU : $OU"
-} catch {
-    Write-Host "Attention : verifier que l'OU Students existe dans le domaine."
-}
-
-# === 3. Script de mappage du lecteur reseau ===
 if (-not (Test-Path $ScriptFolder)) {
-    New-Item -ItemType Directory -Path $ScriptFolder | Out-Null
+    New-Item -ItemType Directory -Path $ScriptFolder
 }
+
 $scriptContent = "net use $DriveLetter $SharePath /persistent:no"
 Set-Content -Path $ScriptPath -Value $scriptContent
-Write-Host "Script de connexion cree : $ScriptPath"
 
-# === 4. Activation du RDP sur le serveur ===
-Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" `
-                 -Name "fDenyTSConnections" -Value 0
-Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-Write-Host "RDP active et pare-feu configure pour les connexions a distance."
+# Associer le script logon à la GPO
+Set-GPRegistryValue -Name $GPOName `
+    -Key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
+    -ValueName "LogonScript" `
+    -Type String `
+    -Value $ScriptPath
 
-Write-Host "=== Etape 2 terminee : GPO et RDP configures avec succes. ==="
+Write-Host "✔ Fin de utilisateurs2.ps1 — GPO + lecteur Z configurés" -ForegroundColor Green
+

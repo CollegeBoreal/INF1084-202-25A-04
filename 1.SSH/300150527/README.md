@@ -1,6 +1,10 @@
 ## 🔐 Configuration SSH et Gestion de Clé – INF1084
 ## Akrem Bouraoui
 ## 300150527
+-------------------------------------
+
+<img width="1366" height="688" alt="ssh" src="https://github.com/user-attachments/assets/2b43db39-d505-4b14-bb6a-3f88fac3a4b9" />
+
 
 ------------------------------------
 

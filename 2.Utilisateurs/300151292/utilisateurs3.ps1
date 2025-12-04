@@ -1,16 +1,17 @@
 # utilisateurs3.ps1
-# Exercice 3 : 
+# Requêtes et filtres
 
 # Liste des utilisateurs simulés
 $Users = @(
-    @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"},
-    @{Nom="Moulin"; Prenom="imad"; Login="akrem"; OU="Stagiaires"},
-    @{Nom="Martin"; Prenom="zebi"; Login="ismail"; OU="Informatique"}
+    @{Nom="Dupont";  Prenom="Alice";   Login="adupont";  OU="Stagiaires"},
+    @{Nom="Lemoine"; Prenom="Sarah";   Login="slemoine"; OU="Stagiaires"},
+    @{Nom="Benali";  Prenom="Karim";   Login="kbenali";  OU="Stagiaires"},
+    @{Nom="amine"; Prenom="kahil";  Login="abouraoui"; OU="Stagiaires"},
+    @{Nom="kahil";   Prenom="hacene"; Login="njunior";   OU="Stagiaires"}
 )
 
-# Filtrer et afficher les prénoms qui contiennent la lettre "a"
-$Users | Where-Object { $_.Prenom -match "a" } | ForEach-Object {
-    "$($_.Prenom) $($_.Nom)"
+# Exercice 3 : Lister tous les utilisateurs dont le prénom contient "a"
+$Users | Where-Object { $_.Prenom -match "a" } | 
+ForEach-Object {
+    "$($_.Prenom) $($_.Nom) - Login: $($_.Login)"
 }
