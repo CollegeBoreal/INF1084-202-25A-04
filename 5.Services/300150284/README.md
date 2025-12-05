@@ -5,7 +5,7 @@ Date : 2025
 
 ---
 
-## 🎯 Objectifs du TP
+##  🎯 Objectifs du TP
 
 Ce laboratoire avait pour objectif :
 
@@ -50,10 +50,7 @@ sql
 Copier le code
 Status   Name       DisplayName
 Running  W32Time    Windows Time
- ![wait](https://github.com/user-attachments/assets/e2bc1c43-e429-4460-9a10-7e392b747905)
-
-
- 
+<img width="809" height="90" alt="image" src="https://github.com/user-attachments/assets/ab32def7-29cc-48ec-bd49-04f77bc20cb6" />
 
 🧪 2️⃣ Script : services2.ps1
 ✔ Objectif
