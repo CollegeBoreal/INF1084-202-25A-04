@@ -27,7 +27,7 @@ $cred = New-Object System.Management.Automation.PSCredential("Administrator@$dom
 
 </details>
 
-0️⃣ utilidateurs1.ps1
+ utilidateurs1.ps1
 ```powershell
 O
 # Importer le module Active Directory
@@ -160,7 +160,8 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false
 
 
 
-<img src="images/tay.png" alt="Girl in a jacket" width="500" height="600">
+<img src="images/utili2.png" alt="Girl in a jacket" width="500" height="600">
+<img src="images/utili3.png" alt="Girl in a jacket" width="500" height="600">
 
 
 
