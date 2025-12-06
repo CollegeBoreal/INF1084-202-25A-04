@@ -56,8 +56,20 @@ Test-Connection -ComputerName DC300141429.local -Count 2
 <img src="images/lab7.6.png" alt="Girl in a jacket" width="900" height="700">
 <img width="1588" height="867" alt="image" src="https://github.com/user-attachments/assets/a7d749e2-e95e-41e4-802d-81b7ea16c9fa" />
 
+# verification via les lignes de commandes
+
+<img src="images/lab7.10.png" alt="Girl in a jacket" width="900" height="700">
+<img src="images/lab7.12.png" alt="Girl in a jacket" width="900" height="700">
+
+
+#  le script  trusts2.ps1
+
+Dans ce laboration, nous avons realisé la navigation d'un domain à un autre donc le script doit etre trusts2.ps1
+
+
 
 ---
+
 
 
 
