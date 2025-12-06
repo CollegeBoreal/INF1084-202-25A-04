@@ -47,9 +47,15 @@ Test-Connection -ComputerName DC300141429.local -Count 2
 <img src="images/lab7.1.png" alt="Girl in a jacket" width="900" height="700">
 <img src="images/lab7.4.png" alt="Girl in a jacket" width="900" height="700">
 
+#  Installation des modules AS DC
+<img src="images/lab7.3.png" alt="Girl in a jacket" width="900" height="700">
 
+# Verification du trusts dans le serveur 10.7.236.188
+
+<img src="images/lab7.5.png" alt="Girl in a jacket" width="900" height="700">
 
 ---
+
 
 
 
