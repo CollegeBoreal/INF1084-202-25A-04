@@ -29,3 +29,30 @@ Get-Service | Where-Object {
 # Vérifier l’état d’un service spécifique
 Get-Service -Name NTDS, ADWS, DFSR
 
+###Services2.ps1
+# Afficher les 20 derniers événements liés à NTDS
+Get-EventLog -LogName "Directory Service" -Newest 20
+
+# Afficher les logs du système liés à Netlogon
+Get-EventLog -LogName "System" -Newest 20 | Where-Object {$_.Source -eq "Netlogon"}
+
+# Afficher les logs via le journal moderne (Event Viewer v2)
+Get-WinEvent -LogName "Directory Service" -MaxEvents 20 | Format-Table TimeCreated, Id, LevelDisplayName, Message -AutoSize
+
+
+###Services3.ps1
+# Exporter les 50 derniers événements du service annuaire dans un fichier CSV
+Get-WinEvent -LogName "Directory Service" -MaxEvents 50 | Export-Csv -Path "C:\Logs\ADLogs.csv" -NoTypeInformation
+
+
+##Services4.ps1
+# Arrêter le service DFSR
+Stop-Service -Name DFSR
+
+# Vérifier l’état du service
+(Get-Service -Name DFSR).Status
+
+# Redémarrer le service DFSR
+Start-Service -Name DFSR
+
+
