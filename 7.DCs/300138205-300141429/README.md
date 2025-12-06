@@ -34,7 +34,7 @@ trusts.ps1
 
   
 
-<img src="images/lab7.2.png" alt="Girl in a jacket" width="500" height="600">
+<img src="images/lab7.2.png" alt="Girl in a jacket" width="900" height="700">
 
 
 </details>
@@ -48,6 +48,7 @@ Test-Connection -ComputerName DC300141429.local -Count 2
 
 
 ---
+
 
 
 
