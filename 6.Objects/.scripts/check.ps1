@@ -44,8 +44,8 @@ $md += "| :warning:          | Acces refuse - pwd a changer   |"
 $md += ""
 $md += "## :b: Precision"
 $md += ""
-$md += "| :hash: | Boreal :id: | VM/Serveur | Partage SMB | Statut |"
-$md += "|--------|-------------|------------|-------------|--------|"
+$md += "| :hash: | Boreal :id: | :roll_of_paper: Partage SMB | :toilet: Statut |"
+$md += "|--------|-------------|-----------------------------|-----------------|"
 
 # Boucle sur chaque étudiant
 $counter = 1
@@ -79,7 +79,7 @@ for ($i = 0; $i -lt $ETUDIANTS.Count; $i++) {
 
 
     # Ajouter la ligne au Markdown
-    $md += "| $counter | [$id](../$FILE) $URL  | $vm | $sharePath | $statusIcon |"
+    $md += "| $counter | [$id](../$FILE) $URL  | \\$sharePath | $statusIcon |"
     $counter++
 }
 
