@@ -1,5 +1,5 @@
 # --------------------------------------
-# Script pour tester les partages SMB étudiants avec montage temporaire
+# Script pour tester les partages SMB étudiants + WinRM (auth)
 # --------------------------------------
 
 # Forcer UTF-8
@@ -18,11 +18,9 @@ if (-not $SERVERS -or -not $ETUDIANTS) {
 $etudiant = "Etudiant1"
 $plainPassword = "Pass123!"  # changer si chaque étudiant a un mot de passe différent
 $Password = ConvertTo-SecureString $plainPassword -AsPlainText -Force
-$Creds = New-Object System.Management.Automation.PSCredential ($etudiant, $Password)
-
+$timestamp = Get-Date -Format "dd-MM-yyyy HH:mm"
 
 # Préparer le Markdown
-$timestamp = Get-Date -Format "dd-MM-yyyy HH:mm"
 $md = @()
 $md += "# Precision au $timestamp"
 $md += ""
@@ -31,21 +29,21 @@ $md += "|-------------------------------|---------------------------------------
 $md += "| :a: [Presence](#a-presence)   | L'etudiant.e a fait son travail    :heavy_check_mark:   |"
 $md += "| :b: [Precision](#b-precision) | L'etudiant.e a reussi son travail  :tada:               |"
 $md += ""
-$md += ":bulb: Le mot de passe de ***Etudiant1*** est ***Press123!***"
+$md += ":bulb: Le mot de passe de ***Etudiant1*** est ***Pass123!***"
 $md += ""
 $md += "## Legende"
 $md += ""
-$md += "| Signe              | Signification                 |"
-$md += "|--------------------|-------------------------------|"
-$md += "| :heavy_check_mark: | AD DS et repertoire OK         |"
-$md += "| :x:                | AD DS ou repertoire inexistant |"
-$md += "| :no_entry:         | Acces refuse - pwd incorrect   |"
-$md += "| :warning:          | Acces refuse - pwd a changer   |"
+$md += "| Signe              | Signification                    |"
+$md += "|--------------------|----------------------------------|"
+$md += "| :heavy_check_mark: | Accès OK                          |"
+$md += "| :x:                | Service désactivé / ressource off |"
+$md += "| :no_entry:         | Acces refuse / host down          |"
+$md += "| :warning:          | Mot de passe à changer            |"
 $md += ""
 $md += "## :b: Precision"
 $md += ""
-$md += "| :hash: | Boreal :id: | :roll_of_paper: Partage SMB | :toilet: Statut |"
-$md += "|--------|-------------|-----------------------------|-----------------|"
+$md += "| :hash: | Boreal :id: | Partage SMB | WinRM (auth) | Statut SMB |"
+$md += "|--------|-------------|--------------|---------------|-------------|"
 
 # Boucle sur chaque étudiant
 $counter = 1
@@ -54,32 +52,72 @@ for ($i = 0; $i -lt $ETUDIANTS.Count; $i++) {
     $URL = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i]))"    
     $id = $ETUDIANTS[$i]
     $FILE = "$id/README.md"
-
     $vm = $SERVERS[$i]
-    Write-Host "Test SMB pour $etudiant sur $sharePath ..." -ForegroundColor Cyan
 
-    # Chemin SMB et lecteur temporaire
-    $sharePath = "\\$vm\SharedResources"
-    $driveName = "S"  # Lettre temporaire, peut être dynamique si besoin
+    Write-Host "Test pour $id sur $vm..." -ForegroundColor Cyan
+
+    # ------------------------------
+    # Test WinRM (auth complète)
+    # ------------------------------
+    $rdpUser = "$($NETBIOS[$i])\$etudiant"
+    $CredsRDP = New-Object System.Management.Automation.PSCredential ($rdpUser, $Password)
 
     try {
-        # Monter le partage SMB temporairement
-        New-PSDrive -Name $driveName -PSProvider FileSystem -Root $sharePath -Credential $Creds -ErrorAction Stop | Out-Null
-
-        # Vérifier l'accès correctement
-        if (Test-Path "$($driveName):\") { $statusIcon = ":heavy_check_mark:" }
-        Remove-PSDrive -Name $driveName
+        $null = Test-WSMan -ComputerName $vm -Credential $CredsRDP -Authentication Negotiate -ErrorAction Stop
+        $winrmIcon = ":heavy_check_mark:"      # Auth OK
     }
     catch {
-        if ($_.Exception.Message -match "password is not correct|incorrect") { $statusIcon = ":no_entry:" }
-        elseif ($_.Exception.Message -match "must be changed") { $statusIcon = ":warning:" }
-        elseif ($_.Exception.Message -match "cannot be found") { $statusIcon = ":x:" }
-        else { $statusIcon = ":no_entry:" }
+        $msg = $_.Exception.Message
+
+        if ($msg -match "Access is denied") {
+            $winrmIcon = ":no_entry:"           # mauvais mot de passe ou droits
+        }
+        elseif ($msg -match "WinRM cannot process the request") {
+            $winrmIcon = ":x:"                  # WinRM désactivé
+        }
+        elseif ($msg -match "not found|unreachable|could not be resolved") {
+            $winrmIcon = ":no_entry:"           # Host down
+        }
+        else {
+            $winrmIcon = ":x:"                  # Autre erreur
+        }
     }
 
+    # ------------------------------
+    # Test SMB
+    # ------------------------------
+    $sharePath = "\\$vm\SharedResources"
+    $CredsSMB = New-Object System.Management.Automation.PSCredential ($etudiant, $Password)
+    $driveName = "S"
 
-    # Ajouter la ligne au Markdown
-    $md += "| $counter | [$id](../$FILE) $URL  | \\$sharePath | $statusIcon |"
+    try {
+        New-PSDrive -Name $driveName -PSProvider FileSystem -Root $sharePath -Credential $CredsSMB -ErrorAction Stop | Out-Null
+
+        if (Test-Path "$($driveName):\") { 
+            $statusIcon = ":heavy_check_mark:" 
+        }
+
+        Remove-PSDrive -Name $driveName -ErrorAction SilentlyContinue
+    }
+    catch {
+        if ($_.Exception.Message -match "password is not correct|incorrect") { 
+            $statusIcon = ":no_entry:" 
+        }
+        elseif ($_.Exception.Message -match "must be changed") { 
+            $statusIcon = ":warning:" 
+        }
+        elseif ($_.Exception.Message -match "cannot be found") { 
+            $statusIcon = ":x:" 
+        }
+        else { 
+            $statusIcon = ":no_entry:" 
+        }
+    }
+
+    # ------------------------------
+    # Ligne Markdown
+    # ------------------------------
+    $md += "| $counter | [$id](../$FILE) $URL | \\\\$vm\\SharedResources | $winrmIcon | $statusIcon |"
     $counter++
 }
 
