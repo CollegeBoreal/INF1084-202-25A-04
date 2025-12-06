@@ -1,52 +1,41 @@
-Import-Module ActiveDirectory -ErrorAction Stop
-Import-Module GroupPolicy -ErrorAction Stop
+. .bootstrap.ps1
+Write-Output "Bootstrap importé. NetBIOS = $netbiosName"
 
-$netbiosName = "DC300147786-00"
 $GPOName = "MapSharedFolder"
-$OUName = "Students"
-$OUDN = "OU=$OUName,DC=DC300147786-00,DC=local"
 
-# Créer OU si non existante
-if (-not (Get-ADOrganizationalUnit -Filter "Name -eq '$OUName'" -ErrorAction SilentlyContinue)) {
-    New-ADOrganizationalUnit -Name $OUName -Path "DC=DC300147786-00,DC=local"
-    Write-Host "OU '$OUName' créée."
-} else {
-    Write-Host "OU '$OUName' existe déjà."
-}
+Write-Output "Création de la GPO : $GPOName"
+New-GPO -Name $GPOName
 
-# Créer GPO si non existante
-if (-not (Get-GPO -Name $GPOName -ErrorAction SilentlyContinue)) {
-    New-GPO -Name $GPOName
-    Write-Host "GPO '$GPOName' créée."
-} else {
-    Write-Host "GPO '$GPOName' existe déjà."
-}
+# OU Students
+$OU = "OU=Students,DC=$netbiosName,DC=local"
 
-# Lier la GPO si pas déjà liée
-$links = Get-GPInheritance -Target $OUDN | Select-Object -ExpandProperty GpoLinks
-if (-not ($links.DisplayName -contains $GPOName)) {
-    New-GPLink -Name $GPOName -Target $OUDN -Enforced ([Microsoft.GroupPolicy.EnforceLink]::Yes)
-    Write-Host "GPO '$GPOName' liée à l'OU '$OUName'."
-} else {
-    Write-Host "GPO '$GPOName' est déjà liée à l'OU '$OUName'."
-}
+Write-Output "Lien de la GPO sur : $OU"
+New-GPLink -Name $GPOName -Target $OU
 
-# Créer le script logon
-$DriveLetter = "Z"
+# Mappage lecteur - Utiliser l'IP pour éviter les problèmes DNS
+$DriveLetter = "Z:"
+# Note: Utiliser l'adresse IP du serveur pour plus de fiabilité
+$ServerIP = "10.7.236.225"
+$SharePath = "\\$ServerIP\SharedResources"
+
+# Script logon
 $ScriptFolder = "C:\Scripts"
-if (-not (Test-Path $ScriptFolder)) { New-Item -ItemType Directory -Path $ScriptFolder | Out-Null }
+$ScriptPath = "$ScriptFolder\MapDrive.bat"
 
-$ScriptPath = "$ScriptFolder\MapDrive-$DriveLetter.bat"
-$scriptContent = "net use $DriveLetter: \\$netbiosName\SharedResources /persistent:no"
+if (-not (Test-Path $ScriptFolder)) {
+    Write-Output "Création du dossier scripts : $ScriptFolder"
+    New-Item -ItemType Directory -Path $ScriptFolder | Out-Null
+}
+
+Write-Output "Création du script logon pour le mappage lecteur Z"
+$scriptContent = "net use $DriveLetter $SharePath /persistent:no"
 Set-Content -Path $ScriptPath -Value $scriptContent
-Write-Host "Script logon créé : $ScriptPath"
 
-# Copier le script dans SYSVOL de la GPO
-$GPO = Get-GPO -Name $GPOName
-$SysvolPath = "\\$netbiosName\SYSVOL\$netbiosName\Policies\{$($GPO.Id)}\User\Scripts\Logon"
-if (-not (Test-Path $SysvolPath)) { New-Item -ItemType Directory -Path $SysvolPath -Force | Out-Null }
-Copy-Item -Path $ScriptPath -Destination $SysvolPath -Force
-Write-Host "Script logon copié dans SYSVOL de la GPO."
+Write-Output "Lien du script logon à la GPO"
+Set-GPRegistryValue -Name $GPOName `
+    -Key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
+    -ValueName "LogonScript" `
+    -Type String `
+    -Value $ScriptPath
 
-Write-Host "Script terminé avec succès ✅"
-
+Write-Output "Script utilisateurs2.ps1 terminé."
