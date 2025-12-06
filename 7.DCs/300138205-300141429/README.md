@@ -54,8 +54,11 @@ Test-Connection -ComputerName DC300141429.local -Count 2
 
 <img src="images/lab7.5.png" alt="Girl in a jacket" width="900" height="700">
 <img src="images/lab7.6.png" alt="Girl in a jacket" width="900" height="700">
+<img width="1588" height="867" alt="image" src="https://github.com/user-attachments/assets/a7d749e2-e95e-41e4-802d-81b7ea16c9fa" />
+
 
 ---
+
 
 
 
