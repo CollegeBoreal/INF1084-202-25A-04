@@ -1,10 +1,10 @@
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
 Import-Module ActiveDirectory
 
 . .\bootstrap.ps1
 
 # Vérifier si l'utilisateur existe déjà
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-
 $user = Get-ADUser -Filter "SamAccountName -eq 'alice.dupont'" -Server $domainName -ErrorAction SilentlyContinue
 
 if (-not $user) {
