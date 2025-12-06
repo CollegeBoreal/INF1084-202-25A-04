@@ -27,16 +27,19 @@ function Test-RDPSession {
     # Look for the RDP window
     $rdpWindow = Get-Process | Where-Object { $_.MainWindowTitle -like "*$ComputerName*" }
 
-    if ($rdpWindow) {
-        Write-Host "RDP SUCCESS: Window detected" -ForegroundColor Green
-        $rdpWindow | Stop-Process -Force
-    }
-    else {
-        Write-Host "RDP FAILED: Wrong password or RDP disabled" -ForegroundColor Red
-    }
-
     # Remove stored credential
     cmdkey /delete:"$ComputerName" | Out-Null
 
     Write-Host "Test completed" -ForegroundColor Yellow
+
+    if ($rdpWindow) {
+        Write-Host "RDP SUCCESS: Window detected" -ForegroundColor Green
+        $rdpWindow | Stop-Process -Force
+        return $true
+    }
+    else {
+        Write-Host "RDP FAILED: Wrong password or RDP disabled" -ForegroundColor Red
+        return $false
+    }
+
 }

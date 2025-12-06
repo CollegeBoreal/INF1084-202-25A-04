@@ -1,22 +1,24 @@
 # --------------------------------------
-# Script pour tester les partages SMB étudiants + WinRM (auth)
+# Script pour tester les partages SMB étudiants + RDP GUI
 # --------------------------------------
 
-# Forcer UTF-8
+# Forcer UTF-8 pour les accents
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $PSDefaultParameterValues['Set-Content:Encoding'] = 'utf8'
 
 # Charger la liste des étudiants et serveurs depuis students.ps1
 . ../.scripts/students.ps1
 
+# Charger la fonction si ce n'est pas déjà fait
+. .\.scripts\Test-RDPSession.ps1
+
 if (-not $SERVERS -or -not $ETUDIANTS) {
     Write-Host "Les variables `$SERVERS ou `$ETUDIANTS n'ont pas été trouvées dans students.ps1" -ForegroundColor Red
     exit
 }
 
-# Identifiants de l'étudiant
-$etudiant = "Etudiant1"
-$plainPassword = "Pass123!"  # changer si chaque étudiant a un mot de passe différent
+# Mot de passe commun pour les étudiants (adapter si nécessaire)
+$plainPassword = "Pass123!"
 $Password = ConvertTo-SecureString $plainPassword -AsPlainText -Force
 $timestamp = Get-Date -Format "dd-MM-yyyy HH:mm"
 
@@ -29,7 +31,7 @@ $md += "|-------------------------------|---------------------------------------
 $md += "| :a: [Presence](#a-presence)   | L'etudiant.e a fait son travail    :heavy_check_mark:   |"
 $md += "| :b: [Precision](#b-precision) | L'etudiant.e a reussi son travail  :tada:               |"
 $md += ""
-$md += ":bulb: Le mot de passe de ***Etudiant1*** est ***Pass123!***"
+$md += ":bulb: Le mot de passe de ***Etudiant1*** est ***$plainPassword***"
 $md += ""
 $md += "## Legende"
 $md += ""
@@ -42,10 +44,12 @@ $md += "| :warning:          | Mot de passe à changer            |"
 $md += ""
 $md += "## :b: Precision"
 $md += ""
-$md += "| :hash: | Boreal :id: | Partage SMB | WinRM (auth) | Statut SMB |"
-$md += "|--------|-------------|--------------|---------------|-------------|"
+$md += "| :hash: | Boreal :id: | Partage SMB | RDP GUI | Statut SMB |"
+$md += "|--------|-------------|--------------|---------|-------------|"
 
+# ------------------------------
 # Boucle sur chaque étudiant
+# ------------------------------
 $counter = 1
 for ($i = 0; $i -lt $ETUDIANTS.Count; $i++) {
 
@@ -57,79 +61,49 @@ for ($i = 0; $i -lt $ETUDIANTS.Count; $i++) {
     Write-Host "Test pour $id sur $vm..." -ForegroundColor Cyan
 
     # ------------------------------
-    # Test WinRM (auth complète)
+    # Test RDP GUI avec Test-RDPSession
     # ------------------------------
-    $rdpUser = "$($NETBIOS[$i])\$etudiant"
-    # $CredsRDP = New-Object System.Management.Automation.PSCredential ($rdpUser, $Password)
-
+    $rdpIcon = ":x:"   # valeur par défaut
     try {
-        # $null = Test-WSMan -ComputerName $vm -Credential $CredsRDP -Authentication Negotiate -ErrorAction Stop
-
-        # Exécuter FreeRDP en ligne de commande
-        # /cert-ignore pour ignorer les certificats auto-signés
-        # /u username /p password /v server
-        # /timeout:5000 pour timeout 5s
-        $rdpResult = & "wfreerdp" /v:$vm /u:$rdpUser /p:$plainPassword /cert-ignore /timeout:5000 2>&1
-
-        $winrmIcon = ":heavy_check_mark:"      # Auth OK
+        if (Test-RDPSession -ComputerName $vm -Username "$($NETBIOS[$i])\Etudiant1" -Password $plainPassword) {
+            $rdpIcon = ":heavy_check_mark:"
+        } else {
+            $rdpIcon = ":x:"
+        }
     }
     catch {
-        $msg = $_.Exception.Message
-        # Write-Host "Erreur WinRM pour $rdpUser@$vm : $msg" -ForegroundColor Red
-        Write-Host "Erreur RDP pour $rdpUser@$vm : $rdpResult" -ForegroundColor Red
-
-        if ($msg -match "Access is denied") {
-            $winrmIcon = ":no_entry:"           # mauvais mot de passe ou droits
-        }
-        elseif ($msg -match "WinRM cannot process the request") {
-            $winrmIcon = ":x:"                  # WinRM désactivé
-        }
-        elseif ($msg -match "not found|unreachable|could not be resolved") {
-            $winrmIcon = ":no_entry:"           # Host down
-        }
-        else {
-            $winrmIcon = ":x:"                  # Autre erreur
-        }
+        $rdpIcon = ":no_entry:"
+        Write-Host "Erreur RDP pour $id@$vm" -ForegroundColor Red
     }
 
     # ------------------------------
     # Test SMB
     # ------------------------------
     $sharePath = "\\$vm\SharedResources"
-    $CredsSMB = New-Object System.Management.Automation.PSCredential ($etudiant, $Password)
+    $CredsSMB = New-Object System.Management.Automation.PSCredential ("Etudiant1", $Password)
     $driveName = "S"
-
+    $statusIcon = ":x:"
     try {
         New-PSDrive -Name $driveName -PSProvider FileSystem -Root $sharePath -Credential $CredsSMB -ErrorAction Stop | Out-Null
-
-        if (Test-Path "$($driveName):\") { 
-            $statusIcon = ":heavy_check_mark:" 
-        }
-
+        if (Test-Path "$($driveName):\") { $statusIcon = ":heavy_check_mark:" }
         Remove-PSDrive -Name $driveName -ErrorAction SilentlyContinue
     }
     catch {
-        if ($_.Exception.Message -match "password is not correct|incorrect") { 
-            $statusIcon = ":no_entry:" 
-        }
-        elseif ($_.Exception.Message -match "must be changed") { 
-            $statusIcon = ":warning:" 
-        }
-        elseif ($_.Exception.Message -match "cannot be found") { 
-            $statusIcon = ":x:" 
-        }
-        else { 
-            $statusIcon = ":no_entry:" 
-        }
+        if ($_.Exception.Message -match "password is not correct|incorrect") { $statusIcon = ":no_entry:" }
+        elseif ($_.Exception.Message -match "must be changed") { $statusIcon = ":warning:" }
+        elseif ($_.Exception.Message -match "cannot be found") { $statusIcon = ":x:" }
+        else { $statusIcon = ":no_entry:" }
     }
 
     # ------------------------------
     # Ligne Markdown
     # ------------------------------
-    $md += "| $counter | [$id](../$FILE) $URL | \\\\$vm\\SharedResources | $winrmIcon | $statusIcon |"
+    $md += "| $counter | [$id](../$FILE) $URL | \\\\$vm\\SharedResources | $rdpIcon | $statusIcon |"
     $counter++
 }
 
+# ------------------------------
 # Exporter le Markdown dans Check.md
+# ------------------------------
 $md | Set-Content -Path ".scripts/Check.md" -Encoding UTF8
 Write-Host "Check.md généré avec succès !" -ForegroundColor Green
