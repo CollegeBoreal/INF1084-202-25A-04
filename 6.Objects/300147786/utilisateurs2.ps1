@@ -1,4 +1,4 @@
-. .bootstrap.ps1
+. .\bootstrap.ps1
 Write-Output "Bootstrap importé. NetBIOS = $netbiosName"
 
 $GPOName = "MapSharedFolder"
