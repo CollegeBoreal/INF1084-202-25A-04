@@ -60,14 +60,23 @@ for ($i = 0; $i -lt $ETUDIANTS.Count; $i++) {
     # Test WinRM (auth complète)
     # ------------------------------
     $rdpUser = "$($NETBIOS[$i])\$etudiant"
-    $CredsRDP = New-Object System.Management.Automation.PSCredential ($rdpUser, $Password)
+    # $CredsRDP = New-Object System.Management.Automation.PSCredential ($rdpUser, $Password)
 
     try {
-        $null = Test-WSMan -ComputerName $vm -Credential $CredsRDP -Authentication Negotiate -ErrorAction Stop
+        # $null = Test-WSMan -ComputerName $vm -Credential $CredsRDP -Authentication Negotiate -ErrorAction Stop
+
+        # Exécuter FreeRDP en ligne de commande
+        # /cert-ignore pour ignorer les certificats auto-signés
+        # /u username /p password /v server
+        # /timeout:5000 pour timeout 5s
+        $rdpResult = & "wfreerdp" /v:$vm /u:$rdpUser /p:$plainPassword /cert-ignore /timeout:5000 2>&1
+
         $winrmIcon = ":heavy_check_mark:"      # Auth OK
     }
     catch {
         $msg = $_.Exception.Message
+        # Write-Host "Erreur WinRM pour $rdpUser@$vm : $msg" -ForegroundColor Red
+        Write-Host "Erreur RDP pour $rdpUser@$vm : $rdpResult" -ForegroundColor Red
 
         if ($msg -match "Access is denied") {
             $winrmIcon = ":no_entry:"           # mauvais mot de passe ou droits
