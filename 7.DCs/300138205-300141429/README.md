@@ -53,8 +53,10 @@ Test-Connection -ComputerName DC300141429.local -Count 2
 # Verification du trusts dans le serveur 10.7.236.188
 
 <img src="images/lab7.5.png" alt="Girl in a jacket" width="900" height="700">
+<img src="images/lab7.6.png" alt="Girl in a jacket" width="900" height="700">
 
 ---
+
 
 
 
