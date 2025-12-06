@@ -1,41 +1,43 @@
-. .\bootstrap.ps1
-Write-Output "Bootstrap importé. NetBIOS = $netbiosName"
+# ================================
 
+# Définir le NetBIOS si bootstrap indisponible
+$netbiosName = "DC300147786-00"
+
+# Nom de la GPO
 $GPOName = "MapSharedFolder"
 
-Write-Output "Création de la GPO : $GPOName"
-New-GPO -Name $GPOName
+# Créer la GPO si elle n'existe pas
+if (-not (Get-GPO -Name $GPOName -ErrorAction SilentlyContinue)) {
+    New-GPO -Name $GPOName | Out-Null
+}
 
 # OU Students
 $OU = "OU=Students,DC=$netbiosName,DC=local"
 
-Write-Output "Lien de la GPO sur : $OU"
-New-GPLink -Name $GPOName -Target $OU
+# Lier la GPO à l'OU uniquement si non déjà lié
+$links = Get-GPInheritance -Target $OU | Select-Object -ExpandProperty GpoLinks
+if (-not ($links.DisplayName -contains $GPOName)) {
+    New-GPLink -Name $GPOName -Target $OU -Enforced ([Microsoft.GroupPolicy.EnforceLink]::Yes) | Out-Null
+}
 
-# Mappage lecteur - Utiliser l'IP pour éviter les problèmes DNS
-$DriveLetter = "Z:"
-# Note: Utiliser l'adresse IP du serveur pour plus de fiabilité
+# Mappage lecteur Z
+$DriveLetter = "Z"
 $ServerIP = "10.7.236.225"
-$SharePath = "\\$ServerIP\SharedResources"
-
-# Script logon
 $ScriptFolder = "C:\Scripts"
-$ScriptPath = "$ScriptFolder\MapDrive.bat"
+$ScriptPath = "$ScriptFolder\MapDrive-$DriveLetter.bat"
 
 if (-not (Test-Path $ScriptFolder)) {
-    Write-Output "Création du dossier scripts : $ScriptFolder"
     New-Item -ItemType Directory -Path $ScriptFolder | Out-Null
 }
 
 Write-Output "Création du script logon pour le mappage lecteur Z"
-$scriptContent = "net use $DriveLetter $SharePath /persistent:no"
+$scriptContent = "net use ${DriveLetter}: \\$ServerIP\SharedResources /persistent:no"
 Set-Content -Path $ScriptPath -Value $scriptContent
 
 Write-Output "Lien du script logon à la GPO"
-Set-GPRegistryValue -Name $GPOName `
-    -Key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
-    -ValueName "LogonScript" `
-    -Type String `
-    -Value $ScriptPath
 
-Write-Output "Script utilisateurs2.ps1 terminé."
+# Afficher les informations de la GPO
+Get-GPO -Name $GPOName
+
+Write-Output "`nScript utilisateurs2.ps1 terminé."
+
