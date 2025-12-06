@@ -1,5 +1,5 @@
 # Nom du domaine / NetBIOS
-$netbiosName = "DC999999999-00"
+$netbiosName = "DC300147786-00"
 
 # Nom de la GPO
 $GPOName = "MapSharedFolder"
@@ -10,7 +10,7 @@ if (-not (Get-GPO -Name $GPOName -ErrorAction SilentlyContinue)) {
 }
 
 # Lier la GPO à l'OU Students (à créer si non existante)
-$OU = "OU=Students,DC=DC999999999-00,DC=local"
+$OU = "OU=Students,DC=DC300147786-00,DC=local"
 New-GPLink -Name $GPOName -Target $OU -Enforced $true
 
 # Créer un script logon pour mapper le lecteur Z:
