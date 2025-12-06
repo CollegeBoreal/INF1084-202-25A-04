@@ -1,31 +1,28 @@
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+# ============================
+$domainName = "DC300147786-00.local"
+$netbiosName = "DC300147786-00"
 
-Import-Module ActiveDirectory
 
-. .\bootstrap.ps1
+# ÉTAPE 3 : CRÉER UN NOUVEL UTILISATEUR
+New-ADUser -Name "Alice Dupont" `
+           -GivenName "Alice" `
+           -Surname "Dupont" `
+           -SamAccountName "alice.dupont" `
+           -UserPrincipalName "alice.dupont@$domainName" `
+           -AccountPassword (ConvertTo-SecureString "MotDePasse123!" -AsPlainText -Force) `
+           -Enabled $true `
+           -Path "CN=Users,DC=$netbiosName,DC=local" `
+           -Server $domainName
 
-# Vérifier si l'utilisateur existe déjà
-$user = Get-ADUser -Filter "SamAccountName -eq 'alice.dupont'" -Server $domainName -ErrorAction SilentlyContinue
+Write-Host "Utilisateur 'Alice Dupont' créé avec succès."
 
-if (-not $user) {
-    Write-Host "Création de l'utilisateur Alice..."
+# ÉTAPE 4 : MODIFIER L'UTILISATEUR
 
-    New-ADUser -Name "Alice Dupont" `
-               -GivenName "Alice" `
-               -Surname "Dupont" `
-               -SamAccountName "alice.dupont" `
-               -UserPrincipalName "alice.dupont@$domainName" `
-               -AccountPassword (ConvertTo-SecureString "MotDePasse123!" -AsPlainText -Force) `
-               -Enabled $true `
-               -Path "CN=Users,DC=$netbiosName,DC=local" `
-               -Server $domainName
-} else {
-    Write-Host "L'utilisateur existe déjà, création ignorée."
-}
-
-# Modifier l'utilisateur existant
 Set-ADUser -Identity "alice.dupont" `
            -Server $domainName `
            -EmailAddress "alice.dupont@exemple.com" `
            -GivenName "Alice-Marie"
 
+Write-Host "Utilisateur 'alice.dupont' modifié avec succès."
+
+           -GivenName "Alice-Marie"
