@@ -45,10 +45,12 @@ trusts.ps1
 Test-Connection -ComputerName DC300141429.local -Count 2
 ```
 <img src="images/lab7.1.png" alt="Girl in a jacket" width="900" height="700">
+<img src="images/lab7.4.png" alt="Girl in a jacket" width="900" height="700">
 
 
 
 ---
+
 
 
 
