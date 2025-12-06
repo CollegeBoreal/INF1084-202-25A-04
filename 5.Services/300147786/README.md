@@ -27,7 +27,7 @@ Get-Service | Where-Object {
 } | Sort-Object DisplayName
 
 # Vérifier l’état d’un service spécifique
-Get-Service -Name NTDS, ADWS, DFSR
+Get-Service -Name NTDS, ADWS, DFSR   ```
 
 5.Services/300147786/images/s1.PNG
 
