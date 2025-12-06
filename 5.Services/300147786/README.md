@@ -29,8 +29,7 @@ Get-Service | Where-Object {
 # Vérifier l’état d’un service spécifique
 Get-Service -Name NTDS, ADWS, DFSR
 
-<img width="799" height="254" alt="s1" src="https://github.com/user-attachments/assets/88d3924b-fca5-44f0-a575-4bab7ff2bcd3" />
-
+5.Services/300147786/images/s1.PNG
 
 ###Services2.ps1
 # Afficher les 20 derniers événements liés à NTDS
