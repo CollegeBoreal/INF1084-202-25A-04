@@ -29,6 +29,9 @@ Get-Service | Where-Object {
 # Vérifier l’état d’un service spécifique
 Get-Service -Name NTDS, ADWS, DFSR
 
+<img width="799" height="254" alt="s1" src="https://github.com/user-attachments/assets/88d3924b-fca5-44f0-a575-4bab7ff2bcd3" />
+
+
 ###Services2.ps1
 # Afficher les 20 derniers événements liés à NTDS
 Get-EventLog -LogName "Directory Service" -Newest 20
@@ -39,10 +42,14 @@ Get-EventLog -LogName "System" -Newest 20 | Where-Object {$_.Source -eq "Netlogo
 # Afficher les logs via le journal moderne (Event Viewer v2)
 Get-WinEvent -LogName "Directory Service" -MaxEvents 20 | Format-Table TimeCreated, Id, LevelDisplayName, Message -AutoSize
 
+<img width="1012" height="391" alt="s2" src="https://github.com/user-attachments/assets/1c6dbc4f-0ad2-4d39-a042-149e2f36bf81" />
+
 
 ###Services3.ps1
 # Exporter les 50 derniers événements du service annuaire dans un fichier CSV
 Get-WinEvent -LogName "Directory Service" -MaxEvents 50 | Export-Csv -Path "C:\Logs\ADLogs.csv" -NoTypeInformation
+
+<img width="772" height="85" alt="s3" src="https://github.com/user-attachments/assets/ed080892-3161-4228-b4a8-b96f6f17a88c" />
 
 
 ##Services4.ps1
@@ -54,5 +61,7 @@ Stop-Service -Name DFSR
 
 # Redémarrer le service DFSR
 Start-Service -Name DFSR
+
+<img width="858" height="100" alt="s4" src="https://github.com/user-attachments/assets/830c1b11-7b66-4735-b364-198c57890b2d" />
 
 
