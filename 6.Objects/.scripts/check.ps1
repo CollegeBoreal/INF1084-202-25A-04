@@ -37,20 +37,19 @@ $md += "## Legende"
 $md += ""
 $md += "| Signe              | Signification                    |"
 $md += "|--------------------|----------------------------------|"
-$md += "| :heavy_check_mark: | Accès OK                          |"
-$md += "| :x:                | Service désactivé / ressource off |"
+$md += "| :heavy_check_mark: | Acces OK                          |"
+$md += "| :x:                | Service desactive / ressource off |"
 $md += "| :no_entry:         | Acces refuse / host down          |"
-$md += "| :warning:          | Mot de passe à changer            |"
+$md += "| :warning:          | Mot de passe a changer            |"
 $md += ""
 $md += "## :b: Precision"
 $md += ""
-$md += "| :hash: | Boreal :id: | Partage SMB | RDP GUI | Statut SMB |"
-$md += "|--------|-------------|--------------|---------|-------------|"
+$md += "| :hash: | Boreal :id: | :roll_of_paper: Partage SMB | :toilet: Statut SMB  | :mouse_trap: RDP GUI |"
+$md += "|--------|-------------|-----------------------------|----------------------|----------------------|"
 
 # ------------------------------
 # Boucle sur chaque étudiant
 # ------------------------------
-$counter = 1
 for ($i = 0; $i -lt $ETUDIANTS.Count; $i++) {
 
     $URL = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i]))"    
@@ -98,8 +97,7 @@ for ($i = 0; $i -lt $ETUDIANTS.Count; $i++) {
     # ------------------------------
     # Ligne Markdown
     # ------------------------------
-    $md += "| $counter | [$id](../$FILE) $URL | \\\\$vm\\SharedResources | $rdpIcon | $statusIcon |"
-    $counter++
+    $md += "| $i | [$id](../$FILE) $URL | \\\\$vm\\SharedResources | $statusIcon | $rdpIcon |"
 }
 
 # ------------------------------
