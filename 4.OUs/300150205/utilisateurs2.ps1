@@ -1,10 +1,11 @@
 # ========================================
 # TP Active Directory - Partie 2
-# Création et Modification d'utilisateurs
+# Creation et Modification d'utilisateurs
 # ========================================
 
 . .\bootstrap.ps1   # Dot sourcing du bootstrap
 
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 Write-Host "`n========================================" -ForegroundColor Cyan
 Write-Host "TP Active Directory - Partie 2" -ForegroundColor Cyan
@@ -12,18 +13,18 @@ Write-Host "========================================`n" -ForegroundColor Cyan
 
 
 
-# =====================ÉTAPE 3 : Créer un nouvel utilisateur ==================================
-Write-Host "[ÉTAPE 3] Création d'un nouvel utilisateur" -ForegroundColor Yellow
+# =====================ETAPE 3 : Creer un nouvel utilisateur ==================================
+Write-Host "[ETAPE 3] Creation d'un nouvel utilisateur" -ForegroundColor Yellow
 
 try {
-    # Vérifier si l'utilisateur existe déjà
+    # Verifier si l'utilisateur existe deja 
     $existingUser = Get-ADUser -Filter "SamAccountName -eq 'alice.dupont'" -Server $domainName -ErrorAction SilentlyContinue
     
     if ($existingUser) {
-        Write-Host "  ⚠ L'utilisateur 'alice.dupont' existe déjà" -ForegroundColor Yellow
+        Write-Host "  ATTENTION L'utilisateur 'alice.dupont' existe deja" -ForegroundColor Yellow
         Write-Host "    Suppression de l'utilisateur existant..." -ForegroundColor Gray
         Remove-ADUser -Identity "alice.dupont" -Server $domainName -Confirm:$false -ErrorAction Stop
-        Write-Host "  ✓ Utilisateur existant supprimé" -ForegroundColor Green
+        Write-Host "  OK Utilisateur existant supprime" -ForegroundColor Green
     }
     
     New-ADUser -Name "Alice Dupont" `
@@ -37,18 +38,18 @@ try {
                -Server $domainName `
                -ErrorAction Stop
     
-    Write-Host "  ✓ Utilisateur 'Alice Dupont' créé avec succès" -ForegroundColor Green
+    Write-Host "  OK Utilisateur 'Alice Dupont' cree avec succes" -ForegroundColor Green
     Write-Host "    Login : alice.dupont" -ForegroundColor Gray
     Write-Host "    UPN : alice.dupont@$domainName`n" -ForegroundColor Gray
 }
 catch {
-    Write-Host "  ✗ ERREUR : Impossible de créer l'utilisateur" -ForegroundColor Red
-    Write-Host "    Détails : $($_.Exception.Message)`n" -ForegroundColor Red
+    Write-Host "  ERREUR : Impossible de creer l'utilisateur" -ForegroundColor Red
+    Write-Host "    Details : $($_.Exception.Message)`n" -ForegroundColor Red
     exit
 }
 
-# ---------------------------------- ÉTAPE 4 : Modifier un utilisateur -----------------------------------
-Write-Host "[ÉTAPE 4] Modification de l'utilisateur" -ForegroundColor Yellow
+# ---------------------------------- ETAPE 4 : Modifier un utilisateur -----------------------------------
+Write-Host "[ETAPE 4] Modification de l'utilisateur" -ForegroundColor Yellow
 
 try {
     Set-ADUser -Identity "alice.dupont" `
@@ -57,18 +58,18 @@ try {
                -GivenName "Alice-Marie" `
                -ErrorAction Stop
     
-    Write-Host "  ✓ Utilisateur modifié avec succès" -ForegroundColor Green
-    Write-Host "    Nouveau prénom : Alice-Marie" -ForegroundColor Gray
+    Write-Host "  OK Utilisateur modifie avec succes" -ForegroundColor Green
+    Write-Host "    Nouveau prenom : Alice-Marie" -ForegroundColor Gray
     Write-Host "    Email : alice.dupont@exemple.com`n" -ForegroundColor Gray
     
-    # Afficher les informations mises à jour
+    # Afficher les informations mises a jour
     $updatedUser = Get-ADUser -Identity "alice.dupont" -Server $domainName -Properties GivenName, EmailAddress
     Write-Host "  Informations actuelles :" -ForegroundColor Gray
     Write-Host "    Nom complet : $($updatedUser.Name)" -ForegroundColor Gray
-    Write-Host "    Prénom : $($updatedUser.GivenName)" -ForegroundColor Gray
+    Write-Host "    Prenom : $($updatedUser.GivenName)" -ForegroundColor Gray
     Write-Host "    Email : $($updatedUser.EmailAddress)`n" -ForegroundColor Gray
 }
 catch {
-    Write-Host "  ✗ ERREUR : Impossible de modifier l'utilisateur" -ForegroundColor Red
-    Write-Host "    Détails : $($_.Exception.Message)`n" -ForegroundColor Red
+    Write-Host "  ERREUR : Impossible de modifier l'utilisateur" -ForegroundColor Red
+    Write-Host "    Details : $($_.Exception.Message)`n" -ForegroundColor Red
 }
