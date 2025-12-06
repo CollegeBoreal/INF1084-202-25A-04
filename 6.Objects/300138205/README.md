@@ -120,6 +120,8 @@ PS C:\Users\Administrator\Developer\INF1084-202-25A-04\6.Objects\300138205>
 ```
 
 </details>
+# verification
+<img src="images/parv2.png" alt="Girl in a jacket" width="500" height="600">
 <img src="images/par.png" alt="Girl in a jacket" width="500" height="600">
 <img src="images/6.ou.png" alt="Girl in a jacket" width="500" height="600">
 <img src="images/6ou1.png" alt="Girl in a jacket" width="500" height="600">
