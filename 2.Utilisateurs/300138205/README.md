@@ -30,7 +30,7 @@ $Users = @(
 $Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
 ```
 
-**Exercice 1** : Ajouter 2 nouveaux utilisateurs à la liste et vérifier qu’ils s’affichent correctement.
+<img src="images/ut2.1.png" alt="Girl in a jacket" width="900" height="600">
 
 ---
 
@@ -47,7 +47,7 @@ $Groups = @{
 $Groups["GroupeFormation"] += $Users[0]   # Alice Dupont
 ```
 
-**Exercice 2** : Ajouter tous les utilisateurs dont l’OU = "Stagiaires" dans "GroupeFormation".
+<img src="images/ut2.2.png" alt="Girl in a jacket" width="900" height="600">
 
 ---
 
@@ -61,7 +61,7 @@ $Users | Where-Object {$_.Nom -like "B*"}
 $Users | Where-Object {$_.OU -eq "Stagiaires"}
 ```
 
-**Exercice 3** : Lister tous les utilisateurs dont le prénom contient "a" (majuscule/minuscule).
+<img src="images/ut2.3.png" alt="Girl in a jacket" width="900" height="600">
 
 ---
 
