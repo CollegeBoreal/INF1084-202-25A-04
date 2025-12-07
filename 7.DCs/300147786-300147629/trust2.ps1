@@ -1,3 +1,4 @@
+#
 Write-Host "=== 1. Récupération des informations d'accès au domaine distant ===" -ForegroundColor Cyan
 
 # Demande d'identifiants du domaine DC300147629-00.local
