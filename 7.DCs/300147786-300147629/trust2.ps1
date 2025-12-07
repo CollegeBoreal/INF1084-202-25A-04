@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-򠀍򠀍򠀍󐀢󐀊󐀊󐀊󐁮󐀊򠀍2ⵢʓʓWrite-Host "=== 1. Récupération des informations d'accès au domaine distant ===" -ForegroundColor Cyan
-=======
-Write-Host "=== 1. Récupération des informations d'accès au domaine distant ===" -ForegroundColor Cyan
->>>>>>> 7247aba3636538d698a92384a4e93c92cb623da9
+=== 1. Récupération des informations d'accès au domaine distant ===" -ForegroundColor Cyan
+===Write-Host "=== 1. Récupération des informations d'accès au domaine distant ===" -ForegroundColor Cyan
 
 # Demande d'identifiants du domaine DC300147629-00.local
 $credAD2 = Get-Credential -Message "Identifiants administrateur du domaine DC300147629-00.local requis"
@@ -12,7 +9,7 @@ $credAD2 = Get-Credential -Message "Identifiants administrateur du domaine DC300
 Write-Host "=== 2. Test de disponibilité du contrôleur de domaine distant ===" -ForegroundColor Cyan
 
 # Vérifie que le DC du domaine AD2 répond au ping
-<<<<<<< HEAD
+
 Test-Connection -ComputerName "DC300147629-00.local" -Count 2Write-Host "=== 1. Récupération des informations d'accès au domaine distant ===" -ForegroundColor Cyan
 
 # Demande d'identifiants du domaine DC300147629-00.local
@@ -88,4 +85,3 @@ nltest /domain_trusts
 
 
 Write-Host "=== Script exécuté avec succès ===" -ForegroundColor Green
->>>>>>> 7247aba3636538d698a92384a4e93c92cb623da9
