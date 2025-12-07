@@ -58,7 +58,7 @@ Objectif : valider que l’utilisateur peut ouvrir une session RDP selon les rè
 <img width="1124" height="551" alt="5" src="https://github.com/user-attachments/assets/eccb3d70-b7d7-43ea-8322-7b4fb38d431f" />
 
 📁 6. Vérification de l’accès au partage SMB depuis la session RDP
-Depuis la session de l’utilisateur Etudiant1 : dn utilisant powershell
+Depuis la session de l’utilisateur Etudiant1 : En utilisant powershell
 
 <img width="662" height="134" alt="6" src="https://github.com/user-attachments/assets/3891f5cf-6194-4e7a-8074-5824c3e57199" />
 
@@ -70,6 +70,7 @@ Depuis la session de l’utilisateur Etudiant1 : dn utilisant powershell
 
 
  
+
 
 
 
