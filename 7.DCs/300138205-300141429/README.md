@@ -64,9 +64,7 @@ Test-Connection -ComputerName DC300141429.local -Count 2
 
 #  le script  trusts2.ps1
 
-Dans ce laboration, nous avons realisé la navigation d'un domain à un autre donc le script doit etre trusts2.ps1
-
-
+Dans ce laboration, nous avons realisé la navigation d'un domaine à un autre dont le script trusts2.ps1 qui a ete fait sur le serveur (300141429.local)
 
 ---
 ```powershell
@@ -119,5 +117,6 @@ Test de navigabilité (accès croisé)
 On vérifie la navigabilité en tentant d’accéder au dossier partagé SharedResources sur le domaine distant DC300138205.local. Après saisie du mot de passe de l’administrateur, la commande net use renvoie le message “The command completed successfully”, ce qui confirme que l’accès au partage est autorisé et que les ressources du domaine distant sont effectivement accessibles depuis le domaine local.
 ```
 ![](images/T7.png)
+
 
 
