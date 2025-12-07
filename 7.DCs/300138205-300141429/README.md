@@ -34,7 +34,7 @@ trusts.ps1
 
   
 
-<img src="images/lab7.2.png" alt="Girl in a jacket" width="500" height="600">
+<img src="images/lab7.2.png" alt="Girl in a jacket" width="900" height="700">
 
 
 </details>
@@ -44,10 +44,38 @@ trusts.ps1
 ```powershell
 Test-Connection -ComputerName DC300141429.local -Count 2
 ```
+<img src="images/lab7.1.png" alt="Girl in a jacket" width="900" height="700">
+<img src="images/lab7.4.png" alt="Girl in a jacket" width="900" height="700">
+
+#  Installation des modules AS DC
+<img src="images/lab7.3.png" alt="Girl in a jacket" width="900" height="700">
+
+# Verification du trusts dans le serveur 10.7.236.188
+
+<img src="images/lab7.5.png" alt="Girl in a jacket" width="900" height="700">
+<img src="images/lab7.6.png" alt="Girl in a jacket" width="900" height="700">
+<img width="1588" height="867" alt="image" src="https://github.com/user-attachments/assets/a7d749e2-e95e-41e4-802d-81b7ea16c9fa" />
+
+# verification via les lignes de commandes
+
+<img src="images/lab7.10.png" alt="Girl in a jacket" width="900" height="700">
+<img src="images/lab7.12.png" alt="Girl in a jacket" width="900" height="700">
+
+
+#  le script  trusts2.ps1
+
+Dans ce laboration, nous avons realisé la navigation d'un domain à un autre donc le script doit etre trusts2.ps1
 
 
 
 ---
+
+
+
+
+
+
+
 
 
 
