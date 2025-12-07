@@ -1,15 +1,22 @@
-$LocalDomain  = "DC300147786-00.local"
-$RemoteDomain = "DC300147629-00.local"
+param(
+    [string]$LocalForest      = "DC300147786-00.local",
+    [string]$LocalDC          = "DC300147786-00-DC01",
+    [string]$RemoteForest     = "DC300147629-00.local",
+    [string]$RemoteDC         = "DC300147629-00-DC01",
+    [ValidateSet("Forest")]
+    [string]$TrustType        = "Forest",
+    [string]$Direction        = "Bidirectional",
+    [bool]  $Transitivity     = $true
+)
 
-Write-Host "=== Vérification DNS ===" -ForegroundColor Cyan
-Resolve-DnsName $RemoteDomain
+Write-Host "`n============================" -ForegroundColor Cyan
+Write-Host " Vérification de la connectivité réseau " -ForegroundColor Cyan
+Write-Host "============================`n" -ForegroundColor Cyan
 
-Write-Host "=== Trust password required ===" -ForegroundColor Cyan
-$TrustPassword = Read-Host "Enter trust password (same for both domains)" 
-
-Write-Host "=== Creating TWO-WAY trust (NETDOM) ===" -ForegroundColor Cyan
-netdom trust DC300147786-00.local /Domain:DC300147629-00.local /UserD:administrator /PasswordD:* /Add /Realm /TwoWay
-
-
-Write-Host "=== Trust created successfully ===" -ForegroundColor Green
+# Test Ping
+if (-not (Test-Connection -ComputerName $RemoteDC -Count 2 -Quiet)) {
+    throw "❌ Le contrôleur distant ($RemoteDC) ne répond pas au ping."
+} else {
+    Write-Host "✔ Ping OK vers $RemoteDC"
+}
 
