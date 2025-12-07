@@ -1,30 +1,28 @@
-# VERIFY TRUST BETWEEN TWO DOMAINS
-# Local Domain: DC300147786-00.local
-# Remote Domain: DC300147629-00.local
-# ===============================
+򠀍򠀍򠀍󐀢󐀊󐀊󐀊󐁮󐀊򠀍2ⵢʓʓWrite-Host "=== 1. Récupération des informations d'accès au domaine distant ===" -ForegroundColor Cyan
 
-# For proper UTF-8 encoding in console
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+# Demande d'identifiants du domaine DC300147629-00.local
+$credAD2 = Get-Credential -Message "Identifiants administrateur du domaine DC300147629-00.local requis"
 
-$LocalDomain  = "DC300147786-00.local"
-$RemoteDomain = "DC300147629-00.local"
 
-Write-Host "=== Vérification DNS du domaine distant ===" -ForegroundColor Cyan
-try {
-    $dnsResult = Resolve-DnsName $RemoteDomain -ErrorAction Stop
-    Write-Host "DNS OK : $RemoteDomain résolu en $($dnsResult.IPAddress)" -ForegroundColor Green
-} catch {
-    Write-Host "Erreur DNS : impossible de résoudre $RemoteDomain" -ForegroundColor Red
-    exit 1
-}
 
-Write-Host "=== Vérification du trust avec NETDOM ===" -ForegroundColor Cyan
-netdom trust $LocalDomain /Domain:$RemoteDomain /Verify
+Write-Host "=== 2. Test de disponibilité du contrôleur de domaine distant ===" -ForegroundColor Cyan
 
-if ($LASTEXITCODE -eq 0) {
-    Write-Host "Trust entre $LocalDomain et $RemoteDomain vérifié avec succès ✅" -ForegroundColor Green
-} else {
-    Write-Host "Échec de la vérification du trust ❌" -ForegroundColor Red
-    Write-Host "Veuillez vérifier la configuration du trust et la connectivité réseau."
-}
+# Vérifie que le DC du domaine AD2 répond au ping
+Test-Connection -ComputerName "DC300147629-00.local" -Count 2Write-Host "=== 1. Récupération des informations d'accès au domaine distant ===" -ForegroundColor Cyan
 
+# Demande d'identifiants du domaine DC300147629-00.local
+$credAD2 = Get-Credential -Message "Identifiants administrateur du domaine DC300147629-00.local requis"
+
+
+
+Write-Host "=== 2. Test de disponibilité du contrôleur de domaine distant ===" -ForegroundColor Cyan
+
+# Vérifie que le DC du domaine AD2 répond au ping
+Test-Connection -ComputerName "DC300147629-00.local" -Count 2Write-Host "=== 1. Récupération des informations d'accès au domaine distant ===" -ForegroundColor Cyan
+
+# Demande d'identifiants du domaine DC300147629-00.local
+$credAD2 = Get-Credential -Message "Identifiants administrateur du domaine DC300147629-00.local requis"
+
+
+
+Write-Host "=== 2. Test de disponibilité du contrôleur de domaine distant ===" -ForegroundCo
