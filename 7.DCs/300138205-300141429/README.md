@@ -69,17 +69,55 @@ Dans ce laboration, nous avons realisé la navigation d'un domain à un autre do
 
 
 ---
+```powershell
+Chargement des identifiants du domaine distant
 
+Utilise Get-Credential pour demander un compte du domaine DC300138205.local.
+Sécurise l’authentification sans stocker de mot de passe en clair.
+```
+![](images/T1.png)
 
+```powershell
+Test de connectivité et résolution DNS
 
+Test-Connection vérifie que le contrôleur de domaine distant est joignable.
+Confirme que la résolution DNS fonctionne et que le réseau est accessible.
+```
+![](images/T2.png)
 
+```powershell
+Informations du domaine local
 
+Get-ADDomain affiche les détails du domaine actuel (DC300141429.local).
+Permet de comparer avec les informations du domaine distant.
+```
+![](images/T3.png)
 
+```powershell
+Informations du domaine distant via le trust
+Get-ADDomain -Server DC300138205.local -Credential $cred interroge le domaine distant.
+Montre que le trust permet d’accéder aux données de l’autre domaine.
+```
+![](images/T4.png)
 
+```powershell
+Liste des utilisateurs du domaine distant
+Get-ADUser -Filter * récupère les comptes utilisateurs du domaine DC300138205.local.
+Affiche leurs SamAccountName et DistinguishedName.
+```
+![](images/T5.png)
 
+```powershell
+Vérification de l’état du trust
+Get-ADTrust -Filter * liste les relations de confiance existantes.
+Confirme que le trust entre les deux domaines est actif.
+```
+![](images/T6.png)
 
-
-
-
+```powershell
+Test de navigabilité (accès croisé)
+On vérifie la navigabilité en tentant d’accéder au dossier partagé SharedResources sur le domaine distant DC300138205.local. Après saisie du mot de passe de l’administrateur, la commande net use renvoie le message “The command completed successfully”, ce qui confirme que l’accès au partage est autorisé et que les ressources du domaine distant sont effectivement accessibles depuis le domaine local.
+```
+![](images/T7.png)
 
 

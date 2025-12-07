@@ -1,24 +1,56 @@
 # ==============================
 # utilisateurs2.ps1
-# GPO + Mapping Drive Z:
+# GPO + mapping lecteur Z + script logon
 # ==============================
 
 . "$PSScriptRoot\bootstrap.ps1"
 
-Write-Host "`n=== Création de la GPO ===`n"
+Write-Host "`n=== Verification ou creation de la GPO MapSharedFolder ===`n"
 
 $GPOName = "MapSharedFolder"
-New-GPO -Name $GPOName
 
-# Lier à l'OU Students
+# Vérifier si la GPO existe déjà
+$GPO = Get-GPO -Name $GPOName -ErrorAction SilentlyContinue
+
+if ($GPO) {
+    Write-Host "La GPO '$GPOName' existe deja. Utilisation de la GPO existante."
+} else {
+    $GPO = New-GPO -Name $GPOName
+    Write-Host "GPO '$GPOName' creee avec succes."
+}
+
+# ==============================
+# Lier la GPO à l'OU Students si le lien n'existe pas déjà
+# ==============================
+
+Write-Host "`n=== Verification du lien entre GPO et OU Students ===`n"
+
 $OU = "OU=Students,DC=$netbiosName,DC=local"
-New-GPLink -Name $GPOName -Target $OU
+
+# Recuperer tous les liens existants
+$existingLinks = (Get-GPInheritance -Target $OU).GpoLinks
+
+# Verifier si le lien existe deja
+$linkExists = $false
+
+foreach ($link in $existingLinks) {
+    if ($link.DisplayName -eq $GPOName) {
+        $linkExists = $true
+    }
+}
+
+if ($linkExists) {
+    Write-Host "La GPO '$GPOName' est deja liee a l'OU Students."
+} else {
+    New-GPLink -Name $GPOName -Target $OU -Enforced No
+    Write-Host "Lien GPO -> OU Students ajoute."
+}
 
 # ==============================
 # Script Logon
 # ==============================
 
-Write-Host "`n=== Création du script logon ===`n"
+Write-Host "`n=== Creation du script logon pour le lecteur Z ===`n"
 
 $DriveLetter = "Z:"
 $SharePath = "\\$netbiosName\SharedResources"
@@ -26,21 +58,26 @@ $SharePath = "\\$netbiosName\SharedResources"
 $ScriptFolder = "C:\Scripts"
 $ScriptPath = "$ScriptFolder\MapDrive-$DriveLetter.bat"
 
+# Créer le dossier si nécessaire
 if (-not (Test-Path $ScriptFolder)) {
     New-Item -ItemType Directory -Path $ScriptFolder
 }
 
+# Contenu du script BAT
 $scriptContent = "net use $DriveLetter $SharePath /persistent:no"
 Set-Content -Path $ScriptPath -Value $scriptContent
 
-Write-Host "Script créé : $ScriptPath"
+Write-Host "Script logon cree : $ScriptPath"
 
-# Associer via GPO (clé registre utilisateur)
+# ==============================
+# Associer le script logon à la GPO
+# ==============================
+
 Set-GPRegistryValue -Name $GPOName `
                     -Key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
                     -ValueName "LogonScript" `
                     -Type String `
                     -Value $ScriptPath
 
-Write-Host "Script logon appliqué à la GPO."
+Write-Host "`n=== Script termine sans erreur ===`n"
 
