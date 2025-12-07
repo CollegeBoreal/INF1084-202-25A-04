@@ -71,9 +71,10 @@ Dans ce laboration, nous avons realisé la navigation d'un domain à un autre do
 ---
 ```powershell
 Chargement des identifiants du domaine distant
-```
+
 Utilise Get-Credential pour demander un compte du domaine DC300138205.local.
 Sécurise l’authentification sans stocker de mot de passe en clair.
+```
 ![](images/T1.png)
 
 ```powershell
@@ -116,3 +117,4 @@ Test de navigabilité (accès croisé)
 ```
 On vérifie la navigabilité en tentant d’accéder au dossier partagé SharedResources sur le domaine distant DC300138205.local. Après saisie du mot de passe de l’administrateur, la commande net use renvoie le message “The command completed successfully”, ce qui confirme que l’accès au partage est autorisé et que les ressources du domaine distant sont effectivement accessibles depuis le domaine local.
 ![](images/T7.png)
+
