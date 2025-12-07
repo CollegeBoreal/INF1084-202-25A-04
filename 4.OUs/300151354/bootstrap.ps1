@@ -5,7 +5,7 @@
 
 # Numéro étudiant + instance  (À MODIFIER selon ton domaine)
 $studentNumber = 300151354
-$studentInstance = 0
+$studentInstance = "00"
 
 # Domaines générés automatiquement
 $domainName = "DC$studentNumber-$studentInstance.local"
