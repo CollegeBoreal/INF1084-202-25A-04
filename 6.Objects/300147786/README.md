@@ -33,12 +33,44 @@ Get-GPO -Name "MapSharedFolder"
 
 <img width="660" height="246" alt="3" src="https://github.com/user-attachments/assets/433e4226-61c3-4522-a07f-b37ca28a4209" />
 
+🖥️ 4. Vérification complète de la configuration RDP
+
+# Exporter la configuration de sécurité
+secedit /export /cfg C:\check.cfg /quiet
+
+# Rechercher le droit de connexion RDP
+Get-Content C:\check.cfg | Select-String "SeRemoteInteractiveLogonRight"
+
+# Nettoyer le fichier temporaire
+Remove-Item C:\check.cfg
+
+<img width="1098" height="385" alt="4" src="https://github.com/user-attachments/assets/b87cff6b-64b5-474a-9cc4-78c082e453ba" />
+
+🔑 5. Test de connexion RDP – Compte Étudiant
+
+Paramètres utilisés :
+Adresse du serveur : 10.7.236.225
+Nom d’utilisateur : Etudiant1
+Mot de passe : Pass123!
+
+Objectif : valider que l’utilisateur peut ouvrir une session RDP selon les règles de sécurité définies.
+
+<img width="1124" height="551" alt="5" src="https://github.com/user-attachments/assets/eccb3d70-b7d7-43ea-8322-7b4fb38d431f" />
+
+📁 6. Vérification de l’accès au partage SMB depuis la session RDP
+Depuis la session de l’utilisateur Etudiant1 : dn utilisant powershell
+
+<img width="662" height="134" alt="6" src="https://github.com/user-attachments/assets/3891f5cf-6194-4e7a-8074-5824c3e57199" />
+
+
+
 
 
 
 
 
  
+
 
 
 
