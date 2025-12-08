@@ -2,9 +2,12 @@
 # Script pour vérifier les domaines étudiants et générer README.md
 # --------------------------------------
 
-# Forcer UTF-8 dans tout le script
+# Forcer UTF-8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $PSDefaultParameterValues['Set-Content:Encoding'] = 'utf8'
+
+# Dot-source la fonction Safe-DnsLookup depuis check1.ps1
+. .scripts/check1.ps1
 
 # Charger la liste des VMs/domains depuis students.ps1
 . ../.scripts/students.ps1
@@ -13,35 +16,6 @@ $PSDefaultParameterValues['Set-Content:Encoding'] = 'utf8'
 if (-not $DOMAINS -or -not $NETBIOS) {
     Write-Host "Les variables `$DOMAINS ou `$NETBIOS sont manquantes dans students.ps1" -ForegroundColor Red
     exit
-}
-
-# Fonction DNS avec timeout pour éviter blocage
-function Test-DnsARecord {
-    param(
-        [string]$FQDN,
-        [int]$TimeoutSec = 3
-    )
-
-    $job = Start-Job -ScriptBlock {
-        param($name)
-        try {
-            Resolve-DnsName $name -Type A -ErrorAction Stop
-        }
-        catch {
-            $null
-        }
-    } -ArgumentList $FQDN
-
-    if (Wait-Job $job -Timeout $TimeoutSec) {
-        $result = Receive-Job $job
-        Remove-Job $job
-        return $result
-    }
-    else {
-        Stop-Job $job
-        Remove-Job $job
-        return $null
-    }
 }
 
 # Préparer le contenu Markdown
@@ -66,7 +40,7 @@ foreach ($tld in $DOMAINS) {
     # Nom complet du netbios
     $FQDN = "netbios.$tld"
 
-    Write-Host "TLD: $tld -> FQDN: $FQDN" -ForegroundColor Cyan
+    Write-Host "Test DNS A-record : $FQDN ..." -ForegroundColor Cyan
 
     # 🔹 Ignorer les TLD contenant "@monboreal.ca"
     if ($tld -like "*@monboreal.ca*") {
@@ -74,21 +48,14 @@ foreach ($tld in $DOMAINS) {
         $md += "| $counter | [$id](../$FILE) $URL | $tld | :x: |"
     }
     else {
-        $dns = Test-DnsARecord $FQDN -TimeoutSec 3
-        if ($dns) {
-            $dnsIP = ($dns | Where-Object { $_.Type -eq "A" }).IPAddress
-            if ($dnsIP) {
-                Write-Host "  ✅ A-record détecté : $dnsIP"
-                $md += "| $counter | [$id](../$FILE) $URL | $FQDN | :heavy_check_mark: |"
-                $s++
-            }
-            else {
-                Write-Host "  ❌ Aucun A-record trouvé"
-                $md += "| $counter | [$id](../$FILE) $URL | $FQDN | :x: |"
-            }
-        }
-        else {
-            Write-Host "  ❌ Résolution DNS impossible ou timeout" -ForegroundColor Red
+        # Utiliser Safe-DnsLookup pour éviter les blocages
+        $dnsIP = Safe-DnsLookup $FQDN 2
+        if ($dnsIP) {
+            Write-Host "  ✅ A-record détecté : $dnsIP"
+            $md += "| $counter | [$id](../$FILE) $URL | $FQDN | :heavy_check_mark: |"
+            $s++
+        } else {
+            Write-Host "  ❌ Échec DNS ou timeout" -ForegroundColor Red
             $md += "| $counter | [$id](../$FILE) $URL | $FQDN | :x: |"
         }
     }
