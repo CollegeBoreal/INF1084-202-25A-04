@@ -1,20 +1,23 @@
-# script3_ManageUser.ps1
+# ============================
+# utilisateurs3.ps1
+# Rechercher + exporter les utilisateurs
+# ============================
 
+. "$PSScriptRoot\bootstrap.ps1"
 
-Import-Module ActiveDirectory
-# $cred = Get-Credential  # Saisir Administrator@$domainName
+Write-Host "`n=== 6) Recherche des utilisateurs (prénom commençant par S ou A) ===`n"
 
-# Modifier un utilisateur
-Set-ADUser -Identity "alice.dupont" `
-           -EmailAddress "alice.dupont@exemple.com" `
-           -GivenName "Alice-Marie" `
-           -Credential $cred
+Get-ADUser -Filter "GivenName -like 'S*' -or GivenName -like 'A*'" -Properties Name, SamAccountName |
+    Select-Object Name, SamAccountName
 
-# Désactiver l'utilisateur
-Disable-ADAccount -Identity "alice.dupont" -Credential $cred
+Write-Host "`n=== 7) Export des utilisateurs dans TP_AD_Users.csv ===`n"
 
-# Réactiver l'utilisateur
-Enable-ADAccount -Identity "alice.dupont" -Credential $cred
+$output = Join-Path $PSScriptRoot "TP_AD_Users.csv"
 
-# Supprimer l'utilisateur
-# Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
+Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, EmailAddress, Enabled |
+    Where-Object { $_.SamAccountName -notin @("Administrator","Guest","krbtgt") } |
+    Select-Object Name, SamAccountName, EmailAddress, Enabled |
+    Export-Csv -Path $output -NoTypeInformation -Encoding UTF8
+
+Write-Host "Export terminé : $output"
+
