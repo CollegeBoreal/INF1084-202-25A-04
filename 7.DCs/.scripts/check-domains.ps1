@@ -33,6 +33,7 @@ foreach ($tld in $DOMAINS) {
     # 🔹 Ignorer les TLD contenant "@monboreal.ca"
     if ($tld -like "*@monboreal.ca*") {
         Write-Host "Ignoré : $tld (domaine interne)" -ForegroundColor Gray
+        $md += "| $counter | [$id](../$FILE) $URL | $tld | :x: |"
         $i++
         $counter++
         continue
