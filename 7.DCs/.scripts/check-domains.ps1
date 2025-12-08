@@ -15,6 +15,35 @@ if (-not $DOMAINS -or -not $NETBIOS) {
     exit
 }
 
+# Fonction DNS avec timeout pour éviter blocage
+function Test-DnsARecord {
+    param(
+        [string]$FQDN,
+        [int]$TimeoutSec = 3
+    )
+
+    $job = Start-Job -ScriptBlock {
+        param($name)
+        try {
+            Resolve-DnsName $name -Type A -ErrorAction Stop
+        }
+        catch {
+            $null
+        }
+    } -ArgumentList $FQDN
+
+    if (Wait-Job $job -Timeout $TimeoutSec) {
+        $result = Receive-Job $job
+        Remove-Job $job
+        return $result
+    }
+    else {
+        Stop-Job $job
+        Remove-Job $job
+        return $null
+    }
+}
+
 # Préparer le contenu Markdown
 $timestamp = Get-Date -Format "dd-MM-yyyy HH:mm"
 $md = @()
@@ -30,7 +59,6 @@ $counter = 1
 
 foreach ($tld in $DOMAINS) {
 
-
     $URL = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i]))"
     $id = $ETUDIANTS[$i]
     $FILE = "$id/README.md"
@@ -38,7 +66,7 @@ foreach ($tld in $DOMAINS) {
     # Nom complet du netbios
     $FQDN = "netbios.$tld"
 
-    Write-Host "Test DNS A-record : $FQDN ..." -ForegroundColor Cyan
+    Write-Host "TLD: $tld -> FQDN: $FQDN" -ForegroundColor Cyan
 
     # 🔹 Ignorer les TLD contenant "@monboreal.ca"
     if ($tld -like "*@monboreal.ca*") {
@@ -46,13 +74,11 @@ foreach ($tld in $DOMAINS) {
         $md += "| $counter | [$id](../$FILE) $URL | $tld | :x: |"
     }
     else {
-        try {
-            $dns = Resolve-DnsName $FQDN -ErrorAction Stop | Where-Object { $_.Type -eq "A" }
-            $dnsIP = $dns.IPAddress
-            Write-Host "  A-record trouvé : $dnsIP"
-
+        $dns = Test-DnsARecord $FQDN -TimeoutSec 3
+        if ($dns) {
+            $dnsIP = ($dns | Where-Object { $_.Type -eq "A" }).IPAddress
             if ($dnsIP) {
-                Write-Host "  ✅ A-record détecté"
+                Write-Host "  ✅ A-record détecté : $dnsIP"
                 $md += "| $counter | [$id](../$FILE) $URL | $FQDN | :heavy_check_mark: |"
                 $s++
             }
@@ -61,11 +87,12 @@ foreach ($tld in $DOMAINS) {
                 $md += "| $counter | [$id](../$FILE) $URL | $FQDN | :x: |"
             }
         }
-        catch {
-            Write-Host "  ❌ Résolution DNS impossible pour $FQDN" -ForegroundColor Red
+        else {
+            Write-Host "  ❌ Résolution DNS impossible ou timeout" -ForegroundColor Red
             $md += "| $counter | [$id](../$FILE) $URL | $FQDN | :x: |"
         }
     }
+
     $i++
     $counter++
 }
