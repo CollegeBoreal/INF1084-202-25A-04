@@ -6,23 +6,14 @@
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $PSDefaultParameterValues['Set-Content:Encoding'] = 'utf8'
 
-# Autorise toutes les IP pour les connexions WinRM
-Set-Item WSMan:\localhost\Client\TrustedHosts -Value "10.7.236.*" -Force
-
 # Charger la liste des VMs depuis students.ps1
-. ../.scripts/students.ps1 # le point suivi d'espace permet d'importer les variables
+. ../.scripts/students.ps1
 
-# Vérifier que $SERVERS existe
-if (-not $SERVERS) {
-    Write-Host "La variable `$SERVERS n'a pas été trouvée dans students.ps1" -ForegroundColor Red
+# Vérifier que $DOMAINS et $NETBIOS existent
+if (-not $DOMAINS -or -not $NETBIOS) {
+    Write-Host "Les variables `$DOMAINS ou `$NETBIOS sont manquantes dans students.ps1" -ForegroundColor Red
     exit
 }
-
-# Identifiants administrateur (local ou domaine)
-$User = "Administrator"
-# $Password = Read-Host -AsSecureString "Mot de passe de $User"
-$plain = 'Infra@2024'
-$Password = ConvertTo-SecureString $plain -AsPlainText -Force
 
 # Préparer le contenu Markdown
 $timestamp = Get-Date -Format "dd-MM-yyyy HH:mm"
@@ -49,49 +40,82 @@ $md += ""
 $md += "| :hash: | Boreal :id: | :slot_machine: VM   | :tada:   |"
 $md += "|--------|-------------|---------------------|----------|"
 
-# Boucle sur chaque VM
+# Initialisation des compteurs
 $i = 0
 $s = 0
 $counter = 1
 
-foreach ($VM in $SERVERS) {
-    $URL = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i]))"    
+# Boucle sur chaque domaine
+foreach ($tld in $DOMAINS) {
+
+    $URL = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i]))"
     $id = $ETUDIANTS[$i]
     $FILE = "$id/README.md"
-    $server = $SERVERS[$i]
 
-    Write-Host "Connexion à $VM ..." -ForegroundColor Cyan
+    # A-record complet
+    $FQDN = "netbios.$tld"
+
+    $VM = $FQDN
+
+    Write-Host "Ping A-record : $FQDN ..." -ForegroundColor Cyan
+
+    #
+    # 🔵 1. Tester le A-record (PING)
+    #
+    $ping = Test-Connection -ComputerName $FQDN -Count 1 -Quiet
+
+    if (-not $ping) {
+        Write-Host "$FQDN ne répond pas au ping." -ForegroundColor Yellow
+        $md += "| $counter | [$id](../$FILE) $URL | $VM | :x: |"
+
+        $i++
+        $counter++
+        continue
+    }
+
+    #
+    # 🟢 2. Tester AD DS via WinRM
+    #
     try {
-        $Session = New-PSSession -ComputerName $VM -Credential (New-Object PSCredential ($User, $Password))
-        
-        # Vérifier le service AD DS (NTDS)
+        $Session = New-PSSession -ComputerName $FQDN -ErrorAction Stop
+
         $ADStatus = Invoke-Command -Session $Session -ScriptBlock {
-            $svc = Get-Service -Name NTDS -ErrorAction SilentlyContinue
-            if ($svc) { $svc.Status } else { -1 }
+            (Get-WindowsFeature AD-Domain-Services).InstallState
         }
 
-        $statusIcon = if ($ADStatus -eq 4) { ":heavy_check_mark:"; $s++ } else { ":x:" }
+        if ($ADStatus -eq 4) {
+            $statusIcon = ":heavy_check_mark:"
+            $s++
+        }
+        else {
+            $statusIcon = ":x:"
+        }
 
-        # Ajouter la ligne Markdown
+        # Ajouter une ligne dans le tableau Markdown
         $md += "| $counter | [$id](../$FILE) $URL | $VM | $statusIcon |"
 
-        # Fermer la session
         Remove-PSSession $Session
     }
     catch {
-        Write-Host "Échec de connexion à $VM : $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host "Échec de connexion à $FQDN : $($_.Exception.Message)" -ForegroundColor Red
         $md += "| $counter | [$id](../$FILE) $URL | $VM | :no_entry: |"
     }
+
+    #
+    # 🔢 3. Mise à jour des compteurs
+    #
     $i++
     $counter++
-    $COUNT = "\$\\frac{$s}{$i}$"
-    $STATS = [math]::Round(($s * 100) / $i, 2)
-    $SUM = "\$\displaystyle\sum_{i=1}^{$i} s_i$"
 }
+
+# Résumé final
+$COUNT = "\$\\frac{$s}{$i}$"
+$STATS = [math]::Round(($s * 100) / $i, 2)
+$SUM = "\$\displaystyle\sum_{i=1}^{$i} s_i$"
 
 $md += "| :abacus: | $COUNT = $STATS% | | $SUM = $s |"
 
 # Exporter le README.md
-$md | Set-Content -Path ".scripts/Check.md" -Encoding UTF8
+$md | Set-Content -Path ".scripts/Check-DOMAINS.md" -Encoding UTF8
 Write-Host "README.md généré avec succès !" -ForegroundColor Green
 
