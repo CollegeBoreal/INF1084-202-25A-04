@@ -30,14 +30,6 @@ $counter = 1
 
 foreach ($tld in $DOMAINS) {
 
-    # 🔹 Ignorer les TLD contenant "@monboreal.ca"
-    if ($tld -like "*@monboreal.ca*") {
-        Write-Host "Ignoré : $tld (domaine interne)" -ForegroundColor Gray
-        $md += "| $counter | [$id](../$FILE) $URL | $tld | :x: |"
-        $i++
-        $counter++
-        continue
-    }
 
     $URL = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i]))"
     $id = $ETUDIANTS[$i]
@@ -48,24 +40,31 @@ foreach ($tld in $DOMAINS) {
 
     Write-Host "Test DNS A-record : $FQDN ..." -ForegroundColor Cyan
 
-    try {
-        $dns = Resolve-DnsName $FQDN -ErrorAction Stop | Where-Object {$_.Type -eq "A"}
-        $dnsIP = $dns.IPAddress
-        Write-Host "  A-record trouvé : $dnsIP"
+    # 🔹 Ignorer les TLD contenant "@monboreal.ca"
+    if ($tld -like "*@monboreal.ca*") {
+        Write-Host "Ignoré : $tld (domaine interne)" -ForegroundColor Gray
+        $md += "| $counter | [$id](../$FILE) $URL | $tld | :x: |"
+    }
+    else {
+        try {
+            $dns = Resolve-DnsName $FQDN -ErrorAction Stop | Where-Object { $_.Type -eq "A" }
+            $dnsIP = $dns.IPAddress
+            Write-Host "  A-record trouvé : $dnsIP"
 
-        if ($dnsIP) {
-            Write-Host "  ✅ A-record détecté"
-            $md += "| $counter | [$id](../$FILE) $URL | $FQDN | :heavy_check_mark: |"
-            $s++
+            if ($dnsIP) {
+                Write-Host "  ✅ A-record détecté"
+                $md += "| $counter | [$id](../$FILE) $URL | $FQDN | :heavy_check_mark: |"
+                $s++
+            }
+            else {
+                Write-Host "  ❌ Aucun A-record trouvé"
+                $md += "| $counter | [$id](../$FILE) $URL | $FQDN | :x: |"
+            }
         }
-        else {
-            Write-Host "  ❌ Aucun A-record trouvé"
+        catch {
+            Write-Host "  ❌ Résolution DNS impossible pour $FQDN" -ForegroundColor Red
             $md += "| $counter | [$id](../$FILE) $URL | $FQDN | :x: |"
         }
-    }
-    catch {
-        Write-Host "  ❌ Résolution DNS impossible pour $FQDN" -ForegroundColor Red
-        $md += "| $counter | [$id](../$FILE) $URL | $FQDN | :x: |"
     }
     $i++
     $counter++
