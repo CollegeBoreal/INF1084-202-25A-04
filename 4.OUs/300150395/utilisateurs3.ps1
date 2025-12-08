@@ -1,10 +1,15 @@
 # TP Active Directory - Partie 3
 # Gestion des comptes
 
+Import-Module ActiveDirectory
+
+# ==== VARIABLE MANQUANTE (correction obligatoire) ====
+$domainName = "DC300150395-00.local"
+# =====================================================
+
 Disable-ADAccount -Identity "alice.dupont" -Server $domainName
 Enable-ADAccount -Identity "alice.dupont" -Server $domainName
 Remove-ADUser -Identity "alice.dupont" -Server $domainName -Confirm:$false
-
 
 Get-ADUser -Filter "Name -like 'a*'" -Server $domainName -Properties Name, SamAccountName |
 Select-Object Name, SamAccountName
