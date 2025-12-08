@@ -1,0 +1,31 @@
+# Auteur : 300150284
+# TP Objets AD – Script 2
+# Création d’une GPO pour mapper le lecteur réseau Z:
+
+Import-Module GroupPolicy
+
+$GPOName = "MapSharedFolder"
+New-GPO -Name $GPOName
+
+$OU = "OU=Students,DC=DC300150284-00,DC=local"
+New-GPLink -Name $GPOName -Target $OU
+
+# Script de logon
+$DriveLetter = "Z:"
+$SharePath = "\\DC300150284-00\SharedResources"
+
+$ScriptFolder = "C:\Scripts"
+$ScriptPath = "$ScriptFolder\MapDrive.bat"
+
+if (-not (Test-Path $ScriptFolder)) { 
+    New-Item -Path $ScriptFolder -ItemType Directory 
+}
+
+"net use $DriveLetter $SharePath /persistent:no" | Out-File -FilePath $ScriptPath -Encoding ASCII
+
+# Lier le script à la GPO
+Set-GPRegistryValue -Name $GPOName `
+    -Key "HKCU\Environment" `
+    -ValueName "LogonScript" `
+    -Type String `
+    -Value $ScriptPath
