@@ -1,146 +1,52 @@
-<#
-Script  : check-trust.ps1
-Auteur  : Ismail TRACHE (300150395)
-Cours   : INF1084 – Services Réseau Windows
-But     : Vérifier la connectivité avec le DC du binôme,
-          explorer son AD et créer/vérifier un trust de forêt bidirectionnel
-          entre DC300150395-00.local et DC300150295-00.local.
+# =============================================
+# Script : trust2.ps1 (Adapté pour Ismail)
+# Objectif : Mettre en place un trust bidirectionnel entre deux domaines AD
+# =============================================
 
-À exécuter sur : DC300150395 (ton DC)
-#>
+# === 1. Récupération des informations d'accès au domaine distant ===
+Write-Host "=== 1. Récupération des informations d'accès au domaine distant ===" -ForegroundColor Cyan
 
-param(
-    # Forêt / domaine local (toi)
-    [string]$ThisForestFQDN = "DC300150395-00.local",
-    [string]$ThisDC         = "DC300150395.DC300150395-00.local",
+$PeerDomain = "DC300150295-00.local"
+$LocalDomain = "DC300150395-00.local"
+$PeerDC = "10.7.236.229"        
+$LocalDC = "10.7.236.233"       
 
-    # Forêt / domaine distant (ton binôme)
-    [string]$PeerForestFQDN = "DC300150295-00.local",
-    [string]$PeerDC         = "DC300150295-00.local"
-)
+$credPeer = Get-Credential -Message "Identifiants administrateur du domaine $PeerDomain requis"
 
-Write-Host "=== Création et vérification du trust entre $ThisForestFQDN et $PeerForestFQDN ===" -ForegroundColor Cyan
+# === 2. Test de disponibilité du DC distant ===
+Write-Host "=== 2. Test de disponibilité du contrôleur de domaine distant ===" -ForegroundColor Cyan
+Test-Connection -ComputerName $PeerDC -Count 2
 
-# ---------------------------------------------------------------------
-# 0) Chargement du module AD
-# ---------------------------------------------------------------------
-Import-Module ActiveDirectory -ErrorAction Stop
+# === 3. Consultation du domaine distant ===
+Write-Host "=== 3. Consultation du domaine distant ===" -ForegroundColor Cyan
+Get-ADDomain -Server $PeerDC -Credential $credPeer
+Get-ADUser -Filter * -Server $PeerDC -Credential $credPeer
 
-Write-Host "`n[0] Informations sur TON DC" -ForegroundColor Yellow
-$localDC = Get-ADDomainController
-$localDC | Select-Object HostName,IPv4Address,Domain,Forest | Format-List
+# === 4. Montée d’un lecteur Active Directory virtuel ===
+Write-Host "=== 4. Exploration de l'AD distant ===" -ForegroundColor Cyan
+New-PSDrive -Name "AD2" -PSProvider ActiveDirectory -Root "DC=DC300150295-00,DC=local" -Server $PeerDC -Credential $credPeer | Out-Null
+Set-Location "AD2:\DC=DC300150295-00,DC=local"
+Get-ChildItem
 
-# ---------------------------------------------------------------------
-# 1) Vérifier la connectivité réseau et DNS vers le DC distant
-# ---------------------------------------------------------------------
-Write-Host "`n[1] Vérification ping vers le DC distant ($PeerDC)..." -ForegroundColor Yellow
-if (-not (Test-Connection -ComputerName $PeerDC -Count 2 -Quiet)) {
-    throw "Le DC distant $PeerDC ne répond pas au ping. Vérifie réseau/Hyper-V."
-}
-Write-Host "[OK] $PeerDC répond au ping."
+# === 5. Mise en place du trust bidirectionnel ===
+Write-Host "=== 5. Création du trust ===" -ForegroundColor Cyan
 
-Write-Host "`n[2] Vérification DNS vers $PeerDC..." -ForegroundColor Yellow
-try {
-    $dns = Resolve-DnsName -Name $PeerDC -ErrorAction Stop
-    Write-Host "[OK] DNS résout $PeerDC -> $($dns.IPAddress)"
-} catch {
-    throw "DNS ne résout pas $PeerDC. Vérifie les zones/délais."
-}
+$PeerPassword = $credPeer.GetNetworkCredential().Password
 
-Write-Host "`n[3] Vérification des ports critiques (88, 389, 445, 135)..." -ForegroundColor Yellow
-$ports = 88,389,445,135
-foreach ($p in $ports) {
-    $res = Test-NetConnection -ComputerName $PeerDC -Port $p
-    if (-not $res.TcpTestSucceeded) {
-        throw "Port $p vers $PeerDC est FERMÉ. Ouvre le firewall ou désactive-le pour le labo."
-    }
-}
-Write-Host "[OK] Tous les ports nécessaires sont ouverts vers $PeerDC."
+netdom TRUST $PeerDomain `
+    /Domain:$LocalDomain `
+    /UserD:"Administrator" `
+    /PasswordD:$PeerPassword `
+    /UserO:"Administrator" `
+    /PasswordO:$PeerPassword `
+    /Add `
+    /TwoWay
 
-# ---------------------------------------------------------------------
-# 2) Récupérer des infos sur le domaine distant
-# ---------------------------------------------------------------------
-Write-Host "`n[4] Connexion au domaine distant via Get-ADDomain..." -ForegroundColor Yellow
-$credPeer = Get-Credential -Message "Compte admin du domaine $PeerForestFQDN (ex: Administrateur)"
+# === 6. Vérifications ===
+Write-Host "=== 6. Vérifications du trust ===" -ForegroundColor Cyan
 
-try {
-    $peerDomain = Get-ADDomain -Server $PeerDC -Credential $credPeer -ErrorAction Stop
-    Write-Host "[OK] Domaine distant détecté : $($peerDomain.DNSRoot)"
-    Write-Host "     SID du domaine distant : $($peerDomain.DomainSID.Value)"
-} catch {
-    Write-Host "[ERREUR] Impossible de contacter le domaine distant via Get-ADDomain." -ForegroundColor Red
-    Write-Host "         Vérifie les identifiants admin du domaine $PeerForestFQDN."
-    throw
-}
+netdom trust $PeerDomain /Domain:$LocalDomain /Verify
+Resolve-DnsName $PeerDomain
+nltest /domain_trusts
 
-# ---------------------------------------------------------------------
-# 3) Créer un PSDrive AD2:\ pour naviguer dans l'AD distant
-# ---------------------------------------------------------------------
-Write-Host "`n[5] Montage d'un PSDrive AD2: vers la forêt distante..." -ForegroundColor Yellow
-$peerRootDN = ("DC=" + ($PeerForestFQDN -replace "\.",",DC="))  # ex: DC=DC300150295-00,DC=local
-
-New-PSDrive `
-    -Name AD2 `
-    -PSProvider ActiveDirectory `
-    -Root $peerRootDN `
-    -Server $PeerDC `
-    -Credential $credPeer `
-    -ErrorAction SilentlyContinue | Out-Null
-
-Write-Host "[OK] PSDrive 'AD2:' monté sur $PeerForestFQDN (root = $peerRootDN)."
-Write-Host "     Exemple : Set-Location AD2:\ puis Get-ChildItem pour parcourir leur AD."
-
-# ---------------------------------------------------------------------
-# 4) Création du trust de forêt AVEC NETDOM (car New-ADTrust n'existe pas ici)
-# ---------------------------------------------------------------------
-Write-Host "`n[6] Création du trust de forêt bidirectionnel avec NETDOM..." -ForegroundColor Yellow
-
-# Comptes admin locaux et distants
-$localAdmin = "$ThisForestFQDN\Administrateur"
-$peerAdmin  = "$PeerForestFQDN\Administrateur"
-
-Write-Host "Local domain  : $ThisForestFQDN (admin : $localAdmin)"
-Write-Host "Remote domain : $PeerForestFQDN (admin : $peerAdmin)"
-Write-Host ""
-Write-Host "NETDOM va te demander :" -ForegroundColor DarkYellow
-Write-Host " - le mot de passe de $localAdmin (UserD)"
-Write-Host " - puis le mot de passe de $peerAdmin (UserO)"
-Write-Host ""
-
-# Commande NETDOM pour créer un trust de forêt bidirectionnel
-& netdom trust $PeerForestFQDN `
-    /domain:$ThisForestFQDN `
-    /twoway `
-    /ForestTrust `
-    /UserD:$localAdmin `
-    /PasswordD:* `
-    /UserO:$peerAdmin `
-    /PasswordO:* 
-
-Write-Host "[INFO] Si aucune erreur rouge n'est apparue ci-dessus, le trust a été créé." -ForegroundColor Green
-
-# ---------------------------------------------------------------------
-# 5) Vérification des trusts via Get-ADTrust
-# ---------------------------------------------------------------------
-Write-Host "`n[7] Vérification des trusts existants via Get-ADTrust..." -ForegroundColor Yellow
-
-try {
-    Get-ADTrust -Filter * | Format-Table Name,Direction,TrustType,Source,Target
-} catch {
-    Write-Host "[ERREUR] Get-ADTrust a échoué. Vérifie le module AD." -ForegroundColor Red
-}
-
-# ---------------------------------------------------------------------
-# 6) Vérification du trust via NETDOM /verify
-# ---------------------------------------------------------------------
-Write-Host "`n[8] Vérification du trust via NETDOM /verify..." -ForegroundColor Yellow
-Write-Host "Commande : netdom trust $PeerForestFQDN /domain:$ThisForestFQDN /verify" -ForegroundColor DarkYellow
-Write-Host ""
-
-try {
-    & netdom trust $PeerForestFQDN /domain:$ThisForestFQDN /verify
-} catch {
-    Write-Host "[ERREUR] La vérification NETDOM a échoué." -ForegroundColor Red
-}
-
-Write-Host "`n=== Script terminé : connectivité, infos AD, trust et vérifications effectués. ===" -ForegroundColor Cyan
+Write-Host "=== Trust configuré avec succès ===" -ForegroundColor Green

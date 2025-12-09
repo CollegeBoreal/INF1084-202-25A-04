@@ -3,7 +3,7 @@
 |:hash: | Fonctions                                          |
 |-------|:---------------------------------------------------|
 | :one: | [:tada: Participation](.scripts/Participation.md)  |
-
+| :two: | [:checkered_flag: Verification](.scripts/Check.md) |
 
 ## :zero: Introduction aux services Windows
 

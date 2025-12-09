@@ -1,21 +1,21 @@
 # services4.ps1 - Ismail Trache 300150395
-# Objectif : Arrêter et redémarrer le service DFSR (Distributed File System Replication)
+# Objectif : Arreter et redemarrer le service DFSR (Distributed File System Replication)
 
-Write-Host "=== Vérification de l'état initial du service DFSR ===" -ForegroundColor Cyan
+Write-Host "=== Verification de l'etat initial du service DFSR ===" -ForegroundColor Cyan
 Get-Service -Name DFSR | Format-Table Name, Status -AutoSize
 
-Write-Host "`n=== Arrêt du service DFSR... ===" -ForegroundColor Yellow
+Write-Host "`n=== Arret du service DFSR... ===" -ForegroundColor Yellow
 Stop-Service -Name DFSR
 Start-Sleep -Seconds 3
 
-Write-Host "`nÉtat après arrêt :" -ForegroundColor Cyan
+Write-Host "`nEtat apres arret :" -ForegroundColor Cyan
 Get-Service -Name DFSR | Format-Table Name, Status -AutoSize
 
-Write-Host "`n=== Redémarrage du service DFSR... ===" -ForegroundColor Yellow
+Write-Host "`n=== Redemarrage du service DFSR... ===" -ForegroundColor Yellow
 Start-Service -Name DFSR
 Start-Sleep -Seconds 3
 
-Write-Host "`nÉtat final :" -ForegroundColor Cyan
+Write-Host "`nEtat final :" -ForegroundColor Cyan
 Get-Service -Name DFSR | Format-Table Name, Status -AutoSize
 
-Write-Host "`nService DFSR redémarré avec succès !" -ForegroundColor Green
+Write-Host "`nService DFSR redemarre avec succes !" -ForegroundColor Green

@@ -7,7 +7,7 @@
 Write-Host "`n========================================" -ForegroundColor Cyan
 Write-Host "CRÉATION D'ORDINATEURS" -ForegroundColor Cyan
 Write-Host "========================================`n" -ForegroundColor Cyan
-
+ 
 # Créer des postes de travail
 Write-Host "Création du PC-300150295-01..." -ForegroundColor Yellow
 New-ADComputer -Name "PC-300150295-01" -Path "OU=Ordinateurs,OU=300150295,DC=DC300150295-00,DC=local"
