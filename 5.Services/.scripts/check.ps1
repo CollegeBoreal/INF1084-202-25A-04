@@ -19,7 +19,8 @@ if (-not $SERVERS) {
 
 # Identifiants administrateur
 $User = "Administrator"
-$Password = Read-Host -AsSecureString "Mot de passe de $User"
+$plain = 'Infra@2024'
+$Password = ConvertTo-SecureString $plain -AsPlainText -Force
 
 # Préparer le Markdown
 $timestamp = Get-Date -Format "dd-MM-yyyy HH:mm"
@@ -31,20 +32,18 @@ $md += "|-------------------------------|---------------------------------------
 $md += "| :a: [Presence](#a-presence)   | L'etudiant.e a fait son travail    :heavy_check_mark:   |"
 $md += "| :b: [Precision](#b-precision) | L'etudiant.e a reussi son travail  :tada:               |"
 $md += ""
-$md += ":bulb: Le mot de passe Administrateur de la VM est **Infra@2024**"
-$md += ""
 $md += "## Legende"
 $md += ""
 $md += "| Signe              | Signification                 |"
 $md += "|--------------------|-------------------------------|"
-$md += "| :heavy_check_mark: | AD DS et repertoire OK         |"
-$md += "| :x:                | AD DS ou repertoire inexistant |"
+$md += "| :heavy_check_mark: | DFSR et C:\\Logs OK           |"
+$md += "| :x:                | DFSR ou repertoire absent     |"
 $md += "| :no_entry:         | Acces refuse                  |"
 $md += ""
 $md += "## :b: Precision"
 $md += ""
-$md += "| :hash: | Boreal :id: | :slot_machine: VM   | :tada:   |"
-$md += "|--------|-------------|---------------------|----------|"
+$md += "| :hash: | Boreal :id: | :slot_machine: VM   | :file_folder: **C:\\Logs**   |"
+$md += "|--------|-------------|---------------------|------------------------------|"
 
 # Boucle sur chaque VM
 $i = 0
@@ -52,27 +51,34 @@ $s = 0
 $counter = 1
 
 foreach ($VM in $SERVERS) {
-    $URL = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i]))"    
+
+    $URL = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i]))"
     $id = $ETUDIANTS[$i]
     $FILE = "$id/README.md"
+    $LOG = "$id/ADLogs.csv"   # <-- NEW : fichier local
 
     Write-Host "Connexion à $VM ..." -ForegroundColor Cyan
+
     try {
         $Session = New-PSSession -ComputerName $VM -Credential (New-Object PSCredential ($User, $Password))
-        
-        # Vérifier le service AD DS
+
+        # 🔁 Vérifier le service DFSR
         $ADStatus = Invoke-Command -Session $Session -ScriptBlock {
-            $svc = Get-Service -Name NTDS -ErrorAction SilentlyContinue
+            $svc = Get-Service -Name DFSR -ErrorAction SilentlyContinue
             if ($svc) { $svc.Status } else { -1 }
         }
 
-        # Vérifier l'existence du répertoire étudiant via USERPROFILE
-        $dirExists = Invoke-Command -Session $Session -ScriptBlock {
-            param($studentID)
-            $userProfile = $env:USERPROFILE
-            $path = Join-Path $userProfile "Developer\INF1084-202-25A-03\4.OUs\$studentID"
-            Test-Path $path
-        } -ArgumentList $id
+        # 🔁 New logic: skip C:\Logs check if ADLogs.csv exists locally
+        $SkipDirCheck = Test-Path $LOG
+
+        if ($SkipDirCheck) {
+            $dirExists = $true
+        }
+        else {
+            $dirExists = Invoke-Command -Session $Session -ScriptBlock {
+                Test-Path "C:\Logs"
+            }
+        }
 
         # Déterminer l'icône
         if ($ADStatus -eq 4 -and $dirExists) {
@@ -108,4 +114,3 @@ $md += "| :abacus: | $COUNT = $STATS% | | $SUM = $s |"
 # Exporter le README.md
 $md | Set-Content -Path ".scripts/Check.md" -Encoding UTF8
 Write-Host "README.md généré avec succès !" -ForegroundColor Green
-

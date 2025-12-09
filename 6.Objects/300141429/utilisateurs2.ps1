@@ -1,52 +1,34 @@
-# ===================================================================
-# Script : utilisateurs2.ps1
-# Objectif : Creer une GPO pour mapper un lecteur reseau et activer RDP
-# Auteur : Arona
-# ===================================================================
-
-# Importer les modules
-Import-Module GroupPolicy -ErrorAction SilentlyContinue
-Import-Module ActiveDirectory -ErrorAction SilentlyContinue
+Import-Module GroupPolicy
 
 # Variables
 $GPOName = "MapSharedFolder"
-$OU = "OU=Students,DC=collegeboreal,DC=local"   # Adapter selon ton domaine
+$OU = "OU=Students,DC=DC300141429,DC=local"
 $DriveLetter = "Z:"
-$netbiosName = $env:COMPUTERNAME
-$SharePath = "\\$netbiosName\SharedResources"
+$SharePath = "\\DC300141429\SharedResources"
 $ScriptFolder = "C:\Scripts"
 $ScriptPath = "$ScriptFolder\MapDrive-$DriveLetter.bat"
 
-# 1. Creer la GPO
-if (-not (Get-GPO -Name $GPOName -ErrorAction SilentlyContinue)) {
-    New-GPO -Name $GPOName | Out-Null
-    Write-Host "GPO '$GPOName' creee."
-} else {
-    Write-Host "La GPO '$GPOName' existe deja."
-}
+# 1. Créer la GPO si elle n'existe pas
+if (-not (Get-GPO -Name $GPOName -ErrorAction SilentlyContinue)) { New-GPO -Name $GPOName }
 
-# 2. Lier la GPO a l'OU Students
-if ($OU) {
-    New-GPLink -Name $GPOName -Target $OU -Enforced:$false
-    Write-Host "GPO liee a l'OU $OU."
-} else {
-    Write-Host "Verifie le nom de ton OU et ton domaine avant d'executer le script."
-}
+# 2. Lier la GPO à l’OU Students
+New-GPLink -Name $GPOName -Target $OU -Enforced Yes
 
-# 3. Creer le script de mappage du lecteur reseau
-if (-not (Test-Path $ScriptFolder)) {
-    New-Item -ItemType Directory -Path $ScriptFolder | Out-Null
-}
+# 3. Créer un script logon pour mapper Z:
+if (-not (Test-Path $ScriptFolder)) { New-Item -ItemType Directory -Path $ScriptFolder }
 $scriptContent = "net use $DriveLetter $SharePath /persistent:no"
 Set-Content -Path $ScriptPath -Value $scriptContent
-Write-Host "Script logon cree : $ScriptPath"
 
-# 4. Activer RDP sur la machine
-Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" `
-                 -Name "fDenyTSConnections" -Value 0
+# Associer le script logon à la GPO (tout sur une seule ligne)
+Set-GPRegistryValue -Name $GPOName -Key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" -ValueName "LogonScript" -Type String -Value $ScriptPath
 
+# 4. Activer RDP sur le serveur
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0
 Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-Write-Host "RDP active et pare-feu configure."
 
-Write-Host "Etape 2 terminee : GPO et RDP configures avec succes."
+# 5. Donner le droit RDP au groupe Students
+secedit /export /cfg C:\secpol.cfg
+# 👉 Modifier manuellement le fichier pour ajouter "Students" à SeRemoteInteractiveLogonRight
+secedit /import /cfg C:\secpol.cfg /db C:\secpol.sdb /overwrite
 
+Write-Host "✅ GPO créée et RDP activé pour le groupe Students."

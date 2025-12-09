@@ -1,9 +1,37 @@
+# Auteur : 300151833
+# Nombre d’événements à afficher
+$eventCount = 20
 
-# Afficher les 20 derniers événements liés à NTDS
-Get-EventLog -LogName "Directory Service" -Newest 20
+########################################
+# Bloc 1 : Journal "Directory Service"
+########################################
 
-# Afficher les logs du système
-Get-EventLog -LogName "System" -Newest 20 | Where-Object {$_.Source -eq "Netlogon"}
+$dsLogName = "Directory Service"
 
-# Afficher les logs via le journal moderne (Event Viewer v2)
-Get-WinEvent -LogName "Directory Service" -MaxEvents 20 | Format-Table TimeCreated, Id, LevelDisplayName, Message -AutoSize
+Get-EventLog -LogName $dsLogName -Newest $eventCount |
+    Select-Object -Property TimeGenerated, EventID, EntryType, Source, Message |
+    Format-Table -AutoSize
+
+
+########################################
+# Bloc 2 : Événements liés à Netlogon
+########################################
+
+$systemLog = "System"
+$netlogonSource = "Netlogon"
+
+Get-WinEvent -FilterHashtable @{
+    LogName      = $systemLog
+    ProviderName = $netlogonSource
+} -MaxEvents $eventCount |
+    Select-Object TimeCreated, Id, LevelDisplayName, ProviderName, Message |
+    Format-Table -AutoSize
+
+
+########################################
+# Bloc 3 : Journal moderne "Directory Service"
+########################################
+
+Get-WinEvent -FilterHashtable @{ LogName = $dsLogName } -MaxEvents $eventCount |
+    Select-Object TimeCreated, Id, LevelDisplayName, Message |
+    Format-Table -AutoSize

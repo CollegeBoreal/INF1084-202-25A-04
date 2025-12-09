@@ -1,12 +1,18 @@
-﻿. "$(Join-Path $PSScriptRoot 'bootstrap.ps1')"
+# ---------------------------------------------------------
+# Script : utilisateurs3.ps1
+# Auteur : Mohammed Aiche
+# ID     : 300151608
+# Objectif : Réactiver l'utilisateur test01
+# ---------------------------------------------------------
+
 Import-Module ActiveDirectory
 
-# Désactiver puis réactiver le compte de l'utilisateur Alice Dupont
-Disable-ADAccount -Identity "alice.dupont" -Credential $cred
-Enable-ADAccount  -Identity "alice.dupont" -Credential $cred
+$user = Get-ADUser -Filter "SamAccountName -eq 'test01'" -ErrorAction SilentlyContinue
 
-# Lister les utilisateurs (hors comptes système) et exporter vers un CSV
-Get-ADUser -Filter * -Server $domainName -Properties Name,SamAccountName,EmailAddress,Enabled |
-Where-Object { $_.SamAccountName -notin @('Administrator','Guest','krbtgt') } |
-Select-Object Name,SamAccountName,EmailAddress,Enabled |
-Export-Csv -Path "$PSScriptRoot\TP_AD_Users.csv" -NoTypeInformation -Encoding UTF8
+if ($user) {
+    Enable-ADAccount -Identity "test01"
+    Write-Host "Utilisateur test01 réactivé avec succès !" -ForegroundColor Green
+}
+else {
+    Write-Host "Utilisateur test01 introuvable." -ForegroundColor Red
+}

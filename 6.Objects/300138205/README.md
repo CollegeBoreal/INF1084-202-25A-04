@@ -1,4 +1,20 @@
 300138205
+# 🧠 Laboratoire Active Directory : Objets gérables et GPO
+
+## 👤 Étudiant
+
+* **Prénom :** Taylor
+* **ID Étudiant :** 300138205
+
+  ## 🎯 Objectifs
+
+1. Comprendre les objets AD et leur utilité.
+2. Créer et partager un dossier réseau SMB.
+3. Créer des utilisateurs et groupes AD.
+4. Mapper un lecteur réseau (Z:) via un GPO.
+5. Activer le RDP pour un groupe spécifique.
+6. Tester les accès et permissions.
+
 
 
 ```powershell
@@ -120,3 +136,31 @@ PS C:\Users\Administrator\Developer\INF1084-202-25A-04\6.Objects\300138205>
 ```
 
 </details>
+# verification
+<img src="images/parv2.png" alt="Girl in a jacket" width="900" height="600">
+<img src="images/par.png" alt="Girl in a jacket" width="900" height="600">
+<img src="images/6.ou.png" alt="Girl in a jacket" width="900" height="600">
+<img src="images/6ou1.png" alt="Girl in a jacket" width="900" height="600">
+<img src="images/parta.png" alt="Girl in a jacket" width="900" height="600">
+<img src="images/parv.png" alt="Girl in a jacket" width="900" height="600">
+<img src="images/parv.png" alt="Girl in a jacket" width="900" height="600">
+
+
+
+## ✅ Vérifications et tests
+
+### Tests effectués :
+
+* ✅ Connexion RDP avec **Etudiant1** (Pass123!)
+* ✅ Connexion RDP avec **Etudiant2** (Pass123!)
+* ✅ Le lecteur Z: est mappé automatiquement vers `\\DC300151492-00\SharedResources`
+* ✅ Accès au dossier partagé fonctionnel
+* ✅ Groupe Students membre de "Remote Desktop Users"
+* ✅ Droit SeRemoteInteractiveLogonRight accordé au groupe Students
+
+### Test d'un utilisateur hors du groupe :
+
+* ❌ Pas d'accès RDP
+* ❌ Aucun lecteur réseau mappé
+
+---

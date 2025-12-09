@@ -1,4 +1,32 @@
 # 300138205
+# INF1084 – Administration Windows  
+## Participation Active Directory  
+**Nom :** Taylor  
+**Matricule :** 300138205 
+**Date :** 26 octobre 2025  
+
+---
+
+### 🧩 Installation et configuration du domaine Active Directory
+
+#### Domaine créé
+- Nom du domaine : `DC300138205-00.local`
+- Contrôleur de domaine : `DC300138205`
+- DNS intégré et fonctionnel ✅
+
+#### Étapes réalisées
+1. Installation du rôle AD DS  
+2. Création du domaine `DC300138205-00.local`  
+3. Création des OU :  
+   - `Informatique`  
+   - `Comptabilité`  
+4. Création des utilisateurs :  
+   - Alice Dupont (adupont)  
+   - Bob Martin (bmartin)  
+5. Création du groupe `Techniciens` et ajout de `adupont`  
+6. Vérification via PowerShell (`Get-ADUser`, `Get-ADOrganizationalUnit`) ✅  
+
+---
 
 ```powershell
 Rename-Computer -NewName "DC300138205" -Restart

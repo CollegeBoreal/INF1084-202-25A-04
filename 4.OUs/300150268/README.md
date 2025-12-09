@@ -15,7 +15,7 @@ Le script initialise les variables :
 - `$domainName = DC300150268-00.local`
 - `$netbiosName = DC300150268-00`
 
-**Capture :** `images/bootstrap.png`
+
 
 ---
 
@@ -28,8 +28,6 @@ Get-ADDomain -Server $domainName
 Get-ADDomainController -Filter * -Server $domainName
 ```
 
-**Capture :** `images/domain-check.png`  
-**Capture :** `images/dc-check.png`
 
 ---
 
@@ -41,7 +39,6 @@ Where-Object { $_.Enabled -eq $true -and $_.SamAccountName -notin @("Administrat
 Select-Object Name, SamAccountName
 ```
 
-**Capture :** `images/user-list.png`
 
 ---
 
@@ -53,8 +50,6 @@ Commande utilisée :
 New-ADUser -Name "Alice Dupont" ...
 ```
 
-**Capture :** `images/create-alice.png`
-
 ---
 
 ## 📌 5. Modification de l’utilisateur
@@ -63,9 +58,6 @@ New-ADUser -Name "Alice Dupont" ...
 Set-ADUser -Identity "alice.dupont" -EmailAddress "alice.dupont@exemple.com" -GivenName "Alice-Marie"
 ```
 
-**Capture :** `images/edit-alice.png`
-
----
 
 ## 📌 6. Désactivation et activation de l’utilisateur
 
@@ -73,10 +65,6 @@ Set-ADUser -Identity "alice.dupont" -EmailAddress "alice.dupont@exemple.com" -Gi
 Disable-ADAccount -Identity "alice.dupont"
 Enable-ADAccount -Identity "alice.dupont"
 ```
-
-**Captures :**  
-- `images/disable-alice.png`  
-- `images/enable-alice.png`
 
 ---
 
@@ -86,10 +74,6 @@ Enable-ADAccount -Identity "alice.dupont"
 Move-ADObject -Identity "CN=Alice Dupont,CN=Users,DC=DC300150268-00,DC=local" `
               -TargetPath "OU=Students,DC=DC300150268-00,DC=local"
 ```
-
-**Capture :** `images/move-students.png`
-
----
 
 ## 📌 8. Export CSV des utilisateurs
 
@@ -104,9 +88,21 @@ Fichier généré : **TP_AD_Users.csv**
 ## 📁 Dossier images
 Toutes les captures d’écran du TP sont placées dans le dossier :
 
-```
 images/
-```
+![wait](https://github.com/user-attachments/assets/a8bcac3f-c316-4478-97d6-5c7dc5c63ed2)
+![wait](https://github.com/user-attachments/assets/0c0b8f3d-7e90-4958-9813-7ba084c901f0)
+![wait](https://github.com/user-attachments/assets/16cdfaad-b0ca-47e6-900c-8691d2168a6b)
+![wait](https://github.com/user-attachments/assets/8b249169-ddba-4a82-8d8c-3ad58008995b)
+![wait](https://github.com/user-attachments/assets/cfd10073-0712-484d-8f05-51c9e3cb8543)
+![wait](https://github.com/user-attachments/assets/12ebed01-dbea-4b23-9ba9-d47e28a63bf2)
+![wait](https://github.com/user-attachments/assets/b94d8860-55df-4bbb-82f6-0f8079e93e25)
+![wait](https://github.com/user-attachments/assets/a71b6431-865f-4354-bb9f-2eb50809ff76)
+![wait](https://github.com/user-attachments/assets/f2b78e0b-d8a7-4a3b-bc0f-50dcd7f409d3)
+![wait](https://github.com/user-attachments/assets/0e04cfbd-d00a-4639-82a1-2af20d68a1b7)
+
+
+
+
 
 ---
 
