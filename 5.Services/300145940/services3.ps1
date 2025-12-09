@@ -1,40 +1,33 @@
 # Auteur : 300145940
-$svc = "DFSR"
 
-Write-Host "---------------------------"
-Write-Host " SERVICE CHECK : $svc"
-Write-Host "---------------------------`n"
+$serviceName = 'DFSR'
 
-# Status BEFORE
-$before = (Get-Service -Name $svc).Status
-Write-Host "État avant : $before`n"
+Write-Host '---------------------------'
+Write-Host "Service cible : $serviceName"
+Write-Host '---------------------------'
+Write-Host ''
 
-############################
-# STOP SERVICE
-############################
-Write-Host "🛑 Tentative d'arrêt du service..."
-Stop-Service -Name $svc -ErrorAction SilentlyContinue
+# État AVANT
+Write-Host 'État avant :'
+Get-Service -Name $serviceName | Select-Object Name, Status
+Write-Host ''
 
+# Arrêt du service
+Write-Host 'Arrêt du service...'
+Stop-Service -Name $serviceName -ErrorAction SilentlyContinue
 Start-Sleep -Seconds 1
+Write-Host 'État après arrêt :'
+Get-Service -Name $serviceName | Select-Object Name, Status
+Write-Host ''
 
-# Status AFTER stop
-$afterStop = (Get-Service -Name $svc).Status
-Write-Host "État après l'arrêt : $afterStop`n"
-
-
-############################
-# START SERVICE
-############################
-Write-Host "▶️ Tentative de démarrage..."
-Start-Service -Name $svc -ErrorAction SilentlyContinue
-
+# Démarrage du service
+Write-Host 'Démarrage du service...'
+Start-Service -Name $serviceName -ErrorAction SilentlyContinue
 Start-Sleep -Seconds 1
-
-# FINAL STATUS
-$final = (Get-Service -Name $svc).Status
-Write-Host "État après démarrage : $final`n"
-
-Write-Host "---------------------------"
-Write-Host " SCRIPT TERMINÉ ✓"
-Write-Host "---------------------------"
+Write-Host 'État final :'
+Get-Service -Name $serviceName | Select-Object Name, Status
+Write-Host ''
+Write-Host '---------------------------'
+Write-Host 'Script terminé.'
+Write-Host '---------------------------'
 
