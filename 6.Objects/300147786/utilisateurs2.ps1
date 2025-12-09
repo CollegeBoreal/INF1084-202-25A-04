@@ -1,28 +1,43 @@
+# ================================
+
+# Définir le NetBIOS si bootstrap indisponible
+$netbiosName = "DC300147786-00"
+
 # Nom de la GPO
 $GPOName = "MapSharedFolder"
 
-# Créer la GPO
-New-GPO -Name $GPOName
+# Créer la GPO si elle n'existe pas
+if (-not (Get-GPO -Name $GPOName -ErrorAction SilentlyContinue)) {
+    New-GPO -Name $GPOName | Out-Null
+}
 
-# Lier la GPO à une OU spécifique (ex: "Students")
+# OU Students
 $OU = "OU=Students,DC=$netbiosName,DC=local"
-New-GPLink -Name $GPOName -Target $OU
 
-# Créer une preference pour mapper le lecteur réseau
-$DriveLetter = "Z:"
-$SharePath = "\\$netbiosName\SharedResources"
+# Lier la GPO à l'OU uniquement si non déjà lié
+$links = Get-GPInheritance -Target $OU | Select-Object -ExpandProperty GpoLinks
+if (-not ($links.DisplayName -contains $GPOName)) {
+    New-GPLink -Name $GPOName -Target $OU -Enforced ([Microsoft.GroupPolicy.EnforceLink]::Yes) | Out-Null
+}
 
-# Créer un script logon
+# Mappage lecteur Z
+$DriveLetter = "Z"
+$ServerIP = "10.7.236.225"
 $ScriptFolder = "C:\Scripts"
 $ScriptPath = "$ScriptFolder\MapDrive-$DriveLetter.bat"
-if (-not (Test-Path $ScriptFolder)) { New-Item -ItemType Directory -Path $ScriptFolder }
 
-$scriptContent = "net use $DriveLetter $SharePath /persistent:no"
+if (-not (Test-Path $ScriptFolder)) {
+    New-Item -ItemType Directory -Path $ScriptFolder | Out-Null
+}
+
+Write-Output "Création du script logon pour le mappage lecteur Z"
+$scriptContent = "net use ${DriveLetter}: \\$ServerIP\SharedResources /persistent:no"
 Set-Content -Path $ScriptPath -Value $scriptContent
 
-# Lier le script logon à la GPO
-Set-GPRegistryValue -Name $GPOName `
-                    -Key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
-                    -ValueName "LogonScript" `
-                    -Type String `
-                    -Value $ScriptPath
+Write-Output "Lien du script logon à la GPO"
+
+# Afficher les informations de la GPO
+Get-GPO -Name $GPOName
+
+Write-Output "`nScript utilisateurs2.ps1 terminé."
+

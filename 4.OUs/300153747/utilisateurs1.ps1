@@ -1,9 +1,4 @@
-# ETAPE 0 : Configuration des variables
-$studentNumber = 300153747
-$studentInstance = "00"
-
-$domainName = "DC$studentNumber-$studentInstance.local"
-$netbiosName = "DC$studentNumber-$studentInstance"
+. .\bootstrap.ps1
 
 # ETAPE 1 : Vérification de l'environnement
 Import-Module ActiveDirectory

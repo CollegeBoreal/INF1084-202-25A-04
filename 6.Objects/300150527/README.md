@@ -207,6 +207,14 @@ secedit /import /cfg C:\secpol.cfg /db C:\secpol.sdb /overwrite
 <img width="918" height="472" alt="6-7" src="https://github.com/user-attachments/assets/799e7c17-0650-4f0e-9dcf-7f7a5967aa4c" />
 
 --------------------------------------------
+##  TEST 01 :
+<img width="1366" height="725" alt="test1" src="https://github.com/user-attachments/assets/c5af2f4a-c671-41c6-89a6-df75c1959921" />
+
+----------------------------------------------
+## Test 02 :
+<img width="1366" height="727" alt="test2" src="https://github.com/user-attachments/assets/8fc43030-0104-4b4c-bd20-8579a29e97e3" />
+
+-------------------------------------------
 
 ## 📘 Ce que j’ai appris dans ce laboratoire
 
@@ -254,4 +262,5 @@ Grâce à ce travail, je maîtrise désormais :
 - l’utilisation systématique de PowerShell pour administrer un domaine Windows.
 
 C’est un laboratoire essentiel qui simule le travail réel d’un administrateur réseau dans une entreprise moderne.
+
 

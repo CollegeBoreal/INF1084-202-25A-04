@@ -4,11 +4,11 @@
 $Groupes = @("GroupeFormation", "GroupeRH")
 
 $utilisateurs = @(
-    @{Nom="BENALI";   Prenom="Yassine"; OU="Stagiaires"},
-    @{Nom="KHALDI";   Prenom="Nadia";   OU="Professeurs"},
-    @{Nom="HADDAD";   Prenom="Karim";   OU="Stagiaires"},
-    @{Nom="SAIDANI";  Prenom="Amine";   OU="Stagiaires"},
-    @{Nom="ROUANE";   Prenom="Sabrina"; OU="Employés"}
+    @{Nom="MAHREZ";     Prenom="Riyad";     OU="Stagiaires"},
+    @{Nom="BENNACER";   Prenom="Ismael";    OU="Professeurs"},
+    @{Nom="SLIMANI";    Prenom="Islam";     OU="Stagiaires"},
+    @{Nom="FEGHOULI";   Prenom="Sofiane";   OU="Stagiaires"},
+    @{Nom="MANDI";      Prenom="Aissa";     OU="Employés"}
 )
 
 # Step 2

@@ -21,7 +21,8 @@ et de manipuler des objets via des scripts PowerShell.
 J’ai exécuté le script utilisateurs1.ps1 qui permet de créer des objets utilisateurs simulés avec les attributs : Nom, Prénom, Login et OU.
 
 
-<img width="1366" height="727" alt="1" src="https://github.com/user-attachments/assets/0f692157-76c5-4a6b-89ac-77d583c340a3" />
+<img width="837" height="210" alt="1" src="https://github.com/user-attachments/assets/69e315bc-d8fd-44af-b025-990673fc2605" />
+
 
 
 ----------------------------------------------
@@ -30,7 +31,8 @@ J’ai exécuté le script utilisateurs1.ps1 qui permet de créer des objets uti
 
 Avec utilisateurs2.ps1, j’ai ajouté les utilisateurs dans le groupe GroupeFormation.
 
-<img width="1366" height="731" alt="2" src="https://github.com/user-attachments/assets/be5134f8-31e1-4c5d-9ac7-7375d13f9fd9" />
+
+<img width="787" height="273" alt="2" src="https://github.com/user-attachments/assets/f8a227a4-b37e-4154-b667-720ea6ef4920" />
 
 
 -------------------------------------
@@ -39,7 +41,8 @@ Avec utilisateurs2.ps1, j’ai ajouté les utilisateurs dans le groupe GroupeFor
 
 Dans utilisateurs3.ps1, j’ai filtré et affiché certains utilisateurs selon des conditions spécifiques (OU, lettres du nom, etc.).
 
-<img width="1366" height="730" alt="3" src="https://github.com/user-attachments/assets/29dee87e-8957-4df2-a795-0cb2dc57ca7a" />
+<img width="762" height="185" alt="3" src="https://github.com/user-attachments/assets/2861c6dc-1abc-42af-8c1b-a3d50e5cd1a5" />
+
 
 -------------------------------------------
 
@@ -49,7 +52,8 @@ Le script utilisateurs4.ps1 m’a permis :
 - d’importer une liste d’utilisateurs à partir d’un fichier CSV
 - d’ajouter les utilisateurs dans le groupe ImportGroupe
 
-<img width="1366" height="727" alt="4" src="https://github.com/user-attachments/assets/5301fad4-9e27-4354-b17f-59e360dddbe0" />
+
+<img width="748" height="179" alt="4" src="https://github.com/user-attachments/assets/c70f06e9-402e-40dd-8c05-9df23355bc48" />
 
 
 --------------------------------------
