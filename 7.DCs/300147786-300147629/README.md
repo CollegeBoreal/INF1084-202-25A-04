@@ -98,11 +98,12 @@ quser
 #Tentative de création du Nom de domaine
 💻 300147629
 Voici le resultat car il dis que j'ai oublier le mot de pass alors que j'ai pas oublier. j'ai reinstialiser à nouveau mais toujours même problème
-![captabdoul]<img width="1545" height="818" alt="iboune png" src="https://github.com/user-attachments/assets/629c70f7-58da-49c4-8232-1ed664b78fc2" />
+![capture]<img width="1545" height="818" alt="iboune png" src="https://github.com/user-attachments/assets/629c70f7-58da-49c4-8232-1ed664b78fc2" />
 
 
 
 ---
+
 
 
 
