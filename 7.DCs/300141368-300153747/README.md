@@ -46,6 +46,7 @@ Test-Connection -ComputerName DC300141369.local -Count 2
 ```
 
 <img src="images/Screenshot 2025-12-04 151910.png" alt="Girl in a jacket" width="500" height="600">
+<img src="images/le ping.png" alt="Girl in a jacket" width="500" height="600">
 
 
 
