@@ -1,36 +1,40 @@
 # Auteur : 300145940
+$svc = "DFSR"
 
-###################################
-# Section A : Préparation du dossier
-###################################
+Write-Host "---------------------------"
+Write-Host " SERVICE CHECK : $svc"
+Write-Host "---------------------------`n"
 
-$destination = "C:\Logs"
-$csvFile = Join-Path $destination "ADLogs.csv"
+# Status BEFORE
+$before = (Get-Service -Name $svc).Status
+Write-Host "État avant : $before`n"
 
-# Création du dossier si non existant (méthode alternative)
-If (!(Test-Path -Path $destination -PathType Container)) {
-    [System.IO.Directory]::CreateDirectory($destination) | Out-Null
-}
+############################
+# STOP SERVICE
+############################
+Write-Host "🛑 Tentative d'arrêt du service..."
+Stop-Service -Name $svc -ErrorAction SilentlyContinue
 
-###################################
-# Section B : Exportation des logs
-###################################
+Start-Sleep -Seconds 1
 
-# Paramètres de récupération
-$eventLimit = 50
-$logType = "Application"
+# Status AFTER stop
+$afterStop = (Get-Service -Name $svc).Status
+Write-Host "État après l'arrêt : $afterStop`n"
 
-# Récupérer les événements (+ conversion en CSV propre)
-Get-WinEvent -LogName $logType -MaxEvents $eventLimit |
-    Select-Object TimeCreated, Id, LevelDisplayName, ProviderName, Message |
-    Export-Csv -Path $csvFile -Encoding UTF8 -NoTypeInformation
-# Auteur : Haroune Berkani (300141570)
 
-# Step 1 : Vérifier l’existence du dossier de logs et le créer si nécessaire
-$logPath = "C:\Logs"
-if (-not (Test-Path $logPath)) {
-    New-Item -ItemType Directory -Path $logPath -Force
-}
+############################
+# START SERVICE
+############################
+Write-Host "▶️ Tentative de démarrage..."
+Start-Service -Name $svc -ErrorAction SilentlyContinue
 
-# Step 2 : Exporter les 50 derniers événements dans un fichier CSV
-Get-EventLog -LogName Application -Newest 50 | Export-Csv -Path "$logPath\ADLogs.csv" -NoTypeInformation
+Start-Sleep -Seconds 1
+
+# FINAL STATUS
+$final = (Get-Service -Name $svc).Status
+Write-Host "État après démarrage : $final`n"
+
+Write-Host "---------------------------"
+Write-Host " SCRIPT TERMINÉ ✓"
+Write-Host "---------------------------"
+
