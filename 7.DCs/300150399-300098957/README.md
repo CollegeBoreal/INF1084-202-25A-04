@@ -5,7 +5,7 @@
 Travail réalisé dans le cadre du cours **Administration Windows (INF1084)**.
 
 - **Étudiant :** Chakib Rahmani (300150399)
-- **Binôme :** Enseignant
+- **Binôme :** Enseignant - **VM**: 10.7.236.149
 - **Objectif :** Mettre en place et documenter, en CLI uniquement, la création et la vérification d’un trust entre deux forêts Active Directory.
 
 ---
