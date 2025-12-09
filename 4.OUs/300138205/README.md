@@ -155,18 +155,18 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false
 
 <details>
 
-  ```powershell
+
 
 
 
 
 <img src="images/utili2.png" alt="Girl in a jacket" width="500" height="600">
-<img src="images/utili3.png" alt="Girl in a jacket" width="500" height="600">
+<img src="images/utili3.png" alt="Girl in a jacket" width="900" height="600">
 
 
 
 
-```
+
 
 </details>
 
