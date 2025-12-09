@@ -92,6 +92,14 @@ quser
 
 
 
+```powershell
+
+```
+![captabdoul]<img width="1032" height="702" alt="caputre2030 png" src="https://github.com/user-attachments/assets/c7561d1b-e869-4a63-a77d-91b9e4a041ba" />
+
+
+---
+
 
 
 
