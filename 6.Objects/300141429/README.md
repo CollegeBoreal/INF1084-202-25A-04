@@ -6,6 +6,7 @@ Cette commande liste tous les partages SMB existants sur le serveur et montre la
 ![](images/o1.png)
 
 ```
+![](images/o1.png)
 ```powershell
 Vérifier le groupe AD
 
