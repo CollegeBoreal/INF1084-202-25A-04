@@ -1,6 +1,11 @@
 
 # creation_modification.ps1 – Création et modification d’utilisateurs
+Import-Module ActiveDirectory
+. .\bootstrap.ps1
+<<<<<<< HEAD
+=======
 
+>>>>>>> 36c2433eeb6862b2eedbd1bc47c8572a36412242
 # Créer un utilisateur
 New-ADUser -Name "Alice Dupont" `
            -GivenName "Alice" `

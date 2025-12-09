@@ -1,54 +1,61 @@
-TP : Simulation Active Directory avec PowerShell
-🎉 Participation
+Travail réalisé
 
-Objectifs
-Comprendre la structure AD (utilisateurs, groupes, OU).
-S'entraîner aux applets de commande PowerShell pour la création, la recherche et la manipulation d'objets.
-Se préparer aux scripts AD réels.
-🔖 Nommez vos scripts Powershell selon le format suivant utilisateurs[1-4].ps1
+Nom : MEDJKOUNE
+Prénom : BELKACEM
+Numéro étudiant : 300150385
 
-1️⃣ Création d'objets utilisateurs simulés
-# Créer une liste d'utilisateurs simulés
-$Users = @(
-    @{Nom="Dupont"; Prenom="Alice"; Login="adupont"; OU="Stagiaires"},
-    @{Nom="Lemoine"; Prenom="Sarah"; Login="slemoine"; OU="Stagiaires"},
-    @{Nom="Benali"; Prenom="Karim"; Login="kbenali"; OU="Stagiaires"}
-)
+Ce travail pratique avait pour objectif de simuler un environnement Active Directory à l’aide de PowerShell afin de mieux comprendre la logique des utilisateurs, des groupes et des unités d’organisation (OU).
+Voici l’ensemble des actions réalisées durant ce TP :
 
-# Afficher les utilisateurs
-$Users | ForEach-Object { "$($_.Prenom) $($_.Nom) - Login: $($_.Login) - OU: $($_.OU)" }
-Exercice 1 : Ajouter 2 nouveaux utilisateurs à la liste et vérifier qu'ils s'affichent correctement.
+1️⃣ Création des utilisateurs simulés
 
-2️⃣ Création de groupes simulés
-# Créer des groupes
-$Groups = @{
-    "GroupeFormation" = @()
-    "ProfesseursAD" = @()
-}
+J’ai construit une liste d’utilisateurs sous forme d’objets PowerShell.
 
-# Ajouter un utilisateur à un groupe
-$Groups["GroupeFormation"] += $Users[0]   # Alice Dupont
-Exercice 2 : Ajouter tous les utilisateurs dont l'OU = "Stagiaires" dans "GroupeFormation".
+Trois premiers utilisateurs ont été créés : Dupont Alice, Lemoine Sarah, Benali Karim, tous dans l’OU Stagiaires.
 
-3️⃣ Requêtes et filtres
-# Lister tous les utilisateurs dont le nom commence par "B"
-$Users | Where-Object {$_.Nom -like "B*"}
+J’ai ensuite ajouté deux utilisateurs supplémentaires afin d’enrichir la liste, conformément aux exigences de l’exercice 1.
 
-# Lister tous les utilisateurs dans l'OU "Stagiaires"
-$Users | Where-Object {$_.OU -eq "Stagiaires"}
-Exercice 3 : Lister tous les utilisateurs dont le prénom contient "a" (majuscule/minuscule).
+L’affichage final a permis de vérifier que l’ensemble des utilisateurs apparaissait correctement.
 
-4️⃣ Exporter et importer CSV
-# Exporter les utilisateurs simulés
-$Users | Export-Csv -Path "C:\Temp\UsersSimules.csv" -NoTypeInformation
+2️⃣ Création et gestion des groupes
 
-# Importer depuis CSV
-$ImportedUsers = Import-Csv -Path "C:\Temp\UsersSimules.csv"
-$ImportedUsers
-Exercice 4 : Importer le fichier CSV et créer un groupe "ImportGroupe" en ajoutant tous les utilisateurs importés.
+Deux groupes ont été définis : GroupeFormation et ProfesseursAD.
 
-5️⃣ Mini-projet : script complet de simulation
-Créer 5 utilisateurs simulés dans l'OU "Promo2025".
-Créer un groupe "Etudiants2025".
-Ajoutez tous les utilisateurs de "Promo2025" dans le groupe.
-Exporter la liste finale du groupe en CSV.
+J’ai ajouté un premier utilisateur dans GroupeFormation pour valider la structure.
+
+Ensuite, comme demandé dans l’exercice 2, j’ai ajouté tous les utilisateurs appartenant à l’OU Stagiaires dans ce groupe.
+
+3️⃣ Application de filtres et requêtes PowerShell
+
+J’ai utilisé Where-Object pour effectuer des recherches ciblées :
+
+utilisateurs dont le nom commence par B,
+
+utilisateurs appartenant à l’OU Stagiaires.
+
+Pour l’exercice 3, j’ai exécuté un filtre permettant de trouver tous les utilisateurs dont le prénom contient la lettre “a”, sans distinguer les majuscules et minuscules.
+
+4️⃣ Exportation et importation CSV
+
+J’ai exporté tous les utilisateurs simulés dans un fichier CSV :
+UsersSimules.csv.
+
+J’ai ensuite importé ce fichier dans PowerShell pour recharger les utilisateurs.
+
+Enfin, comme demandé, j’ai créé un groupe ImportGroupe dans lequel j’ai ajouté tous les utilisateurs importés.
+
+5️⃣ Mini-projet final
+
+Pour finaliser le TP, j’ai réalisé un script complet comprenant :
+
+La création de 5 utilisateurs simulés dans l’OU Promo2025.
+
+La création du groupe Etudiants2025.
+
+L’ajout automatique de tous les utilisateurs Promo2025 dans ce groupe.
+
+L’exportation de la liste finale des membres du groupe sous format CSV pour preuve et documentation.
+
+Conclusion
+
+Ce TP m’a permis de comprendre concrètement comment manipuler les objets Active Directory en PowerShell, même dans un environnement simulé. La création d’utilisateurs, la gestion de groupes, l’utilisation de filtres et l’exportation de données représentent des opérations essentielles en administration système. Ces exercices m’ont aidé à renforcer ma maîtrise des applets de commande ADDS et à me préparer efficacement à la gestion réelle d’un environnement Active Directory professionnel.

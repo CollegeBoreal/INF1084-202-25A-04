@@ -6,6 +6,8 @@
 # ÉTAPE 1 : Vérification de l'environnement
 Import-Module ActiveDirectory
 
+$domainName = "DC300150395-00.local"
+
 Get-ADDomain -Server $domainName
 Get-ADDomainController -Filter * -Server $domainName
 

@@ -1,21 +1,24 @@
-# script2_CreateUser.ps1
-# Supprimer l'utilisateur existant
-Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
+# ============================
+# utilisateurs2.ps1
+# Modifier, désactiver et réactiver l’utilisateur (Sara Benali)
+# ============================
 
-# Puis recréer l'utilisateur
+. "$PSScriptRoot\bootstrap.ps1"
 
-Import-Module ActiveDirectory
+Write-Host "`n=== 3) Modification de l'utilisateur Sara Benali ===`n"
 
-# Créer un compte administrateur pour les opérations sécurisées
-# $cred = Get-Credential  # Saisir Administrator@$domainName
-
-# Créer un nouvel utilisateur
-New-ADUser -Name "Alice Dupont" `
-           -GivenName "Alice" `
-           -Surname "Dupont" `
-           -SamAccountName "alice.dupont" `
-           -UserPrincipalName "alice.dupont@$domainName" `
-           -AccountPassword (ConvertTo-SecureString "MotDePasse123!" -AsPlainText -Force) `
-           -Enabled $true `
-           -Path "CN=Users,DC=$netbiosName,DC=local" `
+Set-ADUser -Identity "sara.benali" `
+           -EmailAddress "sara.benali@exemple.com" `
+           -GivenName "Sara-Marie" `
            -Credential $cred
+
+Write-Host "Utilisateur modifié (email + prénom)."
+
+Write-Host "`n=== 4) Désactivation de l'utilisateur ===`n"
+Disable-ADAccount -Identity "sara.benali" -Credential $cred
+Write-Host "Compte désactivé."
+
+Write-Host "`n=== 5) Réactivation de l'utilisateur ===`n"
+Enable-ADAccount -Identity "sara.benali" -Credential $cred
+Write-Host "Compte réactivé."
+

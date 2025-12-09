@@ -163,3 +163,73 @@ $GROUPES = @(
     '300151354-300152410'
     '300151841-300150385'
 )
+
+# Étudiants (student numbers)
+$DOMAINS = @(
+    'taylor01.me'
+    '300141368@monboreal.ca'
+    'barry03.me'
+    '300141570@monboreal.ca'
+    '300145940@monboreal.ca'
+    '300146545@monboreal.ca'
+    '300146667@monboreal.ca'
+    '300147629@monboreal.ca'
+    'kadiatou.me'
+    'blbsblm.page'
+    '300150268@monboreal.ca'
+    '300150284@monboreal.ca'
+    'lounasallouti.me'
+    '300150296@monboreal.ca'
+    'abdelatifnemous.app'
+    '300150385@monboreal.ca'
+    'ismailtrache.me'
+    '300150399@monboreal.ca'
+    'abdelatifnemous.app'
+    '300150485@monboreal.ca'
+    'akrembouraoui.page'
+    '300151042@monboreal.ca'
+    '300151233@monboreal.ca'
+    'aminekahil.live'
+    '300151354@monboreal.ca'
+    '300151492@monboreal.ca'
+    '300151608@monboreal.ca'
+    'raoufbr.me'
+    'massimameri.studio'
+    '300152410@monboreal.ca'
+    '300153747@monboreal.ca'
+)
+
+# Netbios
+$NETBIOS = @(
+    "DC300138205-00"
+    "DC300141368-0"
+    "DC300141429"
+    "DC300141570-00"
+    "DC300145940-0"
+    "DC300146545-00"
+    "DC300146667-00"
+    "DC300147629-00"
+    "DC300147786-00"
+    "DC300150205-00"
+    "DC300150268-00"
+    "DC300150284-00"
+    "DC300150295-00"
+    "DC300150296-00"
+    "DC300150303-00"
+    "DC300150385-00"
+    "DC300150395-00"
+    "DC300150399-00"
+    "DC300150417-00"
+    "DC300150485-00"
+    "DC300150527-00"
+    "DC300151042-00"
+    "DC300151233-00"
+    "DC300151292-00"
+    "DC300151354-00"
+    "DC300151492-00"
+    "DC300151608-00"
+    "DC300151833-00"
+    "DC300151841-00"
+    "DC300152410-00"
+    "DC300153747-00"
+)

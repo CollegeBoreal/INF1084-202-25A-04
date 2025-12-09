@@ -53,7 +53,7 @@ $users | ForEach-Object {
 Write-Host "    │" -ForegroundColor White
 Write-Host "    └── OU=Ordinateurs" -ForegroundColor Green
 $computers | ForEach-Object { 
-    Write-Host "        ├── $($_.Name)" -ForegroundColor White 
+    Write-Host "        ├── $($_.Name)" -ForegroundColor White   
 }
 
 # 5. Résumé final

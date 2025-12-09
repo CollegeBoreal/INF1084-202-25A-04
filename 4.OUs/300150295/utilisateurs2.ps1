@@ -39,7 +39,7 @@ New-ADUser -Name "Admin 300150295" `
     -UserPrincipalName "admin300150295@DC300150295-00.local" `
     -Path "OU=Employes,OU=300150295,DC=DC300150295-00,DC=local" `
     -AccountPassword (ConvertTo-SecureString "P@ssw0rd123!" -AsPlainText -Force) `
-    -Enabled $true
+    -Enabled $true 
 
 Write-Host "`n✓ Utilisateurs créés avec succès!" -ForegroundColor Green
 
