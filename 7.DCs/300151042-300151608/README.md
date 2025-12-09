@@ -111,5 +111,8 @@ Ce projet démontre notre capacité à configurer et administrer un environnemen
 La communication entre les deux forêts est maintenant opérationnelle, permettant le partage sécurisé de ressources et l’authentification inter-domaines.
 
 
+voici mes effort pour avoir le nom du domain 
+<img width="1366" height="768" alt="Capture d’écran (175)" src="https://github.com/user-attachments/assets/86caf69c-1b7f-4ffa-9339-a5f79b77d02a" />
+
 
 
