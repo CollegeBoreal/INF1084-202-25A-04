@@ -54,7 +54,7 @@ Test-Connection -ComputerName DC300141369.local -Count 2
 trusts2.ps1
 ```
 <details>
-  PS C:\Users\Public\developper\INF1084-202-25A-04\7.DCs\300141368-300153747> .\trusts2.ps1
+ PS C:\Users\Public\developper\INF1084-202-25A-04\7.DCs\300141368-300153747> .\trusts2.ps1
 === VÃ©rification du Trust entre les deux forÃªts ===
 
 Ã‰tape 1 : Entrer les identifiants AD2...
