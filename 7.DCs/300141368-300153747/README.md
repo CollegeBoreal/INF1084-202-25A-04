@@ -46,6 +46,7 @@ Test-Connection -ComputerName DC300141369.local -Count 2
 ```
 
 <img src="images/Screenshot 2025-12-04 151910.png" alt="Girl in a jacket" width="500" height="600">
+<img src="images/le ping.png" alt="Girl in a jacket" width="500" height="600">
 
 
 
@@ -57,14 +58,27 @@ trusts2.ps1
  
 === VÃ©rification du Trust entre les deux forÃªts ===
 
+<img src="images/image.png" alt="Girl in a jacket" width="500" height="900">
+<img src="images/Screenshot 2025-12-09 163126.png" alt="Girl in a jacket" width="500" height="900">
+<img src="images/Screenshot 2025-12-09 163603.png" alt="Girl in a jacket" width="500" height="900">
+<img src="images/Screenshot 2025-12-09 163932.png" alt="Girl in a jacket" width="500" height="900">
 
 
 
 === VÃ©rification terminÃ©e ===
 </details>
+---
+netbios de Madjou
 
+<img src="images/Screenshot 2025-12-09 164417.png" alt="Girl in a jacket" width="500" height="900">
+j'ai pas peu lier mon adresse ip a mon domain name parce qu'on me dit que c'est payant
+<img src="images/Screenshot 2025-12-09 164353.png" alt="Girl in a jacket" width="500" height="900">
+``` powershell
+trus3.ps1
 
-
+netdom trust DC300141369.local /Domain:DC300153747-00.local /UserD:administrator /PasswordD:* /Add /TwoWay
+```
+on a fait un trust bidirectionnel
 
 
 
