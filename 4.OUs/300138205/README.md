@@ -155,7 +155,7 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false
 
 <details>
 
-  ```powershell
+
 
 
 
@@ -166,7 +166,7 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false
 
 
 
-```
+
 
 </details>
 
