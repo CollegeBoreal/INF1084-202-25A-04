@@ -73,7 +73,12 @@ netbios de Madjou
 <img src="images/Screenshot 2025-12-09 164417.png" alt="Girl in a jacket" width="500" height="900">
 j'ai pas peu lier mon adresse ip a mon domain name parce qu'on me dit que c'est payant
 <img src="images/Screenshot 2025-12-09 164353.png" alt="Girl in a jacket" width="500" height="900">
+``` powershell
+trus3.ps1
 
+netdom trust DC300141369.local /Domain:DC300153747-00.local /UserD:administrator /PasswordD:* /Add /TwoWay
+```
+on a fait un trust bidirectionnel
 
 
 
