@@ -8,8 +8,8 @@ if (-not (Get-ADUser -Filter "SamAccountName -eq 'alice.dupont'" -ErrorAction Si
                -Enabled $true `
                -Path "CN=Users,DC=DC300150395-00,DC=local" `
                -Server $domainName
-    Write-Host "Utilisateur créé."
+    Write-Host "Utilisateur cree."
 }
 else {
-    Write-Host "L'utilisateur existe déjà, création ignorée."
+    Write-Host "L'utilisateur existe deja, creation ignoree."
 }
