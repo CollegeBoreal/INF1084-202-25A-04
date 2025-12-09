@@ -95,10 +95,13 @@ quser
 ```powershell
 
 ```
-![captabdoul]<img width="1032" height="702" alt="caputre2030 png" src="https://github.com/user-attachments/assets/c7561d1b-e869-4a63-a77d-91b9e4a041ba" />
+#Voici le resultat car il dis que j'ai oublier le mot de pass alors que j'ai pas oublier
+![captabdoul]<img width="1545" height="818" alt="iboune png" src="https://github.com/user-attachments/assets/629c70f7-58da-49c4-8232-1ed664b78fc2" />
+
 
 
 ---
+
 
 
 
