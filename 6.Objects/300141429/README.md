@@ -76,3 +76,6 @@ Test utilisateur  Etudiant1 pour la connectivite.
 ![](images/o10.png)
 l'image montre que le test a marche mais comme le netbios je n'avais pas mis mon id cela a pris le DC99999999-00 par defaut il ya la confirmation avec le soulignement que j'ai mis en haut qui montre que c'est mon serveur vous pouvez tentez de connecter avec Etudiant1 en mettant comme username Etudiant1@DC300141429.local cela marchera aussi.
 
+<img width="344" height="360" alt="image" src="https://github.com/user-attachments/assets/59b9acae-e034-4c16-b706-4bdd1ee5fe11" />
+Voici l'utilisateur student cree pour un teste n'appartenant pas au groupe ne se connecte pas.
+
