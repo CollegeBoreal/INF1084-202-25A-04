@@ -58,6 +58,8 @@ trusts2.ps1
 === VÃ©rification du Trust entre les deux forÃªts ===
 
 <img src="images/image.png" alt="Girl in a jacket" width="500" height="900">
+<img src="images/Screenshot 2025-12-09 163126.png" alt="Girl in a jacket" width="500" height="900">
+
 
 
 
