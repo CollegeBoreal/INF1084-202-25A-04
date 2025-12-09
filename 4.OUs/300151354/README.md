@@ -31,6 +31,7 @@ La commande affiche plusieurs propriétés détaillées du compte AD Sara Benali
 
 
 4)Vérification de l’état du compte d’un utilisateur (Enabled)
+
 Get-ADUser -Identity "sara.benali" -Properties Enabled | Select-Object Name, Enabled
 
 ![](images/4o.png)
@@ -47,6 +48,7 @@ Enabled : True → le compte est actif
 
 
 5)Recherche d’utilisateurs dont le prénom commence par A
+
 Get-ADUser -Filter "GivenName -like 'A*'" | Select-Object Name, SamAccountName
 
 ![](images/5o.png)
