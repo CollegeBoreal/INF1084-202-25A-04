@@ -4,6 +4,7 @@ Vérifier le partage SMB
 Get-SmbShare
 Cette commande liste tous les partages SMB existants sur le serveur et montre la preuve que le dossier SharedResources est bien partagé et accessible au groupe Students.
 ![](images/o1.png)
+
 ```
 ```powershell
 Vérifier le groupe AD
