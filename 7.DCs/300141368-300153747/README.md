@@ -70,6 +70,8 @@ trusts2.ps1
 netbios de Madjou
 
 <img src="images/Screenshot 2025-12-09 164417.png" alt="Girl in a jacket" width="500" height="900">
+j'ai pas peu lier mon adresse ip a mon domain name parce qu'on me dit que c'est payant
+<img src="images/Screenshot 2025-12-09 164353.png" alt="Girl in a jacket" width="500" height="900">
 
 
 
