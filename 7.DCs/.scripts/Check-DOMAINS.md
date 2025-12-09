@@ -34,3 +34,5 @@
 | 30 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | 300152410@monboreal.ca | :x: |
 | 31 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | 300153747@monboreal.ca | :x: |
 | :abacus: | \$\\frac{10}{31}$ = 32.26% | | \$\displaystyle\sum_{i=1}^{31} s_i$ = 10 |
+
+

@@ -1,9 +1,9 @@
 # services3.ps1 - Ismail Trache 300150395
-# Objectif : Exporter les événements Directory Service dans un fichier CSV.
+# Objectif : Exporter les evenements Directory Service dans un fichier CSV.
 
 Write-Host "=== Export des journaux Directory Service vers C:\Logs\ADLogs.csv ===" -ForegroundColor Cyan
 
-# Créer le dossier Logs s’il n’existe pas
+# Creer le dossier Logs s’il n’existe pas
 if (!(Test-Path -Path "C:\Logs")) {
     New-Item -ItemType Directory -Path "C:\Logs" | Out-Null
 }
@@ -12,4 +12,4 @@ if (!(Test-Path -Path "C:\Logs")) {
 Get-WinEvent -LogName "Directory Service" -MaxEvents 50 |
 Export-Csv -Path "C:\Logs\ADLogs.csv" -NoTypeInformation
 
-Write-Host "`nExport terminé avec succès !" -ForegroundColor Green
+Write-Host "`nExport termine avec succes !" -ForegroundColor Green
