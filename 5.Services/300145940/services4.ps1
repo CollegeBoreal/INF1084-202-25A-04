@@ -1,4 +1,4 @@
-# Auteur : 300151833
+# Auteur : 300145940
 
 #######################################
 # Bloc A : Cible du service
@@ -33,3 +33,4 @@ Try {
 # Bloc E : Vérification finale
 #######################################
 (Get-Service -Name $svc).Status
+

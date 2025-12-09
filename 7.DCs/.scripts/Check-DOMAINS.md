@@ -17,7 +17,7 @@
 | 13 | [300150295](../300150295/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994740?s=460&v=4' width=20 height=20></image>](https://github.com/lounasallouti1) | netbios.lounasallouti.me | :heavy_check_mark: |
 | 14 | [300150296](../300150296/README.md) [<image src='https://avatars0.githubusercontent.com/u/205198510?s=460&v=4' width=20 height=20></image>](https://github.com/bnnyouba99) | 300150296@monboreal.ca | :x: |
 | 15 | [300150303](../300150303/README.md) [<image src='https://avatars0.githubusercontent.com/u/211592293?s=460&v=4' width=20 height=20></image>](https://github.com/jessmaud) | netbios.abdelatifnemous.app | :heavy_check_mark: |
-| 16 | [300150385](../300150385/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994785?s=460&v=4' width=20 height=20></image>](https://github.com/belka1996) | 300150385@monboreal.ca | :x: |
+| 16 | [300150385](../300150385/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994785?s=460&v=4' width=20 height=20></image>](https://github.com/belka1996) | belkamedj.systems | :x: |
 | 17 | [300150395](../300150395/README.md) [<image src='https://avatars0.githubusercontent.com/u/211577767?s=460&v=4' width=20 height=20></image>](https://github.com/ismailtrache) | netbios.ismailtrache.me | :heavy_check_mark: |
 | 18 | [300150399](../300150399/README.md) [<image src='https://avatars0.githubusercontent.com/u/195236786?s=460&v=4' width=20 height=20></image>](https://github.com/chkips) | 300150399@monboreal.ca | :x: |
 | 19 | [300150417](../300150417/README.md) [<image src='https://avatars0.githubusercontent.com/u/212187666?s=460&v=4' width=20 height=20></image>](https://github.com/latifmuristaga) | netbios.abdelatifnemous.app | :heavy_check_mark: |
@@ -34,3 +34,6 @@
 | 30 | [300152410](../300152410/README.md) [<image src='https://avatars0.githubusercontent.com/u/205994834?s=460&v=4' width=20 height=20></image>](https://github.com/imadboudeuf) | 300152410@monboreal.ca | :x: |
 | 31 | [300153747](../300153747/README.md) [<image src='https://avatars0.githubusercontent.com/u/211754108?s=460&v=4' width=20 height=20></image>](https://github.com/madjou15) | 300153747@monboreal.ca | :x: |
 | :abacus: | \$\\frac{10}{31}$ = 32.26% | | \$\displaystyle\sum_{i=1}^{31} s_i$ = 10 |
+
+
+

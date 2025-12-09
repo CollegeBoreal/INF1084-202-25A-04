@@ -1,4 +1,4 @@
-# Auteur : 300151833
+# Auteur : 300145940
 
 ############################
 # Étape 1 : Services liés à Active Directory
@@ -42,7 +42,7 @@ $criticalAdServices |
         Get-Service -Name $_ -ErrorAction SilentlyContinue |
             Select-Object Name, Status, StartType
     }
-# Auteur : raouf bouras
+# Auteur : Tasnim Marzougui (300145940)
 
 # Phase 1 : Afficher les services en lien avec Active Directory
 Get-Service | Where-Object {
@@ -53,3 +53,4 @@ Get-Service | Where-Object {
 # Phase 2 : Contrôle de l’état des services AD critiques
 $adCoreServices = "NTDS","ADWS","DFSR"
 Get-Service -Name $adCoreServices
+

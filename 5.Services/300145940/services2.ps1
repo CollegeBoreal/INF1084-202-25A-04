@@ -1,4 +1,5 @@
-# Auteur : 300151833
+# Auteur : 300145940
+
 # Nombre d’événements à afficher
 $eventCount = 20
 
@@ -35,3 +36,4 @@ Get-WinEvent -FilterHashtable @{
 Get-WinEvent -FilterHashtable @{ LogName = $dsLogName } -MaxEvents $eventCount |
     Select-Object TimeCreated, Id, LevelDisplayName, Message |
     Format-Table -AutoSize
+
