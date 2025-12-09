@@ -1,36 +1,24 @@
+# Auteur : 300150284
+# TP Objets AD – Script 1
+# Création du dossier partagé + groupe Students + utilisateurs
 
-############################################################
-# Script : utilisateurs1.ps1
-# Objectif : Créer un dossier partagé + groupe Students + utilisateurs
-############################################################
-
-# Charger les modules AD et SMB
 Import-Module ActiveDirectory
-Import-Module SmbShare
 
-# 1️⃣ Créer le dossier partagé
+# 1. Créer le dossier partagé
 $SharedFolder = "C:\SharedResources"
 New-Item -Path $SharedFolder -ItemType Directory -Force
 
-# 2️⃣ Créer le groupe AD
+# 2. Créer le groupe Students
 $GroupName = "Students"
-New-ADGroup -Name $GroupName -GroupScope Global -Description "Users allowed RDP and shared folder access" -ErrorAction SilentlyContinue
+New-ADGroup -Name $GroupName -GroupScope Global -Description "Étudiants pour partage et RDP"
 
-# 3️⃣ Créer des utilisateurs AD et les ajouter au groupe
+# 3. Créer utilisateurs
 $Users = @("Etudiant1","Etudiant2")
-
-foreach ($user in $Users) {
-    New-ADUser -Name $user `
-               -SamAccountName $user `
-               -AccountPassword (ConvertTo-SecureString "Pass123!" -AsPlainText -Force) `
-               -Enabled $true `
-               -PasswordNeverExpires $true `
-               -ErrorAction SilentlyContinue
-
-    Add-ADGroupMember -Identity $GroupName -Members $user -ErrorAction SilentlyContinue
+foreach ($u in $Users) {
+    New-ADUser -Name $u -SamAccountName $u -Enabled $true `
+        -AccountPassword (ConvertTo-SecureString "Pass123!" -AsPlainText -Force)
+    Add-ADGroupMember -Identity $GroupName -Members $u
 }
 
-# 4️⃣ Créer le partage SMB avec autorisation FullAccess au groupe Students
-New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess $GroupName -ErrorAction SilentlyContinue
-
-Write-Host "📁 Dossier partagé + utilisateurs + groupe créés avec succès."
+# 4. Créer le partage SMB
+New-SmbShare -Name "SharedResources" -Path $SharedFolder -FullAccess $GroupName

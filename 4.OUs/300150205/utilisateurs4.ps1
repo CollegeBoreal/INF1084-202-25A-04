@@ -5,14 +5,14 @@
 
 . .\bootstrap.ps1   # Dot sourcing du bootstrap
 
-[Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding(1252)
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-# Vérifier si l'OU existe
+# Verifier si l'OU existe
 if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'" -Server $domainName -ErrorAction SilentlyContinue)) {
     New-ADOrganizationalUnit -Name "Students" -Path "DC=$netbiosName,DC=local" -Server $domainName
 }
 
-# Vérifier si l'utilisateur existe
+# Verifier si l'utilisateur existe
 $user = Get-ADUser -Filter {SamAccountName -eq "alice.dupont"} -Server $domainName -ErrorAction SilentlyContinue
 
 if ($null -eq $user) {
@@ -20,11 +20,11 @@ if ($null -eq $user) {
     Write-Host "   Il a ete SUPPRIME a l'ETAPE 7 dans utilisateurs3.ps1" -ForegroundColor Yellow
     Write-Host "  Executez d'abord : .\utilisateurs2.ps1 pour le recreer`n" -ForegroundColor Cyan
 } else {
-    # Déplacer l'utilisateur depuis CN=Users
+    # Deplacer l'utilisateur depuis CN=Users
     Move-ADObject -Identity "CN=Alice Dupont,CN=Users,DC=$netbiosName,DC=local" `
                   -TargetPath "OU=Students,DC=$netbiosName,DC=local" `
                   -Server $domainName
     
-    # Vérifier le déplacement
+    # Verifier le deplacement
     Get-ADUser -Identity "alice.dupont" -Server $domainName | Select-Object Name, DistinguishedName
 }

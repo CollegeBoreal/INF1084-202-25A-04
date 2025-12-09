@@ -1,0 +1,25 @@
+# Auteur : 300150284
+# TP Objets AD – Script 3
+# Activer RDP pour le groupe Students
+
+Import-Module ActiveDirectory
+
+# 1. Activer RDP localement
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" `
+                 -Name "fDenyTSConnections" -Value 0
+
+# 2. Autoriser pare-feu
+Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+
+# 3. Donner droit RDP au groupe Students
+$n = (New-Object System.Security.Principal.NTAccount("Students"))
+$sid = $n.Translate([System.Security.Principal.SecurityIdentifier]).Value
+
+secedit /export /cfg C:\secpol.cfg
+
+(Get-Content C:\secpol.cfg).Replace(
+    "SeRemoteInteractiveLogonRight =",
+    "SeRemoteInteractiveLogonRight = $sid,"
+) | Set-Content C:\secpol.cfg
+
+secedit /configure /db C:\Windows\security\local.sdb /cfg C:\secpol.cfg /overwrite
