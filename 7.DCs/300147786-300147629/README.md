@@ -32,7 +32,7 @@ netdom trust DC300147629-00.local /Domain:DC300147786-00.local /UserO:Administra
 ```powershell
 nltest /domain_trusts
 ```
-<img width="1062" height="377" alt="capt2025" src="https://github.com/user-attachments/assets/a42fb84f-d1f0-4898-81dc-8b7d067fd503" />
+<img width="715" height="176" alt="2026" src="https://github.com/user-attachments/assets/14e9448f-6e71-42dd-b30e-da180befebae" />
 
 ---
 
@@ -101,6 +101,7 @@ quser
 
 
 ---
+
 
 
 
