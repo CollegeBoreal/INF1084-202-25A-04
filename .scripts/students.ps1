@@ -193,8 +193,8 @@ $DOMAINS = @(
     '300151354@monboreal.ca'
     '300151492@monboreal.ca'
     '300151608@monboreal.ca'
-    '300151833@monboreal.ca'
-    '300151841@monboreal.ca'
+    'raoufbr.me'
+    'massimameri.studio'
     '300152410@monboreal.ca'
     '300153747@monboreal.ca'
 )
