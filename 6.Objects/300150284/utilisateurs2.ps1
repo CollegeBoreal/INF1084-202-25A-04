@@ -1,53 +1,31 @@
-
-############################################################
-# Script : utilisateurs2.ps1
-# Objectif : Créer la GPO MapSharedFolder + script logon + map Z:
-############################################################
+# Auteur : 300150284
+# TP Objets AD – Script 2
+# Création d’une GPO pour mapper le lecteur réseau Z:
 
 Import-Module GroupPolicy
 
-# 1️⃣ Variables
 $GPOName = "MapSharedFolder"
-$netbiosName = "DC300141429"   # <<< ADAPTE ICI
-$OU = "OU=Students,DC=300141429,DC=local"
+New-GPO -Name $GPOName
 
-# 2️⃣ Créer la GPO
-New-GPO -Name $GPOName -ErrorAction SilentlyContinue
-
-# 3️⃣ Lier la GPO à l’OU Students
+$OU = "OU=Students,DC=DC300150284-00,DC=local"
 New-GPLink -Name $GPOName -Target $OU
 
-# 4️⃣ Créer un script de logon pour mapper le lecteur Z:
+# Script de logon
 $DriveLetter = "Z:"
-$SharePath = "\\$netbiosName\SharedResources"
+$SharePath = "\\DC300150284-00\SharedResources"
 
 $ScriptFolder = "C:\Scripts"
-$ScriptPath = "$ScriptFolder\MapDrive-$DriveLetter.bat"
+$ScriptPath = "$ScriptFolder\MapDrive.bat"
 
-if (-not (Test-Path $ScriptFolder)) {
-    New-Item -ItemType Directory -Path $ScriptFolder | Out-Null
+if (-not (Test-Path $ScriptFolder)) { 
+    New-Item -Path $ScriptFolder -ItemType Directory 
 }
 
-$scriptContent = "net use $DriveLetter $SharePath /persistent:no"
-Set-Content -Path $ScriptPath -Value $scriptContent
+"net use $DriveLetter $SharePath /persistent:no" | Out-File -FilePath $ScriptPath -Encoding ASCII
 
-# 5️⃣ Associer le script logon à la GPO
+# Lier le script à la GPO
 Set-GPRegistryValue -Name $GPOName `
-  -Key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
-  -ValueName "LogonScript" `
-  -Type String `
-  -Value $ScriptPath
-
-Write-Host "📜 GPO + mapping du lecteur réseau configurés."
-
-############################################################
-# BONUS : Activer RDP pour les membres du groupe Students
-############################################################
-
-# Autoriser RDP
-Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0
-
-# Activer firewall
-Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-
-Write-Host "🖥️ RDP activé avec succès."
+    -Key "HKCU\Environment" `
+    -ValueName "LogonScript" `
+    -Type String `
+    -Value $ScriptPath
