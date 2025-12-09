@@ -1,38 +1,20 @@
-# Charger les informations du bootstrap
-. .\bootstrap.ps1
+# utilisateurs4.ps1
 
-# Importer le module AD
-Import-Module ActiveDirectory
+$equipes = "GroupeFormation,GroupeRH"
 
-Write-Host "=== Création de nouveaux utilisateurs ===" -ForegroundColor Cyan
-
-# Liste des utilisateurs à créer
-$users = @(
-    @{Name="Alice Dupont"; GivenName="Alice"; Surname="Dupont"; SamAccountName="alice.dupont"},
-    @{Name="Bob Martin"; GivenName="Bob"; Surname="Martin"; SamAccountName="bob.martin"},
-    @{Name="Claire Lemoine"; GivenName="Claire"; Surname="Lemoine"; SamAccountName="claire.lemoine"}
+$donnees = @(
+    "Karim|BENZEMA|Stagiaires",
+    "Nabil|FEKIR|Professeurs",
+    "Hakim|ZIYECH|Stagiaires",
+    "Achraf|HAKIMI|Stagiaires",
+    "Yassine|BOUNOU|Employés"
 )
 
-# Créer chaque utilisateur
-foreach ($user in $users) {
-    try {
-        New-ADUser -Name $user.Name `
-                   -GivenName $user.GivenName `
-                   -Surname $user.Surname `
-                   -SamAccountName $user.SamAccountName `
-                   -UserPrincipalName "$($user.SamAccountName)@$domainName" `
-                   -AccountPassword (ConvertTo-SecureString "MotDePasse123!" -AsPlainText -Force) `
-                   -Enabled $true `
-                   -Path "CN=Users,$((Get-ADDomain -Server $domainName).DistinguishedName)" `
-                   -Server $domainName `
-                   -Credential $cred
-        
-        Write-Host "✓ Utilisateur '$($user.Name)' créé avec succès" -ForegroundColor Green
-    }
-    catch {
-        Write-Host "✗ Erreur lors de la création de '$($user.Name)': $_" -ForegroundColor Red
+Write-Host "`nAjout des stagiaires dans le groupe GroupeFormation :"
+
+foreach ($ligne in $donnees) {
+    $info = $ligne.Split("|")
+    if ($info[2] -eq "Stagiaires") {
+        Write-Host " - $($info[0]) $($info[1]) ajouté à GroupeFormation"
     }
 }
-
-Write-Host "`n=== Vérification ===" -ForegroundColor Cyan
-Get-ADUser -Filter "SamAccountName -like '*.*'" -Server $domainName | Select-Object Name, SamAccountName
