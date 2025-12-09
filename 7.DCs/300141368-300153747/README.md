@@ -50,9 +50,26 @@ Test-Connection -ComputerName DC300141369.local -Count 2
 
 
 ---
+``` powershell
+trusts2.ps1
+```
+<details>
+ 
+=== VÃ©rification du Trust entre les deux forÃªts ===
+
+<img src="images/image.png" alt="Girl in a jacket" width="500" height="900">
+<img src="images/Screenshot 2025-12-09 163126.png" alt="Girl in a jacket" width="500" height="900">
+<img src="images/Screenshot 2025-12-09 163603.png" alt="Girl in a jacket" width="500" height="900">
+<img src="images/Screenshot 2025-12-09 163932.png" alt="Girl in a jacket" width="500" height="900">
 
 
 
+=== VÃ©rification terminÃ©e ===
+</details>
+---
+netbios de Madjou
+
+<img src="images/Screenshot 2025-12-09 164417.png" alt="Girl in a jacket" width="500" height="900">
 
 
 
