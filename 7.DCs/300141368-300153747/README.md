@@ -66,8 +66,10 @@ trusts2.ps1
 
 === VÃ©rification terminÃ©e ===
 </details>
+---
+netbios de Madjou
 
-
+<img src="images/Screenshot 2025-12-09 164417.png" alt="Girl in a jacket" width="500" height="900">
 
 
 
