@@ -29,7 +29,7 @@ powershell
 Get-ADGroupMember Students
 Liste les membres du groupe Students.Preuve que les utilisateurs ont bien été ajoutés au groupe.
 
-```\
+```
 ![](images/o4.png)
 ```powershell
 Vérifier la GPO
