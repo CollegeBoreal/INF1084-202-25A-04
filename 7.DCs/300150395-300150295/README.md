@@ -149,7 +149,18 @@ Automatisation OK
 
 <img width="1919" height="1014" alt="4.5" src="images/4.5.png"/> 
 <img width="1919" height="1014" alt="5A" src="images/5A.png"/> 
+
+#Test Trust reussi
+
+
 <img width="1919" height="1014" alt="5A" src="images/6.png"/> 
+
+#Trusted domains
+
+
+<img width="1919" height="1014" alt="5A" src="images/7.png"/> 
+
+
 Conclusion
 Les deux domaines peuvent communiquer correctement.
 L’accès à l’Active Directory distant fonctionne parfaitement et le script permet d’automatiser toutes les vérifications demandées.
