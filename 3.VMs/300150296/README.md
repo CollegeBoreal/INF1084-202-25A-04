@@ -1,124 +1,31 @@
-\# TP Active Directory - 300150296
+# 🖥️ TP 3 — Machines Virtuelles : Installation d’un Contrôleur de Domaine Active Directory  
+**Étudiant : Youba Bouanani — 300150296**  
+**Cours : INF1084 – Administration Windows**  
+**Session : Automne 2025**
 
+---
 
+## 🎯 Objectif du laboratoire
+Mettre en place un contrôleur de domaine Active Directory dans une machine virtuelle Windows Server 2022, puis valider son installation via PowerShell.  
+Ce TP permet de comprendre les fondements d’un environnement Windows d’entreprise : domaine, DNS, NetBIOS, forêt et rôle AD DS.
 
-\## 🎯 Objectif
+---
 
-Installer et configurer un contrôleur de domaine Active Directory sur Windows Server 2022
+## ⚙️ Configuration utilisée
 
+| Élément | Valeur |
+|--------|--------|
+| **Nom du serveur** | `DC300150296-0` |
+| **Nom du domaine (DNS)** | `DC300150296-0.local` |
+| **Nom NetBIOS** | `DC300150296` |
+| **Mot de passe DSRM** | `Password123!` |
+| **Version OS** | Windows Server 2022 |
+| **Rôle installé** | AD DS + DNS |
 
+---
 
-\## 📊 Configuration
+## 🚀 Étapes d’installation (PowerShell)
 
-
-
-\### Informations du domaine
-
-\- \*\*Nom du serveur\*\* : DC300150296-0
-
-\- \*\*Nom du domaine\*\* : DC300150296-0.local
-
-\- \*\*NetBIOS\*\* : DC300150296-0
-
-\- \*\*Mot de passe DSRM\*\* : Password123!
-
-
-
-\## 📸 Screenshots
-
-
-
-\### 1. Installation du rôle AD DS
-
-!\[Installation AD DS](screenshots/1-install-adds.png)
-
-
-
-\### 2. Configuration du domaine
-
-!\[Configuration domaine](screenshots/2-domain-config.png)
-
-
-
-\### 3. Vérification Get-ADDomain
-
-!\[Get-ADDomain](screenshots/3-get-addomain.png)
-
-
-
-\### 4. Vérification Get-ADForest
-
-!\[Get-ADForest](screenshots/4-get-adforest.png)
-
-
-
-\## ✅ Étapes réalisées
-
-
-
-1\. ✅ Renommage du serveur
-
-2\. ✅ Installation du rôle AD-Domain-Services
-
-3\. ✅ Création de la forêt et du domaine
-
-4\. ✅ Configuration DNS
-
-5\. ✅ Vérification de l'installation
-
-
-
-\## 📝 Commandes utilisées
-
+### 1️⃣ Renommage du serveur
 ```powershell
-
-\# 1. Renommer le serveur
-
 Rename-Computer -NewName "DC300150296-0" -Restart
-
-
-
-\# 2. Installer AD DS
-
-Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-
-
-
-\# 3. Créer le domaine
-
-Install-ADDSForest `
-
-&nbsp;   -DomainName "DC300150296-0.local" `
-
-&nbsp;   -DomainNetbiosName "DC300150296-0" `
-
-&nbsp;   -InstallDns:$true `
-
-&nbsp;   -SafeModeAdministratorPassword (ConvertTo-SecureString "Password123!" -AsPlainText -Force) `
-
-&nbsp;   -Force
-
-
-
-\# 4. Vérifications
-
-Get-ADDomain
-
-Get-ADForest
-
-```
-
-
-
-\## 🎓 Compétences acquises
-
-
-
-\- Configuration d'un contrôleur de domaine
-
-\- Gestion des services Active Directory
-
-\- Compréhension de la structure AD (forêt, domaine, DNS)
-
-\- Utilisation de PowerShell pour l'administration AD
-

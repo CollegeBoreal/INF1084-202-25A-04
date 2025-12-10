@@ -16,10 +16,10 @@ Remarque :
 $LocalForest  = "DC300150399-00.local"
 
 # Forêt distante (enseignant)
-$RemoteForest = "lab208.collegeboreal.ca"
+$RemoteForest = "DC300098957-90.local"
 
 # Nom logique du trust (pour l’administration)
-$TrustName = "Trust_DC300150399_to_lab208"
+$TrustName = "Trust_DC300150399_to_DC300098957"
 
 Write-Host "Forêt locale  : $LocalForest"
 Write-Host "Forêt distante: $RemoteForest"
@@ -128,8 +128,8 @@ Exemples de tests fonctionnels à effectuer une fois le trust établi :
        Get-ADTrust -Filter *
 
 2. Interroger le domaine distant (exemples génériques) :
-       Get-ADDomain -Server lab208.collegeboreal.ca
-       Get-ADUser -Filter * -Server lab208.collegeboreal.ca -ResultSetSize 5
+       Get-ADDomain -Server DC300098957-90.local
+       Get-ADUser -Filter * -Server DC300098957-90.local -ResultSetSize 5
 
 3. Tester qu’un utilisateur de la forêt distante peut accéder à une ressource partagée
    dans la forêt locale (dossier partagé, etc.) après attribution des permissions.
