@@ -46,8 +46,17 @@ UsersContainer                     : CN=Users,DC=DC300151354-00,DC=local
 
 
 
+
+## 🌲 Forest Configuration
+
+```powershell
+PS C:\Users\Administrator> Get-ADForest
+```
+
 <details>
 <summary>📊 Forest Details</summary>
+
+```powershell
 ApplicationPartitions : {DC=ForestDnsZones,DC=DC300151354-00,DC=local, DC=DomainDnsZones,DC=DC300151354-00,DC=local}
 CrossForestReferences : {}
 DomainNamingMaster    : DC300151354.DC300151354-00.local
@@ -61,6 +70,12 @@ SchemaMaster          : DC300151354.DC300151354-00.local
 Sites                 : {Default-First-Site-Name}
 SPNSuffixes           : {}
 UPNSuffixes           : {}
+
+
+
+PS C:\Users\Administrator\Developer\INF1084-202-25A-04\3.VMs>
+
+
 
 
 
