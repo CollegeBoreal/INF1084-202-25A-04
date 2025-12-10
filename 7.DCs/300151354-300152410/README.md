@@ -7,7 +7,7 @@
 
 ### ✔️ Vérifier le DNS du domaine local
 nslookup DC300152410-00.local
-![DNS Local](https://github.com/user-attachments/assets/3b6242c7-35fc-4692-b9b0-82b6f0169f5d)
+
 2. Création du trust via CLI
 
 Création d’un trust bidirectionnel transitif entre les deux forêts AD.
