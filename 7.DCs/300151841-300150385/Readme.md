@@ -84,32 +84,95 @@ Résultat attendu :
 
 The command completed successfully.
 
-📸 4. Captures d’écran à fournir
-🖼️ CAPTURES sur la VM de Massinissa (DC300151841)
+SECTION B — Commandes exécutées sur la VM de Belkacem (DC300150385)
 
-Get-ADDomain -Server DC300150385-00.local
+✅ Dans cette section, nous présentons les tests effectués depuis la VM de Belkacem (DC300150385) pour vérifier la relation de confiance avec le domaine de Massinissa (DC300151841).
 
-Get-ADUser -Filter * -Server DC300150385-00.local
+✅ 1. Vérification du domaine de Massinissa
 
-net use \\DC300150385\SharedResources
+Commande exécutée :
+
+Get-ADDomain -Server DC300151841-00.local -Credential $cred
+
+![Wait](https://github.com/user-attachments/assets/9ac0ce70-5584-4252-ad39-0a6771a0bd53)
+
+
+Cette commande permet de récupérer toutes les informations du domaine de Massinissa (DC300151841-00.local) depuis la VM de Belkacem.
+Le résultat montre que le domaine est accessible et reconnu, confirmant que la relation d’approbation fonctionne.
+
+✅ 2. Liste des utilisateurs du domaine de Massinissa
+
+Commande exécutée :
+
+Get-ADUser -Filter * -Server DC300151841-00.local -Credential $cred | Select SamAccountName, DistinguishedName
+
+![Wait](https://github.com/user-attachments/assets/28dd2f89-5675-4f80-bc34-d73d65ce1952)
+
+
+La liste des utilisateurs est correctement affichée, ce qui confirme que Belkacem peut interroger les objets AD du domaine de Massinissa.
+
+✅ 3. Test d’accès au partage “SharedResources”
+
+Commande :
+
+net use \\DC300151841\SharedResources /user:DC300151841-00.local\administrator *
+
+![Wait](https://github.com/user-attachments/assets/1e14fbfa-fde6-43bd-8497-e8b202f18c72)
+
+
+Le message “The command completed successfully.” confirme que :
+
+Le partage de Massinissa est accessible,
+
+L’authentification croisée entre les domaines fonctionne,
+
+Le trust est fonctionnel dans les deux sens.
+
+✅ 4. Vérification des trusts configurés
+
+Commande :
 
 nltest /domain_trusts
 
+![Wait](https://github.com/user-attachments/assets/ed3266df-6534-4cf4-9deb-f6b891b2c3be)
+
+
+Le résultat affiche bien :
+
+Le domaine de Belkacem
+
+Le domaine de Massinissa
+
+Une relation Direct Outbound / Direct Inbound
+
+Cela confirme que le trust bidirectionnel est bien établi.
+
+✅ 5. Vérification des trusted domains
+
+Commande :
+
 nltest /trusted_domains
 
-🖼️ CAPTURES sur la VM de Belkacem (DC300150385)
+![Wait](https://github.com/user-attachments/assets/b9a35c95-0db5-483f-9acf-cdb6962d60b0)
 
-Get-ADDomain -Server DC300151841-00.local
 
-Get-ADUser -Filter * -Server DC300151841-00.local
+Cette commande affiche aussi les deux domaines et confirme que la relation d’approbation est active et fonctionnelle.
 
-net use \\DC300151841\SharedResources
+✅ Résultat global
 
-nltest /domain_trusts
+Les tests réalisés depuis la VM de Belkacem confirment que :
 
-nltest /trusted_domains
+Le domaine de Massinissa est accessible
 
-✅ 5. Conclusion
+Les utilisateurs du domaine distant sont consultables
+
+L’accès réseau partagé est fonctionnel
+
+Les relations de confiance apparaissent correctement dans nltest
+
+Cela démontre que la relation de confiance est bien configurée dans les deux sens.
+
+✅ 6. Conclusion
 
 La relation de confiance entre les deux forêts :
 
