@@ -12,7 +12,9 @@
 
 # 1. Charger les identifiants pour le domaine distant
 Write-Host "=== Chargement des identifiants du domaine distant (Hacen) ==="
-$cred = Get-Credential
+$cred = Get-Credential# Mise à jour Aroua - 10/12/2025
+
+
 
 # Définition des domaines
 $LocalDomain   = "DC300150284-00.local"       # Mohamed
