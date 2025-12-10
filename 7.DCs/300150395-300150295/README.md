@@ -150,6 +150,20 @@ Automatisation OK
 <img width="1919" height="1014" alt="4.5" src="images/4.5.png"/> 
 <img width="1919" height="1014" alt="5A" src="images/5A.png"/> 
 
+#Test Trust reussi
+
+La création du trust bidirectionnel entre les deux forêts a été réalisée via CLI avec la commande netdom trust.
+La commande a été exécutée avec succès le 10 décembre 2025 et le trust est maintenant établi.
+Le script fourni automatise uniquement la vérification et le diagnostic du trust, car la création ne doit pas être relancée.
+
+<img width="1919" height="1014" alt="5A" src="images/6.png"/> 
+
+#Trusted domains
+
+
+<img width="1919" height="1014" alt="5A" src="images/7.png"/> 
+
+
 Conclusion
 Les deux domaines peuvent communiquer correctement.
 L’accès à l’Active Directory distant fonctionne parfaitement et le script permet d’automatiser toutes les vérifications demandées.

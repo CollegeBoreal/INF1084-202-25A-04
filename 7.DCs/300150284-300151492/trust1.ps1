@@ -1,0 +1,1 @@
+ netdom trust DC300150284-00.local /Domain:DC300151492.local /UserD:administrator /PasswordD:* /Add /Realm /TwoWay

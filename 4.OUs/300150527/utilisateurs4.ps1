@@ -4,8 +4,6 @@
 . .\bootstrap.ps1
 Import-Module ActiveDirectory
 
-$domainName = "DC300150527-00.local"
-$netbiosName = "DC300150527-00"
 
 # Vérifier si l'OU "Students" existe, sinon la créer
 if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'" -Server $domainName -ErrorAction SilentlyContinue)) {
@@ -15,7 +13,9 @@ if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Students'" -Server $domain
 # Déplacer l'utilisateur "Alice Dupont" vers l'OU "Students"
 Move-ADObject -Identity "CN=Alice Dupont,CN=Users,DC=$netbiosName,DC=local" `
               -TargetPath "OU=Students,DC=$netbiosName,DC=local" `
-              -Credential $cred
+              -Server $domainName
 
 # Vérifier le déplacement
 Get-ADUser -Identity "alice.dupont" -Server $domainName | Select-Object Name, DistinguishedName
+
+

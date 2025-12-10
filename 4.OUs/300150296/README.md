@@ -1,12 +1,58 @@
-\# vos informations
+\# 🗂️ TP 4 — Active Directory : Gestion des Unités d’Organisation (OUs)  
+
+\*\*Étudiant : Youba Bouanani — 300150296\*\*
+
+
+
+---
+
+
+
+\## 🎯 Objectif du TP
+
+Créer et gérer les unités d’organisation (OUs) dans Active Directory, manipuler les utilisateurs et automatiser les actions avec PowerShell.
+
+
+
+---
+
+
+
+\## ⚙️ Configuration du domaine
+
+
+
+| Élément | Valeur |
+
+|--------|--------|
+
+| Numéro étudiant | 300150296 |
+
+| Instance | 00 |
+
+| Domaine (DNS) | DC300150296-00.local |
+
+| NetBIOS | DC300150296-00 |
+
+| Mot de passe | Infra@2024 |
+
+
+
+---
+
+
+
+\## 🔧 1. bootstrap.ps1 (initialisation du domaine)
+
+
+
+```powershell
 
 $studentNumber = 300150296
 
-$studentInstance = "00"  # ⚠️ Mettre 0 sans guillemets (c'est un nombre)
+$studentInstance = 0
 
 
-
-\# les noms respectifs
 
 $domainName = "DC$studentNumber-$studentInstance.local"
 
@@ -14,9 +60,7 @@ $netbiosName = "DC$studentNumber-$studentInstance"
 
 
 
-\# les informations de sécurité
-
-$plain = 'Infra@2024'
+$plain = "Infra@2024"
 
 $secure = ConvertTo-SecureString $plain -AsPlainText -Force
 

@@ -34,3 +34,7 @@ Screenshot 6.png – Get-ADDomain -Server DC distant – validation de la visibi
 
 Screenshot part 3.png – Get-ADTrust -Filter * – validation du trust bidirectionnel (Bidirectional, MIT)
 <img width="751" height="156" alt="part 3" src="https://github.com/user-attachments/assets/9d5a7d10-4cc2-4c43-bd64-8368c9ee0442" />
+
+Haroune Domain
+
+<img width="1847" height="803" alt="Haroune Domain" src="https://github.com/user-attachments/assets/cb88e7c9-7654-49d0-9334-1157803602b8" />

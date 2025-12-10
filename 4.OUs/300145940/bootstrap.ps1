@@ -1,29 +1,30 @@
 # Script configuré par : Tasnim (300145940)
-# Objectif : Préparation des variables nécessaires au domaine et affichage des informations AD
+# Objectif : Préparer les variables du domaine AD et afficher un résumé
 
-# Définition de l'identifiant étudiant et de l'instance associée
-$studentNumber   = 300141570
+# Identifiants de l'étudiant
+$studentNumber   = 300145940      # <-- mis à jour
 $studentInstance = 0
 
-# Construction dynamique du nom de domaine (FQDN) et du NetBIOS
+# Construction du nom de domaine (FQDN) et du NetBIOS
 $domainName  = "DC$studentNumber-$studentInstance.local"
 $netbiosName = "DC$studentNumber-$studentInstance"
 
-# Création des informations d'identification pour le compte Administrateur
-$plain  = 'Infra@2024'
-$secure = ConvertTo-SecureString $plain -AsPlainText -Force
-$cred   = New-Object System.Management.Automation.PSCredential("Administrator@$domainName", $secure)
+# Informations d'identification pour le compte Administrateur du domaine
+$adminPasswordPlain  = 'Infra@2024'
+$adminPasswordSecure = ConvertTo-SecureString $adminPasswordPlain -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential(
+    "Administrator@$domainName",
+    $adminPasswordSecure
+)
 
-# Chargement du module Active Directory pour utiliser les cmdlets AD
-Import-Module ActiveDirectory
+# Chargement du module Active Directory
+Import-Module ActiveDirectory -ErrorAction Stop
 
-# Affichage des informations de domaine calculées
-Write-Host "Domain FQDN : $domainName"
-Write-Host "NetBIOS     : $netbiosName"
+# Affichage des informations calculées
+Write-Host "Domaine (FQDN) : $domainName"
+Write-Host "Nom NetBIOS    : $netbiosName"
+Write-Host ""
 
-# Récupération des informations du domaine Active Directory
+# Affichage des infos AD réelles
 Get-ADDomain -Server $domainName
-
-# Obtention de la liste des contrôleurs de domaine actifs
 Get-ADDomainController -Filter * -Server $domainName
-
