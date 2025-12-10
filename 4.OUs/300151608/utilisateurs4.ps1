@@ -1,18 +1,33 @@
-﻿. "$(Join-Path $PSScriptRoot 'bootstrap.ps1')"
+# ---------------------------------------------------------
+# Script : utilisateurs4.ps1
+# Auteur : Mohammed Aiche
+# ID     : 300151608
+# Objectif : Deplacer test01 vers l'OU Students
+# ---------------------------------------------------------
+
 Import-Module ActiveDirectory
 
-# Vérifier si l'OU Students existe, sinon la créer
-if (-not (Get-ADOrganizationalUnit -LDAPFilter '(ou=Students)' -ErrorAction SilentlyContinue)) {
-    New-ADOrganizationalUnit -Name "Students" -Path "DC=$netbiosName,DC=local" -Credential $cred
+# Domaine correct
+$root = "DC=dc300151608,DC=local"
+$ouPath = "OU=Students,$root"
+
+Write-Host "Domaine utilise : $root"
+
+# Verifier si l'OU Students existe
+$ou = Get-ADOrganizationalUnit -Filter "Name -eq 'Students'" -ErrorAction SilentlyContinue
+
+if (-not $ou) {
+    New-ADOrganizationalUnit -Name "Students" -Path $root
+    Write-Host "OU Students creee." -ForegroundColor Yellow
 }
 
-# Déplacer l'utilisateur Alice Dupont vers OU=Students
-Move-ADObject -Identity "CN=Alice Dupont,CN=Users,DC=$netbiosName,DC=local" `
-  -TargetPath "OU=Students,DC=$netbiosName,DC=local" -Credential $cred
+# Recuperer l'utilisateur
+$user = Get-ADUser -Identity "test01" -ErrorAction SilentlyContinue
 
-# Vérifier que le déplacement a bien été effectué
-Get-ADUser -Identity "alice.dupont" | Select-Object Name,DistinguishedName
-
-# (Optionnel) Supprimer l'utilisateur
-# Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
-
+if ($user) {
+    Move-ADObject -Identity $user.DistinguishedName -TargetPath $ouPath
+    Write-Host "Utilisateur test01 deplace avec succes !" -ForegroundColor Green
+}
+else {
+    Write-Host "Utilisateur test01 introuvable." -ForegroundColor Red
+}

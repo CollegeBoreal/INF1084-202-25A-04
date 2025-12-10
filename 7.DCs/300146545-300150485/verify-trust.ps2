@@ -1,0 +1,39 @@
+<#
+Script : verify-trust.ps2
+Objectif : Vérifier un trust AD entre deux forêts
+Auteur : 300150485 & 300146545
+#>
+
+Write-Host "=== Vérification du trust entre deux forêts ===" -ForegroundColor Cyan
+
+# 1️⃣ Saisie du compte admin AD2
+$credAD2 = Get-Credential -Message "Entrez les identifiants administrateur de AD2"
+
+$DomainA = "DC300150485.local"
+$DomainB = "DC300146545.local"
+
+# 2️⃣ Vérifier connectivité
+Write-Host "Test-Connection vers AD2..." -ForegroundColor Yellow
+Test-Connection -ComputerName $DomainB -Count 2
+
+# 3️⃣ Vérifier les infos du domaine distant
+Write-Host "Informations du domaine AD2..." -ForegroundColor Yellow
+Get-ADDomain -Server $DomainB -Credential $credAD2
+
+# 4️⃣ Lister les utilisateurs du domaine distant
+Write-Host "Utilisateurs AD2..." -ForegroundColor Yellow
+Get-ADUser -Filter * -Server $DomainB -Credential $credAD2 | Select Name, SamAccountName
+
+# 5️⃣ Créer un PSDrive pour naviguer dans AD2
+Write-Host "Création du PSDrive AD2..." -ForegroundColor Yellow
+New-PSDrive -Name AD2 -PSProvider ActiveDirectory -Root $DomainB -Credential $credAD2 -ErrorAction SilentlyContinue
+
+# 6️⃣ Navigation dans AD2
+Write-Host "Navigation AD2: \" -ForegroundColor Green
+Set-Location "AD2:\DC=DC300146545,DC=local"
+
+# 7️⃣ Lister les OUs
+Write-Host "Liste des OUs d'AD2:" -ForegroundColor Cyan
+Get-ChildItem
+
+Write-Host "=== Vérification terminée ===" -ForegroundColor Green

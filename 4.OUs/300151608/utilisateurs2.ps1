@@ -1,19 +1,18 @@
-﻿. "$(Join-Path $PSScriptRoot 'bootstrap.ps1')"
+# ---------------------------------------------------------
+# Script : utilisateurs2.ps1
+# Auteur : Mohammed Aiche
+# ID     : 300151608
+# Objectif : Désactiver l'utilisateur test01
+# ---------------------------------------------------------
+
 Import-Module ActiveDirectory
 
-# Créer un utilisateur dans CN=Users (par défaut)
-New-ADUser -Name "Alice Dupont" `
-  -GivenName "Alice" `
-  -Surname "Dupont" `
-  -SamAccountName "alice.dupont" `
-  -UserPrincipalName "alice.dupont@$domainName" `
-  -AccountPassword (ConvertTo-SecureString "MotDePasse123!" -AsPlainText -Force) `
-  -Enabled $true `
-  -Path "CN=Users,DC=$netbiosName,DC=local" `
-  -Credential $cred
+$user = Get-ADUser -Filter "SamAccountName -eq 'test01'" -ErrorAction SilentlyContinue
 
-# Modifier quelques attributs de l'utilisateur
-Set-ADUser -Identity "alice.dupont" `
-  -EmailAddress "alice.dupont@example.com" `
-  -GivenName "Alice-Marie" `
-  -Credential $cred
+if ($user) {
+    Disable-ADAccount -Identity "test01"
+    Write-Host "Utilisateur test01 désactivé." -ForegroundColor Green
+}
+else {
+    Write-Host "Utilisateur test01 introuvable." -ForegroundColor Red
+}

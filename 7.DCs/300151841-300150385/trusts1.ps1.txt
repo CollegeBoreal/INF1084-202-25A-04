@@ -1,0 +1,21 @@
+# ============================
+# trusts1.ps1 - Massinissa
+# Domaine : DC300151841-00.local
+# ============================
+
+Write-Host "=== TRUST SCRIPT - Massinissa ===" -ForegroundColor Cyan
+
+# 1. Credential pour accéder au domaine distant
+$cred = Get-Credential -Message "Identifiants du domaine de Belkacem (DC300150385-00.local)"
+
+# 2. Vérifier le domaine de Belkacem
+Write-Host "`n--- Get-ADDomain (Belkacem) ---" -ForegroundColor Yellow
+Get-ADDomain -Server DC300150385-00.local -Credential $cred
+
+# 3. Lister les utilisateurs du domaine de Belkacem
+Write-Host "`n--- Get-ADUser (Belkacem) ---" -ForegroundColor Yellow
+Get-ADUser -Filter * -Server DC300150385-00.local -Credential $cred | Select SamAccountName, DistinguishedName
+
+# 4. Créer le TRUST (vers Belkacem)
+Write-Host "`n--- Création du TRUST ---" -ForegroundColor Green
+netdom trust DC300150385-00.local /Domain:DC300151841-00.local /UserD:administrator /PasswordD:* /Add /Realm*

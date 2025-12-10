@@ -12,6 +12,9 @@ $SharedFolder = "C:\SharedResources"
 $GroupName = "Students"
 $Users = @("Etudiant1", "Etudiant2", "Etudiant3")
 
+# OU correct
+$OUPath = "OU=Students,OU=300150395,DC=DC300150395-00,DC=local"
+
 Write-Host "=== Demarrage du script utilisateurs1.ps1 ==="
 
 # === 1. Creation du dossier partage ===
@@ -32,16 +35,22 @@ if (-not (Get-ADGroup -Filter "Name -eq '$GroupName'")) {
 
 # === 3. Creation des utilisateurs et ajout au groupe ===
 foreach ($user in $Users) {
-    if (-not (Get-ADUser -Filter "SamAccountName -eq '$user'")) {
-        New-ADUser -Name $user `
-                   -SamAccountName $user `
-                   -AccountPassword (ConvertTo-SecureString "Pass123!" -AsPlainText -Force) `
-                   -Enabled $true `
-                   -Path "OU=Students,DC=DC300150395-00,DC=local"
-        Add-ADGroupMember -Identity $GroupName -Members $user
-        Write-Host "Utilisateur '$user' cree et ajoute au groupe '$GroupName'."
-    } else {
-        Write-Host "L'utilisateur '$user' existe deja."
+    try {
+        if (-not (Get-ADUser -Filter "SamAccountName -eq '$user'")) {
+            New-ADUser -Name $user `
+                       -SamAccountName $user `
+                       -AccountPassword (ConvertTo-SecureString "Pass123!" -AsPlainText -Force) `
+                       -Enabled $true `
+                       -Path $OUPath
+
+            Add-ADGroupMember -Identity $GroupName -Members $user -ErrorAction Stop
+            Write-Host "Utilisateur '$user' cree et ajoute au groupe '$GroupName'." -ForegroundColor Green
+        } else {
+            Write-Host "L'utilisateur '$user' existe deja." -ForegroundColor Yellow
+        }
+    }
+    catch {
+        Write-Host "Erreur pour l'utilisateur '$user' : $($_.Exception.Message)" -ForegroundColor Red
     }
 }
 

@@ -10,61 +10,68 @@ Import-Module ActiveDirectory -ErrorAction SilentlyContinue
 
 # === Variables ===
 $GPOName = "MapSharedFolder-300150395"
-$OU = "OU=Students,DC=DC300150395-00,DC=local"
+$OU = "OU=Students,OU=300150395,DC=DC300150395-00,DC=local"
 $DriveLetter = "Z:"
-$netbiosName = $env:COMPUTERNAME
-$SharePath = "\\$netbiosName\SharedResources"
+$ComputerName = $env:COMPUTERNAME
+$SharePath = "\\$ComputerName\SharedResources"
 $ScriptFolder = "C:\Scripts"
 $ScriptPath = "$ScriptFolder\MapDrive-$DriveLetter.bat"
 $GroupName = "Students"
 
 Write-Host "=== Demarrage du script utilisateurs2.ps1 ==="
 
-# === 1. Création de la GPO ===
+# === 1. Creation de la GPO ===
 if (-not (Get-GPO -Name $GPOName -ErrorAction SilentlyContinue)) {
     New-GPO -Name $GPOName | Out-Null
-    Write-Host "GPO '$GPOName' creee."
+    Write-Host "GPO '$GPOName' cree."
 } else {
     Write-Host "La GPO '$GPOName' existe deja."
 }
 
-# === 2. Lien de la GPO à l'OU Students ===
-try {
-    New-GPLink -Name $GPOName -Target $OU -Enforced:$false | Out-Null
-    Write-Host "GPO liee à l'OU : $OU"
-} catch {
-    Write-Host "Attention : vérifier que l'OU Students existe dans le domaine."
+# === 2. Lien de la GPO a l'OU Students (version SANS ERREURS) ===
+$ExistingLinks = (Get-GPInheritance -Target $OU).GpoLinks.DisplayName
+
+if ($ExistingLinks -contains $GPOName) {
+    Write-Host "La GPO '$GPOName' est deja liee a l'OU Students."
+} else {
+    New-GPLink -Name $GPOName -Target $OU | Out-Null
+    Write-Host "GPO liee avec succes a l'OU Students."
 }
 
 # === 3. Script de mappage du lecteur reseau ===
 if (-not (Test-Path $ScriptFolder)) {
     New-Item -ItemType Directory -Path $ScriptFolder | Out-Null
 }
+
 $scriptContent = "net use $DriveLetter $SharePath /persistent:no"
 Set-Content -Path $ScriptPath -Value $scriptContent
-Write-Host "Script de connexion créé : $ScriptPath"
+Write-Host "Script de connexion cree : $ScriptPath"
 
 # === 4. Activation du RDP ===
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" `
                  -Name "fDenyTSConnections" -Value 0
+
 Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
-Write-Host "RDP activé et pare-feu configuré."
+Write-Host "RDP active et pare-feu configure."
 
-# === 5. Donner le droit RDP au groupe 'Students' ===
+# === 5. Donner le droit RDP au groupe Students ===
 Write-Host "Configuration du droit RDP pour le groupe Students..."
 
-# Exporter la politique locale
+# 5.1 Recuperer le SID du groupe Students
+$GroupSID = (Get-ADGroup $GroupName).SID.Value
+
+# 5.2 Exporter la politique locale
 secedit /export /cfg C:\secpol.cfg > $null
 
-# Modifier la ligne SeRemoteInteractiveLogonRight
+# 5.3 Modifier la ligne USER_RIGHTS
 (Get-Content C:\secpol.cfg) `
-    -replace 'SeRemoteInteractiveLogonRight =.*', "SeRemoteInteractiveLogonRight = *S-1-5-32-544,*S-1-5-32-555,$GroupName" |
+    -replace 'SeRemoteInteractiveLogonRight =.*', "SeRemoteInteractiveLogonRight = *S-1-5-32-544,*S-1-5-32-555,$GroupSID" |
     Set-Content C:\secpol.cfg
 
-# Importer la modification
+# 5.4 Appliquer la nouvelle config
 secedit /configure /db C:\Windows\security\local.sdb /cfg C:\secpol.cfg /areas USER_RIGHTS /quiet
 
-Write-Host "Le groupe '$GroupName' est maintenant autorisé à utiliser RDP."
+Write-Host "Le groupe '$GroupName' possede maintenant le droit RDP."
 
-Write-Host "=== Étape 2 terminée : GPO, mappage et RDP configurés avec succès. ==="
+Write-Host "=== Etape 2 terminee : GPO, mapping et RDP configures avec succes. ==="

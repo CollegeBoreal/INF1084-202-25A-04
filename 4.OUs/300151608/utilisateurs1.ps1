@@ -1,11 +1,30 @@
-﻿. "$(Join-Path $PSScriptRoot 'bootstrap.ps1')"
+# ---------------------------------------------------------
+# Script : utilisateurs1.ps1
+# Auteur : Mohammed Aiche
+# ID     : 300151608
+# Objectif : Créer l'utilisateur test01
+# ---------------------------------------------------------
+
 Import-Module ActiveDirectory
 
-# Vérifier le domaine et les contrôleurs de domaine
-Get-ADDomain -Server $domainName
-Get-ADDomainController -Filter * -Server $domainName
+$domainName = (Get-ADDomain).DNSRoot
+$netbiosName = (Get-ADDomain).NetBIOSName
 
-# Créer OU=Students si elle n'existe pas déjà
-if (-not (Get-ADOrganizationalUnit -LDAPFilter '(ou=Students)' -ErrorAction SilentlyContinue)) {
-    New-ADOrganizationalUnit -Name "Students" -Path "DC=$netbiosName,DC=local" -Credential $cred
+$user = Get-ADUser -Filter "SamAccountName -eq 'test01'" -ErrorAction SilentlyContinue
+
+if ($user) {
+    Write-Host "Utilisateur test01 existe déjà !" -ForegroundColor Yellow
+}
+else {
+    New-ADUser `
+        -Name "Test User01" `
+        -SamAccountName "test01" `
+        -UserPrincipalName "test01@$domainName" `
+        -GivenName "Test" `
+        -Surname "User01" `
+        -AccountPassword (ConvertTo-SecureString "Test01!" -AsPlainText -Force) `
+        -Enabled $true `
+        -Path "CN=Users,DC=$netbiosName,DC=local"
+
+    Write-Host "Utilisateur test01 créé avec succès !" -ForegroundColor Green
 }

@@ -1,27 +1,53 @@
-###############################
-# utilisateurs3.ps1
-# Recherche et export CSV
-###############################
+# Fichier utilisateurs3.ps1
+# Desactiver, reactiver et supprimer des utilisateurs
 
-Import-Module ActiveDirectory
+# Charger les variables de configuration
+. .\bootstrap.ps1
 
-$studentNumber = 300098957
-$studentInstance = 40
-$domainName = "DC$studentNumber-$studentInstance.local"
-$netbiosName = "DC$studentNumber-$studentInstance"
+Write-Host "`n[5] Desactivation d'un utilisateur" -ForegroundColor Yellow
 
-###############
-# 8️⃣ Recherche par filtre
-###############
+# Desactiver l'utilisateur
+try {
+    Disable-ADAccount -Identity "alice.dupont" -Credential $cred
+    Write-Host "[OK] Utilisateur 'alice.dupont' desactive avec succes" -ForegroundColor Green
+    
+    # Verifier l'etat
+    Get-ADUser -Identity "alice.dupont" -Properties Enabled |
+    Select-Object Name, SamAccountName, Enabled |
+    Format-List
+    
+} catch {
+    Write-Host "[ERREUR] Erreur lors de la desactivation de l'utilisateur: $_" -ForegroundColor Red
+}
 
-Get-ADUser -Filter "GivenName -like 'A*'" -Properties Name, SamAccountName |
-Select-Object Name, SamAccountName
+Write-Host "`n[6] Reactivation d'un utilisateur" -ForegroundColor Yellow
 
-###############
-# 9️⃣ Export CSV
-###############
+# Reactiver l'utilisateur
+try {
+    Enable-ADAccount -Identity "alice.dupont" -Credential $cred
+    Write-Host "[OK] Utilisateur 'alice.dupont' reactive avec succes" -ForegroundColor Green
+    
+    # Verifier l'etat
+    Get-ADUser -Identity "alice.dupont" -Properties Enabled |
+    Select-Object Name, SamAccountName, Enabled |
+    Format-List
+    
+} catch {
+    Write-Host "[ERREUR] Erreur lors de la reactivation de l'utilisateur: $_" -ForegroundColor Red
+}
 
-Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, EmailAddress, Enabled |
-Where-Object { $_.SamAccountName -notin @("Administrator","Guest","krbtgt") } |
-Select-Object Name, SamAccountName, EmailAddress, Enabled |
-Export-Csv -Path "TP_AD_Users.csv" -NoTypeInformation -Encoding UTF8
+Write-Host "`n[7] Suppression d'un utilisateur" -ForegroundColor Yellow
+
+# Demander confirmation avant suppression
+$confirmation = Read-Host "Voulez-vous vraiment supprimer l'utilisateur 'alice.dupont'? (O/N)"
+
+if ($confirmation -eq 'O' -or $confirmation -eq 'o') {
+    try {
+        Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
+        Write-Host "[OK] Utilisateur 'alice.dupont' supprime avec succes" -ForegroundColor Green
+    } catch {
+        Write-Host "[ERREUR] Erreur lors de la suppression de l'utilisateur: $_" -ForegroundColor Red
+    }
+} else {
+    Write-Host "[INFO] Suppression annulee par l'utilisateur" -ForegroundColor Yellow
+}
