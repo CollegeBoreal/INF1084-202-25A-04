@@ -157,9 +157,30 @@ nltest /trusted_domains
 
 ![Wait](https://github.com/user-attachments/assets/612f9a1c-82d9-45a5-b9e2-8b6480fab553)
 
-
-
 Cette commande affiche aussi les deux domaines et confirme que la relation d’approbation est active et fonctionnelle.
+
+6. Vérification graphique des trusts via la console Active Directory
+
+En plus des tests PowerShell et NLTEST, nous avons vérifié le trust directement dans la console graphique Active Directory Domains and Trusts depuis la VM de Belkacem (DC300150385-00.local).
+
+![Wait](https://github.com/user-attachments/assets/7a5ae3f7-2002-4e6d-8fce-5af01b920d2a)
+
+
+Cette fenêtre confirme que :
+
+✅ 6. Outgoing Trusts
+
+Le domaine DC300150385-00.local (Belkacem) fait confiance au domaine DC300151841.local (Massinissa).
+
+🔹 Incoming Trusts
+
+Le domaine DC300151841.local (Massinissa) fait confiance au domaine DC300150385-00.local (Belkacem).
+
+Même si le type de trust apparaît comme realm et non "transitive", ceci est normal dans notre labo, car il s’agit d’un trust manuel configuré entre deux forêts distinctes.
+La présence simultanée d’incoming et outgoing confirme bien une relation bidirectionnelle.
+
+➡️ Cette capture graphique constitue une validation supplémentaire que le trust fonctionne dans les deux sens.
+
 
 ✅ Résultat global
 
@@ -175,7 +196,7 @@ Les relations de confiance apparaissent correctement dans nltest
 
 Cela démontre que la relation de confiance est bien configurée dans les deux sens.
 
-✅ 6. Conclusion
+✅ 7. Conclusion
 
 La relation de confiance entre les deux forêts :
 
