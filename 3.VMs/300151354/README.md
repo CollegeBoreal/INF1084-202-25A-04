@@ -43,3 +43,26 @@ UsersContainer                     : CN=Users,DC=DC300151354-00,DC=local
 ````
   
 </details>
+
+
+
+<details>
+<summary>📊 Forest Details</summary>
+
+ApplicationPartitions : {DC=ForestDnsZones,DC=DC300151354-00,DC=local, DC=DomainDnsZones,DC=DC300151354-00,DC=local}
+CrossForestReferences : {}
+DomainNamingMaster    : DC300151354.DC300151354-00.local
+Domains               : {DC300151354-00.local}
+ForestMode            : Windows2016Forest
+GlobalCatalogs        : {DC300151354.DC300151354-00.local}
+Name                  : DC300151354-00.local
+PartitionsContainer   : CN=Partitions,CN=Configuration,DC=DC300151354-00,DC=local
+RootDomain            : DC300151354-00.local
+SchemaMaster          : DC300151354.DC300151354-00.local
+Sites                 : {Default-First-Site-Name}
+SPNSuffixes           : {}
+UPNSuffixes           : {}
+
+
+
+PS C:\Users\Administrator\Developer\INF1084-202-25A-04\3.VMs>
