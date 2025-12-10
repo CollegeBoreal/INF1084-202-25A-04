@@ -24,19 +24,7 @@ Get-ADDomain -Server "DC300147629-00.local" -Credential $credAD2
 # Affiche la liste des comptes utilisateurs du domaine AD2
 Get-ADUser -Filter * -Server "DC300147629-00.local" -Credential $credAD2
 
-# === 4. Exploration d'Active Directory distant via un lecteur virtuel ===
-Write-Host "=== 4. Exploration d'Active Directory distant via un lecteur virtuel ===" -ForegroundColor Cyan
-
-# Ajoute un lecteur AD virtuel pointant vers AD2
-New-PSDrive -Name "AD2" -PSProvider ActiveDirectory -Root "DC=DC300147629-00,DC=local" -Credential $credAD2 | Out-Null
-
-# Déplacement dans la racine du domaine AD2
-Set-Location "AD2:\DC=DC300147629-00,DC=local"
-
-# Liste les objets présents dans cette arborescence
-Get-ChildItem
-
-# === 5. Mise en place du lien d'approbation (trust) entre les deux domaines ===
+# === 4. Mise en place du lien d'approbation (trust) entre les deux domaines ===
 Write-Host "=== 5. Mise en place du lien d'approbation (trust) entre les deux domaines ===" -ForegroundColor Cyan
 
 # Utilisation du mot de passe du credential pour automatiser netdom
@@ -52,7 +40,7 @@ netdom TRUST "DC300147786-00.local" `
     /Add `
     /TwoWay
 
-# === 6. Contrôles après mise en place du trust ===
+# === 5. Contrôles après mise en place du trust ===
 Write-Host "=== 6. Contrôles après mise en place du trust ===" -ForegroundColor Cyan
 
 # Validation du trust
