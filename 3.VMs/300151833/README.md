@@ -78,7 +78,7 @@ System
 
 Ces conteneurs appartiennent à l’infrastructure interne AD et servent au fonctionnement du domaine.
 
-🧾 Résumé professionnel pour ton REDAM
+🧾 Résumé Total :
 
 Ton domaine DC300151833.local est correctement installé et fonctionnel.
 Les rôles FSMO sont gérés par le contrôleur DC9999999990, ce qui confirme un environnement multi-DC utilisé pour le projet de confiance entre forêts.
