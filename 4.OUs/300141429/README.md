@@ -32,7 +32,10 @@ powershell
 Get-ADUser -Filter "GivenName -like 'A*'" | Select-Object Name, SamAccountName
 ![](images/15.png)
 
-.
+Verification du deplacement de alice dans Students
+
+<img width="467" height="65" alt="image" src="https://github.com/user-attachments/assets/06d1c880-53f7-46f0-85f8-51d56dfc0dd4" />
+
 
 
 
