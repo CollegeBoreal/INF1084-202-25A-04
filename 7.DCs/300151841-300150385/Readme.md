@@ -36,7 +36,8 @@ $cred = Get-Credential
 
 ✔ 3.2 – Vérifier le domaine distant
 Depuis la VM de Massinissa :
-Get-ADDomain -Server DC300150385-00.local -Credential $cred
+Get-ADDomain -Server DC300150385-00.local -Credential
+![wait](https://github.com/user-attachments/assets/6f1d11bd-be30-4d8b-95c9-677310fc1718)
 
 Depuis la VM de Belkacem :
 Get-ADDomain -Server DC300151841-00.local -Credential $cred
@@ -44,6 +45,8 @@ Get-ADDomain -Server DC300151841-00.local -Credential $cred
 ✔ 3.3 – Lister les utilisateurs du domaine distant
 Massinissa → Belkacem :
 Get-ADUser -Filter * -Server DC300150385-00.local -Credential $cred | Select SamAccountName, DistinguishedName
+![wait](https://github.com/user-attachments/assets/3f60fdad-4771-484b-be0d-4942e133f7af)
+
 
 Belkacem → Massinissa :
 Get-ADUser -Filter * -Server DC300151841-00.local -Credential $cred | Select SamAccountName, DistinguishedName
@@ -51,6 +54,8 @@ Get-ADUser -Filter * -Server DC300151841-00.local -Credential $cred | Select Sam
 ✔ 3.4 – Création de la relation de confiance (TRUST) bidirectionnelle
 Depuis la VM de Massinissa :
 netdom trust DC300150385-00.local /Domain:DC300151841-00.local /UserD:administrator /PasswordD:* /Add /Realm /TwoWay
+
+
 
 Depuis la VM de Belkacem :
 netdom trust DC300151841-00.local /Domain:DC300150385-00.local /UserD:administrator /PasswordD:* /Add /Realm /TwoWay
@@ -65,6 +70,7 @@ nltest /domain_trusts
 Afficher les trusted domains :
 
 nltest /trusted_domains
+![wait](https://github.com/user-attachments/assets/96e56697-abb7-4146-a57c-bf1045dc2e85)
 
 ✔ 3.6 – Test d’accès à un partage distant
 Massinissa → partage de Belkacem :
