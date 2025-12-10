@@ -1,0 +1,34 @@
+# ============================
+# trusts2.ps1 - Belkacem
+# Domaine : DC300150385-00.local
+# ============================
+
+Write-Host "=== TRUST SCRIPT - Belkacem ===" -ForegroundColor Cyan
+
+# 1. Credential pour accéder au domaine de Massinissa
+$cred = Get-Credential -Message "Identifiants du domaine de Massinissa (DC300151841-00.local)"
+
+# 2. Vérifier le domaine de Massinissa
+Write-Host "`n--- Get-ADDomain (Massinissa) ---" -ForegroundColor Yellow
+Get-ADDomain -Server DC300151841-00.local -Credential $cred
+
+# 3. Lister les utilisateurs du domaine de Massinissa
+Write-Host "`n--- Get-ADUser (Massinissa) ---" -ForegroundColor Yellow
+Get-ADUser -Filter * -Server DC300151841-00.local -Credential $cred | Select SamAccountName, DistinguishedName
+
+# 4. Créer le TRUST (vers Massinissa)
+Write-Host "`n--- Création du TRUST ---" -ForegroundColor Green
+netdom trust DC300151841-00.local /Domain:DC300150385-00.local /UserD:administrator /PasswordD:* /Add /Realm /TwoWay
+
+# 5. Tester l’accès au partage distant
+Write-Host "`n--- Test accès ressource distante ---" -ForegroundColor Yellow
+net use \\DC300151841\SharedResources /user:DC300151841-00.local\administrator *
+
+# 6. Vérifier les TRUSTS
+Write-Host "`n--- nltest /domain_trusts ---" -ForegroundColor Yellow
+nltest /domain_trusts
+
+Write-Host "`n--- nltest /trusted_domains ---" -ForegroundColor Yellow
+nltest /trusted_domains
+
+Write-Host "`n=== Script terminé ===" -ForegroundColor Cyan
