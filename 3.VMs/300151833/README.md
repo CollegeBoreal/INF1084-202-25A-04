@@ -1,62 +1,135 @@
-🖥️ 300151833 – Vérification et Description du Domaine Active Directory
-🔍 Commande exécutée : Get-ADDomain
+📘 REDAM – Installation et Configuration d’Active Directory Domain Services
 
-Cette commande permet d’afficher toutes les informations essentielles du domaine Active Directory installé sur le contrôleur de domaine DC300151833.
+Projet : Active Directory – Création de domaine et préparation à une relation de confiance
 
-🗂️ Description détaillée des informations du domaine
-✔ Nom du domaine (DNSRoot)
+👤 Informations de l’étudiant
 
-DC300151833.local
-Le domaine fonctionne avec un suffixe DNS standard .local et constitue la racine de ta forêt Active Directory.
+Nom / Prénom : bouras raouf
 
-✔ Nom NetBIOS
+Numéro étudiant : 300151833
 
-DC300151833AD
-C’est le nom utilisé pour les opérations héritées (compatibilité Windows anciens).
-Ton NetBIOS est personnalisé, ce qui est très bien 👍.
+Cours / Module : Active Directory – Administration Windows Server
 
-✔ Distinguished Name (DN)
+Environnement : Machine virtuelle Windows Server
 
+Contrôleur de domaine : DC300151833
+
+🎯 Objectif du projet
+
+L’objectif principal de ce projet est de :
+
+Installer et configurer Active Directory Domain Services (AD DS)
+
+Créer un domaine Active Directory fonctionnel
+
+Vérifier la bonne création du domaine et de la forêt
+
+Préparer l’environnement pour une relation de confiance entre forêts (Trust)
+
+🖥️ 1. Renommage du serveur
+
+Avant l’installation d’Active Directory, le serveur doit être renommé afin de respecter les conventions du projet.
+
+✅ Commande utilisée :
+Rename-Computer -NewName "DC300151833" -Restart
+
+
+📌 Cette commande :
+
+Renomme le serveur
+
+Redémarre automatiquement la machine pour appliquer le changement
+
+🧩 2. Installation du rôle AD DS
+
+Le rôle Active Directory Domain Services est requis pour créer un domaine et un contrôleur de domaine.
+
+✅ Commande utilisée :
+Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+
+
+📌 Cette étape :
+
+Installe AD DS
+
+Installe aussi les outils d’administration
+
+Prépare le serveur à devenir un contrôleur de domaine
+
+🌐 3. Création du domaine Active Directory
+
+Une nouvelle forêt et un nouveau domaine sont créés.
+
+✅ Paramètres du domaine :
+
+Nom du domaine : DC300151833.local
+
+Nom NetBIOS : DC300151833AD
+
+DNS : installé automatiquement
+
+Mot de passe DSRM : défini lors de l’installation
+
+📌 Cette étape transforme le serveur en contrôleur de domaine principal (DC).
+
+🔍 4. Vérification du domaine (Get-ADDomain)
+✅ Commande utilisée :
+Get-ADDomain
+
+📄 Résultat et description :
+
+DNSRoot : DC300151833.local
+→ Nom DNS officiel du domaine
+
+NetBIOSName : DC300151833AD
+→ Nom court du domaine (compatibilité Windows)
+
+DistinguishedName :
 DC=DC300151833,DC=local
-Identifie ton domaine dans l'arborescence LDAP.
+→ Chemin LDAP du domaine
 
-✔ Conteneurs systèmes
+🗂️ Conteneurs système principaux
 
-ComputersContainer → CN=Computers,DC=DC300151833,DC=local
-Emplacement par défaut des ordinateurs ajoutés au domaine.
+CN=Users → utilisateurs et groupes par défaut
 
-UsersContainer → CN=Users,DC=DC300151833,DC=local
-Contient par défaut les comptes utilisateurs et groupes standards.
+CN=Computers → ordinateurs joints au domaine
 
-DomainControllersContainer →
-OU=Domain Controllers,DC=DC300151833,DC=local
-Emplacement où ton contrôleur de domaine est automatiquement placé.
+OU=Domain Controllers → contrôleurs de domaine
 
-✔ Rôles FSMO du domaine
+⚙️ Rôles FSMO
 
-Tous tes rôles principaux sont détenus par ton DC secondaire DC9999999990.DC300151833.local, ce qui est normal dans ton lab :
+Les rôles FSMO sont détenus par le contrôleur :
 
-PDCEmulator → DC9999999990
+PDC Emulator : DC9999999990
 
-RIDMaster → DC9999999990
+RID Master : DC9999999990
 
-InfrastructureMaster → DC9999999990
+Infrastructure Master : DC9999999990
 
-Cela indique que ton domaine fait partie d’un environnement multi-DC, probablement pour ton projet de relation de confiance.
+📌 Cela confirme un environnement multi-DC, utilisé pour les scénarios de confiance.
 
-✔ Mode du domaine
+🔁 Réplication
 
-Windows2016Domain
-Tu utilises le niveau fonctionnel Windows Server 2016, conforme au TP et aux bonnes pratiques actuelles.
+ReplicaDirectoryServers :
+{DC9999999990.DC300151833.local}
 
-✔ Réplication et serveurs supplémentaires
+👉 Le domaine est intégré dans une réplication Active Directory fonctionnelle.
 
-ReplicaDirectoryServers : {DC9999999990.DC300151833.local}
-Ton domaine possède un autre DC faisant partie de la réplication AD → ce qui est normal pour le projet de trust entre forêts.
+🌲 5. Vérification de la forêt (Get-ADForest)
+✅ Commande utilisée :
+Get-ADForest
 
-✔ Partitions AD
+📄 Résultat et description :
 
-Ton domaine possède les 3 partitions AD standards :
+Forest Name : DC300151833.local
+
+ForestMode : Windows2016Forest
+
+RootDomain : DC300151833.local
+
+Global Catalog : actif
+
+Partitions DNS :
 
 ForestDnsZones
 
@@ -64,22 +137,24 @@ DomainDnsZones
 
 Configuration
 
-Cela confirme que DNS est bien intégré et que ta forêt AD est opérationnelle.
+📌 La forêt est correctement créée, DNS est intégré, et le niveau fonctionnel est conforme au projet.
 
-✔ Conteneurs systèmes divers
+✅ Résumé final
 
-LostAndFoundContainer
+Le domaine DC300151833.local est correctement installé et fonctionnel.
+La forêt Active Directory est opérationnelle, le DNS est intégré et la réplication est active.
+La structure mise en place respecte les bonnes pratiques Microsoft et prépare efficacement l’environnement pour la création d’une relation de confiance entre forêts Active Directory.
 
-ForeignSecurityPrincipalsContainer
+🏁 Conclusion
 
-NTDS Quotas
+Ce projet a permis de mettre en place une infrastructure Active Directory complète comprenant :
 
-System
+Un contrôleur de domaine
 
-Ces conteneurs appartiennent à l’infrastructure interne AD et servent au fonctionnement du domaine.
+Un domaine fonctionnel
 
-🧾 Résumé Total :
+Une forêt Active Directory
 
-Ton domaine DC300151833.local est correctement installé et fonctionnel.
-Les rôles FSMO sont gérés par le contrôleur DC9999999990, ce qui confirme un environnement multi-DC utilisé pour le projet de confiance entre forêts.
-La structure LDAP, les partitions DNS et les conteneurs systèmes montrent une configuration conforme aux normes Active Directory Windows Server 2016.
+Une base solide pour les scénarios avancés (Trust, multi-domaines)
+
+L’environnement est prêt pour les étapes suivantes du projet
