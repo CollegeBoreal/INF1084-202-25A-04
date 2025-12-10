@@ -48,7 +48,6 @@ UsersContainer                     : CN=Users,DC=DC300151354-00,DC=local
 
 <details>
 <summary>📊 Forest Details</summary>
-
 ApplicationPartitions : {DC=ForestDnsZones,DC=DC300151354-00,DC=local, DC=DomainDnsZones,DC=DC300151354-00,DC=local}
 CrossForestReferences : {}
 DomainNamingMaster    : DC300151354.DC300151354-00.local
