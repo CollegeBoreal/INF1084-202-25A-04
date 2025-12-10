@@ -1,66 +1,47 @@
-# 🔐 Projet : Relations de confiance (Trusts) entre deux domaines Active Directory  
-### Étudiants : 300151354 – 300152410  
-### Cours : INF1084 – Administration Windows Server  
----
+# TP : Trust entre deux forêts AD
 
-## 🧾 1. Objectif du laboratoire
+## 🔵 1. Préparation des environnements
 
-Ce laboratoire a pour objectif de configurer une **relation de confiance bidirectionnelle** entre deux forêts Active Directory afin de permettre :
+- Chaque étudiant utilise sa VM avec une forêt AD distincte.  
+- Vérification de la résolution DNS entre les deux forêts :
 
-- L’authentification entre domaines  
-- L’accès aux ressources partagées  
-- La navigation dans l’annuaire distant (ADUC)  
-- La communication DNS entre les deux environnements  
-
----
-
-## 🌐 2. Informations des deux domaines
-
-| Élément | Domaine 1 | Domaine 2 |
-|--------|-----------|-----------|
-| Nom du domaine | DC300151354-00.local | DC300152410-00.local |
-| Type de trust | Bidirectionnel | Bidirectionnel |
-| Mode | Forest trust | Forest trust |
-
----
-
-## 🔧 3. Vérification de la connectivité réseau
-
-### 🔹 Test ICMP (ping)
-
-```powershell
-nslookup DC300151354-00.local
+### ✔️ Vérifier le DNS du domaine local
 nslookup DC300152410-00.local
-Install-WindowsFeature RSAT-ADDS
-Import-Module ActiveDirectory
-Import-Module ActiveDirectory
+![DNS Local](https://github.com/user-attachments/assets/3b6242c7-35fc-4692-b9b0-82b6f0169f5d)
+2. Création du trust via CLI
 
-$LocalDomain  = "DC300152410-00.local"
-$RemoteDomain = "DC300151354-00.local"
+Création d’un trust bidirectionnel transitif entre les deux forêts AD.
 
-Write-Host "== Création du trust bidirectionnel ==" -ForegroundColor Cyan
-
-netdom trust $LocalDomain /domain:$RemoteDomain /Add /UserD:administrator /PasswordD:* /TwoWay /Force
-
-Write-Host "== Vérification du trust ==" -ForegroundColor Green
-Get-ADTrust -Filter *
-Get-ADTrust -Filter *
-Test-ADTrustRelationship -Source "DC300152410-00.local" -Target "DC300151354-00.local"
+✔️ Commande NETDOM de création du trust
+netdom trust DC300152410-00.local /Domain:DC300151354-00.local /UserO:Administrator /PasswordO:* /UserD:Administrator /PasswordD:* /Forest /Twoway
+<img width="903" height="153" alt="image" src="https://github.com/user-attachments/assets/c6f94478-fc47-4f6a-b5d9-9ddb3f59b449" />
+🔵 3. Vérification du trust
+✔️ Afficher les trusts via NLTEST
 nltest /domain_trusts
-nltest /dsgetdc:DC300151354-00.local
-nltest /dsgetdc:DC300152410-00.local
-Get-ADUser -Filter * -Server DC300151354-00.local | Select Name, SamAccountName
-net use \\DC300151354-00\SharedResources /user:administrator
-net use \\DC300151354-00\SharedResources /user:administrator
+<img width="903" height="129" alt="image" src="https://github.com/user-attachments/assets/64dfe7cd-7108-484c-af17-fda6321c904d" />
 
-Test-Connection -ComputerName DC300151354-00.local -Count 4
-Test-Connection -ComputerName DC300152410-00.local -Count 4
+🔵 4. Validation finale via Active Directory Domains & Trusts
 
-![image](https://github.com/user-attachments/assets/3697a81c-1bff-4604-8a68-7db29374a695)
-![image](https://github.com/user-attachments/assets/4e7bfe43-a1a0-4850-ac82-12d7b16aebc0)
-![image](https://github.com/user-attachments/assets/5f4b07c8-6294-44f7-9205-ae473d0217ea)
-![image](https://github.com/user-attachments/assets/8255d81c-9def-43d7-aa2c-3ab44d47a725)
-![image](https://github.com/user-attachments/assets/35541fa1-c158-460f-83b5-02ff4fb44763)
-![image](https://github.com/user-attachments/assets/d76fe128-2b23-451f-a6fc-89548579bb5c)
-![image](https://github.com/user-attachments/assets/f465d39c-cc9d-4844-a88f-bacd0ea2d8f9)
-![image](https://github.com/user-attachments/assets/7a04645b-2338-4960-bf74-8bacd076ea4b)
+Vérification visuelle du trust bidirectionnel et transitif.
+🔵 5. Tests additionnels
+✔️ Connexion à un partage de l’autre forêt
+net use \\10.7.236.246\SharedResources /user:DC300152410-00.local\Administrator *
+
+<img width="900" height="225" alt="image" src="https://github.com/user-attachments/assets/56ecc558-ac09-42dd-8a73-9a5cee8bd2ef" />
+
+✔️ Vérification des utilisateurs via PowerShell
+Get-ADUser -Filter * -Properties * | Select-Object Name, SamAccountName
+<img width="881" height="255" alt="image" src="https://github.com/user-attachments/assets/3f9c90c6-e185-4326-be77-f10893f0284b" />
+🔵 6. Vérification de l’arborescence du système
+dir C:
+<img width="850" height="349" alt="image" src="https://github.com/user-attachments/assets/ad5b2f71-9344-496e-8836-8f6cdf5911ce" />
+## 🔵 4. Informations sur la relation de confiance
+
+- Le domaine **DC300152410-00.local** possède une relation de confiance de type **Realm transitive** avec le domaine **DC300151354-00.local**, en entrée comme en sortie.  
+- La relation est correctement configurée et visible dans la console **Active Directory Domains and Trusts**.  
+- L’utilisateur Administrator est connecté sur le serveur local et la vérification du trust a été validée.
+
+### 📸 Capture de la relation de confiance
+
+<img width="529" height="369" alt="image" src="https://github.com/user-attachments/assets/8df04018-06e6-4320-9563-43e55ae27cc7" />
+
