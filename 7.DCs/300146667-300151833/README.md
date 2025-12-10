@@ -134,6 +134,8 @@ Le trust ne peut pas être vérifié ni établi
 ❌ DNS ne résout pas son domaine
 ❌ Impossible de valider le trust
 <img width="1440" height="187" alt="08" src="https://github.com/user-attachments/assets/7be62768-6272-470c-bbf8-94c1feab48ab" />
+<img width="1262" height="676" alt="image" src="https://github.com/user-attachments/assets/68da461d-0e43-49a7-bb05-779cffd03cb5" />
+
 
 
 ➡️ Conclusion finale :
