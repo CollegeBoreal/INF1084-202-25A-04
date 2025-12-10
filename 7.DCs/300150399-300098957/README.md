@@ -5,7 +5,7 @@
 Travail réalisé dans le cadre du cours **Administration Windows (INF1084)**.
 
 - **Étudiant :** Chakib Rahmani (300150399)
-- **Binôme :** Enseignant - **VM**: 10.7.236.149
+- **Binôme :** Enseignant (300098957) - **VM**: 10.7.236.170
 - **Objectif :** Mettre en place et documenter, en CLI uniquement, la création et la vérification d’un trust entre deux forêts Active Directory.
 
 ---
@@ -18,7 +18,7 @@ Travail réalisé dans le cadre du cours **Administration Windows (INF1084)**.
 - Environnement : VM Windows Server
 
 ### Forêt distante (enseignant)
-- Domaine : lab208.collegeboreal.ca
+- Domaine : DC300098957-00.local
 - Rôle : Forêt distante avec laquelle le trust doit être établi
 - Type : Domaine interne de laboratoire (non résolu par les DNS publics)
 
@@ -28,15 +28,19 @@ Travail réalisé dans le cadre du cours **Administration Windows (INF1084)**.
 
 Les commandes suivantes ont été utilisées depuis le contrôleur de domaine local :
 
-Resolve-DnsName lab208.collegeboreal.ca  
-Test-Connection lab208.collegeboreal.ca -Count 2  
+> Resolve-DnsName DC300098957-90.local
+```lua
+Name                                           Type   TTL   Section    IPAddress
+----                                           ----   ---   -------    ---------
+DC300098957-90.local                           A      0     Answer     10.7.236.170
+```
 
 Résultat :
-- Échec de la résolution DNS
-- Échec du ping
+- Succès de la résolution DNS
 
 Conclusion :
-La forêt locale ne peut pas résoudre la forêt distante. Un **conditional forwarder DNS** est requis avant toute création de trust.
+:x: `à revoir` 
+> La forêt locale ne peut pas résoudre la forêt distante. Un **conditional forwarder DNS** est requis avant toute création de trust.
 
 ---
 
@@ -52,7 +56,7 @@ Le script `trusts1.ps1` permet :
 La commande DNS prévue (non exécutée tant que l’IP n’est pas fournie) est :
 
 Add-DnsServerConditionalForwarderZone  
--Name "lab208.collegeboreal.ca"  
+-Name "DC300098957-90.local"  
 -MasterServers <IP_DNS_PROF>  
 -ReplicationScope Forest  
 
