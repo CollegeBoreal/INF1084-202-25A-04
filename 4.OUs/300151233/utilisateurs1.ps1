@@ -1,16 +1,14 @@
-# Charger les informations du bootstrap
-. .\bootstrap.ps1
+# utilisateurs1.ps1
 
-# Importer le module AD
-Import-Module ActiveDirectory
+$infos = @{
+    "Karim BENZEMA" = "kbenzema,Stagiaires"
+    "Nabil FEKIR" = "nfekir,Stagiaires"
+    "Hakim ZIYECH" = "hziyech,Stagiaires"
+    "Achraf HAKIMI" = "ahakimi,Stagiaires"
+    "Yassine BOUNOU" = "ybounou,Stagiaires"
+}
 
-Write-Host "=== Liste de tous les utilisateurs du domaine ===" -ForegroundColor Cyan
-
-# Lister tous les utilisateurs actifs (sauf comptes système)
-Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, Enabled, DistinguishedName |
-Where-Object { $_.SamAccountName -notin @("Administrator","Guest","krbtgt") } |
-Select-Object Name, SamAccountName, Enabled, DistinguishedName |
-Format-Table -AutoSize
-
-Write-Host "`nNombre total d'utilisateurs:" -ForegroundColor Yellow
-(Get-ADUser -Filter * -Server $domainName | Where-Object { $_.SamAccountName -notin @("Administrator","Guest","krbtgt") }).Count
+foreach ($nom in $infos.Keys) {
+    $details = $infos[$nom].Split(",")
+    Write-Host "$nom - Login: $($details[0]) - OU: $($details[1])"
+}

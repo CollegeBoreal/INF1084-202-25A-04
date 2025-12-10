@@ -1,52 +1,53 @@
-# =============================================
-# Script : trust2.ps1 (Adapté pour Ismail)
-# Objectif : Mettre en place un trust bidirectionnel entre deux domaines AD
-# =============================================
+# ================================================
+# Script : trust-validation.ps1
+# Objectif : Vérifier et diagnostiquer le trust
+# Domaines : DC300150395-00.local <--> DC300150295-00.local
+# Auteur : Ismail (300150395)
+# ================================================
 
-# === 1. Récupération des informations d'accès au domaine distant ===
-Write-Host "=== 1. Récupération des informations d'accès au domaine distant ===" -ForegroundColor Cyan
+$RemoteDomain = "DC300150295-00.local"
+$RemoteDC = "DC300150295"     # nom NetBIOS du DC
+$RemoteIP = "10.7.236.229"
 
-$PeerDomain = "DC300150295-00.local"
-$LocalDomain = "DC300150395-00.local"
-$PeerDC = "10.7.236.229"        
-$LocalDC = "10.7.236.233"       
+Write-Host "=== 1. Saisie des identifiants pour le domaine distant ===" -ForegroundColor Cyan
+$cred = Get-Credential -Message "Identifiants ADMIN du domaine $RemoteDomain"
 
-$credPeer = Get-Credential -Message "Identifiants administrateur du domaine $PeerDomain requis"
+# ---------------------------------------------------------
+Write-Host "`n=== 2. Tests DNS et connectivité réseau ===" -ForegroundColor Cyan
+Write-Host "Résolution DNS :" -ForegroundColor Yellow
+Resolve-DnsName $RemoteDomain
 
-# === 2. Test de disponibilité du DC distant ===
-Write-Host "=== 2. Test de disponibilité du contrôleur de domaine distant ===" -ForegroundColor Cyan
-Test-Connection -ComputerName $PeerDC -Count 2
+Write-Host "`nPing vers le DC distant ($RemoteIP):" -ForegroundColor Yellow
+Test-Connection -ComputerName $RemoteIP -Count 2
 
-# === 3. Consultation du domaine distant ===
-Write-Host "=== 3. Consultation du domaine distant ===" -ForegroundColor Cyan
-Get-ADDomain -Server $PeerDC -Credential $credPeer
-Get-ADUser -Filter * -Server $PeerDC -Credential $credPeer
+Write-Host "`n=== Tests des ports Active Directory ===" -ForegroundColor Yellow
+$ports = @(135, 389, 445, 88)
+foreach ($p in $ports) {
+    Test-NetConnection -ComputerName $RemoteIP -Port $p
+}
 
-# === 4. Montée d’un lecteur Active Directory virtuel ===
-Write-Host "=== 4. Exploration de l'AD distant ===" -ForegroundColor Cyan
-New-PSDrive -Name "AD2" -PSProvider ActiveDirectory -Root "DC=DC300150295-00,DC=local" -Server $PeerDC -Credential $credPeer | Out-Null
-Set-Location "AD2:\DC=DC300150295-00,DC=local"
-Get-ChildItem
+# ---------------------------------------------------------
+Write-Host "`n=== 3. Informations du domaine local ===" -ForegroundColor Cyan
+Get-ADDomain
 
-# === 5. Mise en place du trust bidirectionnel ===
-Write-Host "=== 5. Création du trust ===" -ForegroundColor Cyan
+# ---------------------------------------------------------
+Write-Host "`n=== 4. Informations du domaine distant ===" -ForegroundColor Cyan
+Get-ADDomain -Server $RemoteDomain -Credential $cred
 
-$PeerPassword = $credPeer.GetNetworkCredential().Password
+# ---------------------------------------------------------
+Write-Host "`n=== 5. Liste des utilisateurs du domaine distant ===" -ForegroundColor Cyan
+Get-ADUser -Filter * -Server $RemoteDomain -Credential $cred |
+    Select SamAccountName, DistinguishedName
 
-netdom TRUST $PeerDomain `
-    /Domain:$LocalDomain `
-    /UserD:"Administrator" `
-    /PasswordD:$PeerPassword `
-    /UserO:"Administrator" `
-    /PasswordO:$PeerPassword `
-    /Add `
-    /TwoWay
+# ---------------------------------------------------------
+Write-Host "`n=== 6. Vérification de l'état du trust ===" -ForegroundColor Cyan
+Get-ADTrust -Filter *
 
-# === 6. Vérifications ===
-Write-Host "=== 6. Vérifications du trust ===" -ForegroundColor Cyan
+Write-Host "`nVérification via NETDOM :" -ForegroundColor Yellow
+netdom trust $RemoteDomain /Domain:DC300150395-00.local /Verify
 
-netdom trust $PeerDomain /Domain:$LocalDomain /Verify
-Resolve-DnsName $PeerDomain
-nltest /domain_trusts
+# ---------------------------------------------------------
+Write-Host "`n=== 7. Test d'accès à une ressource distante ===" -ForegroundColor Cyan
+net use \\$RemoteDC\C$ /user:"$RemoteDomain\Administrator" *
 
-Write-Host "=== Trust configuré avec succès ===" -ForegroundColor Green
+Write-Host "`n=== SCRIPT TERMINÉ ===" -ForegroundColor Green
