@@ -13,7 +13,7 @@ Contexte : Travail en binôme – Administration Windows
 $LocalForest = "DC300150399-00.local"
 
 # Forêt distante (enseignant)
-$RemoteForest = "lab208.collegeboreal.ca"
+$RemoteForest = "DC300098957-90.local"
 
 Write-Host "Forêt locale : $LocalForest"
 Write-Host "Forêt distante : $RemoteForest"
