@@ -29,32 +29,31 @@ netdom trust DC300146545-00.local /Domain:DC300150485.local /Add /TwoWay /Forest
 
 
 
-![Picture1.png](images/1.png)
+![Picture1](images/Picture1.png)
 
 🌐 Vérification de la connectivité réseau
 Test-Connection -ComputerName DC300150485.local -Count 2
 
 
 
-![Picture3](images/3.png)
-![Picture2](images/2.png)
+![Picture2](images/Picture2.png)
+![Picture3](images/Picture3.png)
 
 ⚙️ Installation des modules AD DS
 
 📸 Capture installation modules AD
 
-![2.png](images/3.png)
+![Image2](images/2.PNG)
 
 🏛️ Vérification du Trust dans le serveur 10.7.236.192
 
 
 
-![3.png](images/4.png)
+![Image3](images/3.PNG)
 
 
 
-
-![12.png](images/5.png)
+![Image12](images/12.PNG)
 
 🖥️ Script trusts2.ps1 – Navigation entre domaines
 
@@ -68,7 +67,7 @@ Get-Credential demande un compte du domaine DC300150485.local, pour une authenti
 
 
 
-![6.png](images/6.png)
+![Image6](images/6.PNG)
 
 🌍 Test de connectivité et résolution DNS
 
@@ -82,14 +81,14 @@ que le réseau autorise la navigation inter-domaine
 
 
 
-![11.png](images/7.png)
+![Image11](images/11.PNG)
 
 🏢 Informations du domaine local
 
 Get-ADDomain affiche les détails du domaine actuel (DC300146545.local) pour comparer avec le domaine distant.
 
 
-![9.png](images/8.png)
+![Image9](images/9.PNG)
 
 🌐 Informations du domaine distant à travers le Trust
 Get-ADDomain -Server DC300146545.local -Credential $cred
@@ -99,7 +98,7 @@ Ce qui confirme que le trust permet d’accéder au domaine partenaire.
 
 
 
-![10.png](images/9.png)
+[Image10](images/10.PNG)
 
 👥 Liste des utilisateurs du domaine distant
 Get-ADUser -Filter * -Server DC300146545.local
@@ -120,7 +119,7 @@ Permet de confirmer que la relation de confiance est active.
 
 📸
 
-![3.png](images/11.png)
+![Image10](images/10.PNG)
 
 🎉 Conclusion
 
