@@ -30,7 +30,7 @@ catch {
 # ====== TRUST (théorique - limité dans ce LAB) ======
 Write-Host "`n=== Création du trust (théorique) ==="
 Write-Host "# La commande suivante NE FONCTIONNE PAS dans le lab car netdom est limité"
-Write-Host "# netdom trust $LocalForest /Domain:$RemoteForest /Add /Twoway /UserO:Administrator /PasswordO:XXX /UserD:Administrator /PasswordD:XXX"
+Write-Host "# netdom trust DC300098957-90.local /Domain:DC300151833.local /UserD:Administrator /PasswordD:* /Add /Realm /TwoWay"
 
 # ====== VÉRIFICATION LOCALE ======
 Write-Host "`n=== Vérification des trusts locaux (nltest) ==="
