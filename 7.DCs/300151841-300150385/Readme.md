@@ -117,8 +117,9 @@ Commande :
 
 net use \\DC300151841\SharedResources /user:DC300151841-00.local\administrator *
 
-![Wait](https://github.com/user-attachments/assets/1e14fbfa-fde6-43bd-8497-e8b202f18c72)
 
+
+![Wait](https://github.com/user-attachments/assets/65208197-e4f8-4522-91bd-70556ac2bef3)
 
 Le message “The command completed successfully.” confirme que :
 
@@ -134,7 +135,8 @@ Commande :
 
 nltest /domain_trusts
 
-![Wait](https://github.com/user-attachments/assets/ed3266df-6534-4cf4-9deb-f6b891b2c3be)
+![Wait](https://github.com/user-attachments/assets/3adce77d-b2a0-4d61-9db3-40d65860d96b)
+
 
 
 Le résultat affiche bien :
@@ -153,7 +155,8 @@ Commande :
 
 nltest /trusted_domains
 
-![Wait](https://github.com/user-attachments/assets/b9a35c95-0db5-483f-9acf-cdb6962d60b0)
+![Wait](https://github.com/user-attachments/assets/612f9a1c-82d9-45a5-b9e2-8b6480fab553)
+
 
 
 Cette commande affiche aussi les deux domaines et confirme que la relation d’approbation est active et fonctionnelle.
