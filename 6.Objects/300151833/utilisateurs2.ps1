@@ -1,64 +1,79 @@
-# Importer module GroupPolicy
-Import-Module GroupPolicy
+# utilisateurs2.ps1
 
-# Variables
+. "$PSScriptRoot\bootstrap.ps1"
+
+Write-Host "`n=== Verification ou creation de la GPO MapSharedFolder ===`n"
+
 $GPOName = "MapSharedFolder"
-$DomainDN = (Get-ADDomain).DistinguishedName
-$OU = "OU=Students,$DomainDN"
-$DriveLetter = "Z:"
-$DriveLetterSafe = $DriveLetter.TrimEnd(':')
-$SharePath = "\\$env:COMPUTERNAME\SharedResources"
 
-# Script logon
-$ScriptFolder = "C:\Scripts"
-$ScriptPath = "$ScriptFolder\MapDrive-$DriveLetterSafe.bat"
-if (-not (Test-Path $ScriptFolder)) { New-Item -ItemType Directory -Path $ScriptFolder | Out-Null }
-
-$scriptContent = "net use $DriveLetter $SharePath /persistent:no"
-Set-Content -Path $ScriptPath -Value $scriptContent -Encoding ASCII
-Write-Host "Script logon créé : $ScriptPath"
-
-# Créer GPO si non existante
+# Vérifier si la GPO existe déjà
 $GPO = Get-GPO -Name $GPOName -ErrorAction SilentlyContinue
-if (-not $GPO) {
+
+if ($GPO) {
+    Write-Host "La GPO '$GPOName' existe deja. Utilisation de la GPO existante."
+} else {
     $GPO = New-GPO -Name $GPOName
-    Write-Host "GPO '$GPOName' créée."
-} else {
-    Write-Host "GPO '$GPOName' existe déjà."
+    Write-Host "GPO '$GPOName' creee avec succes."
 }
 
-# Lier la GPO à l'OU si non existante
-$GpoLink = Get-GPLink -Guid $GPO.Id -ErrorAction SilentlyContinue | Where-Object { $_.Target -eq $OU }
-if (-not $GpoLink) {
+# ==============================
+# Lier la GPO à l'OU Students si le lien n'existe pas déjà
+# ==============================
+
+Write-Host "`n=== Verification du lien entre GPO et OU Students ===`n"
+
+$OU = "OU=Students,DC=$netbiosName,DC=local"
+
+# Recuperer tous les liens existants
+$existingLinks = (Get-GPInheritance -Target $OU).GpoLinks
+
+# Verifier si le lien existe deja
+$linkExists = $false
+
+foreach ($link in $existingLinks) {
+    if ($link.DisplayName -eq $GPOName) {
+        $linkExists = $true
+    }
+}
+
+if ($linkExists) {
+    Write-Host "La GPO '$GPOName' est deja liee a l'OU Students."
+} else {
     New-GPLink -Name $GPOName -Target $OU -Enforced No
-    Write-Host "GPO liée à l'OU $OU."
-} else {
-    Write-Host "Le lien GPO existe déjà."
+    Write-Host "Lien GPO -> OU Students ajoute."
 }
 
-# Copier script vers SYSVOL
-$LocalSysvolPath = "C:\Windows\SYSVOL\sysvol\$env:USERDNSDOMAIN\Policies\{$($GPO.Id.Guid)}\User\Scripts\Logon"
-if (-not (Test-Path $LocalSysvolPath)) { New-Item -ItemType Directory -Path $LocalSysvolPath -Force | Out-Null }
-Copy-Item -Path $ScriptPath -Destination $LocalSysvolPath -Force
-Write-Host "Script copié dans SYSVOL : $LocalSysvolPath"
+# ==============================
+# Script Logon
+# ==============================
 
-# Modifier scripts.ini
-$ScriptsIniPath = Join-Path $LocalSysvolPath "scripts.ini"
-if (-not (Test-Path $ScriptsIniPath)) { "[Logon]" | Out-File -FilePath $ScriptsIniPath -Encoding ASCII }
-$iniContent = Get-Content $ScriptsIniPath
-if ($iniContent -notmatch [regex]::Escape("MapDrive-$DriveLetterSafe.bat")) {
-    Add-Content -Path $ScriptsIniPath -Value "SCRIPTS1=MapDrive-$DriveLetterSafe.bat"
+Write-Host "`n=== Creation du script logon pour le lecteur Z ===`n"
+
+$DriveLetter = "Z:"
+$SharePath = "\\$netbiosName\SharedResources"
+
+$ScriptFolder = "C:\Scripts"
+$ScriptPath = "$ScriptFolder\MapDrive-$DriveLetter.bat"
+
+# Créer le dossier si nécessaire
+if (-not (Test-Path $ScriptFolder)) {
+    New-Item -ItemType Directory -Path $ScriptFolder
 }
-Write-Host "Script ajouté à scripts.ini de la GPO."
 
-# Activer RDP
-Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0
-Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-Write-Host "RDP activé et firewall configuré."
+# Contenu du script BAT
+$scriptContent = "net use $DriveLetter $SharePath /persistent:no"
+Set-Content -Path $ScriptPath -Value $scriptContent
 
-# Export secpol pour droit RDP
-Write-Host "Droit Logon via RDP pour 'Students' à gérer via secpol.cfg"
-secedit /export /cfg C:\secpol.cfg
-Write-Host "Après modification de 'SeRemoteInteractiveLogonRight', réimporter avec : secedit /import /cfg C:\secpol.cfg /db C:\secpol.sdb /overwrite"
+Write-Host "Script logon cree : $ScriptPath"
 
-Write-Host "Configuration terminée avec succès."
+# ==============================
+# Associer le script logon à la GPO
+# ==============================
+
+Set-GPRegistryValue -Name $GPOName `
+                    -Key "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
+                    -ValueName "LogonScript" `
+                    -Type String `
+                    -Value $ScriptPath
+
+Write-Host "`n=== Script termine sans erreur ===`n"
