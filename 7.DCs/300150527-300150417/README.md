@@ -1,8 +1,9 @@
 ## 🔐 Active Directory – Trust & PSDrive
 ## INF1084 – TP Approbations (Trusts)
 ## Étudiants :
-**DC1 : DC300150417-00.local**
-**DC2 : DC300150527-00.local**
+
+**DC2 : DC300150527-00.local**  -  **Bouraoui-Akrem-3000150527**
+**DC1 : DC300150417-00.local**  -  **Nemous-Abdelatif-300150417**
 
 --------------------------------------
 
@@ -36,8 +37,10 @@ Get-ADForest | Select-Object Name
 
 ✅ Confirme que chaque serveur est Root de sa propre forêt.
 
-<img width="730" height="312" alt="image" src="https://github.com/user-attachments/assets/97586179-ff76-45e9-8561-a0d8ca2dbe0f" />
+--------------------------
 
+<img width="730" height="312" alt="image" src="https://github.com/user-attachments/assets/97586179-ff76-45e9-8561-a0d8ca2dbe0f" />
+--------------------------
 <img width="894" height="459" alt="image" src="https://github.com/user-attachments/assets/f3f7c0fb-4c4e-4ad9-ae0b-ff437058f1e4" />
 
 
@@ -151,6 +154,7 @@ New-PSDrive -Name AD2 `
 
 <img width="840" height="333" alt="image" src="https://github.com/user-attachments/assets/5e5a60c5-3021-46a1-81b0-e52031ce8093" />
 
+---------------
 
 **Navigation dans AD2**
 
@@ -188,3 +192,7 @@ trusts2.ps1 → Validation côté domaine distant
 README.md
 
 Dossier images/ contenant les preuves
+
+--------------------
+
+
