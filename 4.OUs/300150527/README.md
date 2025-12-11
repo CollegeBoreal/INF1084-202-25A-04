@@ -47,7 +47,7 @@ Get-ADDomainController -Filter * -Server $domainName
 
 ----------------------------------------
 
-## 👥 Étape 2 – Liste des utilisateurs du domaine
+## 👥 Étape 2 – Liste des utilisateurs du domaine.
 
 ```powershell
 Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, Enabled |
