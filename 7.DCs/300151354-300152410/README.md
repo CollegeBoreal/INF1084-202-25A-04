@@ -7,6 +7,8 @@
 
 ### ✔️ Vérifier le DNS du domaine local
 nslookup DC300152410-00.local
+<img width="884" height="124" alt="image" src="https://github.com/user-attachments/assets/ff4af454-5c45-4531-bc71-2832cbe2d1a9" />
+
 
 2. Création du trust via CLI
 
@@ -20,6 +22,17 @@ netdom trust DC300152410-00.local /Domain:DC300151354-00.local /UserO:Administra
 nltest /domain_trusts
 <img width="903" height="129" alt="image" src="https://github.com/user-attachments/assets/64dfe7cd-7108-484c-af17-fda6321c904d" />
 
+
+3.1 Vérification du trust via PowerShell
+Get-ADTrust -Filter *
+<img width="881" height="345" alt="image" src="https://github.com/user-attachments/assets/47d733a6-c185-4f21-ae9c-072a733713cb" />
+
+3.2 Informations du domaine distant
+Get-ADDomain -Server DC300151354-00.local
+
+<img width="893" height="371" alt="image" src="https://github.com/user-attachments/assets/e650dd27-f957-446f-a4d6-adc9c905b10f" />
+
+
 🔵 4. Validation finale via Active Directory Domains & Trusts
 
 Vérification visuelle du trust bidirectionnel et transitif.
@@ -28,6 +41,24 @@ Vérification visuelle du trust bidirectionnel et transitif.
 net use \\10.7.236.246\SharedResources /user:DC300152410-00.local\Administrator *
 
 <img width="900" height="225" alt="image" src="https://github.com/user-attachments/assets/56ecc558-ac09-42dd-8a73-9a5cee8bd2ef" />
+
+5.1 Connexion au domaine distant (Credential)
+$cred = Get-Credential
+<img width="930" height="106" alt="image" src="https://github.com/user-attachments/assets/07bf6f55-10fc-4799-a4e8-1692b46a600c" />
+5.2 Lister les utilisateurs du domaine de ton ami
+Get-ADUser -Server DC300151354-00.local -Credential $cred -Filter * | Select Name,SamAccountName
+
+
+
+5.3 Vérification via NLTEST du côté inverse
+nltest /trusted_domains
+nltest /domain_trusts
+<img width="919" height="102" alt="image" src="https://github.com/user-attachments/assets/ea1e3fef-520b-4c32-83b6-892b1be344af" />
+
+
+
+
+
 
 ✔️ Vérification des utilisateurs via PowerShell
 Get-ADUser -Filter * -Properties * | Select-Object Name, SamAccountName
@@ -44,4 +75,7 @@ dir C:
 ### 📸 Capture de la relation de confiance
 
 <img width="529" height="369" alt="image" src="https://github.com/user-attachments/assets/8df04018-06e6-4320-9563-43e55ae27cc7" />
+
+<img width="1365" height="767" alt="image" src="https://github.com/user-attachments/assets/d1a12f1e-0091-4503-aa8f-3072e0583e22" />
+
 

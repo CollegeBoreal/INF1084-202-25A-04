@@ -47,69 +47,8 @@ nslookup résout correctement DC300151042-00.local → 10.7.236.238 et 10.0.0.10
 Le ping montre un TTL expiré mais pas de perte, ce qui indique que le routage fonctionne.
 DNS OK = condition essentielle pour créer un trust.
 
-📸 Image 1 — Export et redémarrage du service NFS
 
-Titre : Application des exports NFS
-
-![WhatsApp Image 2025-12-09 at 17 10 04 (4)](https://github.com/user-attachments/assets/30b03ede-2012-49a9-b12a-ccb4d917942e)
-
-La commande sudo exportfs -a applique les règles d’exportation, puis sudo systemctl restart nfs-kernel-server redémarre le service pour activer la configuration.
-
-📸 Image 2 — Tests Ping et DNS entre les deux contrôleurs AD
-
-Titre : Validation DNS et connectivité entre les deux forêts
-
-![WhatsApp Image 2025-12-09 at 17 10 04](https://github.com/user-attachments/assets/7763d520-3c58-4a5a-8c87-fb7c50f958e6)
-
-Les tests montrent des difficultés de résolution DNS (erreur “non-existent domain”), puis un ping réussi après correction.
-La communication réseau fonctionne finalement entre les deux DC.
-
-📸 Image 3 — Vérification du Trust avec NLTEST
-
-Titre : Vérification du trust entre les domaines
-
-![WhatsApp Image 2025-12-09 at 17 10 04 (1)](https://github.com/user-attachments/assets/e48b1948-6e53-4004-8ef5-90f47874ca36)
-
-La commande nltest /trusted_domains affiche les trusts configurés.
-Les deux domaines apparaissent : preuve que la relation de confiance existe et fonctionne.
-
-📸 Image 4 — Test-Connection vers DC300151608
-
-Titre : Ping de la forêt distante
-
-![WhatsApp Image 2025-12-09 at 17 10 04 (3)](https://github.com/user-attachments/assets/e69bd485-ebb4-46eb-aac9-42a0cb00dd43)
-
-Test-Connection répond avec 1ms, ce qui confirme une bonne connectivité entre les DC.
-
-📸 Image 5 — Authentification avec Get-Credential
-
-Titre : Saisie des identifiants du domaine partenaire
-
-![WhatsApp Image 2025-12-09 at 17 10 04 (4)](https://github.com/user-attachments/assets/ad3f6258-7b11-4d3c-be67-87c5b10bfbbb)
-
-La commande Get-Credential recueille les identifiants administrateur du domaine DC300151042-00, nécessaires pour créer ou vérifier le trust.
-
-
-✅ Conclusion
-
-La mise en place de la relation de confiance entre les forêts DC300151608.local et DC300151042-00.local a été réalisée avec succès.
-Les tests préalables — résolution DNS, communication réseau, interrogation du domaine distant et authentification — ont confirmé que l’infrastructure était prête pour établir le trust.
-
-Grâce aux commandes PowerShell utilisées (Test-Connection, nslookup, Get-ADDomain, Get-ADUser, PSDrive, nltest), nous avons pu :
-
-vérifier la connectivité entre les deux contrôleurs de domaine,
-
-valider la résolution DNS des deux forêts,
-
-accéder aux objets du domaine partenaire,
-
-confirmer la création effective du trust via NLTEST,
-
-assurer que la relation de confiance est fonctionnelle dans les deux sens.
-
-Ce projet démontre notre capacité à configurer et administrer un environnement Active Directory multi-forêts, tout en utilisant des outils d’automatisation pour faciliter la gestion réseau.
-La communication entre les deux forêts est maintenant opérationnelle, permettant le partage sécurisé de ressources et l’authentification inter-domaines.
-
+![WhatsApp Image 2025-12-09 at 17 10 04 (6)](https://github.com/user-attachments/assets/0f99db9b-aecf-46e5-ad27-4d3260de9817)
 
 voici mes effort pour avoir le nom du domain 
 <img width="1366" height="768" alt="Capture d’écran (175)" src="https://github.com/user-attachments/assets/86caf69c-1b7f-4ffa-9339-a5f79b77d02a" />

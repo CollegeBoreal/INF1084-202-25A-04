@@ -1,11 +1,48 @@
+<<<<<<< HEAD
+# ================================
+# SCRIPT TRUST DE FORÊTS - TP INF1084
+# Étudiants : Haroune & Partenaire
+# ================================
+=======
 <# 
   trust-forets.ps1
   Groupe : 300145940 (Tasnim) - 300150303
   Projet : Relation de confiance entre deux forêts Active Directory
 #>
+>>>>>>> d5208504ff78280af0d2aab50e5a67bc758437a4
 
-Import-Module ActiveDirectory
+$LocalDomain = "DC300145940-0.local"        # TON DOMAINE
+$RemoteDomain = "DC300150303-00.local"      # DOMAINE PARTENAIRE
 
+<<<<<<< HEAD
+Write-Host "=== Étape 1 : Récapitulatif ===" -ForegroundColor Cyan
+Write-Host "Domaine local   : $LocalDomain"
+Write-Host "Domaine distant : $RemoteDomain"
+Write-Host ""
+
+# ================================
+Write-Host "=== Étape 2 : Vérification de la connectivité ===" -ForegroundColor Cyan
+
+Write-Host "`nTest vers le DC local ($LocalDomain)..."
+Test-Connection -ComputerName $LocalDomain -Count 2
+
+Write-Host "`nTest vers le DC distant ($RemoteDomain)..."
+Test-Connection -ComputerName $RemoteDomain -Count 2
+
+# ================================
+Write-Host "`n=== Étape 3 : Informations de domaines ===" -ForegroundColor Cyan
+
+Write-Host "`nForêt locale : $LocalDomain"
+Get-ADDomain
+
+Write-Host "`nForêt distante : $RemoteDomain"
+Get-ADDomain -Server $RemoteDomain
+
+# ================================
+Write-Host "`n=== Étape 4 : Création du trust de forêt bidirectionnel ===" -ForegroundColor Cyan
+
+netdom trust $LocalDomain /Domain:$RemoteDomain /UserD:administrator /PasswordD:* /Add /TwoWay /Realm
+=======
 # === Paramètres des deux forêts ===
 $ForestLocal   = "DC300145940-0.local"       # ta forêt
 $ForestRemote  = "DC300150303-00.local"      # forêt du partenaire
@@ -132,4 +169,6 @@ if ($remoteReachable) {
 }
 
 Write-Host "`nScript de vérification du trust terminé." -ForegroundColor Green
+>>>>>>> d5208504ff78280af0d2aab50e5a67bc758437a4
 
+Write-Host "`nTrust forêts terminé." -ForegroundColor Green
