@@ -1,8 +1,8 @@
 # --------------------------------------
-# Script pour accéder aux AD DS des étudiants et générer README.md
+# Script pour accéder aux AD DS des étudiants et générer README.md + log global
 # --------------------------------------
 
-# Forcer UTF-8 dans le script
+# Forcer UTF-8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $PSDefaultParameterValues['Set-Content:Encoding'] = 'utf8'
 
@@ -48,10 +48,18 @@ $md += "| :hash: | Boreal :id: | :slot_machine: VM   | :tada: |"
 $md += "|--------|-------------|---------------------|--------|"
 
 # Compteurs
-$i     = 0
-$s     = 0      # total AD DS OK
+$i       = 0
+$s       = 0      # total AD DS OK
 $counter = 1
 
+# Créer le dossier logs si absent
+if (-not (Test-Path "./logs")) { New-Item -ItemType Directory -Path "./logs" | Out-Null }
+$allLogFile = "./logs/nltest_all.txt"
+
+# Vider le log global au départ
+"" | Set-Content -Path $allLogFile
+
+# Boucle sur chaque VM
 foreach ($VM in $SERVERS) {
 
     $githubAvatar = "[<img src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i])?s=30&v=4' width=20 height=20>](" +
@@ -67,16 +75,35 @@ foreach ($VM in $SERVERS) {
         $Session = New-PSSession -ComputerName $VM -Credential $Credential -ErrorAction Stop
 
         # Vérifier AD DS via nltest
-        $ADStatus = Invoke-Command -Session $Session -ScriptBlock {
+        $nltestResult = Invoke-Command -Session $Session -ScriptBlock {
             try {
-                $null = nltest /domain_trusts 2>$null
-                if ($LASTEXITCODE -eq 0) { return 1 } else { return -1 }
+                $output = nltest /domain_trusts 2>&1
+                $exit   = $LASTEXITCODE
+                return [PSCustomObject]@{
+                    ExitCode = $exit
+                    Output   = $output -join "`n"
+                }
             }
-            catch { return -1 }
+            catch {
+                return [PSCustomObject]@{
+                    ExitCode = -1
+                    Output   = "Erreur: $($_.Exception.Message)"
+                }
+            }
         }
 
-        # Statut OK si ADStatus ≠ -1
-        $statusIcon = if ($ADStatus -ne -1) {
+        # Ajouter la sortie au log global
+        Add-Content -Path $allLogFile -Value "===== NLTEST $VM ($id) ====="
+        Add-Content -Path $allLogFile -Value $nltestResult.Output
+        Add-Content -Path $allLogFile -Value "`n"
+
+        # Affichage console
+        Write-Host "`n--- SORTIE NLTEST de $VM ---" -ForegroundColor Yellow
+        Write-Host $nltestResult.Output -ForegroundColor Gray
+        Write-Host "--------------------------------------`n"
+
+        # Déterminer statut pour Markdown
+        $statusIcon = if ($nltestResult.ExitCode -eq 0) {
             $s++
             ":heavy_check_mark:"
         }
@@ -84,14 +111,20 @@ foreach ($VM in $SERVERS) {
             ":x:"
         }
 
-        # Ligne Markdown
+        # Ajouter la ligne Markdown
         $md += "| $counter | [$id](../$FILE) $githubAvatar | $VM | $statusIcon |"
 
         Remove-PSSession $Session
     }
     catch {
         Write-Host "Échec de connexion à $VM : $($_.Exception.Message)" -ForegroundColor Red
+
         $md += "| $counter | [$id](../$FILE) $githubAvatar | $VM | :no_entry: |"
+
+        # Log erreur globale
+        Add-Content -Path $allLogFile -Value "===== ERREUR $VM ($id) ====="
+        Add-Content -Path $allLogFile -Value "Erreur de connexion WinRM : $($_.Exception.Message)"
+        Add-Content -Path $allLogFile -Value "`n"
     }
 
     $i++
@@ -105,8 +138,9 @@ $SUM   = "\$\displaystyle\sum_{i=1}^{$i} s_i$"
 
 $md += "| :abacus: | $COUNT = $STATS% | | $SUM = $s |"
 
-# Export
+# Export Markdown
 $md | Set-Content -Path ".scripts/Check.md" -Encoding UTF8
 
 Write-Host "`nREADME.md généré avec succès !" -ForegroundColor Green
+Write-Host "Log global des résultats : $allLogFile" -ForegroundColor Green
 
