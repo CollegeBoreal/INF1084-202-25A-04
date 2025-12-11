@@ -1,47 +1,62 @@
-# Fichier utilisateurs1.ps1
-# Preparer l'environnement et lister les utilisateurs
+# ============================================
+# Script : utilisateurs1.ps1
+# Objectif : Préparer l'environnement AD et lister les utilisateurs
+# ============================================
 
 # Charger les variables de configuration
 . .\bootstrap.ps1
 
-Write-Host "`n[1] Preparation de l'environnement" -ForegroundColor Yellow
+Write-Host "`n[1] Préparation de l'environnement" -ForegroundColor Yellow
 
 # Importer le module Active Directory
-Import-Module ActiveDirectory
-
-# Verifier le domaine
-Write-Host "`nVerification du domaine..." -ForegroundColor Cyan
 try {
-    Get-ADDomain -Server $domainName | Select-Object Name, Forest, DomainMode
-    Write-Host "[OK] Domaine accessible" -ForegroundColor Green
+    Import-Module ActiveDirectory -ErrorAction Stop
 } catch {
-    Write-Host "[ERREUR] Erreur lors de la verification du domaine: $_" -ForegroundColor Red
+    Write-Host "[ERREUR] Le module ActiveDirectory n'est pas installé." -ForegroundColor Red
+    Write-Host "Installe-le avec : Install-WindowsFeature AD-Domain-Services -IncludeManagementTools"
     exit
 }
 
-# Verifier les controleurs de domaine
-Write-Host "`nVerification des controleurs de domaine..." -ForegroundColor Cyan
+# Vérifier le domaine
+Write-Host "`nVérification du domaine..." -ForegroundColor Cyan
 try {
-    Get-ADDomainController -Filter * -Server $domainName | Select-Object Name, IPv4Address, OperatingSystem
-    Write-Host "[OK] Controleur de domaine accessible" -ForegroundColor Green
+    $domain = Get-ADDomain -Server $domainName -ErrorAction Stop
+    Write-Host "[OK] Domaine accessible : $($domain.Name)" -ForegroundColor Green
 } catch {
-    Write-Host "[ERREUR] Erreur lors de la verification du DC: $_" -ForegroundColor Red
+    Write-Host "[ERREUR] Impossible de contacter le domaine '$domainName'." -ForegroundColor Red
+    Write-Host "Cause possible :"
+    Write-Host "- La machine n'est pas un contrôleur de domaine (AD DS non installé)" -ForegroundColor Red
+    Write-Host "- Le domaine n'existe pas encore" -ForegroundColor Red
+    Write-Host "- Active Directory Web Services n'est pas en cours d'exécution" -ForegroundColor Red
+    exit
 }
 
-Write-Host "`n[2] Liste des utilisateurs du domaine" -ForegroundColor Yellow
+# Vérifier les contrôleurs de domaine
+Write-Host "`nVérification des contrôleurs de domaine..." -ForegroundColor Cyan
+try {
+    $dcs = Get-ADDomainController -Filter * -Server $domainName -ErrorAction Stop |
+           Select-Object Name, IPv4Address, OperatingSystem
 
-# Lister les utilisateurs actifs (excluant les comptes systeme)
+    $dcs | Format-Table -AutoSize
+
+    Write-Host "[OK] Contrôleur(s) de domaine accessible(s)" -ForegroundColor Green
+} catch {
+    Write-Host "[ERREUR] Impossible de récupérer les informations du DC." -ForegroundColor Red
+}
+
+# Liste des utilisateurs
+Write-Host "`n[2] Liste des utilisateurs du domaine" -ForegroundColor Yellow
 try {
     $users = Get-ADUser -Filter * -Server $domainName -Properties Name, SamAccountName, Enabled |
-    Where-Object { $_.Enabled -eq $true -and $_.SamAccountName -notin @("Administrator","Guest","krbtgt") } |
-    Select-Object Name, SamAccountName
-    
-    if ($users) {
+             Where-Object { $_.Enabled -eq $true -and $_.SamAccountName -notin @("Administrator","Guest","krbtgt") } |
+             Select-Object Name, SamAccountName
+
+    if ($users.Count -gt 0) {
         $users | Format-Table -AutoSize
-        Write-Host "[OK] Nombre d'utilisateurs trouves: $($users.Count)" -ForegroundColor Green
+        Write-Host "`n[OK] Nombre d'utilisateurs trouvés : $($users.Count)" -ForegroundColor Green
     } else {
-        Write-Host "[INFO] Aucun utilisateur trouve (hors comptes systeme)" -ForegroundColor Yellow
+        Write-Host "[INFO] Aucun utilisateur non-système trouvé dans le domaine." -ForegroundColor Yellow
     }
 } catch {
-    Write-Host "[ERREUR] Erreur lors de la recuperation des utilisateurs: $_" -ForegroundColor Red
+    Write-Host "[ERREUR] Impossible de récupérer la liste des utilisateurs." -ForegroundColor Red
 }
