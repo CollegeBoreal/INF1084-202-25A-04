@@ -162,5 +162,6 @@ Select-Object Name, SamAccountName
 
 ## 🚀 Étape 10 – Déplacer un utilisateur vers une OU
 
-<img width="1114" height="487" alt="11" src="https://github.com/user-attachments/assets/f7679599-b016-4e3d-9a14-142507e2884f" />
+<img width="1090" height="141" alt="mise a jour capture" src="https://github.com/user-attachments/assets/cdd2eec6-2512-45bc-b90c-bfaa31611581" />
+
 
