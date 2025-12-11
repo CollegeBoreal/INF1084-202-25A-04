@@ -3,7 +3,6 @@ Tasnim domain
 
 
 # TP7 – Mise en place d’un trust entre deux forêts Active Directory  
-### Étudiant : Haroune Berkani  
 ### Domaines :
 - Domaine local : **DC300145940-0.local**
 - Domaine distant : **DC300150303-00.local**
@@ -14,7 +13,8 @@ Tasnim domain
 Affichage des noms des domaines utilisés par le script.
 
 📸 **Screenshot à insérer :**  
-`1.png`  
+<img width="1352" height="594" alt="1" src="https://github.com/user-attachments/assets/c5e130ba-6c1e-4910-a119-20a8e8d16223" />
+
 (Ce screenshot montre la première partie du script : récapitulatif local & distant.)
 
 ---
@@ -24,16 +24,19 @@ Test de communication **local → local**, **local → distant**, et résolution
 
 ### ✔️ Test-Connection + Ping  
 📸 **Screenshot à insérer :**  
-`2.png`  
+<img width="1479" height="796" alt="2" src="https://github.com/user-attachments/assets/26bf2d4c-dfed-42e8-b4f3-3ac530bdb033" />
+
 (Ce screenshot contient Test-Connection vers les 2 DCs.)
 
 ### ✔️ Résolution DNS (nslookup)  
 📸 **Screenshot à insérer :**  
-`3.png`  
+`3.png`  <img width="1186" height="278" alt="3" src="https://github.com/user-attachments/assets/e0d4193b-b7e2-4d8a-b36e-dc05ced5295f" />
+
 (Contient nslookup du domaine distant + ping du domaine distant.)
 
 📸 **Screenshot à insérer :**  
-`4.png`  
+`4.png`  <img width="814" height="217" alt="4" src="https://github.com/user-attachments/assets/fae2597d-f3e2-4006-8509-cf12f89480ab" />
+
 (Contient nslookup du domaine local + ping du domaine local.)
 
 ---
@@ -84,4 +87,5 @@ Le trust entre **DC300145940-0.local** et **DC300150303-00.local** est **opérat
 Tu **n'as pas besoin d'autres screenshots** — ceux que tu m’as envoyés couvrent **100% des exigences du TP**.
 
 ---
+
 
