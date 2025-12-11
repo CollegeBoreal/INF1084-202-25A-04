@@ -100,7 +100,7 @@ Ce travail démontre que :
 ---
 ## trust reussit
 
-<img src="Capture d’écran 2025-12-10 233537.png" alt="Girl in a jacket" width="900" height="700">
+<img width="1919" height="1014" alt="0" src="images/Capture d’écran 2025-12-10 233537.png"/>
 
 
 ## Références
