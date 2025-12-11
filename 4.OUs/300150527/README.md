@@ -9,7 +9,7 @@
 
 ---------------------
 
-## ⚙️ Étape 0 – Configuration des variables
+## ⚙️ Étape 0 – Configuration des variables :
 
 ```powershell
 $studentNumber = 300150527
