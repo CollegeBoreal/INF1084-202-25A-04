@@ -55,7 +55,7 @@ Where-Object { $_.Enabled -eq $true -and $_.SamAccountName -notin @("Administrat
 Select-Object Name, SamAccountName
 ```
 
-📋 Liste les utilisateurs actifs créés dans le domaine.
+📋 Liste les utilisateurs actifs créés dans le domaine
 
 <img width="856" height="392" alt="3" src="https://github.com/user-attachments/assets/3fe92306-9602-46f3-90bf-e70d572c4224" />
 
