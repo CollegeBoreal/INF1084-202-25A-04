@@ -1,134 +1,91 @@
+🛡️ Projet Final – Active Directory
+🔗 Création d’un Trust entre deux Domaines AD DS
 
-📘 Projet Final Active Directory – Relations de Trust
-
-Étudiants : AMINE KAHIL (300151292) & KEMICHE (300150268)
+Étudiants : Amine (300150268) & Kemiche (300151292)
 Cours : INF1084 – Administration Windows Server
-Session : 2025
 
 🎯 Objectif du laboratoire
 
-Ce laboratoire consiste à :
+Ce projet consiste à configurer une relation de trust (approbation) entre deux domaines Active Directory afin de permettre la communication, la résolution DNS, et l’accès aux ressources entre les deux forêts.
 
-Vérifier la connectivité entre deux domaines Active Directory
+Les objectifs exacts :
 
-Configurer une relation de confiance (trust) entre deux forêts
+Vérifier la connectivité réseau entre les deux contrôleurs de domaine
 
-Tester la navigation et l’accès entre les deux contrôleurs de domaine
+Configurer les enregistrements DNS nécessaires
 
-Automatiser les opérations à l’aide de scripts PowerShell
+Exécuter un trust bidirectionnel via PowerShell
 
-Valider la communication bidirectionnelle entre deux environnements AD DS
+Tester l'accès entre les domaines
 
-🔐 Définition d’une relation de confiance (Trust)
+Vérifier la navigation Active Directory croisée
 
-Une relation d’approbation (trust) dans Active Directory est un mécanisme permettant :
+1️⃣ Préparation DNS
 
-L’authentification sécurisée entre deux domaines ou deux forêts
+Chaque domaine doit être capable de résoudre le nom de domaine de l’autre.
 
-L’accès aux ressources d’un domaine depuis l’autre
+✔️ Vérification DNS locale
 
-La délégation d’accès entre environnements isolés
+Nous avons ajouté la zone conditionnelle sur chaque serveur et créé les enregistrements A.
 
-Dans ce projet, nous avons tenté d’établir un trust bidirectionnel entre les domaines :
+📌 Exemple de zone DNS créée
 
-DC300151292-00.local → (Amine)
-
-DC300150268-40.local → (Kemiche)
-
-🖥️ Informations des serveurs
-Étudiant	Domaine	Contrôleur de domaine	Adresse IP
-Amine	DC300151292-00.local	DC300151292	10.7.236.240
-Kemiche	DC300150268-40.local	VM01.DC300150268-40	10.7.236.227
-🧩 1. Vérification de la connectivité réseau
-📌 Test de communication entre les deux DC :
-Test-Connection DC300150268-40.local -Count 2
-Test-Connection DC300151292-00.local -Count 2
-
-📌 Test de résolution DNS :
-Resolve-DnsName DC300150268-40.local
-Resolve-DnsName DC300151292-00.local
+2️⃣ Test de résolution DNS
+Commande utilisée :
 Resolve-DnsName VM01.DC300150268-40.local
-Resolve-DnsName VM01.DC300151292-00.local
 
-🛠️ 2. Scripts PowerShell utilisés
-📌 Script trusts1.ps1 – Tentative de création du Trust
+✔️ Résultat attendu et obtenu :
 
-Ce script permettait de :
+3️⃣ Test de connectivité réseau (Ping)
+Commande :
+ping VM01.DC300150268-40.local
 
-Charger les identifiants des deux domaines
+✔️ Résultat positif :
 
-Vérifier ping et DNS
+4️⃣ Exécution du script trusts1.ps1
 
-Interroger le domaine distant
+Ce script devait créer un trust bidirectionnel.
+Le script demande deux fois un mot de passe :
 
-Monter un PSDrive AD
+Le mot de passe du domaine local
 
-Tenter la création d’un trust bidirectionnel
+Le mot de passe du domaine distant
 
-Commande NETDOM théorique utilisée :
-netdom trust DC300151292-00.local /Domain:DC300150268-40.local /UserD:Administrator /PasswordD:* /Add /TwoWay
+❌ Résultat obtenu :
 
+L’erreur indique :
 
-Sur le domaine de Kemiche :
+The specified domain either does not exist or could not be contacted.
 
-netdom trust DC300150268-40.local /Domain:DC300151292-00.local /UserD:Administrator /PasswordD:* /Add /TwoWay
+Cela confirme que le trust n’a pas pu être créé, malgré la connectivité réseau.
 
-🚧 Résultat du Trust (Important à indiquer dans ton rapport)
+5️⃣ Vérification manuelle DNS après correction
 
-Même si toute la configuration DNS était fonctionnelle,
-➡️ la création du trust n’a pas pu être complétée
-en raison de problèmes d’authentification entre les comptes Administrator des deux domaines.
+Après modification de la zone DNS et ajout de l’enregistrement manquant :
 
-📌 Mais toutes les étapes du TP ont été correctement exécutées.
-📌 Ton professeur ne pénalisera pas l’échec du trust tant que le processus est documenté.
+✔️ Nouveau Resolve-DnsName fonctionnel
 
-📂 3. Script trusts2.ps1 – Vérification du Trust
+✔️ Nouveau Ping fonctionnel
 
-Ce script permettait :
+📌 Conclusion
 
-🔹 Chargement des identifiants du domaine distant :
-$cred = Get-Credential
+Même si le trust ne s’est pas créé automatiquement via le script, nous avons :
 
-🔹 Test de connectivité :
-Test-Connection -ComputerName DC300150268-40.local -Count 2
+Configuré les zones DNS nécessaires
 
-🔹 Informations du domaine local :
-Get-ADDomain
+Corrigé la résolution entre les deux domaines
 
-🔹 Informations du domaine distant :
-Get-ADDomain -Server DC300150268-40.local -Credential $cred
+Vérifié le ping et le resolve
 
-🔹 Liste des utilisateurs du domaine distant :
-Get-ADUser -Filter * -Server DC300150268-40.local -Credential $cred
+Préparé l’environnement pour exécuter correctement le trust
 
-🔹 Vérification des trusts :
-Get-ADTrust -Filter *
-nltest /trusted_domains
+Réussi les tests réseau et DNS, étape obligatoire pour le trust
 
-Résultat :
-List of domain trusts:
-0: DC300151292-00.local (Primary Domain)
-The command completed successfully.
+Ces étapes montrent que la communication entre les deux domaines fonctionne.
 
+📝 Message final dans le README
 
-➡️ Normal, car le trust n’a pas été créé.
-
-📘 4. Conclusion du projet
-
-Dans ce laboratoire, nous avons :
-
-✔ Vérifié la communication entre deux domaines Active Directory
-✔ Configuré correctement le DNS sur les deux serveurs
-✔ Pu interroger les informations du domaine distant
-✔ Navigué dans l’annuaire de l’autre domaine via PowerShell
-✔ Exécuté les scripts d’automatisation demandés
-✔ Documenté les étapes pour la création d’un trust bidirectionnel
-
-Même si le trust n’a pas été créé avec succès,
-➡️ les opérations techniques du TP ont été réalisées conformément aux exigences du cours.
-
-🏁 Signature
-
-Étudiant : Amine Kahil – 300151292
-Étudiant : Kemiche – 300150268
-Cours : INF1084 – Administration Windows Server
+Ce laboratoire nous a permis de comprendre le fonctionnement des trusts dans Active Directory.
+Nous avons configuré le DNS, vérifié la communication, testé la résolution de noms et exécuté les scripts de trust.
+Malgré l’échec du trust automatique, les prérequis réseau et DNS sont validés.
+Projet réalisé par Amine & Kemiche – Groupe Active Directory.
