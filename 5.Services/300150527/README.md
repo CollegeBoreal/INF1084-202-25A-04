@@ -11,7 +11,9 @@ Avant de commencer les scripts PowerShell, j’ai d’abord effectué une config
 
 ✔️ 1. Récupération du projet depuis GitHub
 
+```powershell
 git pull
+```
 
 - Cette étape garantit que j’ai la dernière version du dépôt partagé avant d’ajouter mon travail.
 
@@ -47,14 +49,18 @@ L’objectif principal était d’utiliser PowerShell pour analyser et manipuler
 ✔️ Fonctionnalités :
 
 - Lister tous les services liés à AD
-  
+
+```powershell
 Get-Service | Where-Object {
     $_.DisplayName -like "*Directory*" -or $_.Name -match "NTDS|ADWS|DFSR|kdc|Netlogon|IsmServ"
 } | Sort-Object DisplayName
+```
 
 - Vérifier l’état d’un service spécifique
-  
+
+```powershell
 Get-Service -Name NTDS, ADWS, DFSR
+```
 
 <img width="1093" height="543" alt="2" src="https://github.com/user-attachments/assets/82c701a4-ac34-41ab-bcb5-0d1405b7843c" />
 
@@ -65,18 +71,24 @@ Get-Service -Name NTDS, ADWS, DFSR
 ✔️ Fonctionnalités :
 
 - Afficher les 20 derniers événements liés à NTDS
-  
+
+```powershell
 Get-EventLog -LogName "Directory Service" -Newest 20
+```
 
 <img width="1080" height="492" alt="3-1" src="https://github.com/user-attachments/assets/1bbe8135-5b66-4c05-80d3-51c607748f78" />
 
 - Afficher les logs du système
-  
+
+```powershell
 Get-EventLog -LogName "System" -Newest 20 | Where-Object {$_.Source -eq "Netlogon"}
+```
 
 - Afficher les logs via le journal moderne (Event Viewer v2)
-  
+
+```powershell
 Get-WinEvent -LogName "Directory Service" -MaxEvents 20 | Format-Table TimeCreated, Id, LevelDisplayName, Message -AutoSize
+```
 
 <img width="1108" height="540" alt="3-2" src="https://github.com/user-attachments/assets/088fe6ad-9124-4d1d-afb4-93487ae9b338" />
 
@@ -91,24 +103,31 @@ Get-WinEvent -LogName "Directory Service" -MaxEvents 20 | Format-Table TimeCreat
 - Vérifie si le dossier C:\Logs existe, Le crée automatiquement si nécessaire, Exporte les événements AD dans ADLogs.csv :
 
 - Créer le dossier C:\Logs s'il n'existe pas
-  
+
+```powershell
 if (!(Test-Path -Path "C:\Logs")) {
     New-Item -ItemType Directory -Path "C:\Logs" | Out-Null
 }
+```
 
 - Exporter les événements Directory Service vers CSV
-  
+
+```powershell
 Get-WinEvent -LogName "Directory Service" -MaxEvents 50 |
 Export-Csv -Path "C:\Logs\ADLogs.csv" -NoTypeInformation
+```
 
 - Vérifier que le dossier existe
-  
+
+```powershell 
 Test-Path C:\Logs
+```
 
 - Lister le contenu (pour confirmer la présence de ADLogs.csv)
-  
-Get-ChildItem C:\Logs
 
+```powershell  
+Get-ChildItem C:\Logs
+```
 
 📁 Vérifications effectuées :
 
@@ -123,24 +142,34 @@ Get-ChildItem C:\Logs
 ✔️ Fonctionnalités :
 
 - Vérifier l'état initial du service
-  
+
+```powershell  
 Get-Service -Name DFSR
+```
 
 - Arrêter le service DFSR
   
-Stop-Service -Name DFSR 
+```powershell
+Stop-Service -Name DFSR
+```
 
 - Vérifier l'état après arrêt
-  
+
+```powershell
 (Get-Service -Name DFSR).Status
+```
 
 - Démarrer le service DFSR
   
+```powershell
 Start-Service -Name DFSR
+```
 
 - Vérifier l'état final
   
+```powershell
 (Get-Service -Name DFSR).Status
+```
 
 <img width="1113" height="540" alt="5" src="https://github.com/user-attachments/assets/4a85ed4c-2e3f-4f99-b276-2e660d84ea5a" />
 
@@ -174,6 +203,7 @@ Netlogon : Authentification réseau
 
 Ce laboratoire m’a permis d’approfondir mes compétences en administration Windows Server, en particulier dans la gestion des services Active Directory et l’utilisation de PowerShell.
 Ces compétences sont essentielles pour diagnostiquer des problèmes, automatiser des tâches administratives et gérer un environnement professionnel AD DS.
+
 
 
 
