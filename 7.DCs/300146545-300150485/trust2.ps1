@@ -5,8 +5,8 @@
 
 Write-Host "Vérification du trust depuis DC300146545.local..." -ForegroundColor Cyan
 
-netdom trust DC300146545.local 
-/Domain:DC300150485.local 
+netdom trust DC300146545.local `
+/Domain:DC300150485.local `
 /verify
 
 Write-Host "Vérification terminée !" -ForegroundColor Green
