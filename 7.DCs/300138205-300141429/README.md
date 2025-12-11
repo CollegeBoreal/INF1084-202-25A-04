@@ -24,7 +24,7 @@ Une relation d’approbation (trust) dans Active Directory est un lien d’authe
 
 #  le script  trusts.ps1
 
-Dans ce laboration, nous avons realisé un trust bidirectionnel et celui qui a fait cette action est le serveur 10.7.236.188 ( DC300138205-00)
+🧑‍🚀Dans ce laboration, nous avons realisé un trust bidirectionnel et celui qui a fait cette action est le serveur 10.7.236.188 ( DC300138205-00) en permier.
 
 ```powershell
 netdom trust DC300138205-00.local /Domain:DC300141429.local /UserD:administrator /PasswordD:* /Add /Realm /TwoWay
@@ -38,6 +38,22 @@ netdom trust DC300138205-00.local /Domain:DC300141429.local /UserD:administrator
 
 
 </details>
+
+🌀le serveur donc l'ip 10.7.236.190 a aussi fait pour lui donc le trusts est bidirectionnel
+```powershell
+netdom trust DC300141429.local /Domain:DC300138205-00.local /UserD:administrator /PasswordD:* /Add /Realm /TwoWay
+```
+
+
+
+  
+
+<img src="images/b1.jpeg" alt="Girl in a jacket" width="900" height="700">
+<img src="images/b2.jpeg" alt="Girl in a jacket" width="900" height="700">
+
+
+
+
 
 ### **b. Vérifieons la connectivité au contrôleur de domaine DC300141429**
 
@@ -117,6 +133,10 @@ Test de navigabilité (accès croisé)
 On vérifie la navigabilité en tentant d’accéder au dossier partagé SharedResources sur le domaine distant DC300138205.local. Après saisie du mot de passe de l’administrateur, la commande net use renvoie le message “The command completed successfully”, ce qui confirme que l’accès au partage est autorisé et que les ressources du domaine distant sont effectivement accessibles depuis le domaine local.
 ```
 ![](images/T7.png)
+
+
+
+
 
 
 

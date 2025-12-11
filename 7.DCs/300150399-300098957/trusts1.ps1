@@ -13,7 +13,7 @@ Contexte : Travail en binôme – Administration Windows
 $LocalForest = "DC300150399-00.local"
 
 # Forêt distante (enseignant)
-$RemoteForest = "lab208.collegeboreal.ca"
+$RemoteForest = "DC300098957-90.local"
 
 Write-Host "Forêt locale : $LocalForest"
 Write-Host "Forêt distante : $RemoteForest"
@@ -60,7 +60,7 @@ de la forêt distante n’a pas été communiquée.
 Commande prévue (non exécutée) :
 
 Add-DnsServerConditionalForwarderZone `
- -Name "lab208.collegeboreal.ca" `
- -MasterServers <IP_DNS_PROF> `
+ -Name "DC300098957-90.local" `
+ -MasterServers 10.7.236.170 `
  -ReplicationScope Forest
 #>
