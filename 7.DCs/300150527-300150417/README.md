@@ -2,11 +2,17 @@
 ## INF1084 – TP Approbations (Trusts)
 ## Étudiants :
 
-**DC2 : DC300150527-00.local    -   Bouraoui-Akrem-3000150527**
-**DC1 : DC300150417-00.local    -   Nemous-Abdelatif-300150417**
+- **DC1 : DC300150417-00.local Nemous-Abdelatif-300150417**
+- **DC2 : DC300150527-00.local Bouraoui-Akrem-3000150527**
 
 --------------------------------------
+## 📝 Introduction
 
+Dans le cadre du laboratoire portant sur les relations d’approbation (Trusts) entre domaines Active Directory, nous avons mis en place une connexion sécurisée entre deux environnements distincts :
+
+**DC300150417-00.local et DC300150527-00.local.**
+
+----------------------------------------
 ## 📌 Objectif du TP
 L’objectif de ce TP est de :
 - Créer une relation d’approbation (Trust) entre deux environnements Active Directory
@@ -19,12 +25,12 @@ L’objectif de ce TP est de :
 ## 🧱 Environnement
 Élément	Valeur
 
-OS..........................Windows Server 2022
-Domaine local (DC1).........DC300150417-00.local
-Domaine distant (DC2).......DC300150527-00.local
-IP DC1......................10.7.236.235
-IP DC2......................10.7.236.237
-Outils......................PowerShell, NetDom, DNS, ADWS
+- OS = Windows Server 2022
+- Domaine local (DC1) = DC300150417-00.local
+- Domaine distant (DC2) = DC300150527-00.local
+- IP DC1 = 10.7.236.235
+- IP DC2 = 10.7.236.237
+- Outils = PowerShell, NetDom, DNS, ADWS
 
 ------------------------------
 
@@ -40,7 +46,9 @@ Get-ADForest | Select-Object Name
 --------------------------
 
 <img width="730" height="312" alt="image" src="https://github.com/user-attachments/assets/97586179-ff76-45e9-8561-a0d8ca2dbe0f" />
+
 --------------------------
+
 <img width="894" height="459" alt="image" src="https://github.com/user-attachments/assets/f3f7c0fb-4c4e-4ad9-ae0b-ff437058f1e4" />
 
 
@@ -137,6 +145,7 @@ Le trust est reconnu des deux côtés.
 ```powershell
 Import-Module ActiveDirectory
 ```
+-------------
 
 **Création du PSDrive vers le domaine distant**
 
@@ -182,18 +191,37 @@ Get-ChildItem AD2:\
 ✔ Objectifs du TP atteints à 100 %
 
 ----------------------------------------
+## 🔍 VÉRIFICATION
+
+Nous vous invitons à lancer trusts1.ps1 et trusts2.ps1 uniquement sur la VM DC300150417-00.
+Ces scripts afficheront automatiquement :
+
+- Les relations d'approbation (trusts) existantes
+- La résolution du domaine distant
+- La confirmation que la configuration du trust est opérationnelle
+
+--------------------------------------
 
 ## 📂 Fichiers inclus
 
-trusts1.ps1 → Création du trust
+- trusts1.ps1 → Création du trust
+- trusts2.ps1 → Validation côté domaine distant
+- README.md
+- images/ contenant les preuves
 
-trusts2.ps1 → Validation côté domaine distant
+--------------------------
+## 🧪 Conclusion
 
-README.md
+La configuration du trust entre les deux domaines a été réalisée avec succès.
+Les tests effectués (DNS, NLTEST, NETDOM et PSDrive) confirment que :
 
-Dossier images/ contenant les preuves
+- la communication entre les deux domaines est opérationnelle,
+- le trust bidirectionnel est établi et reconnu,
+- les scripts trusts1.ps1 et trusts2.ps1 permettent une validation simple et reproductible.
 
---------------------
+Pour la correction, il suffit d’exécuter les deux scripts sur DC300150417-00, où toutes les vérifications nécessaires s’afficheront automatiquement.
+
+Ce travail démontre la maîtrise des mécanismes d’approbation AD, de la configuration DNS conditionnelle, ainsi que de la navigation dans Active Directory via PowerShell.
 
 
 
