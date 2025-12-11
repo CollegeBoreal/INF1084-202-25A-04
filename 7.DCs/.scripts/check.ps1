@@ -103,7 +103,12 @@ foreach ($VM in $SERVERS) {
         Write-Host "--------------------------------------`n"
 
         # Déterminer statut pour Markdown
-        $statusIcon = if ($nltestResult.ExitCode -eq 0) {
+        # Test réussi si au moins une ligne contient (MIT) + (Direct Outbound) + (Direct Inbound)
+        $foundMIT = $nltestResult.Output -split "`n" | Where-Object {
+            $_ -match "\(MIT\)" -and $_ -match "\(Direct Outbound\)" -and $_ -match "\(Direct Inbound\)"
+        }
+
+        $statusIcon = if ($foundMIT.Count -ge 1) {
             $s++
             ":heavy_check_mark:"
         }
