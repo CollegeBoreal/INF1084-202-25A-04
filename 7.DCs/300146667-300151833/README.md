@@ -57,6 +57,44 @@ L’adresse IP locale du DC (10.7.236.244) est correcte
 Le service AD DS fonctionne sans erreur
 
 👉 Conclusion : Mon contrôleur de domaine est opérationnel et prêt pour établir un trust.
+📝 Vérification DNS et Connectivité Réseau (nslookup + ping)
+
+🔹 Commande effectuée
+nslookup DC300151833.local
+ping DC300151833.local
+<img width="1162" height="380" alt="image" src="https://github.com/user-attachments/assets/ed70f05a-0ede-4752-9bb0-ff63b6b9cfe7" />
+
+Cette étape permet de vérifier que le serveur DC300151833 est correctement résolu par le DNS et que la communication réseau fonctionne.
+
+1️⃣ nslookup DC300151833.local
+
+Le serveur DNS répond correctement.
+
+Le nom de domaine DC300151833.local se résout vers l’adresse 10.7.236.244.
+
+Cela confirme que la zone DNS du domaine est bien configurée.
+
+2️⃣ ping DC300151833.local
+
+
+Le serveur répond avec 0 % de perte
+
+Temps de réponse : 1–2 ms, ce qui indique une excellente connectivité.
+
+Le contrôleur de domaine est joignable et opérationnel sur le réseau.
+
+✅ Conclusion
+
+Le test DNS + Ping confirme que :
+
+Le contrôleur de domaine est joignable
+
+La résolution de nom DNS fonctionne
+
+La communication réseau entre machines du domaine est pleinement fonctionnelle
+
+📌 Ce test est essentiel avant la connexion RDP, GPO ou les scripts logon
+
 
 ✅ Photo 4 — Test-Connection vers dc01.ad2.local (Échec)
 <img width="1920" height="1080" alt="04" src="https://github.com/user-attachments/assets/153bbc22-52d9-4550-b2cb-dcd2b067709d" />
