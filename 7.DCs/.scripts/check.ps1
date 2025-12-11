@@ -1,98 +1,112 @@
 # --------------------------------------
-# Script pour accÃ©der aux AD DS des Ã©tudiants et gÃ©nÃ©rer README.md
+# Script pour accéder aux AD DS des étudiants et générer README.md
 # --------------------------------------
 
-# Forcer UTF-8 dans tout le script
+# Forcer UTF-8 dans le script
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $PSDefaultParameterValues['Set-Content:Encoding'] = 'utf8'
 
-# Autorise toutes les IP pour les connexions WinRM
+# Autoriser toutes les IP WinRM
 Set-Item WSMan:\localhost\Client\TrustedHosts -Value "10.7.236.*" -Force
 
 # Charger la liste des VMs depuis students.ps1
-. ../.scripts/students.ps1 # le point suivi d'espace permet d'importer les variables
+. ../.scripts/students.ps1
 
-# VÃ©rifier que $SERVERS existe
 if (-not $SERVERS) {
-    Write-Host "La variable `$SERVERS n'a pas Ã©tÃ© trouvÃ©e dans students.ps1" -ForegroundColor Red
+    Write-Host "La variable `$SERVERS n’a pas été trouvée." -ForegroundColor Red
     exit
 }
 
-# Identifiants administrateur (local ou domaine)
+# Identifiants
 $User = "Administrator"
-# $Password = Read-Host -AsSecureString "Mot de passe de $User"
-$plain = 'Infra@2024'
-$Password = ConvertTo-SecureString $plain -AsPlainText -Force
+$Password = ConvertTo-SecureString 'Infra@2024' -AsPlainText -Force
+$Credential = New-Object PSCredential ($User, $Password)
 
-# PrÃ©parer le contenu Markdown
+# Préparer le README en mémoire
 $timestamp = Get-Date -Format "dd-MM-yyyy HH:mm"
 $md = @()
 $md += "# Precision au $timestamp"
 $md += ""
 $md += "| Table des matieres            | Description                                             |"
 $md += "|-------------------------------|---------------------------------------------------------|"
-$md += "| :a: [Presence](#a-presence)   | L'etudiant.e a fait son travail    :heavy_check_mark:   |"
-$md += "| :b: [Precision](#b-precision) | L'etudiant.e a reussi son travail  :tada:               |"
+$md += "| :a: [Presence](#a-presence)   | L'étudiant.e a fait son travail :heavy_check_mark:      |"
+$md += "| :b: [Precision](#b-precision) | AD DS installé et trust fonctionnel :tada:              |"
 $md += ""
-$md += ":bulb: Le mot de passe Administrateur (en Anglais) de la VM est **Infra@2024**"
+$md += ":bulb: Le mot de passe Administrateur de la VM est **Infra@2024**"
 $md += ""
 $md += "## Legende"
 $md += ""
 $md += "| Signe              | Signification                 |"
 $md += "|--------------------|-------------------------------|"
-$md += "| :heavy_check_mark: | AD DS a ete installe          |"
-$md += "| :x:                | AD DS est inexistant          |"
-$md += "| :no_entry:         | Acces refuse                  |"
+$md += "| :heavy_check_mark: | AD DS présent                 |"
+$md += "| :x:                | AD DS absent                  |"
+$md += "| :no_entry:         | Accès refusé / ERREUR         |"
 $md += ""
 $md += "## :b: Precision"
 $md += ""
-$md += "| :hash: | Boreal :id: | :slot_machine: VM   | :tada:   |"
-$md += "|--------|-------------|---------------------|----------|"
+$md += "| :hash: | Boreal :id: | :slot_machine: VM   | :tada: |"
+$md += "|--------|-------------|---------------------|--------|"
 
-# Boucle sur chaque VM
-$i = 0
-$s = 0
+# Compteurs
+$i     = 0
+$s     = 0      # total AD DS OK
 $counter = 1
 
 foreach ($VM in $SERVERS) {
-    $URL = "[<image src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i])?s=460&v=4' width=20 height=20></image>](https://github.com/$($IDS[$i]))"    
-    $id = $ETUDIANTS[$i]
-    $FILE = "$id/README.md"
-    $server = $SERVERS[$i]
 
-    Write-Host "Connexion Ã  $VM ..." -ForegroundColor Cyan
+    $githubAvatar = "[<img src='https://avatars0.githubusercontent.com/u/$($AVATARS[$i])?s=30&v=4' width=20 height=20>](" +
+                    "https://github.com/$($IDS[$i]))"
+
+    $id   = $ETUDIANTS[$i]
+    $FILE = "$id/README.md"
+
+    Write-Host "`nConnexion à $VM ..." -ForegroundColor Cyan
+
     try {
-        $Session = New-PSSession -ComputerName $VM -Credential (New-Object PSCredential ($User, $Password))
-        
-        # VÃ©rifier le service AD DS (NTDS)
+        # Connexion WinRM
+        $Session = New-PSSession -ComputerName $VM -Credential $Credential -ErrorAction Stop
+
+        # Vérifier AD DS via nltest
         $ADStatus = Invoke-Command -Session $Session -ScriptBlock {
-            $svc = Get-Service -Name NTDS -ErrorAction SilentlyContinue
-            if ($svc) { $svc.Status } else { -1 }
+            try {
+                $null = nltest /domain_trusts 2>$null
+                if ($LASTEXITCODE -eq 0) { return 1 } else { return -1 }
+            }
+            catch { return -1 }
         }
 
-        $statusIcon = if ($ADStatus -eq 4) { ":heavy_check_mark:"; $s++ } else { ":x:" }
+        # Statut OK si ADStatus ≠ -1
+        $statusIcon = if ($ADStatus -ne -1) {
+            $s++
+            ":heavy_check_mark:"
+        }
+        else {
+            ":x:"
+        }
 
-        # Ajouter la ligne Markdown
-        $md += "| $counter | [$id](../$FILE) $URL | $VM | $statusIcon |"
+        # Ligne Markdown
+        $md += "| $counter | [$id](../$FILE) $githubAvatar | $VM | $statusIcon |"
 
-        # Fermer la session
         Remove-PSSession $Session
     }
     catch {
-        Write-Host "Ãchec de connexion Ã  $VM : $($_.Exception.Message)" -ForegroundColor Red
-        $md += "| $counter | [$id](../$FILE) $URL | $VM | :no_entry: |"
+        Write-Host "Échec de connexion à $VM : $($_.Exception.Message)" -ForegroundColor Red
+        $md += "| $counter | [$id](../$FILE) $githubAvatar | $VM | :no_entry: |"
     }
+
     $i++
     $counter++
-    $COUNT = "\$\\frac{$s}{$i}$"
-    $STATS = [math]::Round(($s * 100) / $i, 2)
-    $SUM = "\$\displaystyle\sum_{i=1}^{$i} s_i$"
 }
+
+# Statistiques finales
+$COUNT = "\$\\frac{$s}{$i}$"
+$STATS = [math]::Round(($s * 100) / $i, 2)
+$SUM   = "\$\displaystyle\sum_{i=1}^{$i} s_i$"
 
 $md += "| :abacus: | $COUNT = $STATS% | | $SUM = $s |"
 
-# Exporter le README.md
+# Export
 $md | Set-Content -Path ".scripts/Check.md" -Encoding UTF8
-Write-Host "README.md gÃ©nÃ©rÃ© avec succÃ¨s !" -ForegroundColor Green
 
+Write-Host "`nREADME.md généré avec succès !" -ForegroundColor Green
 
