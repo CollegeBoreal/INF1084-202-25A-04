@@ -1,4 +1,4 @@
-📘 REDAM – Vérification AD, GPO, Script Logon et Accès RDP
+📘– Vérification AD, GPO, Script Logon et Accès RDP
 
 Étudiant : 300151833 – Raouf Bouras
 Serveur : DC300151833
