@@ -151,12 +151,12 @@ Remove-ADUser -Identity "alice.dupont" -Confirm:$false -Credential $cred
 
 --------------------------------------------
 
-## 🗂️ Étape 9 – Créer une Unité d’Organisation (OU)
+## 🗂️ Étape 9 – Rechercher des utilisateurs avec un filtre
 
-📁 OU Students créée avec succès.
-
-<img width="1112" height="441" alt="9" src="https://github.com/user-attachments/assets/1ce7d5d5-8311-4be7-8cc6-0145ff368103" />
-
+```powershell
+Get-ADUser -Filter "GivenName -like 'A*'" -Server "DC300150527-00.local" -Properties Name, SamAccountName |
+Select-Object Name, SamAccountName
+```
 
 --------------------
 
