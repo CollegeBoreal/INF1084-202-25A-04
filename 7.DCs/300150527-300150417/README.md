@@ -2,8 +2,8 @@
 ## INF1084 – TP Approbations (Trusts)
 ## Étudiants :
 
-**DC2 : DC300150527-00.local**  -  **Bouraoui-Akrem-3000150527**
-**DC1 : DC300150417-00.local**  -  **Nemous-Abdelatif-300150417**
+**DC2 : DC300150527-00.local    -   Bouraoui-Akrem-3000150527**
+**DC1 : DC300150417-00.local    -   Nemous-Abdelatif-300150417**
 
 --------------------------------------
 
@@ -194,5 +194,6 @@ README.md
 Dossier images/ contenant les preuves
 
 --------------------
+
 
 
