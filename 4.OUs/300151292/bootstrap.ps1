@@ -16,8 +16,8 @@ $secure = ConvertTo-SecureString $plain -AsPlainText -Force
 $cred   = New-Object System.Management.Automation.PSCredential("Administrator@$domainName", $secure)
 
 #  Affichage de contrôle
-"Étudiant  : $studentNumber"
-"Instance  : $studentInstance"
-"Domaine   : $domainName"
-"NetBIOS   : $netbiosName"
+write-host "Étudiant  : $studentNumber"
+write-host "Instance  : $studentInstance"
+write-host "Domaine   : $domainName"
+write-host "NetBIOS   : $netbiosName"
 "  Mot de passe sécurisé chargé."
